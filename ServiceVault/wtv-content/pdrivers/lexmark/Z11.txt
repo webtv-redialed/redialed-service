@@ -1,0 +1,15 @@
+wtv-content:/pdrivers/lexmark/Z11.mod
+2,http://support.lexmark.com/cgi-bin/z11webtv.cgi?error=2
+3,http://support.lexmark.com/cgi-bin/z11webtv.cgi?error=3
+4,http://support.lexmark.com/cgi-bin/z11webtv.cgi?error=4
+6,http://support.lexmark.com/cgi-bin/z11webtv.cgi?error=6
+7,http://support.lexmark.com/cgi-bin/z11webtv.cgi?error=7
+8,http://support.lexmark.com/cgi-bin/z11webtv.cgi?error=8
+9,http://support.lexmark.com/cgi-bin/z11webtv.cgi?error=9
+13,http://support.lexmark.com/cgi-bin/z11webtv.cgi?error=13
+14,http://support.lexmark.com/cgi-bin/z11webtv.cgi?error=14
+15,http://support.lexmark.com/cgi-bin/z11webtv.cgi?error=15
+16,http://support.lexmark.com/cgi-bin/z11webtv.cgi?error=16
+17,http://support.lexmark.com/cgi-bin/z11webtv.cgi?error=17
+18,http://support.lexmark.com/cgi-bin/z11webtv.cgi?error=18
+*,http://support.lexmark.com/cgi-bin/z11webtv.cgi

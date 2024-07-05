@@ -1,0 +1,87 @@
+<!--- *=* Copyright 1996, 1997 WebTV Networks, Inc. All rights reserved. --->
+<HTML>
+<HEAD>
+<display nosave nosend>
+<TITLE>Artemis Tourist Page</TITLE>
+</HEAD>
+
+<H1><CENTER>Pick a tour</CENTER></H1>
+
+<TABLE>
+
+<TH>Infinite tours</TH>
+<TH>Finite tours</TH>
+<TR>
+
+<!-- Infinite tours -->
+
+<TD>
+<H3>WebTV:</H3>
+<A HREF="client:Tourist?URL=wtv-explore:/explore">
+Tour WebTV Explore tree and beyond
+</A>
+
+<H3>Leisure Suit Larry:</H3>
+<A HREF="client:Tourist?URL=http://www.oracle.com/">
+Tour Oracle, including their NC pages with links to Apple, IBM, Netscape, and SUN.
+</A><FONT SIZE=-1>(What...no Microsoft?)</FONT>
+
+<H3>Free Billy:</H3>
+<A HREF="client:Tourist?URL=http://www.microsoft.com/">
+Be an Internet Explorer...tour the Evil Empire(tm).
+</A>
+
+<H3>High Five:</H3>
+<A HREF="client:Tourist?URL=http://www.highfive.com/">
+Links to some (usually technically challenging) semi-artsy websites.
+</A>
+
+<H3>Sparky, Sam & Larry:</H3>
+<A HREF="client:Tourist?URL=wtv-home:/content/SSLSites.html&showtime=0&monkeytime=0&selectthrough=no&scrollthrough=no">
+Links to some SSL websites.
+</A>
+
+<TD>
+<!-- Finite tours -->
+
+<H3>GIFs and stuff</H3>
+<A HREF="client:Tourist?Depth=2&ampURL=http://www.excite.com/img/ads/&ampShowTime=300&ampLoadTime=3600">
+Tour Excite's advertisement images ("http://www.excite.com/img/ads/")
+</A>
+
+<H3>MIDI madness:</H3>
+<A HREF="client:Tourist?Depth=2&ampURL=http://www.prs.net/midi-a-m.html">
+Part 1: Classical MIDI Archives (A-M)
+</A><BR>
+
+<A HREF="client:Tourist?Depth=2&ampURL=http://www.prs.net/midi-n-z.html">
+Part 2: Classical MIDI Archives (N-Z)
+</A><BR>
+
+<A HREF="client:Tourist?Depth=2&ampURL=http://www.prs.net/encores.html">
+Part 3: Classical MIDI Archives (encores)
+</A>
+
+<TR>
+</TABLE>
+
+<BR>
+<BR>
+<HR>
+<BR>
+
+<form method="POST" action="client:Tourist">
+	<H3>Tour this URL:
+		<input type="text" name="URL" bgcolor=444444 text=ffdd33 cursor=#cc9933 value="" size=33>
+		<input type="submit" VALUE="Tour">
+	</H3>
+</form>
+
+
+<BR>
+<HR>
+<BR>
+<BR>
+
+
+<FONT SIZE=-2>This page is ~/network/src/app/home/content/tourist.html </FONT>

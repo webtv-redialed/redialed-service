@@ -1,0 +1,94 @@
+{#-  General setup template. Has optional "Help" button for the sidebar. 
+    If you update this template, your ass better not break it. -#}
+{#- <!--- *=* Copyright 1996, 1997 WebTV Networks, Inc. All rights reserved. ---> #}
+<HTML>
+<HEAD>
+<TITLE>
+{{ title }}
+</TITLE>
+<DISPLAY {% if display %}{{ display }}{% else %}noscroll nologo{% endif %}>
+</HEAD>
+<sidebar width=110> <table cellspacing=0 cellpadding=0 BGCOLOR=452a36>
+<tr>
+<td colspan=3 abswidth=104 absheight=4>
+<td rowspan=99 width=6 absheight=420 valign=top align=left>
+<img src="file://ROM/Cache/Shadow.gif" width=6 height=420>
+<tr>
+<td abswidth=6>
+<td abswidth=92 absheight=76>
+<table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
+<tr>
+<td align=right>
+<img src="wtv-home:/ROMCache/WebTVLogoJewel.gif" width=87 height=67>
+</table>
+<td abswidth=6>
+<tr><td absheight=5 colspan=3>
+<table cellspacing=0 cellpadding=0>
+<tr><td abswidth=104 absheight=2 valign=middle align=center bgcolor=2e1e26>
+<img src="file://ROM/Cache/Spacer.gif" width=1 height=1>
+<tr><td abswidth=104 absheight=1 valign=top align=left>
+<tr><td abswidth=104 absheight=2 valign=top align=left bgcolor=6b4657>
+<spacer type=block width=1 height=1>
+</table>
+{#- Does our sidebar need a help button? #}
+{%- if helpButton %}
+<tr>
+<td height=31 colspan=3>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td width=5 height=26>
+<td width=93>
+<table width=93 cellspacing=0 cellpadding=0 
+href=wtv-guide:/help>
+<tr>
+<td>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td>
+<shadow><font color=e7ce4a size=-1> Help
+</table>
+</table>
+<td width=6>
+<tr>
+<td colspan=3 width=104 height=2 bgcolor=000000 
+transparency=64>
+<spacer>
+<tr>
+<td height=1>
+<tr>
+<td colspan=3 width=104 height=2 bgcolor=ffffff 
+transparency=88>
+<spacer>
+</table>
+{%- endif %}
+{#- Make sure we use the appropriate banner image and associated sizing! #}
+<tr><td absheight={% if hasTuner and helpButton %}101{% elif hasTuner %}132{% elif not hasTuner and helpButton %}140{% else %}171{% endif %}>
+<tr><td absheight={% if hasTuner %}166{% else %}123{% endif %} align=right colspan=3>
+<img src="{% if hasTuner %}wtv-setup:/ROMCache/Settings{% else %}images/Setup{% endif %}Banner.gif" width=54 height={% if hasTuner %}166{% else %}123{% endif %}>
+<tr><td absheight=41>
+</table>
+</sidebar>
+{#- Hack to make pages display correctly on Japanese clients #}
+<BODY{% if noHTileBG %} NOHTILEBG{% endif %} BGCOLOR="#191919" TEXT="#42CC55" LINK="36d5ff" VLINK="36d5ff" HSPACE=0 VSPACE=0 FONTSIZE="{% if isJapaneseClient %}medium{% else %}large{% endif %}"
+>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td abswidth=14>
+<td colspan=3>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td valign=center absheight=80>
+<font size="+2" color="E7CE4A"><blackface><shadow>
+{#- Some pages are batshit insane enough to have the title in the title tag be different than the title displayed on the page #}
+{% if title2 %}{{ title2 }}{% else %}{{ title }}{% endif %}
+</table>
+{{ body }}
+{#- Does this have a button at the end? Only use this if you explicitly know this is how the page has it set up! #}
+{%- if button %}
+<INPUT TYPE=SUBMIT BORDERIMAGE="file://ROM/Borders/ButtonBorder2.bif" Value={% if buttonText %}{{ buttonText }}{% else %}Done{% endif %} NAME="{% if buttonText %}{{ buttonText }}{% else %}Done{% endif %}" USESTYLE WIDTH=103>
+</SHADOW></FONT></FORM>
+<TD>
+</TABLE>
+{%- endif %}
+</BODY>
+</HTML>

@@ -1,0 +1,25 @@
+<CENTER><B>WebTV Terms of Service</B></font><br>
+<B><font size="-1">(Release date March 27, 2024)</B></CENTER></font>
+<td abswidth=20>
+<tr>
+<td>
+<td valign=top align=left>
+<p><b>General</b><br>
+<p>This is a recreation of the WebTV service, originally hosted by WebTV Networks, Inc. This server has no affiliation with WebTV Networks, and all original assets and pages belong to them.</p>
+  <p><b>Rules</b><br>
+<p>You must follow these rules, or your privilege to access this service may be revoked.</p>
+<ul>
+    <li>Do not harass other users</li>
+    <li>Do not impersonate others on the network</li>
+	<li>Do not send spam e-mail</li>
+  <li>Do not create spam, sexual, or otherwise inappropriate messages on Discuss</li>
+    <li>Do not attempt to access unauthorized areas of the network</li>
+    <li>Do not attempt to disrupt or otherwise negatively impact the service for others</li>
+	<li>Do not abuse vulnerabilities or other unintended behaviors of the service</li>
+	<li>All users must be over 13 years of age, or be granted permission from a parent or guardian</li>
+  </ul> 
+  <p>Failure to abide by one or more of these rules may require your access to be terminated.</p>
+  <p><b>Service Termination</b><br>
+<p>If you fail to comply with one or more of the rules listed above, your access to the service may be revoked. Disclosure of your termination reason will be decided on a case-by-case basis. Any attempt for a banned user to regain access to the server will be dealt with immediately. If you know of a banned user who is still on the network, please report it to us on Discord at @webtv or send an e-mail to <a href="mailto:abuse@WebTV">abuse@WebTV</a>. All decisions are final, and will not be reverted.</p>
+  
+<p>These terms can change at any time, and without warning. Your continued usage of the service is an agreement to these Terms of Service. If you do not agree to these terms, please disconnect immediately and contact @webtv on Discord or send an e-mail to <a href="mailto:WeCare@WebTV">WeCare@WebTV</a> to terminate your account.</p>

@@ -1,0 +1,11 @@
+wtv-content:/pdrivers/c2.6/hewlett-packard/HP400.mod
+2, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=3&language=us-en&systemID=20100100&modelstring=HP%20DESKJET%204
+3, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=4&language=us-en&systemID=20100100&modelstring=HP%20DESKJET%204
+4, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=5&language=us-en&systemID=20100100&modelstring=HP%20DESKJET%204
+7, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=7&language=us-en&systemID=20100100&modelstring=HP%20DESKJET%204
+8, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=8&language=us-en&systemID=20100100&modelstring=HP%20DESKJET%204
+9, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=9&language=us-en&systemID=20100100&modelstring=HP%20DESKJET%204
+16, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=15&language=us-en&systemID=20100100&modelstring=HP%20DESKJET%204
+17, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=16&language=us-en&systemID=20100100&modelstring=HP%20DESKJET%204
+18, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=15&language=us-en&systemID=20100100&modelstring=HP%20DESKJET%204
+*,http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=-1&language=us-en&systemID=20100100&modelstring=HP%20DESKJET%204

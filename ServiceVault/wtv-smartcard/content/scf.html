@@ -1,0 +1,146 @@
+<!--- *=* Copyright 1996, 1997 WebTV Networks, Inc. All rights reserved. --->
+
+<HEAD>
+   <TITLE>Smart card factory</TITLE>
+  
+   <SCRIPT LANGUAGE='JavaScript'>
+   <!--
+   	
+   function IsNumber(value)
+   	{
+   	// Note: 0 is not considered a valid entry
+	
+   	numbr = parseInt(value);
+	numberStr = "" + numbr;
+		
+	// check if we actually got a number
+   	if (isNaN(numbr)) 
+   		numbr = 0;
+   	
+   	// check that there were no alhpa characters 
+   	// that were dropped in the conversion
+   	if (numberStr.length != value.toString().length)
+   		numbr = 0;
+   		   	
+   	return numbr;
+   	}
+   	
+   	function ParseURLEntry(index)
+   	{
+		// we create version 1 cards on purpose!
+
+		// you must have no action in the form entry for this to
+		// work correctly
+   		value = document.forms[index].urlField.value;		
+		
+		if (value.length == 0)
+			{
+		  	alert("Please enter a valid ID number (or full http/https URL).");
+   			document.forms[index].urlField.select();
+   			document.forms[index].urlField.focus();
+		  	return false;
+			}
+		
+		if (IsNumber(value.charAt(0)))
+			{
+		  	format = "1Gi" + value;
+			}
+		else
+			{
+			urlParts = value.split("://");
+			if (urlParts[1])
+				{
+				path = urlParts[1];
+				}
+			else
+		  		{
+		  		alert("Please enter a  full http/https URL.");
+				return false;
+				}
+				
+			// temprary hack for beta client 1.2 bug with split  
+			// where // remained in the second substring
+			if (path && (path.charAt(0) == "/") && (path.charAt(1) == "/"))
+				path = path.substring(2, path.length);
+
+			if (urlParts[0] == "https")
+			   	format = "1Gs" + path;
+			else
+			   	format = "1Gh" + path;
+			}
+		
+		//if (confirm("Write " + format + "?")) // for debuging only
+		document.forms[index].action = "client:SaveToSmartCard?data=" + format;
+			
+		return true;
+	}
+	//-->
+   </SCRIPT>
+
+</HEAD>
+<sidebar width=110> <table cellspacing=0 cellpadding=0 BGCOLOR=355844>
+<tr>
+<td colspan=3 abswidth=104 absheight=4>
+<td rowspan=99 width=6 absheight=420 valign=top align=left>
+<img src="wtv-home:/ROMCache/Shadow.gif" width=6 height=420>
+<tr>
+<td abswidth=6>
+<td abswidth=92 absheight=76>
+<table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
+<tr>
+<td align=right>
+<img src="wtv-home:/ROMCache/WebTVLogoJewel.gif" width=87 height=67>
+</table>
+<td abswidth=6>
+<tr><td absheight=5 colspan=3>
+<table cellspacing=0 cellpadding=0>
+<tr><td abswidth=104 absheight=2 valign=middle align=center bgcolor=21372a>
+<img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
+<tr><td abswidth=104 absheight=1 valign=top align=left>
+<tr><td abswidth=104 absheight=2 valign=top align=left bgcolor=53896a>
+<img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
+</table>
+<tr><td absheight=20>
+<tr><td absheight=244 align=right valign=bottom colspan=3>
+<img src="wtv-smartcard:/images/BannerSmartCard.gif" width=50 height=238>
+<tr><td absheight=41>
+</table>
+</sidebar>
+
+<BODY BGCOLOR="#191919" TEXT="#44cc55" LINK="189CD6" VLINK="189CD6">
+
+<H1 ALIGN=CENTER><FONT COLOR="#E7CE4A">Smart card factory</FONT></H3>
+
+<H4 ALIGN=CENTER>* WebTV Confidential - Internal Use Only *</H4>
+
+<p>
+It is recommended that you use the general card creation pages which 
+can be accessed through the main index located in the 
+<A HREF="wtv-smartcard:/content/index.html">lobby</A>. 
+</p>
+<P ALIGN=MIDDLE><HR></P>
+
+<FORM method="POST" onsubmit=ParseURLEntry(0)>
+<DL>
+   <DT><B>To Create A Demonstration Only Go To&#153;</B>
+</DL>
+
+<OL>
+   <LI>Insert a smart card into the WebTV Terminal.
+   
+   <LI>Enter the desired URL in the text box below.
+   
+   <LI>Click the <b>Create</b> button to manufacture the card.
+</OL>
+
+<p><b>WARNING:</b> Cards created by entering a URL (e.g. http://www.abc.com) are confidential
+and must not be left with potential partners or anyone else. These are only suitable
+for demonstration purposes.  This creates a version 1 card.</p>
+
+<P><INPUT TYPE="text" NAME="urlField" VALUE="" SIZE=45 MAXLENGTH=208></P> 
+<P ALIGN=RIGHT><INPUT TYPE="submit" NAME="ignore" VALUE="Create"></P>
+</FORM>
+
+
+</BODY>
+</HTML>

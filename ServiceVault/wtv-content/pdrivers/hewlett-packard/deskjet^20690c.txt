@@ -1,0 +1,15 @@
+wtv-content:/pdrivers/c2.6/hewlett-packard/HP660690.mod
+2, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=3&language=us-en&systemID=20100100&modelstring=DESKJET%2069
+3, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=4&language=us-en&systemID=20100100&modelstring=DESKJET%2069
+4, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=5&language=us-en&systemID=20100100&modelstring=DESKJET%2069
+6, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=6&language=us-en&systemID=20100100&modelstring=DESKJET%2069
+7, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=7&language=us-en&systemID=20100100&modelstring=DESKJET%2069
+8, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=8&language=us-en&systemID=20100100&modelstring=DESKJET%2069
+9, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=13&language=us-en&systemID=20100100&modelstring=DESKJET%2069
+13, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=13&language=us-en&systemID=20100100&modelstring=DESKJET%2069
+14, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=13&language=us-en&systemID=20100100&modelstring=DESKJET%2069
+15, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=14&language=us-en&systemID=20100100&modelstring=DESKJET%2069
+16, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=15&language=us-en&systemID=20100100&modelstring=DESKJET%2069
+17, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=16&language=us-en&systemID=20100100&modelstring=DESKJET%2069
+18, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=15&language=us-en&systemID=20100100&modelstring=DESKJET%2069
+*,http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=-1&language=us-en&systemID=20100100&modelstring=DESKJET%2069

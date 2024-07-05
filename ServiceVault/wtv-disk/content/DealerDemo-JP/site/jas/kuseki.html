@@ -1,0 +1,235 @@
+<HTML>
+<HEAD><TITLE>SCHEDULE INPUT</TITLE>
+<META HTTP-EQUIV="Refresh" CONTENT="45;URL=kekka.html">
+<savepanel message="このデモではこのページは保存できません" label="次へ" action="client:donothing">
+</HEAD>
+<BODY BACKGROUND="IMAGE/bac2_i.gif" BGCOLOR="#FFFFFF" 
+TEXT="#000000" LINK="#FF0000" VLINK="#FF0000">
+<SCRIPT>
+    var flag=0 ;
+</SCRIPT>
+</BODY>
+<CENTER><IMG SRC="IMAGE/FI_SCHE.GIF" ALT="Im_fl/FI_SCHE.GIF" width="397" height="61"></CENTER>
+<CENTER><P>
+<PRE>
+
+</PRE>
+<FORM>
+<INPUT TYPE="hidden" NAME="X_CODE" VALUE="日" >
+<INPUT TYPE="hidden" NAME="CMD" VALUE=KUSEKI.IMC >
+<!--- <INPUT TYPE="hidden" NAME="X_ACTION" VALUE="INQUIRY HOST:INHOSTGW" > --->
+<!--- <INPUT TYPE="hidden" NAME="F_TEMPLATE" VALUE="KUSEKI.IMT" > --->
+<!--- <INPUT TYPE="hidden" NAME="N_GNO" VALUE="0060" > --->
+<P>
+<FONT SIZE=4 COLOR=#0000A0>
+空席/スケジュールをご案内します。
+<P>
+ご搭乗になる日付を入力して下さい<BR>
+照会ができるのは搭乗２か月前の同一日10:00からです。
+</FONT><P>
+
+<TABLE BORDER=0><TR><TD>
+<SELECT NAME="M_FLT_DATE" SIZE=6 MAXLENGTH="2">
+<OPTION SELECTED>
+<OPTION VALUE = "1">1月
+<OPTION VALUE = "2">2月
+<OPTION VALUE = "3">3月
+<OPTION VALUE = "4">4月
+<OPTION VALUE = "5">5月
+<OPTION VALUE = "6" SELECTED>6月
+<OPTION VALUE = "7">7月
+<OPTION VALUE = "8">8月
+<OPTION VALUE = "9">9月
+<OPTION VALUE = "10">10月
+<OPTION VALUE = "11">11月
+<OPTION VALUE = "12">12月
+</SELECT>
+</TD>
+<TD>
+
+<SELECT NAME="D_FLT_DATE" SIZE=6 MAXLENGTH="2">
+<OPTION SELECTED>
+<OPTION VALUE = "1" SELECTED>1日
+<OPTION VALUE = "2">2日
+<OPTION VALUE = "3">3日
+<OPTION VALUE = "4">4日
+<OPTION VALUE = "5">5日
+<OPTION VALUE = "6">6日
+<OPTION VALUE = "7">7日
+<OPTION VALUE = "8">8日
+<OPTION VALUE = "9">9日
+<OPTION VALUE = "10">10日
+<OPTION VALUE = "11">11日
+<OPTION VALUE = "12">12日
+<OPTION VALUE = "13">13日
+<OPTION VALUE = "14">14日
+<OPTION VALUE = "15">15日
+<OPTION VALUE = "16">16日
+<OPTION VALUE = "17">17日
+<OPTION VALUE = "18">18日
+<OPTION VALUE = "19">19日
+<OPTION VALUE = "20">20日
+<OPTION VALUE = "21">21日
+<OPTION VALUE = "22">22日
+<OPTION VALUE = "23">23日
+<OPTION VALUE = "24">24日
+<OPTION VALUE = "25">25日
+<OPTION VALUE = "26">26日
+<OPTION VALUE = "27">27日
+<OPTION VALUE = "28">28日
+<OPTION VALUE = "29">29日
+<OPTION VALUE = "30">30日
+<OPTION VALUE = "31">31日
+
+</SELECT>
+</TD></TR></TABLE>
+<PRE>
+
+</PRE>
+<FONT SIZE=4 COLOR=#0000A0>出発地と到着地を選んで下さい</FONT><P>
+<P>
+<!--- <TABLE BORDER> --->
+<!--- <TR><TD><IMG SRC="IMAGE/plne_m.gif" ALT="Im_fl/plne_m.gif" width="264" height="24"></TD></TR>--->
+<!--- </TABLE>--->
+
+<TABLE BORDER=0>
+<TR><TD>
+<CENTER><FONT SIZE=4 COLOR=#0000A0>出発地</FONT></CENTER></TD>
+<TD>
+<CENTER><FONT SIZE=4 COLOR=#0000A0>到着地</FONT></CENTER></TD></TR>
+<TR><TD>
+<SELECT NAME="N_FRM_APTNO" SIZE=13 MAXLENGTH="2">
+<OPTION VALUE = "10">女満別
+<OPTION VALUE = "12">旭川
+<OPTION VALUE = "11">釧路
+<OPTION VALUE = "13">帯広
+<OPTION VALUE = "03">札幌（千歳）
+<OPTION VALUE = "20">青森
+<OPTION VALUE = "21">三沢
+<OPTION VALUE = "22">秋田
+<OPTION VALUE = "23">花巻　
+<OPTION VALUE = "24">山形
+<OPTION VALUE = "25">仙台
+<OPTION VALUE = "01" SELECTED>東京（羽田）
+<OPTION VALUE = "33">松本
+<OPTION VALUE = "32">小松
+<OPTION VALUE = "30">名古屋
+<OPTION VALUE = "40">南紀白浜
+<OPTION VALUE = "31">新潟　
+<OPTION VALUE = "02">大阪（伊丹）
+<OPTION VALUE = "06">大阪（関西）
+<OPTION VALUE = "41">岡山　　　　
+<OPTION VALUE = "42">広島　
+<OPTION VALUE = "47">広島西
+<OPTION VALUE = "43">但馬
+<OPTION VALUE = "44">米子
+<OPTION VALUE = "45">出雲
+<OPTION VALUE = "46">隠岐
+<OPTION VALUE = "50">徳島　　
+<OPTION VALUE = "51">高松
+<OPTION VALUE = "52">松山
+<OPTION VALUE = "53">高知
+<OPTION VALUE = "04">福岡　　　　
+<OPTION VALUE = "60">北九州
+<OPTION VALUE = "61">長崎
+<OPTION VALUE = "62">熊本
+<OPTION VALUE = "63">大分　
+<OPTION VALUE = "64">宮崎
+<OPTION VALUE = "65">鹿児島　　
+<OPTION VALUE = "70">種子島　　　
+<OPTION VALUE = "71">屋久島　　　
+<OPTION VALUE = "72">喜界島　　　
+<OPTION VALUE = "73">奄美大島　　　　
+<OPTION VALUE = "74">徳之島　　　
+<OPTION VALUE = "75">沖永良部　　　
+<OPTION VALUE = "76">与論　　　
+<OPTION VALUE = "05">沖縄　　　
+</SELECT>
+</TD><TD>
+<CENTER>
+<SELECT NAME="N_TO_APTNO" SIZE=13 MAXLENGTH="2">
+<OPTION VALUE = "10">女満別
+<OPTION VALUE = "12">旭川
+<OPTION VALUE = "11">釧路
+<OPTION VALUE = "13">帯広
+<OPTION VALUE = "03" SELECTED>札幌（千歳）
+<OPTION VALUE = "20">青森
+<OPTION VALUE = "21">三沢
+<OPTION VALUE = "22">秋田
+<OPTION VALUE = "23">花巻　
+<OPTION VALUE = "24">山形
+<OPTION VALUE = "25">仙台
+<OPTION VALUE = "01">東京（羽田）
+<OPTION VALUE = "33">松本
+<OPTION VALUE = "32">小松
+<OPTION VALUE = "30">名古屋
+<OPTION VALUE = "40">南紀白浜
+<OPTION VALUE = "31">新潟　
+<OPTION VALUE = "02">大阪（伊丹）
+<OPTION VALUE = "06">大阪（関西）
+<OPTION VALUE = "41">岡山　　　　
+<OPTION VALUE = "42">広島
+<OPTION VALUE = "47">広島西　
+<OPTION VALUE = "43">但馬
+<OPTION VALUE = "44">米子
+<OPTION VALUE = "45">出雲
+<OPTION VALUE = "46">隠岐
+<OPTION VALUE = "50">徳島　　
+<OPTION VALUE = "51">高松
+<OPTION VALUE = "52">松山
+<OPTION VALUE = "53">高知
+<OPTION VALUE = "04">福岡　　　　
+<OPTION VALUE = "60">北九州
+<OPTION VALUE = "61">長崎
+<OPTION VALUE = "62">熊本
+<OPTION VALUE = "63">大分　
+<OPTION VALUE = "64">宮崎
+<OPTION VALUE = "65">鹿児島　　
+<OPTION VALUE = "70">種子島　　　
+<OPTION VALUE = "71">屋久島　　　
+<OPTION VALUE = "72">喜界島　　　
+<OPTION VALUE = "73">奄美大島　　　　
+<OPTION VALUE = "74">徳之島　　　
+<OPTION VALUE = "75">沖永良部　　　
+<OPTION VALUE = "76">与論　　　
+<OPTION VALUE = "05">沖縄　　　
+</SELECT></CENTER>
+</TD></TR></TABLE><P>
+<PRE>
+
+</PRE>
+<P><INPUT TYPE="button" VALUE="  照会  " onClick="Linkbutton(this.form)"><INPUT TYPE="reset" VALUE="取り消し"></FORM>
+</CENTER>
+<P>
+<HR>
+<P>
+<P>
+<CENTER>
+<TABLE BORDER=2 CELLPADDING=15 WIDTH=200 ><TR>
+<TD>
+<IMG SRC="IMAGE/TICKETLS.GIF" ALT="ET" width="77" height="57">
+<CENTER>チケットレスサービス</CENTER></TD>
+<TD>
+<IMG SRC="IMAGE/LINK_YO.GIF" ALT="ET" width="77" height="57">
+<CENTER>予約</CENTER></TD>
+<TD><CENTER>
+<IMG SRC="IMAGE/FI_ARIVI.GIF" ALT="ARRIVAL Im_fl/FI_ARIVI.GIF" width="77" height="57">
+</CENTER><CENTER>発着案内<P></CENTER></TD>
+
+<TD>
+<IMG SRC="IMAGE/FI_ACESI.GIF" ALT="ACESS Im_fl/FI_ACESI.GIF" width="77" height="57">
+<CENTER>空港アクセス<P></CENTER></TD>
+<TD>
+<IMG SRC="IMAGE/FI_FEREI.GIF" ALT="FERE Im_fl/FI_FEREI.GIF" width="77" height="57">
+<CENTER>運賃照会<P></CENTER></TD>
+
+</TR></TABLE>
+<BR>
+<TABLE BORDER=2><TR><TD><CENTER>
+<IMG SRC="IMAGE/HOME.GIF" ALT="Image/HOME" BORDER="2" width="40" height="40"></CENTER></TD></TR></TABLE><P>
+<hr size=10><p>
+
+<font size=-1><i><b>Copyright (c) 1996 JAPAN AIR SYSTEM  CO., LTD.</b></i></font>
+
+</CENTER>
+</HTML>

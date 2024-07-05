@@ -1,0 +1,324 @@
+var minisrv_service_file = true;
+
+headers = `200 OK
+Content-Type: wtv/download-list`;
+
+data = `DISPLAY preparing the picky bitch
+
+DELETE-GROUP EPG-UPDATE
+
+DELETE file://Disk/browser/TV/Listings/.GROUP-UPDATE/
+
+DELETE-GROUP EPG
+
+DELETE file://Disk/browser/TV/Listings/
+
+CREATE-GROUP EPG-UPDATE
+state: invalid
+base: file://Disk/Browser/TV/Listings/.GROUP-UPDATE/
+
+CREATE-GROUP EPG
+state: invalid
+service-owned: true
+base: file://Disk/browser/TV/Listings/
+
+DISPLAY sending picky ass TV files
+
+GET 20230614.tvl
+group: EPG-UPDATE
+location: wtv-disk:/content/EPG/20230614.tvl?
+file-permission: r
+wtv-checksum: 00000000000000000000000000000000
+service-source-location: /webtv/content/diskd/content/EPG/20230614.tvl?
+client-dest-location: file://Disk/browser/TV/Listings/.GROUP-UPDATE/20230614.tvl
+
+GET 20230615.tvl
+group: EPG-UPDATE
+location: wtv-disk:/content/EPG/20230615.tvl?
+file-permission: r
+wtv-checksum: 00000000000000000000000000000000
+service-source-location: /webtv/content/diskd/content/EPG/20230615.tvl?
+client-dest-location: file://Disk/browser/TV/Listings/.GROUP-UPDATE/20230615.tvl
+
+GET 20230616.tvl
+group: EPG-UPDATE
+location: wtv-disk:/content/EPG/20230616.tvl?
+file-permission: r
+wtv-checksum: 00000000000000000000000000000000
+service-source-location: /webtv/content/diskd/content/EPG/20230616.tvl?
+client-dest-location: file://Disk/browser/TV/Listings/.GROUP-UPDATE/20230616.tvl
+
+GET 20230617.tvl
+group: EPG-UPDATE
+location: wtv-disk:/content/EPG/20230617.tvl?
+file-permission: r
+wtv-checksum: 00000000000000000000000000000000
+service-source-location: /webtv/content/diskd/content/EPG/20230617.tvl?
+client-dest-location: file://Disk/browser/TV/Listings/.GROUP-UPDATE/20230617.tvl
+
+GET 20230618.tvl
+group: EPG-UPDATE
+location: wtv-disk:/content/EPG/20230618.tvl?
+file-permission: r
+wtv-checksum: 00000000000000000000000000000000
+service-source-location: /webtv/content/diskd/content/EPG/20230618.tvl?
+client-dest-location: file://Disk/browser/TV/Listings/.GROUP-UPDATE/20230618.tvl
+
+GET 20230619.tvl
+group: EPG-UPDATE
+location: wtv-disk:/content/EPG/20230619.tvl?
+file-permission: r
+wtv-checksum: 00000000000000000000000000000000
+service-source-location: /webtv/content/diskd/content/EPG/20230619.tvl?
+client-dest-location: file://Disk/browser/TV/Listings/.GROUP-UPDATE/20230619.tvl
+
+GET 20230620.tvl
+group: EPG-UPDATE
+location: wtv-disk:/content/EPG/20230620.tvl?
+file-permission: r
+wtv-checksum: 00000000000000000000000000000000
+service-source-location: /webtv/content/diskd/content/EPG/20230620.tvl?
+client-dest-location: file://Disk/browser/TV/Listings/.GROUP-UPDATE/20230620.tvl
+
+GET B42069.20230611.tvch
+group: EPG-UPDATE
+location: wtv-disk:/content/EPG/B42069.20230611.tvch?
+file-permission: r
+wtv-checksum: 00000000000000000000000000000000
+service-source-location: /webtv/content/diskd/content/EPG/B42069.20230611.tvch?
+client-dest-location: file://Disk/browser/TV/Listings/.GROUP-UPDATE/B42069.20230611.tvch
+
+DISPLAY doing useless bullshit
+
+RENAME 20230614.tvl
+group: EPG-UPDATE
+destination-group: EPG
+location: 20230614.tvl
+
+RENAME 20230615.tvl
+group: EPG-UPDATE
+destination-group: EPG
+location: 20230615.tvl
+
+RENAME 20230616.tvl
+group: EPG-UPDATE
+destination-group: EPG
+location: 20230616.tvl
+
+RENAME 20230617.tvl
+group: EPG-UPDATE
+destination-group: EPG
+location: 20230617.tvl
+
+RENAME 20230618.tvl
+group: EPG-UPDATE
+destination-group: EPG
+location: 20230618.tvl
+
+RENAME 20230619.tvl
+group: EPG-UPDATE
+destination-group: EPG
+location: 20230619.tvl
+
+RENAME 20230620.tvl
+group: EPG-UPDATE
+destination-group: EPG
+location: 20230620.tvl
+
+RENAME B42069.20230611.tvch
+group: EPG-UPDATE
+destination-group: EPG
+location: B42069.20230611.tvch
+
+SET-GROUP EPG
+state: ok
+version: 937816337
+last-checkup-time: ${strftime(
+  "%a, %d %b %Y %H:%M:%S",
+  new Date(new Date().toUTCString())
+)} +0000
+
+DELETE-GROUP EPG-UPDATE
+
+DELETE file://Disk/Browser/TV/Listings/.GROUP-UPDATE/
+
+DELETE-GROUP IR-UPDATE
+
+DELETE file://Disk/Browser/TV/IR/.GROUP-UPDATE/
+
+DELETE-GROUP IR
+
+DELETE file://Disk/Browser/TV/IR/
+
+CREATE-GROUP IR-UPDATE
+state: invalid
+base: file://Disk/Browser/TV/IR/.GROUP-UPDATE/
+
+CREATE-GROUP IR
+state: invalid
+service-owned: true
+base: file://Disk/Browser/TV/IR/
+
+DISPLAY sending less picky files
+
+GET cabcodes.dat
+group: IR-UPDATE
+location: wtv-disk:/content/IR/cabcodes.dat.gz?
+file-permission: r
+wtv-checksum: 01ca6649847bb7480b6adbac76bbf10b
+wtv-uncompressed-filesize: 128647
+service-source-location: /webtv/content/diskd/content/IR/cabcodes.dat.gz?
+client-dest-location: file://Disk/Browser/TV/IR/.GROUP-UPDATE/cabcodes.dat
+
+GET vcrcodes.dat
+group: IR-UPDATE
+location: wtv-disk:/content/IR/vcrcodes.dat.gz?
+file-permission: r
+wtv-checksum: f6151efc5a5f54de85101ec05eea5141
+wtv-uncompressed-filesize: 202269
+service-source-location: /webtv/content/diskd/content/IR/vcrcodes.dat.gz?
+client-dest-location: file://Disk/Browser/TV/IR/.GROUP-UPDATE/vcrcodes.dat
+
+GET satcodes.dat
+group: IR-UPDATE
+location: wtv-disk:/content/IR/satcodes.dat.gz?
+file-permission: r
+wtv-checksum: 2b419d18cb3b74c7ae3078c39d8758c4
+wtv-uncompressed-filesize: 33222
+service-source-location: /webtv/content/diskd/content/IR/satcodes.dat.gz?
+client-dest-location: file://Disk/Browser/TV/IR/.GROUP-UPDATE/satcodes.dat
+
+GET cabnames.dat
+group: IR-UPDATE
+location: wtv-disk:/content/IR/cabnames.dat.gz?
+file-permission: r
+wtv-checksum: e8a497b0cb586e72dd5188949a39ac0e
+wtv-uncompressed-filesize: 3941
+service-source-location: /webtv/content/diskd/content/IR/cabnames.dat.gz?
+client-dest-location: file://Disk/Browser/TV/IR/.GROUP-UPDATE/cabnames.dat
+
+GET vcrnames.dat
+group: IR-UPDATE
+location: wtv-disk:/content/IR/vcrnames.dat.gz?
+file-permission: r
+wtv-checksum: fb04c179163e02a8bf0bb08e945f38e3
+wtv-uncompressed-filesize: 4791
+service-source-location: /webtv/content/diskd/content/IR/vcrnames.dat.gz?
+client-dest-location: file://Disk/Browser/TV/IR/.GROUP-UPDATE/vcrnames.dat
+
+GET satnames.dat
+group: IR-UPDATE
+location: wtv-disk:/content/IR/satnames.dat.gz?
+file-permission: r
+wtv-checksum: a0441038d204494639d1a744b9af1935
+wtv-uncompressed-filesize: 805
+service-source-location: /webtv/content/diskd/content/IR/satnames.dat.gz?
+client-dest-location: file://Disk/Browser/TV/IR/.GROUP-UPDATE/satnames.dat
+
+GET delay.dat
+group: IR-UPDATE
+location: wtv-disk:/content/IR/delay.dat.gz?
+file-permission: r
+wtv-checksum: 2241072390d5b67f436b4d3d2106e248
+wtv-uncompressed-filesize: 386
+service-source-location: /webtv/content/diskd/content/IR/delay.dat.gz?
+client-dest-location: file://Disk/Browser/TV/IR/.GROUP-UPDATE/delay.dat
+
+RENAME cabcodes.dat
+group: IR-UPDATE
+destination-group: IR
+location: cabcodes.dat
+
+RENAME vcrcodes.dat
+group: IR-UPDATE
+destination-group: IR
+location: vcrcodes.dat
+
+RENAME satcodes.dat
+group: IR-UPDATE
+destination-group: IR
+location: satcodes.dat
+
+RENAME cabnames.dat
+group: IR-UPDATE
+destination-group: IR
+location: cabnames.dat
+
+RENAME vcrnames.dat
+group: IR-UPDATE
+destination-group: IR
+location: vcrnames.dat
+
+RENAME satnames.dat
+group: IR-UPDATE
+destination-group: IR
+location: satnames.dat
+
+RENAME delay.dat
+group: IR-UPDATE
+destination-group: IR
+location: delay.dat
+
+SET-GROUP IR
+state: ok
+version: 21
+last-checkup-time: ${strftime(
+  "%a, %d %b %Y %H:%M:%S",
+  new Date(new Date().toUTCString())
+)} +0000
+
+EXECUTE client:tvdatabase?power=on
+
+DELETE-GROUP IR-UPDATE
+
+DELETE file://Disk/Browser/TV/IR/.GROUP-UPDATE/
+
+DELETE-GROUP ModemFirmware-UPDATE
+
+DELETE file://Disk/Browser/Modem_Firmware/.GROUP-UPDATE/
+
+DELETE-GROUP ModemFirmware
+
+DELETE file://Disk/Browser/Modem_Firmware/
+
+DISPLAY this won't go wrong
+
+CREATE-GROUP ModemFirmware-UPDATE
+state: invalid
+base: file://Disk/Browser/Modem_Firmware/.GROUP-UPDATE/
+
+CREATE-GROUP ModemFirmware
+state: invalid
+service-owned: true
+base: file://Disk/browser/Modem_Firmware/
+
+GET Locale/en-US/modem_firmware.dat
+group: ModemFirmware-UPDATE
+location: wtv-disk:/content/Modem_Firmware/Locale/en-US/modem_firmware.dat.gz?
+file-permission: r
+wtv-checksum: a3e81920503849ac3c37adaad4d617c2
+wtv-uncompressed-filesize: 131072
+service-source-location: /webtv/content/diskd/content/Modem_Firmware/Locale/en-US/modem_firmware.dat.gz?
+client-dest-location: file://Disk/Browser/Modem_Firmware/Locale/en-US/modem_firmware.dat
+
+RENAME Locale/en-US/modem_firmware.dat
+group: ModemFirmware-UPDATE
+destination-group: ModemFirmware
+location: Locale/en-US/modem_firmware.dat
+
+SET-GROUP ModemFirmware
+state: ok
+version: 3585002119
+last-checkup-time: ${strftime(
+  "%a, %d %b %Y %H:%M:%S",
+  new Date(new Date().toUTCString())
+)} +0000
+
+EXECUTE client:ModemReload
+
+DISPLAY fuck you
+
+DELETE-GROUP ModemFirmware-UPDATE
+
+DELETE file://Disk/Browser/TV/ModemFirmware/.GROUP-UPDATE/
+`;

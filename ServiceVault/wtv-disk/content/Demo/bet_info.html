@@ -1,0 +1,94 @@
+  <html>
+<head>
+  <TITLE>BET</TITLE>
+  
+<script>
+lyric_images = new Array()
+lyric_images[1] = new Image()
+lyric_images[1].src = "images/lyr_1.gif"
+
+lyric_images[2] = new Image()
+lyric_images[2].src = "images/lyr_2.gif"
+
+lyric_images[3] = new Image()
+lyric_images[3].src = "images/lyr_3.gif"
+
+lyric_images[4] = new Image()
+lyric_images[4].src = "images/lyr_2.gif"
+
+lyric_images[5] = new Image()
+lyric_images[5].src = "images/lyr_4.gif"
+
+lyric_images[6] = new Image()
+lyric_images[6].src = "images/lyr_5.gif"
+
+lyric_images[7] = new Image()
+lyric_images[7].src = "images/lyr_2.gif"
+
+var count = 1
+
+function flipimage(num) {
+   count = count + num;
+   if (count > 7) count = 1
+   else if (count < 1) count = 1
+   document.lyrics.src = lyric_images[count].src;
+}
+</script>
+
+</head>
+<display noscroll nooptions>
+<body hspace=0 vspace=0 text=000000>
+<table width=560 height=420 border=0 cellspacing=0 cellpadding=0 cellborder=0 bgcolor=000000 >
+<tr>
+    <td valign=top>
+    <table width=373 height=420 border=0 cellspacing=0 cellpadding=0 
+    cellborder=0 bgcolor=000000>
+    <tr>
+	<td abswidth=140 absheight=149 valign=top>
+	<img src="images/theartist.gif" width=102 height=149 align=right>
+	<!img src="images/somebody.gif" width=255 height=89 align=left>
+	</td>
+	<td abswidth=233 absheight=149 valign=middle align=left>
+	<tv !img !src="images/video.jpg" width=180 height=135></td>
+    </tr>
+    <tr>
+	<td width=373 height=311 colspan=2 valign=top align=center>
+	
+	<img src=images/somebody_title.gif width=356 height=45 border=0>
+	<br>
+	<!a href="javascript:flipimage()"><img name="lyrics" 
+	src="images/lyr_1.gif"><!/a><br>
+	<a href="javascript:flipimage(-1)"><img src=images/lyrics_left.gif width=65 height=44 border=0></a><a href="javascript:flipimage(+1)"><img src=images/lyrics_right.gif width=65 height=44 border=0></a>
+	</td>
+    </tr>
+    </table>
+    </td>
+    <td valign=top>
+    <table abswidth=187 absheight=420 border=0 cellspacing=0 cellpadding=0 
+    cellborder=0 bgcolor=000000>
+    <tr>
+        <td abswidth=187 absheight=90 valign=bottom align=left
+	bgcolor=000000 background=images/bet_bkgd3.gif>&nbsp;
+    </tr>
+    <tr>
+			<td abswidth=187 absheight=190 valign=top align=left  bgcolor=ffffff background=images/bet_bkgd4.gif>
+			<spacer type=horizontal size=30><a href=bet_info.html SELECTED>
+			<img src=images/menu1.gif abswidth=125 absheight=30 hspace=0 vspace=0></a>
+			<br><br>
+			<spacer type=horizontal size=30><a href=bet_bio.html>
+			<img src=images/menu2.gif abswidth=125 absheight=30 hspace=0 vspace=0></a>
+			<br><br>
+			<spacer type=horizontal size=30><a href=bet_buy.html>
+			<img src=images/menu3.gif abswidth=125 absheight=30 hspace=0 vspace=0></a>
+		<tr>
+			<td abswidth=187 absheight=140 valign=top  bgcolor=770d77 background=images/bet_bkgd5b.gif><br><br>
+			<spacer type=horizontal size=35><a href=client:crossover?address=http://www.musicblvd.com>
+			<img src=images/mblvd_logo.gif abswidth=95 absheight=70 hspace=0 vspace=0></a>	
+		<tr>
+			<td abswidth=187 absheight=71 valign=top bgcolor=770d77>&nbsp;	
+	</table>	
+	</table>
+</body>
+</html>
+
+

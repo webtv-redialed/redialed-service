@@ -1,0 +1,305 @@
+<html>
+<head>
+<display nologo>
+
+<script language="JavaScript">
+// 
+var partners = new Array("templates/EOnline.html", "templates/Musicblvd.html");
+var promotions = new Array("templates/HomeLife.html", "templates/Kids.html");
+var promotionDurations = new Array("30", "30");
+var partnerDurations = new Array("30", "30");
+var theWeather = new Array();
+var theWeather = new Array(
+"<shadow><blackface>リモコンのボタンを押してください</blackface></shadow>",
+ "<shadow><blackface>テレビでインターネット！</blackface> </shadow>",
+ "<shadow><blackface>リモコンのボタンを押してください</blackface></shadow>",
+ "<shadow><blackface>おうちのテレビでOK!</blackface></shadow>",
+ "<shadow><blackface>リモコンのボタンを押してください</blackface></shadow>");
+var whichPartner = 0;
+var whichPromotion = 0;
+var whichWeather = 0;
+var delay = 1000;
+var promotionRotationHalted = false;
+var partnerRotationHalted = false;
+var rotationPaused = false;
+var timer = null;
+var date = new Date();
+var stopRotatingTime = 0;
+
+function RecommenceRotation() { 
+ rotationPaused = false;
+}
+
+function PauseRotation() { 
+ if (timer != null) {clearTimeout(timer); }
+ rotationPaused = true;
+ timer = setTimeout('RecommenceRotation()', 5000);
+}
+
+function ImagesDone(aDocument) { 
+ var i;
+ var done = true;
+ for (i = 0; i < aDocument.images.length; ++i) { 
+  if (aDocument.images[i].complete == false) { 
+   done = false;
+  }
+ }
+ return done;
+}
+
+function EnteredRotator(type) {
+ if (type == "promotion") { 
+  promotionRotationHalted = true;
+ } else if (type == "partner") {
+  partnerRotationHalted = true;
+ }
+}
+
+function LeftRotator(type) { 
+ if (type == "promotion") { 
+  promotionRotationHalted = false;
+ } else if (type == "partner") {
+  partnerRotationHalted = false;
+ }
+}
+
+function ReplaceWeather() { 
+ document.weatherEmbed.src = "weather.html";
+}
+function InstallEmptyPromotion() { 
+ document.promotionEmbed.document.open();
+ document.promotionEmbed.document.write("<html><body bgcolor=191919 gradcolor=2d3254 gradangle=45><table width=292 height=240><tr><td><spacer></table></body></html>");
+ document.promotionEmbed.document.close();
+}
+
+function ReplacePromotion() { 
+ var now = new Date();
+ if (now.getTime() > stopRotatingTime) { return; }
+ if (whichPromotion >= promotions.length) { whichPromotion = 0; }
+ if (ImagesDone(top.document) && (rotationPaused == false) && (promotionRotationHalted == false)) { 
+  document.promotionEmbed.src = promotions[whichPromotion];
+ } else { 
+  delay = promotionDurations[whichPromotion] * 250;
+ setTimeout('ReplacePromotion()', delay);
+ }
+ delay = promotionDurations[whichPromotion] * 1000;
+ whichPromotion = whichPromotion + 1;
+ setTimeout('ReplacePromotion()', delay);
+}
+
+function RotatePromotions() { 
+ whichPromotion = 1;
+ setTimeout('ReplacePromotion()', 8000);
+}
+
+function InstallEmptyPartner() { 
+ document.partnerEmbed.document.open();
+ document.partnerEmbed.document.write("<html><body bgcolor=252525><table cellspacing=0 cellpadding=0 width=135 height=209><tr><td><spacer></table></body></html>");
+ document.partnerEmbed.document.close();
+}
+
+function ReplacePartner() { 
+ var now = new Date();
+ if (now.getTime() > stopRotatingTime) { return; }
+ if (whichPartner >= partners.length) { whichPartner = 0; }
+ if (ImagesDone(top.document) && (rotationPaused == false) && (partnerRotationHalted == false)) { 
+  document.partnerEmbed.src = partners[whichPartner];
+ } else { 
+  delay = partnerDurations[whichPartner] * 250;
+ setTimeout('ReplacePartner()', delay);
+ }
+ delay = partnerDurations[whichPartner] * 1000;
+ whichPartner = whichPartner + 1;
+ setTimeout('ReplacePartner()', delay);
+}
+
+
+function RotatePartners() { 
+ whichPartner = 1; 
+ setTimeout('ReplacePartner()', 8000);
+}
+
+function AddWeatherLine(line) { 
+ theWeather[theWeather.length + 1] = line;
+}
+
+function InsertWeather() {
+ if (whichWeather >= theWeather.length) { whichWeather = 0; }
+ document.embeds[0].document.open();
+ document.weatherEmbed.document.write("<html><body bgcolor=3a3e64><table cellspacing=0 cellpadding=0><tr><td height=3><tr><td width=200 align=left><font color=dedede>");
+ document.weatherEmbed.document.write(theWeather[whichWeather]);
+ document.weatherEmbed.document.write("</table></font></body></html>");
+ document.weatherEmbed.document.close();
+ whichWeather = whichWeather + 1;
+ setTimeout("InsertWeather(theWeather)", 5000);
+}
+
+function StartRotations(firstPartnerIndex) { 
+ stopRotatingTime = date.getTime() + 1800000;
+ RotatePromotions();
+ RotatePartners(firstPartnerIndex);
+ setTimeout('ReplaceWeather()', 5000);
+}
+</script>
+
+
+<display hspace=0 vspace=0 fontsize=medium>
+<display nolog>
+<META HTTP-EQUIV="Refresh" CONTENT="600;URL="index.html>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=x-sjis">
+<savepanel message="このデモではこのページは保存できません" label="次へ" action="client:donothing">
+<title>picakoのホーム</title>
+</head>
+
+<body onLoad=StartRotations(1) bgcolor=191919>
+
+
+<table cellspacing=0 cellpadding=0 abswidth=560 absheight=383>
+<tr><td abswidth=138 absheight=383>
+	<table cellspacing=0 cellpadding=0 bgcolor=2d3254>
+	<tr><td valign=top colspan=3>
+		<table cellspacing=0 cellpadding=0 height=110>
+		<tr><td height=7>
+		<tr><td colspan=3 valign=top align=center>
+		<spacer type=block width=6><spacer type=block height=3><img src="file://ROM/Cache/WebTVLogoJewel.gif" width=127 height=98>
+		</table>
+	<tr><td height=2 colspan=3 bgcolor=182131><spacer>
+	<tr><td height=1 colspan=3><spacer>
+	<tr><td height=2 colspan=3 bgcolor=5b5074><spacer>
+	<tr><td abswidth=7><td abswidth=125 height=24>
+		<table cellspacing=0 cellpadding=0 onMouseOver="PauseRotation()" href="setup.html">
+		<tr><td height=5>
+		<tr><td valign=middle>
+			<table cellspacing=0 cellpadding=0>
+			<tr><td valign=middle><shadow><font size=3 color=e7d694>&nbsp;設定</font></shadow>
+			</table>
+		</table>
+	<td abswidth=6>
+	<tr><td height=2 colspan=3 bgcolor=182131><spacer>
+	<tr><td height=1 colspan=3><spacer>
+	<tr><td height=2 colspan=3 bgcolor=5b5074><spacer>
+	<tr><td abswidth=7><td abswidth=125 height=24>
+		<table cellspacing=0 cellpadding=0 onMouseOver="PauseRotation()" href="JavaScript:alert('このデモではこの操作はできません')">
+		<tr><td height=5>
+		<tr><td valign=middle>
+			<table cellspacing=0 cellpadding=0>
+			<tr><td valign=middle><shadow><font size=3 color=e7d694>&nbsp;使い方</font></shadow>
+			</table>
+		</table>
+	<td abswidth=6>
+	<tr><td height=2 colspan=3 bgcolor=182131><spacer>
+	<tr><td height=1 colspan=3><spacer>
+	<tr><td height=2 colspan=3 bgcolor=5b5074><spacer>
+	<tr><td abswidth=7><td abswidth=125 height=24>
+		<table cellspacing=0 cellpadding=0 onMouseOver="PauseRotation()" href="community.html">
+		<tr><td height=5>
+		<tr><td valign=middle>
+			<table cellspacing=0 cellpadding=0>
+			<tr><td valign=middle><shadow><font size=3 color=e7d694>&nbsp;ひろば</font></shadow>
+			</table>
+		</table>
+	<td abswidth=6>
+	<tr><td height=2 colspan=3 bgcolor=182131><spacer>
+	<tr><td height=1 colspan=3><spacer>
+	<tr><td height=2 colspan=3 bgcolor=5b5074><spacer>
+	<tr><td valign=bottom align=right height=175 colspan=2><img src="Images/HomeBanner.gif">
+	</table>
+<!--side bar end-->
+
+<td>
+
+<!--Navigator Bar-->
+
+	<table cellspacing=0 cellpadding=0 abswidth=422 absheight=383>
+	<tr><td colspan=2>
+		<table cellspacing=0 cellpadding=0 abswidth=422 absheight=148>
+		<tr><td rowspan=2 width=6 background="Images/TopSidebarShadow.gif"><spacer>
+		<td>
+			<table cellspacing=0 cellpadding=0 absheight=110 abswidth=416 bgcolor="2d3254" background="Images/TopRowGradient.gif">
+			<tr><td abswidth=104 absheight=110>
+
+<!--mail navi-->
+				<table cellspacing=0 cellpadding=0 href="mail.html" onMouseOver="PauseRotation()" selected insetSelection>
+				<tr><td height=11>
+				<tr><td align=center><spacer type=block width=0><img src="file://ROM/Cache/OpenMailbox3.gif" border=0 width=61 height=52>
+				<tr><td height=14>
+				<tr><td align=center>
+					<table cellspacing=0 cellpadding=0>
+					<tr><td align=center><font color=000000 size=2><limittext value="メール" width=104></font>
+					</table>
+				<tr><td height=10>
+				</table>
+			<td abswidth=104 absheight=110>
+
+<!--fav navi-->
+				<table cellspacing=0 cellpadding=0 href="favorites.html" onMouseOver="PauseRotation()" insetSelection>
+				<tr><td height=11>
+				<tr><td align=center><spacer type=block width=0><img src="file://ROM/Cache/TreasureChest1.gif" border=0 width=92 height=52>
+				<tr><td height=14>
+				<tr><td align=center>
+					<table cellspacing=0 cellpadding=0>
+					<tr><td align=center><font color=000000 size=2><limittext value="お気に入り" width=104></font>
+					</table>
+				<tr><td height=10>
+				</table>
+			<td abswidth=104 absheight=110>
+<!--Community navi-->
+				<table cellspacing=0 cellpadding=0 href="explore.html" onMouseOver="PauseRotation()" insetSelection>
+				<tr><td height=11>
+				<tr><td align=center><spacer type=block width=0><img src="file://ROM/Cache/NavigationGlobe0.gif" border=0 width=68 height=59>
+				<tr><td height=9>
+				<tr><td align=center>
+					<table cellspacing=0 cellpadding=0>
+					<tr><td align=center><font color=000000 size=2><limittext value="おすすめ" width=104></font>
+					</table>
+				<tr><td height=10>
+				</table>
+			<td abswidth=104 absheight=110>
+<!--Search navi-->
+				<table cellspacing=0 cellpadding=0 href="search.html" onMouseOver="PauseRotation()" insetSelection>
+				<tr><td height=11>
+				<tr><td align=center><spacer type=block width=0><img src="file://ROM/Cache/Binoculars0.gif" width=86 height=54>
+				<tr><td height=11>
+				<tr><td align=center>
+					<table cellspacing=0 cellpadding=0>
+					<tr><td align=center><font color=000000 size=2><limittext value="サーチ" width=104></font>
+					</table>
+				<tr><td height=10>
+			</table>
+		</table>
+<!--Navigation Bar(right-top) End-->
+
+<!--News bar Start-->
+	<tr><td absheight=32 abswidth=416>
+		<table cellspacing=0 cellpadding=0 insetselection onMouseOver="PauseRotation()">
+		<tr><td absheight=0 abswidth=416 bgcolor=7c80a6><spacer>
+		<tr><td absheight=2 abswidth=416 bgcolor=3b3f58><spacer>
+		<tr><td absheight=2 abswidth=416 bgcolor=7c80a6><spacer>
+		<tr><td>
+			<table cellspacing=0 cellpadding=0 bgcolor="3a3e64">
+			<tr><td absheight=27 width=196 align=left><spacer type=block width=7><font color=f7e79c size=2><shadow><limittext width=196 value="WebTVデモ実演中!!"><shadow></font>
+			<td absheight=25 width=220 align=right><embed name=weatherEmbed absheight=25 width=220 src="weather-buffer.html"><spacer type=block width=7>
+			</table>
+		<tr><td>
+			<table cellspacing=0 cellpadding=0 bgcolor="191919">
+			<tr><td absheight=1 abswidth=416><spacer type=block height=1>
+			</table>
+		</table>
+	</table>
+
+<!--News bar End-->
+
+<!--Promotion Window right-under-left-->
+	<tr><td width=292 height=242 bgcolor=191919>
+	<embed src="templates/Homelife.html" abswidth=292 absheight=240 name=promotionEmbed transition=crossfade>
+	<td align=center width=135 height=242>
+		<table cellspacing=0 cellpadding=0 height=209 width=135 border=0>
+		<tr><td height=209 align="center">
+		<embed name=partnerEmbed transition=crossfade src="templates/EOnline.html" bgcolor=191919 abswidth=135 absheight=209><br>
+		<tr><td height=31>
+		<img src="Images/SiteShowcase.gif" width=135 height=31>
+		</table>
+	</table>
+</table>
+</body>
+</html>

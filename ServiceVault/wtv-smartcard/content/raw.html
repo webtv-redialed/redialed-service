@@ -1,0 +1,120 @@
+<HTML>
+<HEAD>
+<TITLE>
+Smart card factory
+</TITLE>
+
+<SCRIPT LANGUAGE='JavaScript'>
+   <!--
+   	function WriteRawData(index)
+	{
+   	value = document.forms[index].rawBytes.value;
+	max = value.length;
+	
+	len = 0;
+	adjusted = "";
+
+   	if (max == 0)
+   		{
+   		alert("Please enter data into the text field first.");
+   		document.forms[index].rawBytes.select();
+   		document.forms[index].rawBytes.focus();
+   		return false;
+   		}
+   	
+   	/* we adjust the value ti remove spaces or returns from the text area wrapping */
+	while (1)
+   		{
+   		if (len >= max)
+   			break;
+    	if (value.charAt(len) >= "!")
+		   	adjusted = adjusted + value.charAt(len);
+   		len += 1;
+   		}
+
+	document.forms[index].action = "client:SaveToSmartCard?data=" + adjusted;   	
+	return true;
+	}
+   //-->
+</SCRIPT>
+
+<DISPLAY >
+</HEAD>
+<sidebar width=110> <table cellspacing=0 cellpadding=0 BGCOLOR=355844>
+<tr>
+<td colspan=3 abswidth=104 absheight=4>
+<td rowspan=99 width=6 absheight=420 valign=top align=left>
+<img src="wtv-home:/ROMCache/Shadow.gif" width=6 height=420>
+<tr>
+<td abswidth=6>
+<td abswidth=92 absheight=76>
+<table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
+<tr>
+<td align=right>
+<img src="wtv-home:/ROMCache/WebTVLogoJewel.gif" width=87 height=67>
+</table>
+<td abswidth=6>
+<tr><td absheight=5 colspan=3>
+<table cellspacing=0 cellpadding=0>
+<tr><td abswidth=104 absheight=2 valign=middle align=center bgcolor=21372a>
+<img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
+<tr><td abswidth=104 absheight=1 valign=top align=left>
+<tr><td abswidth=104 absheight=2 valign=top align=left bgcolor=53896a>
+<img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
+</table>
+<tr><td absheight=20>
+<tr><td absheight=244 align=right valign=bottom colspan=3>
+<img src="wtv-smartcard:/images/BannerSmartCard.gif" width=50 height=238>
+<tr><td absheight=41>
+</table>
+</sidebar>
+<BODY BGCOLOR="#191919" TEXT="#42CC55" LINK="36d5ff" VLINK="36d5ff" HSPACE=0 VSPACE=0 FONTSIZE="large"
+>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td abswidth=14>
+<td colspan=3>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td valign=center absheight=80>
+<font size="+2" color="E7CE4A"><blackface><shadow>
+Smart card factory
+</table>
+<td abswidth=20>
+<TR>
+<td>
+<td colspan=2 WIDTH=416 HEIGHT=118 VALIGN=top ALIGN=left>
+<P>If you really know what you are doing, you can enter the raw bytes
+to dump onto the card in the text area below then click the <b>Create</b> 
+button to manufacture the card.</P>
+<TR>
+<TD>
+<TD colspan=2 WIDTH=416 HEIGHT=118 VALIGN=top ALIGN=left>
+<FORM method="POST" onsubmit=WriteRawData(0)>
+<TEXTAREA NAME=rawBytes ROWS=5 COLS=60></TEXTAREA>
+</TD>
+<TR>
+<TD>
+<TD COLSPAN=4 HEIGHT=7 VALIGN=top ALIGN=left>
+<tr>
+<TD>
+<td colspan=4 height=2 valign=middle align=center bgcolor="2B2B2B">
+<tr>
+<TD>
+<td colspan=4 height=1 valign=top align=left>
+<tr>
+<TD>
+<td colspan=4 height=2 valign=top align=left bgcolor="0D0D0D">
+<TR>
+<TD>
+<TD COLSPAN=4 HEIGHT=4 VALIGN=top ALIGN=left>
+<TR>
+<TD>
+<TD COLSPAN=3 VALIGN=top ALIGN=right>
+<FONT COLOR="#E7CE4A" SIZE=-1><SHADOW>
+<INPUT TYPE=SUBMIT BORDERIMAGE="file://ROM/Borders/ButtonBorder2.bif" Value=Create NAME=ignore USESTYLE WIDTH=103>
+</SHADOW></FONT></FORM>
+<TD>
+</TABLE>
+</BODY>
+</HTML>

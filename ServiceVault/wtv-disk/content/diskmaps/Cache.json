@@ -1,0 +1,985 @@
+{
+	"DiskCache": {
+		"base": "file://Disk/Cache/",
+		"location": "content/Cache",
+		"service_owned": true,
+		"partition_size": 20971520,
+		"files": [
+			{
+				"file": "file://Disk/Cache/0.gif"
+			},
+			{
+				"file": "file://Disk/Cache/00.gif"
+			},
+			{
+				"file": "file://Disk/Cache/01.gif"
+			},
+			{
+				"file": "file://Disk/Cache/02.gif"
+			},
+			{
+				"file": "file://Disk/Cache/03.gif"
+			},
+			{
+				"file": "file://Disk/Cache/06.gif"
+			},
+			{
+				"file": "file://Disk/Cache/07.gif"
+			},
+			{
+				"file": "file://Disk/Cache/11.gif"
+			},
+			{
+				"file": "file://Disk/Cache/12.gif"
+			},
+			{
+				"file": "file://Disk/Cache/15.gif"
+			},
+			{
+				"file": "file://Disk/Cache/18.gif"
+			},
+			{
+				"file": "file://Disk/Cache/19.gif"
+			},
+			{
+				"file": "file://Disk/Cache/22.gif"
+			},
+			{
+				"file": "file://Disk/Cache/24.gif"
+			},
+			{
+				"file": "file://Disk/Cache/25.gif"
+			},
+			{
+				"file": "file://Disk/Cache/26.gif"
+			},
+			{
+				"file": "file://Disk/Cache/30.gif"
+			},
+			{
+				"file": "file://Disk/Cache/31.gif"
+			},
+			{
+				"file": "file://Disk/Cache/32.gif"
+			},
+			{
+				"file": "file://Disk/Cache/AC_logo_canada411_e.gif"
+			},
+			{
+				"file": "file://Disk/Cache/AC_logo_canada411_f.gif"
+			},
+			{
+				"file": "file://Disk/Cache/AC_logo_classifieds2000.gif"
+			},
+			{
+				"file": "file://Disk/Cache/AC_logo_ebay.gif"
+			},
+			{
+				"file": "file://Disk/Cache/AC_logo_enviro_e.gif"
+			},
+			{
+				"file": "file://Disk/Cache/AC_logo_enviro_f.gif"
+			},
+			{
+				"file": "file://Disk/Cache/AC_logo_journalmontreal.gif"
+			},
+			{
+				"file": "file://Disk/Cache/AC_logo_latoile.gif"
+			},
+			{
+				"file": "file://Disk/Cache/AC_logo_lycos.gif"
+			},
+			{
+				"file": "file://Disk/Cache/AC_logo_matinternet.gif"
+			},
+			{
+				"file": "file://Disk/Cache/AC_logo_surscene.gif"
+			},
+			{
+				"file": "file://Disk/Cache/AC_logo_sympatico.gif"
+			},
+			{
+				"file": "file://Disk/Cache/AC_logo_whowhere.gif"
+			},
+			{
+				"file": "file://Disk/Cache/AC_logo_yahoo.gif"
+			},
+			{
+				"file": "file://Disk/Cache/AC_masthead.jpg"
+			},
+			{
+				"file": "file://Disk/Cache/AroundTown.gif"
+			},
+			{
+				"file": "file://Disk/Cache/AroundTownIcon2.gif"
+			},
+			{
+				"file": "file://Disk/Cache/AT_BannerIcon.gif"
+			},
+			{
+				"file": "file://Disk/Cache/BackgroundAroundCanada.swf"
+			},
+			{
+				"file": "file://Disk/Cache/BackgroundAroundTown.swf"
+			},
+			{
+				"file": "file://Disk/Cache/BackgroundCorner.gif"
+			},
+			{
+				"file": "file://Disk/Cache/BackgroundEntertainment.swf"
+			},
+			{
+				"file": "file://Disk/Cache/BackgroundHealth.swf"
+			},
+			{
+				"file": "file://Disk/Cache/BackgroundMoneyDown.swf"
+			},
+			{
+				"file": "file://Disk/Cache/BackgroundMoneyFlat.swf"
+			},
+			{
+				"file": "file://Disk/Cache/BackgroundMoneyUp.swf"
+			},
+			{
+				"file": "file://Disk/Cache/BackgroundNews.swf"
+			},
+			{
+				"file": "file://Disk/Cache/BackgroundShopping.swf"
+			},
+			{
+				"file": "file://Disk/Cache/BackgroundSports.swf"
+			},
+			{
+				"file": "file://Disk/Cache/BackgroundWebTVToday.swf"
+			},
+			{
+				"file": "file://Disk/Cache/BackgroundWebTVToday_a.swf"
+			},
+			{
+				"file": "file://Disk/Cache/BackgroundWebTVToday_arrow.swf"
+			},
+			{
+				"file": "file://Disk/Cache/Balloon.gif"
+			},
+			{
+				"file": "file://Disk/Cache/BalloonsLeft.gif"
+			},
+			{
+				"file": "file://Disk/Cache/BalloonsLeft_JP.gif"
+			},
+			{
+				"file": "file://Disk/Cache/BalloonsRight.gif"
+			},
+			{
+				"file": "file://Disk/Cache/BalloonsRight_JP.gif"
+			},
+			{
+				"file": "file://Disk/Cache/BannerMail.gif"
+			},
+			{
+				"file": "file://Disk/Cache/BannerSubscribe.gif"
+			},
+			{
+				"file": "file://Disk/Cache/bg.gif"
+			},
+			{
+				"file": "file://Disk/Cache/bg_1pixel.gif"
+			},
+			{
+				"file": "file://Disk/Cache/biff_center.gif"
+			},
+			{
+				"file": "file://Disk/Cache/biff_left.gif"
+			},
+			{
+				"file": "file://Disk/Cache/biff_right.gif"
+			},
+			{
+				"file": "file://Disk/Cache/BigAlpha.gif"
+			},
+			{
+				"file": "file://Disk/Cache/BlueBullet.gif"
+			},
+			{
+				"file": "file://Disk/Cache/blue_tile_128.gif"
+			},
+			{
+				"file": "file://Disk/Cache/bottom_shadow.gif"
+			},
+			{
+				"file": "file://Disk/Cache/btn.gif"
+			},
+			{
+				"file": "file://Disk/Cache/bullet_blue_bgcat.gif"
+			},
+			{
+				"file": "file://Disk/Cache/bullet_blue_bgsubcat.gif"
+			},
+			{
+				"file": "file://Disk/Cache/bullet_blue_bgsubsub.gif"
+			},
+			{
+				"file": "file://Disk/Cache/bullet_blue_root.gif"
+			},
+			{
+				"file": "file://Disk/Cache/bullet_dash.gif"
+			},
+			{
+				"file": "file://Disk/Cache/bullet_dash_bgsubsub.gif"
+			},
+			{
+				"file": "file://Disk/Cache/bullet_yellow.gif"
+			},
+			{
+				"file": "file://Disk/Cache/bullet_yellow_root.gif"
+			},
+			{
+				"file": "file://Disk/Cache/B_e.gif"
+			},
+			{
+				"file": "file://Disk/Cache/cbot.gif"
+			},
+			{
+				"file": "file://Disk/Cache/cfront.gif"
+			},
+			{
+				"file": "file://Disk/Cache/changeGeneric.gif"
+			},
+			{
+				"file": "file://Disk/Cache/Chat.gif"
+			},
+			{
+				"file": "file://Disk/Cache/Chat2.gif"
+			},
+			{
+				"file": "file://Disk/Cache/ChatBanner.gif"
+			},
+			{
+				"file": "file://Disk/Cache/ChatTitle.gif"
+			},
+			{
+				"file": "file://Disk/Cache/ChatTitle_JP.gif"
+			},
+			{
+				"file": "file://Disk/Cache/Community.gif"
+			},
+			{
+				"file": "file://Disk/Cache/CommunityBanner.gif"
+			},
+			{
+				"file": "file://Disk/Cache/CommunityBanner2.gif"
+			},
+			{
+				"file": "file://Disk/Cache/CommunityFriend.gif"
+			},
+			{
+				"file": "file://Disk/Cache/CommunityNormal.gif"
+			},
+			{
+				"file": "file://Disk/Cache/contro.gif"
+			},
+			{
+				"file": "file://Disk/Cache/corner_bottom.gif"
+			},
+			{
+				"file": "file://Disk/Cache/corner_shadow.gif"
+			},
+			{
+				"file": "file://Disk/Cache/corner_top.gif"
+			},
+			{
+				"file": "file://Disk/Cache/C_c_v.gif"
+			},
+			{
+				"file": "file://Disk/Cache/down_arrow.gif"
+			},
+			{
+				"file": "file://Disk/Cache/E.gif"
+			},
+			{
+				"file": "file://Disk/Cache/Egreetings-account-2.gif"
+			},
+			{
+				"file": "file://Disk/Cache/Egreetings-ani1.gif"
+			},
+			{
+				"file": "file://Disk/Cache/Egreetings-cat-2.gif"
+			},
+			{
+				"file": "file://Disk/Cache/Egreetings-help-2.gif"
+			},
+			{
+				"file": "file://Disk/Cache/Egreetings-logo-big.gif"
+			},
+			{
+				"file": "file://Disk/Cache/Egreetings-logo-sml.gif"
+			},
+			{
+				"file": "file://Disk/Cache/Egreetings-mousecard-2.gif"
+			},
+			{
+				"file": "file://Disk/Cache/Egreetings-screen1.gif"
+			},
+			{
+				"file": "file://Disk/Cache/Egreetings.gif"
+			},
+			{
+				"file": "file://Disk/Cache/EntertainmentTitle.jpg"
+			},
+			{
+				"file": "file://Disk/Cache/ESPN.gif"
+			},
+			{
+				"file": "file://Disk/Cache/Explore.gif"
+			},
+			{
+				"file": "file://Disk/Cache/ExploreTitle.gif"
+			},
+			{
+				"file": "file://Disk/Cache/f.gif"
+			},
+			{
+				"file": "file://Disk/Cache/FarRightTop.gif"
+			},
+			{
+				"file": "file://Disk/Cache/FarRightTopWithNextTab.gif"
+			},
+			{
+				"file": "file://Disk/Cache/FavoritesBanner.gif"
+			},
+			{
+				"file": "file://Disk/Cache/ff.gif"
+			},
+			{
+				"file": "file://Disk/Cache/FKey.gif"
+			},
+			{
+				"file": "file://Disk/Cache/FoldersCoverBorder.gif"
+			},
+			{
+				"file": "file://Disk/Cache/FoldersCoverShadow.gif"
+			},
+			{
+				"file": "file://Disk/Cache/G.gif"
+			},
+			{
+				"file": "file://Disk/Cache/GoToTitle_JP.gif"
+			},
+			{
+				"file": "file://Disk/Cache/grad_tile.gif"
+			},
+			{
+				"file": "file://Disk/Cache/h.gif"
+			},
+			{
+				"file": "file://Disk/Cache/hh.gif"
+			},
+			{
+				"file": "file://Disk/Cache/HomeBanner.gif"
+			},
+			{
+				"file": "file://Disk/Cache/HomePageBottom.html"
+			},
+			{
+				"file": "file://Disk/Cache/HomePageTopOneUserPlus.html"
+			},
+			{
+				"file": "file://Disk/Cache/HomePageTopSubscriberPlus.html"
+			},
+			{
+				"file": "file://Disk/Cache/HomePageTopUserPlus.html"
+			},
+			{
+				"file": "file://Disk/Cache/horiz_line.gif"
+			},
+			{
+				"file": "file://Disk/Cache/horiz_line_bottom.gif"
+			},
+			{
+				"file": "file://Disk/Cache/horiz_line_mid.gif"
+			},
+			{
+				"file": "file://Disk/Cache/horiz_line_top.gif"
+			},
+			{
+				"file": "file://Disk/Cache/I.gif"
+			},
+			{
+				"file": "file://Disk/Cache/infoseek_logo.gif"
+			},
+			{
+				"file": "file://Disk/Cache/infoseek_more_results.gif"
+			},
+			{
+				"file": "file://Disk/Cache/infoseek_previous_results.gif"
+			},
+			{
+				"file": "file://Disk/Cache/infoseek_search_banner.gif"
+			},
+			{
+				"file": "file://Disk/Cache/j.gif"
+			},
+			{
+				"file": "file://Disk/Cache/JPChat.gif"
+			},
+			{
+				"file": "file://Disk/Cache/JPnews_icon.gif"
+			},
+			{
+				"file": "file://Disk/Cache/KidsHomeBanner.gif"
+			},
+			{
+				"file": "file://Disk/Cache/kids_bg2.swf"
+			},
+			{
+				"file": "file://Disk/Cache/kids_bg_JP.swf"
+			},
+			{
+				"file": "file://Disk/Cache/kids_bg_JP_sega.swf"
+			},
+			{
+				"file": "file://Disk/Cache/kids_mail.swf"
+			},
+			{
+				"file": "file://Disk/Cache/kids_mail_JP.swf"
+			},
+			{
+				"file": "file://Disk/Cache/kids_tvhome.swf"
+			},
+			{
+				"file": "file://Disk/Cache/kids_tvhome_JP.swf"
+			},
+			{
+				"file": "file://Disk/Cache/l.gif"
+			},
+			{
+				"file": "file://Disk/Cache/LeftBottom.gif"
+			},
+			{
+				"file": "file://Disk/Cache/LeftMiddle.gif"
+			},
+			{
+				"file": "file://Disk/Cache/LeftMiddleTabOnly.gif"
+			},
+			{
+				"file": "file://Disk/Cache/LeftTop.gif"
+			},
+			{
+				"file": "file://Disk/Cache/LeftTopWithPreviousTab.gif"
+			},
+			{
+				"file": "file://Disk/Cache/left_arrow.gif"
+			},
+			{
+				"file": "file://Disk/Cache/left_mark.gif"
+			},
+			{
+				"file": "file://Disk/Cache/LightShadow.gif"
+			},
+			{
+				"file": "file://Disk/Cache/light_blue_tile.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_ABC.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_AE.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_blank.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_CARTOON.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_CBS.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_citysearch.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_classifieds2000.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_CNN.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_COM.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_dinesite.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_DISCOVERY.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_E.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_ebay.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_ESPN.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_festivalfinder.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_FOX.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_HBO.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_monsterboard.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_movielink.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_MTV.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_NBC.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_NICK.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_PBS.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_SHOWTIME.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_syndicated.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_TBS.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_ticketmaster.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_TNT.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_TVLAND.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_UPN.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_USA.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_WB.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_whowhere.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_yahoo.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_zagat.gif"
+			},
+			{
+				"file": "file://Disk/Cache/logo_zip2.gif"
+			},
+			{
+				"file": "file://Disk/Cache/masthead.jpg"
+			},
+			{
+				"file": "file://Disk/Cache/MicrosoftInvestor.gif"
+			},
+			{
+				"file": "file://Disk/Cache/MiddleTop.gif"
+			},
+			{
+				"file": "file://Disk/Cache/minus_button.gif"
+			},
+			{
+				"file": "file://Disk/Cache/minus_button_dim.gif"
+			},
+			{
+				"file": "file://Disk/Cache/movedown.gif"
+			},
+			{
+				"file": "file://Disk/Cache/moveup.gif"
+			},
+			{
+				"file": "file://Disk/Cache/moviefinder.gif"
+			},
+			{
+				"file": "file://Disk/Cache/MSNBC.gif"
+			},
+			{
+				"file": "file://Disk/Cache/MyWebTVAlpha.gif"
+			},
+			{
+				"file": "file://Disk/Cache/MyWebTVBanner.jpg"
+			},
+			{
+				"file": "file://Disk/Cache/M_d_J.gif"
+			},
+			{
+				"file": "file://Disk/Cache/n.gif"
+			},
+			{
+				"file": "file://Disk/Cache/NameBanner.gif"
+			},
+			{
+				"file": "file://Disk/Cache/newpagebig.gif"
+			},
+			{
+				"file": "file://Disk/Cache/NewsTitle.jpg"
+			},
+			{
+				"file": "file://Disk/Cache/news_icon.gif"
+			},
+			{
+				"file": "file://Disk/Cache/new_heading.gif"
+			},
+			{
+				"file": "file://Disk/Cache/new_links.gif"
+			},
+			{
+				"file": "file://Disk/Cache/new_list.gif"
+			},
+			{
+				"file": "file://Disk/Cache/new_pagebreak.gif"
+			},
+			{
+				"file": "file://Disk/Cache/new_pict.gif"
+			},
+			{
+				"file": "file://Disk/Cache/new_shadow-bottom.gif"
+			},
+			{
+				"file": "file://Disk/Cache/new_shadow-right.gif"
+			},
+			{
+				"file": "file://Disk/Cache/new_text.gif"
+			},
+			{
+				"file": "file://Disk/Cache/nn.gif"
+			},
+			{
+				"file": "file://Disk/Cache/o.gif"
+			},
+			{
+				"file": "file://Disk/Cache/O_y_z.gif"
+			},
+			{
+				"file": "file://Disk/Cache/p.gif"
+			},
+			{
+				"file": "file://Disk/Cache/pagebreak.gif"
+			},
+			{
+				"file": "file://Disk/Cache/pagebuilder.gif"
+			},
+			{
+				"file": "file://Disk/Cache/PaperBase.gif"
+			},
+			{
+				"file": "file://Disk/Cache/PaperTop.gif"
+			},
+			{
+				"file": "file://Disk/Cache/PaperTopFlat.gif"
+			},
+			{
+				"file": "file://Disk/Cache/plus.gif"
+			},
+			{
+				"file": "file://Disk/Cache/plus_button.gif"
+			},
+			{
+				"file": "file://Disk/Cache/plus_button_dim.gif"
+			},
+			{
+				"file": "file://Disk/Cache/pointer.gif"
+			},
+			{
+				"file": "file://Disk/Cache/pp.gif"
+			},
+			{
+				"file": "file://Disk/Cache/PromotionLeftEdge.gif"
+			},
+			{
+				"file": "file://Disk/Cache/publish_icon.gif"
+			},
+			{
+				"file": "file://Disk/Cache/publish_icon2.gif"
+			},
+			{
+				"file": "file://Disk/Cache/q.gif"
+			},
+			{
+				"file": "file://Disk/Cache/r.gif"
+			},
+			{
+				"file": "file://Disk/Cache/rightarrow.gif"
+			},
+			{
+				"file": "file://Disk/Cache/RightBottom.gif"
+			},
+			{
+				"file": "file://Disk/Cache/RightMiddle.gif"
+			},
+			{
+				"file": "file://Disk/Cache/RightMiddleEdgeOnly.gif"
+			},
+			{
+				"file": "file://Disk/Cache/RightTop.gif"
+			},
+			{
+				"file": "file://Disk/Cache/RightTopEdgeOnly.gif"
+			},
+			{
+				"file": "file://Disk/Cache/RightTopmost.gif"
+			},
+			{
+				"file": "file://Disk/Cache/right_arrow.gif"
+			},
+			{
+				"file": "file://Disk/Cache/right_mark.gif"
+			},
+			{
+				"file": "file://Disk/Cache/right_shadow.gif"
+			},
+			{
+				"file": "file://Disk/Cache/RoomsTitle.gif"
+			},
+			{
+				"file": "file://Disk/Cache/RoomsTitle_JP.gif"
+			},
+			{
+				"file": "file://Disk/Cache/RoomTitle.gif"
+			},
+			{
+				"file": "file://Disk/Cache/RoomTitle_JP.gif"
+			},
+			{
+				"file": "file://Disk/Cache/round_dk.gif"
+			},
+			{
+				"file": "file://Disk/Cache/round_lt.gif"
+			},
+			{
+				"file": "file://Disk/Cache/round_med.gif"
+			},
+			{
+				"file": "file://Disk/Cache/R_k_m.gif"
+			},
+			{
+				"file": "file://Disk/Cache/S20BH1.gif"
+			},
+			{
+				"file": "file://Disk/Cache/S20BV1.gif"
+			},
+			{
+				"file": "file://Disk/Cache/S20BV2.gif"
+			},
+			{
+				"file": "file://Disk/Cache/S20TH1.gif"
+			},
+			{
+				"file": "file://Disk/Cache/S20TV1.gif"
+			},
+			{
+				"file": "file://Disk/Cache/S20TV2.gif"
+			},
+			{
+				"file": "file://Disk/Cache/S40H1.gif"
+			},
+			{
+				"file": "file://Disk/Cache/S40V1.gif"
+			},
+			{
+				"file": "file://Disk/Cache/S40V2.gif"
+			},
+			{
+				"file": "file://Disk/Cache/S60HS1.gif"
+			},
+			{
+				"file": "file://Disk/Cache/S60HS2.gif"
+			},
+			{
+				"file": "file://Disk/Cache/S60HS3.gif"
+			},
+			{
+				"file": "file://Disk/Cache/S60HS4.gif"
+			},
+			{
+				"file": "file://Disk/Cache/S60HS5.gif"
+			},
+			{
+				"file": "file://Disk/Cache/SAdH1.gif"
+			},
+			{
+				"file": "file://Disk/Cache/SAdH2.gif"
+			},
+			{
+				"file": "file://Disk/Cache/SAdH3.gif"
+			},
+			{
+				"file": "file://Disk/Cache/SearchBanner.gif"
+			},
+			{
+				"file": "file://Disk/Cache/SetupBanner.gif"
+			},
+			{
+				"file": "file://Disk/Cache/Shadow.gif"
+			},
+			{
+				"file": "file://Disk/Cache/shadowBackground.gif"
+			},
+			{
+				"file": "file://Disk/Cache/ShadowCorner.gif"
+			},
+			{
+				"file": "file://Disk/Cache/ShadowH.gif"
+			},
+			{
+				"file": "file://Disk/Cache/ShadowHCap.gif"
+			},
+			{
+				"file": "file://Disk/Cache/ShadowHStart.gif"
+			},
+			{
+				"file": "file://Disk/Cache/ShowGuidesLogo.gif"
+			},
+			{
+				"file": "file://Disk/Cache/Spacer.gif"
+			},
+			{
+				"file": "file://Disk/Cache/SportsTitle.jpg"
+			},
+			{
+				"file": "file://Disk/Cache/StocksTitle.jpg"
+			},
+			{
+				"file": "file://Disk/Cache/S_g_i.gif"
+			},
+			{
+				"file": "file://Disk/Cache/s_Q.gif"
+			},
+			{
+				"file": "file://Disk/Cache/TabA.gif"
+			},
+			{
+				"file": "file://Disk/Cache/TabA1.gif"
+			},
+			{
+				"file": "file://Disk/Cache/TabB.gif"
+			},
+			{
+				"file": "file://Disk/Cache/TabB1.gif"
+			},
+			{
+				"file": "file://Disk/Cache/TabC.gif"
+			},
+			{
+				"file": "file://Disk/Cache/TabC1.gif"
+			},
+			{
+				"file": "file://Disk/Cache/TabD.gif"
+			},
+			{
+				"file": "file://Disk/Cache/TabD1.gif"
+			},
+			{
+				"file": "file://Disk/Cache/TabHiliteBottom.gif"
+			},
+			{
+				"file": "file://Disk/Cache/TabHiliteTop.gif"
+			},
+			{
+				"file": "file://Disk/Cache/TabShadow.gif"
+			},
+			{
+				"file": "file://Disk/Cache/teaser-News.gif"
+			},
+			{
+				"file": "file://Disk/Cache/teaser-Sports.gif"
+			},
+			{
+				"file": "file://Disk/Cache/teaser-Stocks.gif"
+			},
+			{
+				"file": "file://Disk/Cache/teaser-Weather.gif"
+			},
+			{
+				"file": "file://Disk/Cache/TitleShadowBottom.gif"
+			},
+			{
+				"file": "file://Disk/Cache/TitleShadowBottomLeft.gif"
+			},
+			{
+				"file": "file://Disk/Cache/TopBackground.gif"
+			},
+			{
+				"file": "file://Disk/Cache/TopBackground.jpg"
+			},
+			{
+				"file": "file://Disk/Cache/TopBackground_Classic.gif"
+			},
+			{
+				"file": "file://Disk/Cache/TopBackground_Classic.jpg"
+			},
+			{
+				"file": "file://Disk/Cache/topbanner.gif"
+			},
+			{
+				"file": "file://Disk/Cache/TopRowGradient.gif"
+			},
+			{
+				"file": "file://Disk/Cache/TopSidebarShadow.jpg"
+			},
+			{
+				"file": "file://Disk/Cache/T_t_b_x_a.gif"
+			},
+			{
+				"file": "file://Disk/Cache/u.gif"
+			},
+			{
+				"file": "file://Disk/Cache/up_arrow.gif"
+			},
+			{
+				"file": "file://Disk/Cache/UsingWebTVBanner.gif"
+			},
+			{
+				"file": "file://Disk/Cache/UtilityBullet.gif"
+			},
+			{
+				"file": "file://Disk/Cache/U_A_V.gif"
+			},
+			{
+				"file": "file://Disk/Cache/vert_line.gif"
+			},
+			{
+				"file": "file://Disk/Cache/weatherchannel.gif"
+			},
+			{
+				"file": "file://Disk/Cache/WeatherTitle.jpg"
+			},
+			{
+				"file": "file://Disk/Cache/WebHome.gif"
+			},
+			{
+				"file": "file://Disk/Cache/WebTVPlusLogo.gif"
+			},
+			{
+				"file": "file://Disk/Cache/W_w_L.gif"
+			},
+			{
+				"file": "file://Disk/Cache/X.gif"
+			},
+			{
+				"file": "file://Disk/Cache/Y_Z.gif"
+			}
+		]
+	}
+}

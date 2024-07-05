@@ -1,0 +1,11 @@
+wtv-content:/pdrivers/c2.6/canon/Canon2000.mod
+2,http://www.ccsi.canon.com/_wtv_support/4000stup.htm
+3,http://www.ccsi.canon.com/_wtv_support/4000stup.htm
+4,http://www.ccsi.canon.com/_wtv_support/4000papr.htm
+9,http://www.ccsi.canon.com/_wtv_support/4000cart.htm
+10,http://www.ccsi.canon.com/_wtv_support/4000stup.htm
+13,http://www.ccsi.canon.com/_wtv_support/4000cart.htm
+14,http://www.ccsi.canon.com/_wtv_support/4000cart.htm
+15,http://www.ccsi.canon.com/_wtv_support/4000cart.htm
+17,http://www.ccsi.canon.com/_wtv_support/4000stup.htm
+*,http://www.ccsi.canon.com/_wtv_support/index.htm

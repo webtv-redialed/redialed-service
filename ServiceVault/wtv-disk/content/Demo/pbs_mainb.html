@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<TITLE>Rotating Images</TITLE>
+</HEAD>
+<SCRIPT LANGUAGE="JavaScript">
+
+var embed = 1;
+
+function rotate() {
+   if (++embed > 6)  embed = 1;
+   document.embeds[0].src = "pbs_mainb" + embed + ".html";
+   window.setTimeout('rotate();',5000);
+}
+</SCRIPT>
+<BODY onLoad="window.setTimeout('rotate();',5000);">
+<EMBED NAME="pbs_mainb" SRC="pbs_mainb1.html">
+</BODY>
+</HTML>
+
+
+

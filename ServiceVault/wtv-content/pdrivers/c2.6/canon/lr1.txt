@@ -1,0 +1,11 @@
+wtv-content:/pdrivers/c2.6/canon/Canonlr1.mod
+2,http://www.ccsi.canon.com/_wtv_support/LR1stup.htm
+3,http://www.ccsi.canon.com/_wtv_support/LR1stup.htm
+4,http://www.ccsi.canon.com/_wtv_support/LR1papr.htm
+9,http://www.ccsi.canon.com/_wtv_support/LR1cart.htm
+10,http://www.ccsi.canon.com/_wtv_support/LR1stup.htm
+13,http://www.ccsi.canon.com/_wtv_support/LR1cart.htm
+14,http://www.ccsi.canon.com/_wtv_support/LR1cart.htm
+15,http://www.ccsi.canon.com/_wtv_support/LR1cart.htm
+17,http://www.ccsi.canon.com/_wtv_support/LR1stup.htm
+*,http://www.ccsi.canon.com/_wtv_support/index.htm

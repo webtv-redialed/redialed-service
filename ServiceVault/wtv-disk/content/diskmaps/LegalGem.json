@@ -1,0 +1,11 @@
+{
+  "LegalGem": {
+    "base": "file://Disk/Browser/LegalGem/",
+    "location": "content/LegalGem/",
+    "files": [
+      {
+        "file": "file://Disk/Browser/LegalGem/setup-listings.html"
+      }
+    ]
+  }
+}

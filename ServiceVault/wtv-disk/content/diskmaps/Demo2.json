@@ -1,0 +1,107 @@
+{
+	"Demo2": {
+		"base": "file://Disk/Browser/Demo2/",
+		"location": "content/Demo2",
+		"files": [
+			{
+				"file": "file://Disk/Browser/Demo2//1pix2.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//baboonmov1.jpg"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//dotline2.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//food2.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//ghed32.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//gorilla.html"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//gorillas.html"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//gorillas011.jpg"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//home.html"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//inv1.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//natdotline1.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//nathedwilddisc1.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//natstorytbar1.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//natstorytbar2.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//nattilewilddisc1.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//nature1.html"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//nback1.jpg"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//phone2.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//questno12.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//questno22.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//questno32.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//questno42.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//questno52.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//quiz1.jpg"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//snore2.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//spike2.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//subhed2.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//tellme!2.jpg"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//tile32.jpg"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//trans352.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//tv2.gif"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//webquiz.spl"
+			},
+			{
+				"file": "file://Disk/Browser/Demo2//webquiz2.spl"
+			}
+		]
+	}
+}

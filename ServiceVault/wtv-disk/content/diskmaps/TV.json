@@ -1,0 +1,77 @@
+{
+  "TV": {
+    "base": "file://Disk/browser/TV/",
+    "location": "content/TV/",
+    "files": [
+      {
+        "file": "file://Disk/browser/TV/IR/cabcodes.dat"
+      },
+      {
+        "file": "file://Disk/browser/TV/IR/cabnames.dat"
+      },
+      {
+        "file": "file://Disk/browser/TV/IR/delay.dat"
+      },
+      {
+        "file": "file://Disk/browser/TV/IR/satcodes.dat"
+      },
+      {
+        "file": "file://Disk/browser/TV/IR/satnames.dat"
+      },
+      {
+        "file": "file://Disk/browser/TV/IR/vcrcodes.dat"
+      },
+      {
+        "file": "file://Disk/browser/TV/IR/vcrnames.dat"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings/20220401.tvsl"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings/20220403.tvl"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings/20220404.tvl"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings/20220405.tvl"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings/20220406.tvl"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings/20220407.tvl"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings/20220408.tvl"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings/20220409.tvl"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings/B07010.20220401.tvch"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings.DB/20220403.ptl"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings.DB/20220404.ptl"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings.DB/20220405.ptl"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings.DB/20220406.ptl"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings.DB/20220407.ptl"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings.DB/20220408.ptl"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings.DB/20220409.ptl"
+      }
+    ]
+  }
+}

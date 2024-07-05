@@ -1,0 +1,154 @@
+<html>
+<HEAD>
+<TITLE>Kinokuniya 和書 database </TITLE>
+<META HTTP-EQUIV="Refresh" CONTENT="45;URL=result.html">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; Charset=x-sjis">
+<savepanel message="このデモではこのページは保存できません" label="次へ" action="client:donothing">
+<SCRIPT Language="JavaScript">
+<!--
+function Linkbutton(form)
+{
+	location.href = "result.html";
+	
+}
+// -->
+</SCRIPT>
+</HEAD><BODY BGCOLOR="#FFFFFF" topmargin=0 leftmargin=0>
+<table width="100%" border=0 bgcolor="#000000" cellpadding=0 cellspacing=1>
+<tr>
+<td><img src="button/weblogo.gif" alt="BookWeb" width="75" height="17"></td>
+<td><img src="button/menuhe.gif" width=65 height=17 alt="メニューへ戻る" border=0></td>
+<td><img src="button/tennai.gif" width=83 height=17 alt="店内のご案内" border=0></td>
+<td><img src="button/syodana.gif" width=85 height=17 alt="仮想書店書棚コーナー" border=0></td>
+<td><img src="button/bookf.gif" width=57 height=17 alt="洋書検索コーナーへ" border=0></td>
+</tr></table>
+<center>
+<FORM>
+<TABLE width="100%">
+<TR><TD align=center><table border=5><TD><FONT SIZE=5>和書の検索</FONT></td></table></TD>
+<TD>
+<INPUT TYPE="button" VALUE="検索実行" onClick="Linkbutton(this.form)"> <INPUT TYPE="reset"  VALUE="クリア"></td>
+<td>詳しい使い方</td>
+</tr></table>
+<hr>
+<input name="USER" TYPE="hidden" value="GUEST">
+<input name="RECNO" TYPE="hidden" value="1">
+<table cellpadding=0 cellspacing=0>
+<tr><td>
+<B> 表示件数:</B></td><td><select name="HITCNT">
+                     <option value=10>10
+                     </select>※非会員の方は10件まで</td></tr>
+<tr><td>
+<B>ＩＳＢＮ</b></td><td><INPUT NAME="W-ISBN" SIZE=15>(ハイフン("-")は不要)</td></tr>
+<tr><td>
+<B>書名(ひらがな)</B></td><td><INPUT NAME="W-TITLE" SIZE=35>を含む</td></tr>
+<tr><td>
+<B>　　　ＡＮＤ</B></td><td><INPUT NAME="W-TITLE2" SIZE=35>を含む</TD></tr>
+<tr><td>
+<B>　　　ＡＮＤ</B></td><td><INPUT NAME="W-TITLE3" SIZE=35>を含む</td></tr>
+<tr><td>
+<B>書名(漢字)</b></td><td><INPUT NAME="W-KTIT" size=35>から始まる</td></tr>
+<tr><td>
+<B>著者名（漢字）</B></td><td><INPUT NAME="W-AUTHOR" SIZE=35><br>（姓名の間にスペースを入れないで下さい）</td></tr>
+<tr><td>
+<B>著者名（ひらがな）</B></td><td><INPUT NAME="W-KAUTH" SIZE=35><br>（姓名の間に全角スペースを入れて下さい）</td></tr>
+<tr><td>
+<B>出版社</B></td><td><INPUT NAME="W-PUBLISH" SIZE=35></td></tr>
+<tr><td>
+<B>分類</B></td><td><select  NAME="W-BUN">
+<option>
+<option value="1">数学、物理、生物
+<option value="2">工学
+<option value="3">建築・土木
+<option value="4">電子・通信
+<option value="5">医学・看護
+<option value="6">法律
+<option value="7">経済
+<option value="8">経営・商業
+<option value="9">思想・哲学
+<option value="A">心理
+<option value="B">宗教
+<option value="C">歴史
+<option value="D">教育
+<option value="E">小説
+<option value="F">評論・随筆・詩歌
+<option value="G">外国文学
+<option value="H">芸術
+<option value="I">児童書
+<option value="J">絵本
+<option value="K">スポーツ
+<option value="L">ゲーム・趣味
+<option value="M">くらし
+<option value="N">地図・ガイド
+<option value="O">学参（小・中）
+<option value="P">学参（高校）
+<option value="Q">文庫
+<option value="R">コミック
+</select>
+</td></tr>
+<tr><td>
+<B>ＮＤＣ分類</B></td><td><INPUT  NAME="W-NDC1" size=10>
+</td></tr>
+<tr><td>
+<B>出版年月</B></td><td><SELECT NAME="W-YEAR1">
+                     <option selected value="">
+<option value="98">1998
+<option value="97">1997
+<option value="96">1996
+<option value="95">1995
+<option value="94">1994
+<option value="93">1993
+<option value="92">1992
+<option value="91">1991
+<option value="90">1990
+<option value="89">1989
+<option value="88">1988
+<option value="87">1987
+<option value="86">1986
+<option value="85">1985
+<option value="84">1984
+<option value="83">1983
+<option value="82">1982
+<option value="81">1981
+<option value="80">1980
+</select>年
+<SELECT NAME="W-MONTH">
+<option selected value="">
+<option value="01">01
+<option value="02">02
+<option value="03">03
+<option value="04">04
+<option value="05">05
+<option value="06">06
+<option value="07">07
+<option value="08">08
+<option value="09">09
+<option value="10">10
+<option value="11">11
+<option value="12">12
+</select>月
+～
+<SELECT NAME="W-MONTH2">
+<option selected value="">
+<option value="01">01
+<option value="02">02
+<option value="03">03
+<option value="04">04
+<option value="05">05
+<option value="06">06
+<option value="07">07
+<option value="08">08
+<option value="09">09
+<option value="10">10
+<option value="11">11
+<option value="12">12
+</select>ケ月間</TD></TR>
+<tr><td colspan=2>
+<b>ＩＳＢＮ、ＮＤＣ分類は半角　他の項目は全て全角で入力して下さい。</b>
+</td></tr></table>
+</FORM>
+</center>
+<hr>
+<center>E-mail:webmaster@kinokuniya.co.jp
+<I>Copyright (C) 1996 Kinokuniya Company, LTD.</I></center></BODY>
+</HTML>

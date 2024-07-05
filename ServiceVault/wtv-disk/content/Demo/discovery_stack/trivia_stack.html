@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<TITLE>Rotating Images</TITLE>
+</HEAD>
+<SCRIPT LANGUAGE="JavaScript">
+
+var embed = 1;
+
+function rotate() {
+   if (++embed > 6)  embed = 1;
+   document.embeds[0].src = "trivia_stack" + embed + ".html";
+   window.setTimeout('rotate();',5000);
+}
+</SCRIPT>
+<BODY onLoad="window.setTimeout('rotate();',5000);">
+<EMBED NAME="trivia_stack" SRC="trivia_stack1.html">
+</BODY>
+</HTML>
+
+
+

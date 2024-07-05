@@ -1,0 +1,22 @@
+[
+    {
+        "img": "wtv-home:/shared/ads/default/wtvnews_red_1.jpg",
+        "url": "wtv-center:/cwtv/redirect"
+    },
+	{
+        "img": "wtv-home:/shared/ads/skcro/webtvhd.gif",
+        "url": "https://skcro.destroytheos.net/wtv.html"
+    },
+	{
+        "img": "wtv-home:/shared/ads/smallmicrowave/basement.gif",
+        "url": "http://ultra0.xyz"
+    },
+	{
+        "img": "wtv-home:/shared/ads/flame/flame.gif",
+        "url": "http://flamelord626.github.io/index-wtv.html"
+    },
+	{
+        "img": "wtv-home:/shared/ads/secondsight/br_wtv_ad.gif",
+        "url": "http://bezerk.uk/htmls/redialed.html"
+    }
+]

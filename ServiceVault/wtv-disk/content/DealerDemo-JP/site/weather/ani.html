@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<title>TBS Weather Guide</title>
+<META HTTP-EQUIV="Refresh" CONTENT="60;URL=../../home.html">
+<script language="JavaScript">
+
+<!--
+var app = navigator.appVersion;
+
+if (app.indexOf("Macintosh") != -1) { var usr_os = "mac";    } else {
+if (app.indexOf("X11") != -1)       { var usr_os = "unix";   } else {
+if (app.indexOf("Win") != -1)       { var usr_os = "win";    } else {
+                                      var usr_os = "others"; }}}
+//-->
+
+</script>
+<savepanel message="このデモではこのページは保存できません" label="次へ" action="client:donothing">
+</HEAD>
+<script language="JavaScript">
+
+<!--
+if (usr_os == "mac")  { document.writeln('<FRAMESET ROWS="*,75" border="0">'); }
+if (usr_os == "unix") { document.writeln('<FRAMESET ROWS="*,100" border="0">'); }
+if (usr_os == "win")  { document.writeln('<FRAMESET ROWS="*,75" border="0">'); }
+if (usr_os == "others")  { document.writeln('<FRAMESET ROWS="*,100" border="0">'); }
+//-->
+
+</script>
+
+<FRAME SRC="ani_top.html" NAME="top" MARGINHEIGHT="0" MARGINWIDTH="0" scrolling="auto" NORESIZE>
+<FRAME SRC="ani_bottom.html" NAME="bottom" MARGINHEIGHT="0" MARGINWIDTH="0" scrolling="no" NORESIZE>
+
+<NOFRAMES>
+このページはフレームを使用しています。
+フレームタグ対応ブラウザでご覧下さい。
+</NOFRAMES>
+
+</FRAMESET>
+
+</HTML>

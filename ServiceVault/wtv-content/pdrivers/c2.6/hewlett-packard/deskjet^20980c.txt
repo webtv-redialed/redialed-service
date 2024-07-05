@@ -1,0 +1,14 @@
+wtv-content:/pdrivers/c2.6/hewlett-packard/HP9XXVIP.mod
+2, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=3&language=us-en&systemID=20100100&modelstring=DESKJET%2098
+3, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=4&language=us-en&systemID=20100100&modelstring=DESKJET%2098
+4, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=5&language=us-en&systemID=20100100&modelstring=DESKJET%2098
+6, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=6&language=us-en&systemID=20100100&modelstring=DESKJET%2098
+7, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=7&language=us-en&systemID=20100100&modelstring=DESKJET%2098
+8, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=8&language=us-en&systemID=20100100&modelstring=DESKJET%2098
+9, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=13&language=us-en&systemID=20100100&modelstring=DESKJET%2098
+13, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=13&language=us-en&systemID=20100100&modelstring=DESKJET%2098
+14, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=13&language=us-en&systemID=20100100&modelstring=DESKJET%2098
+16, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=15&language=us-en&systemID=20100100&modelstring=DESKJET%2098
+17, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=16&language=us-en&systemID=20100100&modelstring=DESKJET%2098
+18, http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=15&language=us-en&systemID=20100100&modelstring=DESKJET%2098
+*,http://askwebtv.webtv.net/hpprinters/default.aspx?errorcode=-1&language=us-en&systemID=20100100&modelstring=DESKJET%2098

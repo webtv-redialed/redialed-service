@@ -1,0 +1,216 @@
+{
+  "DoomLC2": {
+    "base": "file://Disk/Doom/",
+    "location": "content/DoomLC2/",
+    "partition_size": 44457280,
+    "service_owned": true,
+    "execute_end": "client:boota?partition=DoomROM&action=create&size=5242880&source=file://Disk/Doom/DoomWebTVplus.o",
+    "display": "Retrieving DOOM",
+    "files": [
+      {
+        "file": "file://Disk/Doom/DoomWebTVplus.o.gz"
+      },
+      {
+        "file": "file://Disk/Doom/WebTV.wad.gz"
+      },
+      {
+        "file": "file://Disk/Doom/doom.wad.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_adrian.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_ampie.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_betwee.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_bunny.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_countd.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_ddtblu.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_dead.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_dm2ttl.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_doom.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_e1m1.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_e1m2.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_e1m3.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_e1m4.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_e1m5.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_e1m6.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_e1m7.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_e1m8.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_e1m9.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_e2m1.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_e2m2.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_e2m3.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_e2m4.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_e2m6.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_e2m7.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_e2m8.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_e3m1.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_e3m2.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_e3m3.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_e3m8.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_evil.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_in_cit.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_intro.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_messag.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_openin.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_read_m.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_romero.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_runnin.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_shawn.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_stalks.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_tense.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_the_da.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_ultima.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/music/d_victor.mid.gz"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/AboutDoom.html.gz"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/Arrow_TOC.gif"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/DoomCharts.html.gz"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/DoomCharts2.html.gz"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/DoomCharts3.html.gz"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/DoomCharts4.html.gz"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/DoomHints.html.gz"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/DoomHints2.html.gz"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/DoomInstructions.html.gz"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/DoomInstructions2.html.gz"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/DoomInstructions3.html.gz"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/DoomLogo.gif"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/DoomRating.html.gz"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/DoomRooms.html.gz"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/DoomRooms2.html.gz"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/DoomRooms3.html.gz"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/DoomRooms4.html.gz"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/DoomRooms5.html.gz"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/DoomTOC.html.gz"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/GamesBanner.gif"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/GamesShadowLogo.gif"
+      },
+      {
+        "file": "file://Disk/Doom/docs2/Pattern_Games.gif"
+      }
+    ]
+  }
+}

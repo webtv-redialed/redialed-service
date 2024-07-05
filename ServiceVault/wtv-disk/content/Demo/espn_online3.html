@@ -1,0 +1,60 @@
+  <html>
+<head>
+  <TITLE>ESPN: Games Status</TITLE>
+</head>
+<SCRIPT LANGUAGE="JavaScript">
+
+var embed = 1;
+
+function rotate() {
+   if (++embed > 2)  embed = 1;
+   document.embeds[0].src = "espn_score" + embed + ".html";
+   window.setTimeout('rotate();',5000);
+}
+</SCRIPT>
+<DISPLAY noscroll nooptions fontsize=medium text=ffffff>
+	
+</sidebar> 
+<body hspace=0 vspace=0 text=ffffff bgcolor=#242244 onLoad="window.setTimeout('rotate();',5000);">
+	<table abswidth=560 absheight=420 border=0 cellspacing=0 cellpadding=0>
+		<tr>
+			<td abswidth=187 absheight=420 bgcolor=#242244 rowspan=7>
+			<EMBED NAME="espn_score" SRC="espn_score1.html" ABSWIDTH="187" HEIGHT="385">
+		<tr>
+			<td abswidth=2 absheight=46 bgcolor=#3b1e1e>&nbsp;
+			<td abswidth=110 absheight=47 valign=top bgcolor=#3b1e1e><img src=images/gow.gif width=110 height=47 hspace=0 vspace=0>
+			<td abswidth=129 absheight=47 bgcolor=#5c2e2e valign=middle align=center><shadow><font color=ffb829>Tennessee
+			<td abswidth=48 absheight=47 align=center bgcolor=#5c2e2e><img src=images/vs_small.gif width=34 height=47 hspace=0 vspace=0>
+			<td abswidth=84 absheight=47 valign=middle align=center bgcolor=#5c2e2e><shadow><font color=ffb829>&nbsp;Texas<br>Tech
+		<tr>
+			<td abswidth=2 absheight=10 background=images/white.gif valign=top><img src=images/shader.gif width=2 height=5 hspace=0 vspace=0>&nbsp;
+			<td abswidth=371 absheight=10 colspan=4 valign=top bgcolor=#314034><img src=images/shader.gif width=371 height=5 hspace=0 vspace=0>&nbsp;
+		<tr>
+			<td abswidth=2 absheight=46 background=images/white.gif>&nbsp;
+			<td abswidth=369 absheight=46 valign=top colspan=4 bgcolor=#314034>
+			<nobr><spacer type=horizontal size=25>
+			<a href=espn_online1.html>
+			<EMBED SRC="espn_menu1.html" ABSWIDTH="60" HEIGHT="35"></a>
+			<spacer type=horizontal size=5>
+			<a href=espn_online2.html>
+			<EMBED SRC="espn_menu2.html" ABSWIDTH="60" HEIGHT="35"></a>
+			<spacer type=horizontal size=5>
+			<a href=espn_online3.html selected>
+			<EMBED SRC="espn_menu3.html" ABSWIDTH="70" HEIGHT="35"></a>
+			<spacer type=horizontal size=5>
+			<a href=espn_online4.html>
+			<EMBED SRC="espn_menu4.html" ABSWIDTH="50" HEIGHT="35"></a>
+			<spacer type=horizontal size=5>
+			<a href=espn_online5.html>
+			<EMBED SRC="espn_menu5.html" ABSWIDTH="80" HEIGHT="35"></a></nobr>
+		<tr>
+			<td abswidth=373 absheight=2 valign=top bgcolor=#ffffff colspan=5>&nbsp;
+		<tr>
+			<td abswidth=373 absheight=315 valign=top bgcolor=#314034 colspan=5>
+			<tv width=373 height=280>			
+	</table>
+
+</body>
+</html>
+
+

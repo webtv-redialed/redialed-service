@@ -1,0 +1,21 @@
+  <html>
+<head>
+  <TITLE>MSNBC</TITLE>
+</head>
+<SCRIPT LANGUAGE="JavaScript">
+
+var embed = 1;
+
+function rotate() {
+   if (++embed > 3)  embed = 1;
+   document.embeds[0].src = "stack" + embed + ".html";
+   window.setTimeout('rotate();',6000);
+}
+</SCRIPT>
+
+<display noscroll nooptions>
+<body hspace=0 vspace=0 text=ffffff onLoad="window.setTimeout('rotate();',6000);">
+<EMBED NAME="stack" SRC="stack1.html" abswidth="373" absheight="102">
+
+</body>
+</html>

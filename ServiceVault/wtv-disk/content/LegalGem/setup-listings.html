@@ -1,0 +1,108 @@
+<html>
+
+<!--- *=* Copyright 1996, 1997 WebTV Networks, Inc. All rights reserved. --->
+<HEAD>
+
+<TITLE>
+Cable Box
+</TITLE>
+<DISPLAY noscroll skipback nologo nooptions noreconnectalert>
+</HEAD>
+
+<body bgcolor=#21212e background="file://rom/tvimages/Pattern_TVSettings.gif" text=#cbcbcb link=#4489a8 hspace=0 vspace=0 fontsize=large noscroll hideoptions>
+
+<table cellspacing=0 cellpadding=0 cellborder=0>
+	<tr><td background="file://rom/tvimages/ShadowLogo_Horizontal.gif" width=104 height=80 valign=top align=left>
+			<spacer type=block WIDTH=11 HEIGHT=11><br>
+			<spacer type=block WIDTH=10 HEIGHT=1>
+	    	<a href="client:showtvhome"><img src="file://ROM/Cache/WebTVLogoJewel.gif" width=87 height=67></a>
+	    <td width=456 height=80 valign=top align=center>
+			<img src="file://rom/tvimages/TVSettingsBanner.gif" width=456 height=50><br>
+			<img src="file://rom/tvimages/Shadow_Horizontal.gif" width=456 height=6>
+</table>
+
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td absheight=291 abswidth=555 valign=top align=left>
+
+	<form action=client:Fetch?cancel=true>
+
+	<input type=hidden name=autosubmit value=true autosubmit=onleave>
+
+	<table cellspacing=0 cellpadding=0>
+	<tr><td absheight=25>
+	<tr><td abswidth=62>
+		<td colspan=3>
+		<table cellspacing=0 cellpadding=0>
+		<tr><td valign=top absheight=40>
+			<font size=+2 color=#ffcf69><shadow>TV Area</shadow></font>
+		</table>
+
+	<tr><td>
+		<td width=220 height=76 valign=top align=left>
+			<font size=-1 color=#989898>Type the</font>
+			<font size=-2 color=#989898>ZIP</font> 
+			<font size=-1 color=#989898>or postal code for your area.</font>
+		<td width=28>
+		<td width=198 valign=top align=left>
+			<font size=-2 color=#6cb18a>ZIP</font> 
+			<font size=-1 color=#6cb18a>or postal code<BR></font>
+			<IMG SRC="file://ROM/Cache/Spacer.gif" WIDTH=1 HEIGHT=3><BR>
+			<INPUT TYPE="text" NAME=setup-epg-zip VALUE="&tv-zipcode;" SIZE="10" MAXLENGTH="10"
+			bgcolor=#444444 text=#ffdd33 cursor=#cc9933 selected noSubmit numbers>
+			</font>
+
+	<tr><td>
+		<td width=220 height=90 valign=top align=left>
+			<font size=-1 color=#989898>
+			Choose how your TV receives its signal.
+			</font>
+
+			<p><font size=-1 color=#989898>To make WebTV work with
+				a cable or satellite box, choose <b>Settings</b> on the TV&nbsp;Home page and
+				then choose <b>Hooking up</b>.
+		<td width=26>
+		<td width=198 valign=top align=left>
+			<table cellspacing=0 cellpadding=0>
+			<tr valign=top>
+			<td>
+			<input name=setup-epg-source type=radio value=cable bgcolor=#444444 checked=&tv-cable;>
+			<td valign=center>
+			<font size=-1 color=#6cb18a>
+			&nbsp;Cable
+			</font>
+			<tr><td height=6>
+			<tr valign=top>
+			<td>
+			<input name=setup-epg-source type=radio value=antenna bgcolor=#444444 checked=&tv-antenna;>
+			<td valign=center>
+			<font size=-1 color=#6cb18a>
+			&nbsp;Antenna
+			</font>
+			<tr><td height=6>
+			<tr valign=top>
+			<td>
+			<input name=setup-epg-source type=radio value=satellite-dbs bgcolor=#444444 checked=&tv-satellite;>
+			<td valign=center>
+			<font size=-1 color=#6cb18a>
+			&nbsp;Satellite
+			</font>
+			</table>
+	</table>
+</table>
+
+	<table cellspacing=0 cellpadding=0>
+	<tr>
+	<td width=410>
+	<td COLSPAN=4 valign=top align=right>
+	<font size=-1 color=#ffcf69><shadow>
+	<input type=SUBMIT BORDERIMAGE="file://ROM/tvimages/TVButtonBorder.bif" 
+		Value=Retrieve name=Retrieve action=client:DownloadTVListings submitform usestyle width=130>
+	</shadow></font>
+	</table>
+
+	</form>
+
+
+</body>
+</html>

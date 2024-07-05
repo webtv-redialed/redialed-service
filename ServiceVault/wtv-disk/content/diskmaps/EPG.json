@@ -1,0 +1,29 @@
+{
+  "EPG": {
+    "base": "file://Disk/browser/TV/Listings.db/",
+    "location": "content/EPG/",
+    "files": [
+      {
+        "file": "file://Disk/browser/TV/Listings.db/20221003.ptl"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings.db/20221004.ptl"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings.db/20221005.ptl"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings.db/20221006.ptl"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings.db/20221007.ptl"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings.db/20221008.ptl"
+      },
+      {
+        "file": "file://Disk/browser/TV/Listings.db/20221009.ptl"
+      }
+    ]
+  }
+}

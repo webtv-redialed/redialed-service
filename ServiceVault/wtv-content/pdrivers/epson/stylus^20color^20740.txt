@@ -1,0 +1,4 @@
+wtv-content:/pdrivers/epson/Epson740777.mod
+4,http://support.epson.com/cgi/webtv.pl?model=sc740&amp;type=1
+*,http://support.epson.com/cgi/webtv.pl?model=sc740&amp;type=2
+

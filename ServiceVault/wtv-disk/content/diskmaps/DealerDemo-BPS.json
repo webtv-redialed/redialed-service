@@ -1,0 +1,46 @@
+{
+	"DealerDemo": {
+		"base": "file://Disk/Browser/Demo/",
+		"location": "content/DealerDemo-BPS",
+		"service_owned": true,
+		"display": "Getting Demo",
+		"files": [
+			{
+				"file": "file://Disk/Browser/Demo/allyouneed_bps.html"
+			},
+			{
+				"file": "file://Disk/Browser/Demo/allyouneed_bps.swf"
+			},
+			{
+				"file": "file://Disk/Browser/Demo/attractloop_bps.swf"
+			},
+			{
+				"file": "file://Disk/Browser/Demo/email_bps.html"
+			},
+			{
+				"file": "file://Disk/Browser/Demo/email_bps.swf"
+			},
+			{
+				"file": "file://Disk/Browser/Demo/index.html"
+			},
+			{
+				"file": "file://Disk/Browser/Demo/internet_bps.html"
+			},
+			{
+				"file": "file://Disk/Browser/Demo/internet_bps.swf"
+			},
+			{
+				"file": "file://Disk/Browser/Demo/mainmenu_bps.html"
+			},
+			{
+				"file": "file://Disk/Browser/Demo/mainmenu_bps.swf"
+			},
+			{
+				"file": "file://Disk/Browser/Demo/service_bps.html"
+			},
+			{
+				"file": "file://Disk/Browser/Demo/service_bps.swf"
+			}
+		]
+	}
+}

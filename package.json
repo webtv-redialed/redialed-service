@@ -1,0 +1,62 @@
+{
+  "name": "zefie_wtvp_minisrv",
+  "version": "0.9.35",
+  "description": "WebTV Service (WTVP) Emulation Server",
+  "main": "app.js",
+  "homepage": "https://github.com/zefie/zefie_wtvp_minisrv",
+  "license": "GPL3",
+  "scripts": {
+    "start": "node app.js",
+    "start17": "node --openssl-legacy-provider app.js",
+    "test": "node test.js"
+  },
+  "author": {
+    "name": "zefie",
+    "email": "zefie@zefie.net",
+    "url": "https://zef.pw/"
+  },
+  "bugs": {
+    "url": "https://github.com/zefie/zefie_wtvp_minisrv/issues"
+  },
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/zefie"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zefie/zefie_wtvp_minisrv.git"
+  },
+  "dependencies": {
+    "@atproto/api": "^0.7.4",
+    "@onereach/time-interpreter": "^1.0.27",
+    "adm-zip": "^0.5.9",
+    "atob": "^2.1.2",
+    "btoa": "^1.2.1",
+    "crypto-js": "^4.2.0",
+    "debug": "^4.3.4",
+    "easy-crc": "1.1.0",
+    "endianness": "^8.0.2",
+    "express": "^4.18.2",
+    "fetch": "^1.1.0",
+    "follow-redirects": "^1.15.5",
+    "html-entities": "^2.4.0",
+    "iconv-lite": "^0.6.3",
+    "imap": "^0.8.17",
+    "imapflow": "^1.0.147",
+    "mime-types": "^2.1.35",
+    "newsie": "^1.2.1",
+    "nntp-server-zefie": "^3.1.0",
+    "node-fetch": "^2.6.9",
+    "node-mail-client": "^1.0.0",
+    "nunjucks": "^3.2.4",
+    "process": "^0.11.10",
+    "proxy-agent": "^6.3.1",
+    "rss-parser": "^3.13.0",
+    "sanitize-html": "^2.11.0",
+    "sharp": "^0.33.1",
+    "socks-proxy-agent": "^8.0.2",
+    "strftime": "^0.10.2",
+    "uuid": "^9.0.0",
+    "zcs": "^1.0.2"
+  }
+}

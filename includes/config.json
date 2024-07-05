@@ -1,0 +1,389 @@
+{
+  "config": {
+    "service_ip": "127.0.0.1",
+    "serviceType": "Production",
+    "ServiceVaults": [
+      "ServiceVault"
+    ],
+    "ServiceTemplates": [
+      "UserTemplates",
+      "ServiceDeps/templates"
+    ],
+    "ssid_block_list": [
+      "exampleBitch"
+    ],
+    "ServiceDeps": "ServiceDeps",
+    "SessionStore": "SessionStore",
+    "SharedROMCache": "SharedROMCache",
+    "enable_shared_romcache": false,
+    "service_owner": "somebody",
+    "service_owner_account": "huh",
+    "service_owner_contact": "what",
+    "service_owner_contact_method": "Discord",
+    "service_name": "WebTV",
+    "service_logo": "WebTVLogoJewel.gif",
+    "service_splash_logo": "file://ROM/images/SplashLogo1.gif",
+    "hide_ssid_in_logs": false,
+    "filter_passwords_in_logs": false,
+    "post_percentages": [
+      0,
+      25,
+      50,
+      100
+    ],
+    "verbosity": 4,
+    "socket_timeout": 86400,
+    "post_data_socket_timeout": 30,
+    "error_log_file": "errors.log",
+    "catchall_file_name": "catchall.js",
+    "hide_incomplete_features": true,
+    "enable_lzpf_compression": true,
+    "enable_gzip_compression": true,
+    "show_detailed_splash": true,
+    "show_diskmap": false,
+    "unauthorized_url": "wtv-1800:/unauthorized?",
+    "enable_port_isolation": true,
+    "allow_guests": false,
+    "domain_name": "wtv.zefie.com",
+    "user_accounts": {
+      "max_users_per_account": 6,
+      "min_username_length": 5,
+      "max_username_length": 18
+    },
+    "passwords": {
+      "enabled": true,
+      "min_length": 4,
+      "max_length": 10,
+      "form_size": 16
+    },
+    "errorMessages": {
+      "400": "${service_name} ran into a technical problem. Please try again.",
+      "401": "Authorization Required.",
+      "403": "The publisher of that page has not authorized you to view it.",
+      "404": "The service could not find the requested page.",
+      "500": "${service_name} ran into a technical problem. Please try again."
+    },
+    "lockdownWhitelist": [
+      "wtv-1800:/preregister",
+      "wtv-head-waiter:/login",
+      "wtv-head-waiter:/ValidateLogin",
+      "wtv-head-waiter:/login-stage-two",
+      "wtv-head-waiter:/relogin",
+      "wtv-head-waiter:/ROMCache/Spacer.gif",
+      "wtv-head-waiter:/ROMCache/NameStrip.gif",
+      "wtv-head-waiter:/images/PasswordBanner.gif",
+      "wtv-head-waiter:/ROMCache/UtilityBullet.gif",
+      "wtv-head-waiter:/images/NameBanner.gif",
+      "wtv-head-waiter:/bad-disk",
+      "wtv-head-waiter:/images/signin_new_mail.gif",
+      "wtv-head-waiter:/images/signin_no_mail.gif",
+      "wtv-head-waiter:/ROMCache/NameBanner.gif",
+      "wtv-head-waiter:/ROMCache/PasswordBanner.gif",
+      "wtv-head-waiter:/setbirthday",
+      "wtv-head-waiter:/validatebirthday",
+      "wtv-log:/log"
+    ],
+    "geolocationApiKey": "no",
+    "weatherApiKey": "no",
+    "movieApiKey": "no",
+    "sessionClearTimeout": 30000
+  },
+  "services": {
+    "wtv-head-waiter": {
+      "port": 1601,
+      "flags": "0x00000004",
+      "connections": 1,
+      "privileged": true,
+      "messengerServer": "msnmsgr.escargot.chat",
+      "modules": [
+        "WTVMessenger"
+      ]
+    },
+    "wtv-tricks": {
+      "port": 1602,
+      "flags": "0x00000004",
+      "privileged": true,
+      "password_low": "exampleHighBitch",
+      "password_high": "exampleLowBitch",
+      "modules": [
+        "WTVTricks"
+      ]
+    },
+    "wtv-star": {
+      "port": 1603,
+      "flags": "0x00000007",
+      "privileged": true
+    },
+    "wtv-news": {
+      "port": 1605,
+      "local_nntp_port": 57319,
+      "local_nntp_requires_auth": true,
+      "modules": [
+        "WTVNews"
+      ],
+      "featuredGroups": [
+        {
+          "name": "WebTV",
+          "group": "webtv.users",
+          "description": "A moderated discussion with WebTV customers"
+        },
+        {
+          "name": "WebTV Plus",
+          "group": "alt.discuss.webtvplus",
+          "description": "A moderated discussion with WebTV Plus customers"
+        },
+        {
+          "name": "WebTV Classic",
+          "group": "alt.discuss.webtv.classic",
+          "description": "A moderated discussion with WebTV Classic customers"
+        },
+        {
+          "name": "Talk",
+          "group": "alt.discuss.talk",
+          "description": "Talk about anything"
+        },
+        {
+          "name": "MIDI",
+          "group": "alt.discuss.midi",
+          "description": "Share or discuss MIDI audio files"
+        },
+        {
+          "name": "Gaming",
+          "group": "alt.discuss.gaming",
+          "description": "A place to discuss consoles and games"
+        }
+      ],
+      "groupMetaRefreshInterval": 86400
+    },
+    "news": {
+      "port": 1605,
+      "catchall_file_name": "default.js"
+    },
+    "wtv-register": {
+      "port": 1607,
+      "privileged": true,
+      "doorsOpen": true,
+      "doorsOpenTo": [
+        "81a7b50070b002bf"
+      ],
+      "modules": [
+        "WTVRegister"
+      ]
+    },
+    "wtv-log": {
+      "port": 1609,
+      "connections": 1,
+      "write_logs_to_disk": true
+    },
+    "wtv-home": {
+      "port": 1612,
+      "flags": "0x00000010",
+      "connections": 3,
+      "privileged": true
+    },
+    "wtv-1800": {
+      "port": 1615,
+      "connections": 1,
+      "flags": "0x00000004",
+      "send_tellyscripts": true,
+      "privileged": true
+    },
+    "wtv-flashrom": {
+      "port": 1618,
+      "flags": "0x00000040",
+      "debug": false,
+      "use_zefie_server": false,
+      "bf0app_default_rom": "content/artemis-webtv-000/build1235/external-nondebug/bf0app-part000.rom",
+      "catchall_file_name": "content-serve.js",
+      "privileged": true
+    },
+    "wtv-setup": {
+      "port": 1613,
+      "flags": "0x00000010",
+      "passport_service": "wtv-passport",
+      "connections": 3,
+      "privileged": true,
+      "modules": [
+        "WTVBGMusic",
+        "WTVRegister"
+      ]
+    },
+    "wtv-music": {
+      "port": 1656,
+      "connections": 3,
+      "privileged": true
+    },
+    "wtv-cookie": {
+      "port": 1619,
+      "connections": 1
+    },
+    "wtv-chat": {
+      "port": 1630,
+      "connections": 3,
+      "privileged": true
+    },
+    "wtv-disk": {
+      "port": 1635,
+      "connections": 3,
+      "privileged": true,
+      "modules": [
+        "WTVDisk"
+      ]
+    },
+    "wtv-guide": {
+      "port": 1621,
+      "connections": 3,
+      "modules": [
+        "WTVGuide"
+      ]
+    },
+    "wtv-content": {
+      "port": 1629,
+      "connections": 1
+    },
+    "wtv-mail": {
+      "port": 1608,
+      "connections": 3,
+      "privileged": true,
+      "modules": [
+        "WTVNews"
+      ]
+    },
+    "mailto": {
+      "port": 1608,
+      "catchall_file_name": "default.js"
+    },
+    "wtv-passport": {
+      "port": 1654
+    },
+    "wtv-favorite": {
+      "port": 1611,
+      "connections": 3,
+      "enable_multi_query": true,
+      "max_folders": 14,
+      "max_favorites_per_folder": 18
+    },
+    "wtv-smartcard": {
+      "port": 1632,
+      "connections": 3,
+      "privileged": true
+    },
+    "wtv-center": {
+      "port": 1639,
+      "connections": 3,
+      "privileged": true,
+      "modules": [
+        "WTVCache"
+      ]
+    },
+    "wtv-author": {
+      "port": 1643,
+      "connections": 3,
+      "enable_multi_query": true,
+      "privileged": true,
+      "publish_mode": "directory",
+      "publish_dest": "PageBuilderVault/http_pb/",
+      "public_domain": "community.webtv.zone",
+      "modules": [
+        "WTVAuthor"
+      ]
+    },
+    "http": {
+      "port": 1650,
+      "connections": 3,
+      "flags": "0x00000001"
+    },
+    "https": {
+      "port": 1650,
+      "connections": 3,
+      "flags": "0x00000001"
+    },
+    "proto": {
+      "port": 1650,
+      "connections": 3,
+      "flags": "0x00000001"
+    },
+    "pc_services": {
+      "port": 1337,
+      "pc_services": true,
+      "hide_minisrv_version": true,
+      "disabled": false,
+      "servicevault_dir": "http_pc",
+      "drop_connection_on_wrong_port": true,
+      "show_verbose_errors": false,
+      "privileged": true,
+      "allow_https": false,
+      "force_https": false
+    }
+  },
+  "favorites": {
+    "folder_templates": {
+      "Recommended": [
+        {
+          "title": "DuckDuckGo",
+          "url": "http://lite.duckduckgo.com/lite",
+          "image_type": "image/wtv-bitmap",
+          "image": "AAAAAAAAAQQAJAAAAAAAAAAAAAAAAAA0AAAARgAAAAABlAAAAAQBkLmAuYC5gLmAt3y5gJ1xsJKUgJeApoCIgLmAuYC5f7mAlG+umaVymJy5gLmAkoCMf5eAl4CigKOAuYC5gLN6sYe5gLmAm4CbgHCAlICdgJ6Ag22jqJ9znZ3YgNiAwIDAgJ54sZKlepmbuYC5gJuCm4CXgJeAo4CjgLmAuYCwebOHtH65gpd0qpmqcaKUmHCwlsWAj4C1gJCAjICMgLmAuYC5gLmAoXa3jZ+Aa4CggJOAl4CVgJuAo4CdgLmAfYC5gHKAbYCXgJaAuYCsgJeAj4CVcpalmW2jnH6AuoB5gLqAj4C7f5WAs3+ib5qcmG6omrmAuYChd7GQZ4B0gJeAloChcKqUl3Gjnbl5uYC5fbmAp3KrkJdxp5uUdZampXGdmbh9uYCWb6uZtX+xhZ54np2XbrmSn3CanotunKigcp2c2IXYgMCCwICqcZqYmnCmmrmAroC5gLmAlHOWpqBwopm0frGFl3Kin7d9uYCTbaubuYC5gKN3rpG4f66FmXOinYqAjIC5gLmAAAAAAAAAAAAAAAAAAAAAAAAAACUtBy4QLCQPHhAvARQDAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAwrKSAnJiMdIgoEGhEhAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAFDQgICAgICAgICAgICAgICAgICAgICBkCBg4WFwAAAIAAAAAcKAsLCwsLCwsLCwsLCwsLCwsLCwsLCxIVGB8JGwAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACowExMTAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+        },
+        {
+          "title": "Old'aVista",
+          "url": "http://www.oldavista.com/",
+          "image_type": "url",
+          "image": "canned/oldavista.gif"
+        },
+        {
+          "title": "RetroSite",
+          "url": "http://retrosite.org/",
+          "image_type": "url",
+          "image": "canned/retrosite.gif"
+        },
+        {
+          "title": "68k.news",
+          "url": "http://68k.news/",
+          "image_type": "url",
+          "image": "canned/news.gif"
+        },
+        {
+          "title": "The Old Net",
+          "url": "http://theoldnet.com/lite",
+          "image_type": "image/wtv-bitmap",
+          "image": "AAAAAAAAAQQAJAAAAAAAAAAAAAAAAAA0AAAARgAAAAACBAAAAAQCALmAuYC5gLmAuHy5ga9ftIu2f7iCmHWjoISusnuoj699knKVbK18rnm8gL2AuIC4gISdh3mojKN9uIC4gJudmXyRdJessXywiZdwjq+XdaShkauQebCLsH65gLmAsIG0gLWEt393q555lIKaf7uBlX94gHOAiICGgKtsto+yebiF2IDYgLqAuoCZkJyLp4iqhZmAmYDYgNiAp4CmgHKAfICjgKKAg4CUgLmElYC2gqSAt4CnfoiSnnqPgI+A0IDQgIyAkoCJgIeAk4CTgKGAzICfgHOAe4CHgIqAnX+RgMp/uYC5gJeAmYCOgJGAn4CjgL6AkYC4gJOAdIB4gKCAnICggJ2Ak4CdgI6AhoCggJKAqIS7gLKBtoCTfbt+s3+4gKOAo4CwgK+AjoCMgLeAuICvf6aAtoCygI+YmXyli6p9oICNgJ2AgoCHgI6AjICcgIWAlYC9gLyAuYC5gLKApn+SlIV6rYSrfnWuiXeejq58koOKf6qBo4C3f7mBnnW5kbiAuYCcdaFyzYDNgLOAs4C5gLmAo4CngLmAt4CvgJF/noB1f7aAtYCAgG+AtIC3gG2AiYC1gLKAs4CNgLaAtoCWgJOAeIBtgJGAuYCSgLmAnJSNe6KOoX2kgHiAqoCMgKSApoCBgHqAuYC4gLiAsoCXgJuAcoB3gKaAooCYgHiAAAAAADMMBwcHBwcHAi8BAQEWDAwwMDAwMDACAgICLwAAAAAAAAAAADQKLQMGCgYDCA8PDw8NBgMEBAQEBCMICQkIDwAAAACIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAAAAA9CwsLCwsLCwsLCws9HBwcHBwzHBwLAAAAAAAAAAAAAAAeOBQpDS4dISQuGxISEhINKDg+KTsgOBQ5AAAAAAAHAAAAAAAAJgAmBQUFBQUFAAUFBRwgPj4+Pho/PiAjAAAAAAAGAAAAAAAAHiEZEhISEhISEhISDT88Ezw/ExMTIDkAAAAAAABVAAAAAAAANwsFMTExMTExMTExFRQYGBgYGBgYPCMAAAAAAAB5AAAAAAAAHi4lFxcXFxcXFxcXDSgYGCk+GBgYKTkAAAAAAABVAAAAAAAAFSIiEBAQEBAQEBAQHhoODhgODg4OGDkAAAAAAABVAAAAAAAAMxwcHBwcHBwcHBwcHCEdHR0pHSEdHTIAAAAAAABVAAAAAAAAHiojEBAQEBAQEBAQHjsfHx8fDiEfKTkAAAAAAAB6AAAAAAEAAAAAPQAAAAAAAAAAACUlJSUlJSUlJQsLCwsAAABVAAAAPSYkJiYkJiQmJCQkJCMkJiQkJCIkJCYkJCQkJCIAAABVAAAAAAAAAAAAJiYmJCYkJiQkJCQmJCYREQsAAAAAAAAAAABVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6AAAAAAAAAAAAAAAAKws9Cz0LACsAPQsAAAAAAAAAAAAAAABVAAAAAAAAAAAAAAAAJAYnLCcnBgYnBiIAAAAAAAAAAAAAAABVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABVAAAzMjMcMzIyMjIrHDIyMisyMjILHDIyCzMzMjIyMisLAAB6AAA3NTc2JTY0JTY0NTU1JSU2NTU3NTU1NDUlNjU1NjQqAABVPQAAAD0AAAAAAD0ANzYfDh0fHyEfHwsAPQsAAAAAAAA9AABVFR0pIS4pLjonJzonJzoVJzo6OjoGOicnLjY7ITsoIRg7ITlVAAAAAAAAAAAAAAAAAAAoGBQ/IBQUAAAAAAAAAAAAAAAAAAB6ADMTPD8TPhM/ExM8OD88PzgUExQ8Ez4UPBQTExQ+PD8UOQBV"
+        }
+      ],
+      "Personal": [
+        {
+          "title": "Things to try",
+          "url": "wtv-center:/time-savers",
+          "image_type": "url",
+          "image": "ROMCache/WebTVLogoJewel.gif"
+        },
+        {
+          "title": "ProtoWeb Directory",
+          "url": "proto://www.inode.com",
+          "image_type": "image/wtv-bitmap",
+          "image": "AAAAAAAAAQQAJAAAAAAAAAAAAAAAAAA0AAAARgAAAAACBAAAAAQCALmAuYC5gLmAR5aTfE6TOHOggTt+k3lYga+AL4C5gKiAvoWNf8SGgYK5gLmAhoB8gJ+AtoC1gLiAo4Gof5iDn3+xgqqAuYC5gB+1LnUhpSl2p5CnepialHZ3gIKAgICHgLmAuYC5gG2AZICjgE+AuYC5gLmAyX/LjXKAuYCIgLmAN3gseCWoH3Swjbt9lqK5e4qAeoC0gLF/mICWgIqAXoCYgJ2AuoGZgJeEt4CVgLqAH80fdIyBSoO4gbF+r4GnfnWAgIBdgHKArYmtirmAuYC0g7RxuYC5gK15s426gLmBoZCmeqeMo3qcgICAe4B6gKZQo7rLa8KSrYGof6qBlH5Plk5/H80fdI+Aj4DYgNiAjXKXmJFwkJ7VgNWAr4CvgNpd4IraddmDkKOqeLGGtn6rlq97p5SyfG6AZIDBgLCAuYGUe7OCo3yYgJqAfYCIgGqAbICWgHeAqICZgI6AxICsj6h7mpyleauOp3u5gLeAuXG4gbmAuYDEgMSAPbg9d3+AfYCYgHeAhoiEhkm8V3wfzR90UIxEfB/NH3QfzR90UX1Hfh/NH3RWgFCAnomofiy0LHcfzR90ZqZmerWAt4BmnWZ6q4CUgGiAmoCngrJ/YoBlgKmDq3+jaKW4uHDCmoCwuYCAsLmAlp+UdrKFs365gLmA1mfZjrGHsn6SppF1AAAAAAAAAAAAAAAADAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAg0HBysVBxQfHx8VAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADGA8GCAgGCAYGCAgGAAAAAAAAAAAAAAAuAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBAAAAAAAAAAAAAAAAAAgqMAsLCwsLBgAAAAAAAAAAAAAAAABPAAAAAAAAAAAAAAAAAAAXGBMdEwcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXCgosBwoKPywKCiwAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAHz8RCj8/Bwo/PxEAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAgAAAgtAAgICAAAAAAAAAAAAAAAAACACBsbGRkZGRktLS0tLRoaGhoaGhouLi4uLi4uLi4uLhsbGxuAAAAADj4+Pj4+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAGzseHiQkAAAAAAAAAAAAAAAAAAAAAAAAFxcXFwAAAACAAAAAKyEhISEhISEhISEhISEhISEhISEhISEUEykpKQ8AAACAAAAABiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMoHQsLKQ8AAACAAAAAKBwsHCYcJhwsJigmHCYcJgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACBsbGRkZGRktLS0tLRoaGhoaGhouLi4uLi4uLi4uLhsbGxuAAC8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLxGAFwECCRYyMjIWMjIyMjMzMzMzMzMzMzMzMzMzMzMzMzMzMzyAFwkxECAgNDQ2IDQ0NDYzMzMzMzMzMzMzMzMzMzMzMzMzMzyAADg3Nzc3Nzc3Nzc3Nzc3ODc3Nzc3Nzc3Nzc3Nzc3Nzc3NxUBABInNToUOjkAAAAAAAAAEic6OToSOjoSOjk6OjkAAAAAABVBAAQmLSU9LT09PT09PSUAKBE9PT09PSUtPT09JT09JQAAABXrABcKEQAAAAAAAAAAAAAAFywKERwKLAQiAAAAAAAAAAAAABWw"
+        }
+      ],
+      "Sony": [
+        {
+          "title": "Columbia TriStar Television",
+          "url": "http://www.spe.sony.com/tv/index.html",
+          "image_type": "url",
+          "image": "canned/images/ctt-wtv.gif"
+        },
+        {
+          "title": "SoapCity",
+          "url": "http://www.soapcity.com",
+          "image_type": "url",
+          "image": "canned/images/soap-wtv.gif"
+        },
+        {
+          "title": "Sony Electronics",
+          "url": "http://www.sel.sony.com",
+          "image_type": "url",
+          "image": "canned/sony.gif"
+        }
+      ]
+    }
+  }
+}

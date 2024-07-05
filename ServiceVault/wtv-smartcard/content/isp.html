@@ -1,0 +1,219 @@
+<HTML>
+<HEAD>
+<TITLE>
+Create ISP card
+</TITLE>
+<DISPLAY >
+   <SCRIPT LANGUAGE='JavaScript'>
+   <!--
+ 
+ 	function LengthInURLHex(value)
+	{	
+	if (value < 16)
+		return ("%0" + value.toString(16));
+	else
+		return ("%" + value.toString(16));
+	}
+
+ 	function OpenISPCard(index)
+	{
+ 	cardname = document.forms[index].cardname.value;
+ 	provider = document.forms[index].provider.value;
+   	user = document.forms[index].user.value;
+   	password = document.forms[index].password.value;
+    phone1 = document.forms[index].phone1.value;
+ 	phone2 = document.forms[index].phone2.value;
+ 	        	
+	if (phone1.length == 0 || provider.length == 0 || user.length == 0 || password.length == 0)
+   		{	
+    	alert("The only optional field is the backup modem number.");
+    	
+	  	if (provider.length == 0)
+	    	{
+    		document.forms[index].provider.select();
+	    	document.forms[index].provider.focus();
+	    	}
+	    else if (user.length == 0)
+	    	{
+    		document.forms[index].user.select();
+	    	document.forms[index].user.focus();
+	    	}
+	    else if (password.length == 0)
+	    	{
+    		document.forms[index].password.select();
+	    	document.forms[index].password.focus();
+	    	}
+    	else 
+    		{
+    		document.forms[index].phone1.select();
+	    	document.forms[index].phone1.focus();
+	    	}
+	    	
+    	return false;
+  		}
+    
+    /* isp data format */
+	config = "1" + provider + "%09" + user + "%09" + password + "%09" + phone1 + "%09" + phone2
+
+ 	len1 = LengthInURLHex(cardname.length);
+ 	len2 = LengthInURLHex(config.length);
+
+  	data = "2O%FFt" + len1 + cardname + "O" + len2 + config;	
+
+	document.forms[index].action = "client:showalert?message=" + data;   	
+	return true;
+    }	
+   //-->
+   </SCRIPT>
+</HEAD>
+<sidebar width=110> <table cellspacing=0 cellpadding=0 BGCOLOR=355844>
+<tr>
+<td colspan=3 abswidth=104 absheight=4>
+<td rowspan=99 width=6 absheight=420 valign=top align=left>
+<img src="wtv-home:/ROMCache/Shadow.gif" width=6 height=420>
+<tr>
+<td abswidth=6>
+<td abswidth=92 absheight=76>
+<table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
+<tr>
+<td align=right>
+<img src="wtv-home:/ROMCache/WebTVLogoJewel.gif" width=87 height=67>
+</table>
+<td abswidth=6>
+<tr><td absheight=5 colspan=3>
+<table cellspacing=0 cellpadding=0>
+<tr><td abswidth=104 absheight=2 valign=middle align=center bgcolor=21372a>
+<img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
+<tr><td abswidth=104 absheight=1 valign=top align=left>
+<tr><td abswidth=104 absheight=2 valign=top align=left bgcolor=53896a>
+<img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
+</table>
+<tr><td absheight=20>
+<tr><td absheight=244 align=right valign=bottom colspan=3>
+<img src="wtv-smartcard:/images/BannerSmartCard.gif" width=50 height=238>
+<tr><td absheight=41>
+</table>
+</sidebar>
+<BODY BGCOLOR="#191919" TEXT="#42CC55" LINK="36d5ff" VLINK="36d5ff" HSPACE=0 VSPACE=0 FONTSIZE="large">
+
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td abswidth=14>
+<td colspan=3>
+	<table border=0 cellspacing=0 cellpadding=0>
+		<tr>
+		<td valign=center absheight=100>
+		<font size="+2" color="E7CE4A"><blackface><shadow>
+		Create ISP card
+		<tr>
+		<td>
+	</table>
+<td abswidth=20 absheight=20>
+<TR>
+<td>
+<td colspan=2 WIDTH=500 HEIGHT=50 VALIGN=top ALIGN=left>
+<font size=-1>To create a card with ISP configuration information; insert a card, fill in all the 
+fields below, and click the <b>Create</b> button.<TR>
+<TR>
+<td>
+<td abswidth=20 absheight=20>
+</table>
+
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td abswidth=22>
+<td HEIGHT=200 VALIGN=top ALIGN=left>
+<table border=0 colspan=3 cellspacing=0 cellpadding=0>
+<td abswidth=500 absheight=38 valign=middle>
+<font size=-1>Card name
+<tr>
+<td absheight=38 valign=middle>
+<font size=-1>Service provider name
+<tr>
+<td absheight=38 valign=middle>
+<font size=-1>Login name
+<tr>
+<td absheight=38 valign=middle>
+<font size=-1>Password
+<tr>
+<td absheight=38 valign=middle>
+<font size=-1>Primary modem number
+<tr>
+<td absheight=38 valign=middle>
+<font size=-1>Backup modem number
+</table>
+<TD WIDTH=20>
+<TD WIDTH=250 VALIGN=top ALIGN=left>
+<table cellspacing=0 cellpadding=0>
+<form method="POST" onsubmit=OpenISPCard(0)>
+<td absheight=1 valign=right colspan=1>
+<tr>
+<td absheight=38 valign=bottom colspan=3>
+	<table>
+		<tr>
+			<td valign=top align=middle>
+				<input autoactivate type=text name=cardname selected bgcolor=#444444 text=#ffdd33 cursor=#cc9933 size=18 maxlength=18 value="" asciionly>	<tr>
+	</table>
+
+<tr>
+<td absheight=38 valign=bottom colspan=3>
+	<table>
+		<tr>
+			<td valign=top align=middle>
+				<input type=text name=provider bgcolor=#444444 text=#ffdd33 cursor=#cc9933 size=18 maxlength=18 value="" asciionly>	<tr>
+	</table>
+
+<tr>
+<td absheight=38 valign=middle colspan=3>
+	<table>
+		<tr>
+			<td valign=top align=middle>
+				<input type=text name=user bgcolor=#444444 text=#ffdd33 cursor=#cc9933 size=18 maxlength=31 value="" asciionly>	<tr>
+	</table>
+
+<tr>
+<td absheight=38 valign=middle colspan=3>
+	<table>
+		<tr>
+			<td valign=top align=middle>
+				<input type=text name=password bgcolor=#444444 text=#ffdd33 cursor=#cc9933 size=18 maxlength=18 value="" asciionly>	<tr>
+	</table>
+
+<tr>
+<td absheight=38 valign=top colspan=3>
+	<table>
+		<tr>
+			<td valign=top align=middle>
+				<input type=text name=phone1 bgcolor=#444444 text=#ffdd33 cursor=#cc9933 size=18 maxlength=18 numbers value="" asciionly>	<tr>
+	</table>
+<tr>
+<td absheight=38 valign=top colspan=3>
+	<table>
+		<tr>
+			<td valign=top align=middle>
+				<input type=text name=phone2 bgcolor=#444444 text=#ffdd33 cursor=#cc9933 size=18 maxlength=18 numbers value="" asciionly>	<tr>
+	</table>
+<tr>
+<td absheight=14 valign=top colspan=3>
+	<table>
+		<tr>
+			<td valign=top align=middle>
+	</table>
+
+</table>
+
+<table cellspacing=0 cellpadding=0>
+	<tr><td abswidth=430 valign=top align=right>
+	<font color="#E7CE4A" size=-1><shadow>
+	<input selected type=submit borderimage="file://ROM/Borders/ButtonBorder2.bif" value=Create name="ignore" usestyle width=103>
+	</shadow></font>
+	<td abswidth=20 absheight=10>
+	<TD>
+	<tr>
+	<td>
+	<td abswidth=20 absheight=10>
+</table>
+</form>
+</TABLE>
+</BODY>
+</HTML>

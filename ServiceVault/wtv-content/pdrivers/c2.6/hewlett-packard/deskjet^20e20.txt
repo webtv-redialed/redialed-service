@@ -1,0 +1,14 @@
+wtv-content:/pdrivers/hewlett-packard/HP660690.mod
+2,http://www.hp.com/cposupport/non_pc/internet1/e20/e20off.html
+3,http://www.hp.com/cposupport/non_pc/internet1/e20/e20pnr.html
+4,http://www.hp.com/cposupport/non_pc/internet1/e20/e20oops.html
+6,http://www.hp.com/cposupport/non_pc/internet1/e20/e20top.html
+7,http://www.hp.com/cposupport/non_pc/internet1/e20/e20mek.html
+8,http://www.hp.com/cposupport/non_pc/internet1/errors/nopc_err.html
+9,http://www.hp.com/cposupport/non_pc/internet1/e20/e20car.html
+13,http://www.hp.com/cposupport/non_pc/internet1/e20/e20car.html
+14,http://www.hp.com/cposupport/non_pc/internet1/e20/e20car.html
+16,http://www.hp.com/cposupport/non_pc/internet1/errors/uprn_err.html
+17,http://www.hp.com/cposupport/non_pc/internet1/e20/e20com.html
+18,http://www.hp.com/cposupport/non_pc/internet1/errors/uprn_err.html
+*,http://www.hp.com/cposupport/non_pc/internet1/e20/index.html

@@ -1,0 +1,225 @@
+<HTML>
+<HEAD>
+<TITLE>
+Create GoTo URL card
+</TITLE>
+<DISPLAY >
+   <SCRIPT LANGUAGE='JavaScript'>
+   <!--
+   
+   var gShownV2Alert = false;
+   
+   function IsNumber(value)
+   	{
+   	// Note: 0 is not considered a valid entry
+	
+   	numbr = parseInt(value);
+	numberStr = "" + numbr;
+	
+	// check if we actually got a number
+   	if (isNaN(numbr)) 
+   		numbr = 0;
+   	
+   	// check that there were no alhpa characters 
+   	// that were dropped in the conversion
+   	if (numberStr.length != value.toString().length)
+   		numbr = 0;
+   		   	
+   	return numbr;
+   	}
+
+	function InvalidIDAlert(index)
+	{
+	alert("You must enter a valid ID number.");
+   	document.forms[index].id.focus();
+   	document.forms[index].id.select();
+	}
+
+	function LengthInURLHex(value)
+	{	
+	if (value < 16)
+		return ("%0" + value.toString(16));
+	else
+		return ("%" + value.toString(16));
+	}
+
+   	function WriteGoToCard(index)
+   	{
+		// you must have no action in the form entry for this to
+		// work correctly
+
+   		value = document.forms[index].id.value;
+   		extra = document.forms[index].extra.value;
+   		title = document.forms[index].title.value;
+	
+		// IDs must start with a number at least
+		if (!IsNumber(value.charAt(0))) 
+			{
+			setTimeout("InvalidIDAlert("+index+");", 250);
+		  	return false;
+			}
+		
+		// make a version 2 card if there is a title,
+		// otherwise a verion 1 card is best.
+		if (title.length > 0)
+			{
+			// see the smart card lib for info about the layout
+			// non CRC provided!
+			len = LengthInURLHex(title.length);
+			
+			format = "2G%FFt" + len + title + "G";		
+			if (extra.length <= 0)
+				{
+				len = LengthInURLHex(value.length+1);
+				format = format + len + "i" + value;
+				}
+			else
+				{
+				len = LengthInURLHex(value.length+2+extra.length);
+				format = format + len + "i" + value + "+" + extra;
+				}
+			}
+		else if (title.length == 0)
+			{
+		  	format = "1Gi" + value;
+		  	if (extra.length > 0)
+		  		format = format + "%20" + extra;
+			}
+		else
+			{
+			alert("Please enter data in the fields.");
+			}
+			
+		if (format.length > 122)
+			{
+			if (!confirm("The URL may be too long to fit on the smart card.  Continue?"))
+				return false; 
+			}
+		
+		if (!gShownV2Alert && title.length > 0)
+			{
+			alert("Smart cards created with the card name attribute will only work on Etude or later Services.");
+			gShownV2Alert = true;
+			}
+
+		document.forms[index].action = "client:SaveToSmartCard?data=" + format;
+					
+		return true;
+	}
+
+   //-->
+   </SCRIPT>
+</HEAD>
+<sidebar width=110> <table cellspacing=0 cellpadding=0 BGCOLOR=355844>
+<tr>
+<td colspan=3 abswidth=104 absheight=4>
+<td rowspan=99 width=6 absheight=420 valign=top align=left>
+<img src="wtv-home:/ROMCache/Shadow.gif" width=6 height=420>
+<tr>
+<td abswidth=6>
+<td abswidth=92 absheight=76>
+<table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
+<tr>
+<td align=right>
+<img src="wtv-home:/ROMCache/WebTVLogoJewel.gif" width=87 height=67>
+</table>
+<td abswidth=6>
+<tr><td absheight=5 colspan=3>
+<table cellspacing=0 cellpadding=0>
+<tr><td abswidth=104 absheight=2 valign=middle align=center bgcolor=21372a>
+<img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
+<tr><td abswidth=104 absheight=1 valign=top align=left>
+<tr><td abswidth=104 absheight=2 valign=top align=left bgcolor=53896a>
+<img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
+</table>
+<tr><td absheight=20>
+<tr><td absheight=244 align=right valign=bottom colspan=3>
+<img src="wtv-smartcard:/images/BannerSmartCard.gif" width=50 height=238>
+<tr><td absheight=41>
+</table>
+</sidebar>
+<BODY BGCOLOR="#191919" TEXT="#42CC55" LINK="36d5ff" VLINK="36d5ff" HSPACE=0 VSPACE=0 FONTSIZE="large">
+
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td abswidth=14>
+<td colspan=3>
+	<table border=0 cellspacing=0 cellpadding=0>
+		<tr>
+		<td valign=center absheight=110>
+		<font size="+2" color="E7CE4A"><blackface><shadow>
+		Create GoTo URL card
+		<td abswidth=20>
+		<tr><td>
+	</table>
+<td abswidth=20>
+<TR>
+<td>
+<td colspan=2 WIDTH=416 HEIGHT=50 VALIGN=top ALIGN=left>
+<font size=-1>To create a card that will go to a URL; insert a card, fill in 
+the appropriate fields below, and click the <b>Create</b> button.<TR>
+</table>
+
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td abswidth=14 absheight=20>
+<td WIDTH=170 HEIGHT=190 VALIGN=top ALIGN=left>
+<table border=0 colspan=3 cellspacing=0 cellpadding=0>
+<td absheight=14 valign=middle>
+<tr>
+<td abswidth=290 absheight=38 valign=middle>
+<font size=-1>Card name
+<tr>
+<td abswidth=290 absheight=38 valign=middle>
+<font size=-1>URL ID
+<tr>
+<td absheight=38 valign=middle>
+<font size=-1>Extra parameters
+<tr>
+<td absheight=38 valign=middle>
+</table>
+<TD WIDTH=20>
+<TD WIDTH=240 VALIGN=top ALIGN=left>
+<table cellspacing=0 cellpadding=0>
+<form method="POST" onSubmit=WriteGoToCard(0)>
+<td absheight=15 valign=right colspan=1>
+<tr>
+<td absheight=38 valign=middle colspan=3>
+	<table>
+		<tr>
+			<td valign=top align=left>
+				<input autoactivate selected type=text name=title bgcolor=#444444 text=#ffdd33 cursor=#cc9933 size=25 maxlength=212 value="">	<tr>
+	</table>
+
+<tr>
+<td absheight=38 valign=bottom colspan=3>
+	<table>
+		<tr>
+			<td valign=top align=left>
+				<input type=text name=id bgcolor=#444444 text=#ffdd33 cursor=#cc9933 size=25 maxlength=32 value="">	<tr>
+	</table>
+
+<tr>
+<td absheight=38 valign=middle colspan=3>
+	<table>
+		<tr>
+			<td valign=top align=left>
+				<input type=text name=extra bgcolor=#444444 text=#ffdd33 cursor=#cc9933 size=25 maxlength=212 value="">	<tr>
+	</table>
+
+<tr>
+<td absheight=38 valign=middle colspan=3>
+</table>
+
+<table cellspacing=0 cellpadding=0>
+	<tr><td abswidth=430 valign=top align=right>
+	<font color="#E7CE4A" size=-1><shadow>
+	<input selected type=submit borderimage="file://ROM/Borders/ButtonBorder2.bif" value=Create name="b" usestyle width=103>
+	</shadow></font>
+	<td abswidth=20>
+	<TD>
+</table>
+</form>
+</TABLE>
+</BODY>
+</HTML>

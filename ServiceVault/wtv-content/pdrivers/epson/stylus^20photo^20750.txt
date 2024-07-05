@@ -1,0 +1,3 @@
+wtv-content:/pdrivers/epson/EpsonPrinters.mod
+4,http://support.epson.com/cgi/webtv.pl?model=sp750&type=1
+*,http://support.epson.com/cgi/webtv.pl?model=sp750&type=2

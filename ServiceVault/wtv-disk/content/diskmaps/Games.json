@@ -1,0 +1,109 @@
+{
+  "Games": {
+    "base": "file:/Disk/Browser/Games/",
+    "location": "content/Games/",
+    "service_owned": true,
+    "display": "Retrieving Files",
+    "files": [
+      {
+        "file": "file:/Disk/Browser/Games/AboutDoom.html"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/AboutESRB.html"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/AboutGames.html"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/AboutJack.html"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/Arrow_Green.gif"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/bootfail.html"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/ContactingService.html"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/DoomLogo.gif"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/DoomRating.html"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/GameCode.js"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/Games.html"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/GamesBanner.gif"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/GamesShadowLogo.gif"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/JackLogo.gif"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/JackLogo_LG.gif"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/JackRating.html"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/JackSpotArt.gif"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/MameLogo.gif"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/MameRating.html"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/Pattern_Games.gif"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/PlayDoom.html"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/PlayJack.html"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/RatingESRB_E.gif"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/RatingESRB_E_LG.gif"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/RatingESRB_KA.gif"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/RatingESRB_M.gif"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/RatingESRB_M_LG.gif"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/RatingESRB_T.gif"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/RatingESRB_T_LG.gif"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/StartDoom.html"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/StartDoom2.html"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/StartJack.html"
+      },
+      {
+        "file": "file:/Disk/Browser/Games/StartJack2.html"
+      }
+    ]
+  }
+}
