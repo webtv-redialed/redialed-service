@@ -1,6 +1,8 @@
 # redialed-nodejs
 The WebTV Redialed Service. **This software is provided AS IS with NO WARRANTY, operators may contract bed bugs**
 
+This release is designed for reference purposes only, you really should not be using this to run a service.
+
 koko please fix this shit
 
 # jarhead called, he wants his todo.txt back
