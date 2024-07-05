@@ -32,6 +32,7 @@ function titleCase(str) {
 }
 
 var infoCenter = request_headers.query.info;
+// TODO: This is really awful. Split the center pages into their own separate template files.
 switch (infoCenter) {
 	case "WebTVToday":
 		request_is_async = true; // Make us async

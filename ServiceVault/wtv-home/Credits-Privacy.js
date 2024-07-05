@@ -13,7 +13,7 @@ data = nunjucks.render('ServiceDeps/templates/wtv-home/termsPrivacy.njk', { titl
 <tr>
 <td>
 <td valign=top align=left>
-<p>The purpose of this WebTV server is to recreate the 1999 WebTV experience using pages and assets from that era. There will be inaccuracies in some areas. If you do find any, please report them to @webtv on Discord.</p>
+<p>The purpose of this WebTV server is to recreate the 1999 WebTV experience using pages and assets from that era. There will be inaccuracies in some areas. If you do find any, please report them to @623_chimaera or @webtv on Discord.</p>
 <p><b>With Whom Personal Information Is Shared and What Is Collected</b><br>
 <p>When you register with a WebTV account on this server, you are sharing the following:</p>
 <ul>
@@ -36,5 +36,5 @@ data = nunjucks.render('ServiceDeps/templates/wtv-home/termsPrivacy.njk', { titl
 <p>All pages you visit and images you download will be temporarily logged for security reasons. This includes WebTV Network pages and Internet Web sites. This information can not be traced back to you, and will only be viewable to server operators for a short time. IRC Chat messages will <b><i>not</i></b> be logged, however server operators can see what servers you are connecting to.</p>
 <p><b>How We Help Protect Children's Privacy</b><br>
 <p>We do not knowingly collect information from children under the age of 13 to comply with COPPA. If the account creator is under 13, the main user and all secondary accounts will be terminated. All secondary users under 13 must be accompanied by a parent or guardian while using this service.</p>
-<p>This Privacy Statement can change at any time, and without warning. If you do not agree with this Privacy Statement, please disconnect and contact @webtv on Discord to terminate your account.</p>
+<p>This Privacy Statement can change at any time, and without warning. If you do not agree with this Privacy Statement, please disconnect and contact @623_chimaera or @webtv on Discord to terminate your account.</p>
 <td>`, isJapaneseClient: session_data.isJapaneseClient()});
