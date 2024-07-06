@@ -17,11 +17,9 @@ DebugServiceVault/
 ServiceVault/wtv-flashrom/content/*
 !ServiceVault/wtv-flashrom/content/content-serve.js
 PageBuilderVault/http_pb/*
-DynamicConfig/flashrom/*
 # Keep page builder defaults
 !PageBuilderVault/http_pb/index.html
 !PageBuilderVault/http_pb/clipart/*
-!PageBuilderVault/http_pb/Jar2D2/*
 
 # User-specific files
 *.rsuser
