@@ -1,0 +1,2004 @@
+[
+  {
+    "build": "16467",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "909.82 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16467",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.17 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16466",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "909.75 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16466",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.17 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16465",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "909.88 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16465",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.17 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16464",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "909.88 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16464",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.17 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16463",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "909.85 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16463",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.17 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16462",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "909.79 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16462",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.17 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16461",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "909.79 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16461",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.17 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16460",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "909.78 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16460",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.17 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16459",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "909.78 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16459",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.17 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16458",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "909.73 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16458",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.17 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16457",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "909.78 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16457",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.17 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16456",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "909.8 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16456",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.17 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16455",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "909.81 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16455",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.17 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16454",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "909.61 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16454",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.17 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16453",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "909.48 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16453",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.17 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16452",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "909.48 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16452",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.17 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16451",
+    "type": "internal-nondebug",
+    "parts": "32",
+    "size": "916.55 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16451",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.17 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16450",
+    "type": "internal-nondebug",
+    "parts": "32",
+    "size": "916.72 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16450",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.17 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16449",
+    "type": "internal-nondebug",
+    "parts": "32",
+    "size": "916.91 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16449",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.17 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16448",
+    "type": "internal-nondebug",
+    "parts": "32",
+    "size": "914.4 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16448",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.16 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16447",
+    "type": "internal-nondebug",
+    "parts": "32",
+    "size": "912.98 KB",
+    "bString": "2.9 FCS-NonDebug"
+  },
+  {
+    "build": "16447",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.16 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16366",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.2 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16365",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.2 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16364",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.2 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16363",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.2 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16362",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.2 MB",
+    "bString": "2.9"
+  },
+  {
+    "build": "16358",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.33 MB",
+    "bString": "2.9 Debug"
+  },
+  {
+    "build": "16357",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.31 MB",
+    "bString": "2.9 Debug"
+  },
+  {
+    "build": "16356",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.31 MB",
+    "bString": "2.9 Debug"
+  },
+  {
+    "build": "7589",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.07 MB",
+    "bString": "2.5.9.1print Internal-Nondebug"
+  },
+  {
+    "build": "7589",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.66 MB",
+    "bString": "2.5.9.1print Internal-Debug"
+  },
+  {
+    "build": "7589",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.07 MB",
+    "bString": "2.5.9.1print"
+  },
+  {
+    "build": "7588",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.07 MB",
+    "bString": "2.5.9.1print"
+  },
+  {
+    "build": "7588",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.07 MB",
+    "bString": "2.5.9.1print Internal-Nondebug"
+  },
+  {
+    "build": "7588",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.66 MB",
+    "bString": "2.5.9.1print Internal-Debug"
+  },
+  {
+    "build": "7587",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.66 MB",
+    "bString": "2.5.9.1print Internal-Debug"
+  },
+  {
+    "build": "7587",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.07 MB",
+    "bString": "2.5.9.1print"
+  },
+  {
+    "build": "7587",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.07 MB",
+    "bString": "2.5.9.1print Internal-Nondebug"
+  },
+  {
+    "build": "7586",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.07 MB",
+    "bString": "2.5.9.1print Internal-Nondebug"
+  },
+  {
+    "build": "7586",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.07 MB",
+    "bString": "2.5.9.1print"
+  },
+  {
+    "build": "7585",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.07 MB",
+    "bString": "2.5.9.1print"
+  },
+  {
+    "build": "7583",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.06 MB",
+    "bString": "2.5.9.1print Internal-Nondebug"
+  },
+  {
+    "build": "7583",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.65 MB",
+    "bString": "2.5.9.1print Internal-Debug"
+  },
+  {
+    "build": "7583",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.06 MB",
+    "bString": "2.5.9.1print"
+  },
+  {
+    "build": "7581",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.06 MB",
+    "bString": "2.5.9print"
+  },
+  {
+    "build": "7581",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.06 MB",
+    "bString": "2.5.9print Internal-Nondebug"
+  },
+  {
+    "build": "7581",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.65 MB",
+    "bString": "2.5.9print Internal-Debug"
+  },
+  {
+    "build": "7580",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.65 MB",
+    "bString": "2.5.9print Internal-Debug"
+  },
+  {
+    "build": "7580",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.06 MB",
+    "bString": "2.5.9print"
+  },
+  {
+    "build": "7580",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.06 MB",
+    "bString": "2.5.9print Internal-Nondebug"
+  },
+  {
+    "build": "7578",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.06 MB",
+    "bString": "2.5.9print Internal-Nondebug"
+  },
+  {
+    "build": "7578",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.65 MB",
+    "bString": "2.5.9print Internal-Debug"
+  },
+  {
+    "build": "7578",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.06 MB",
+    "bString": "2.5.9print"
+  },
+  {
+    "build": "7558",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.9.1mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7558",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.64 MB",
+    "bString": "2.5.9.1mpeg Internal-Debug"
+  },
+  {
+    "build": "7558",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.9.1mpeg"
+  },
+  {
+    "build": "7557",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.9.1mpeg"
+  },
+  {
+    "build": "7557",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.9.1mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7557",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.63 MB",
+    "bString": "2.5.9.1mpeg Internal-Debug"
+  },
+  {
+    "build": "7556",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.9.1mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7556",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.9.1mpeg"
+  },
+  {
+    "build": "7555",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.9.1mpeg"
+  },
+  {
+    "build": "7553",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.9.1mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7553",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.63 MB",
+    "bString": "2.5.9.1mpeg Internal-Debug"
+  },
+  {
+    "build": "7553",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.9.1mpeg"
+  },
+  {
+    "build": "7551",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.9mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7551",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.63 MB",
+    "bString": "2.5.9mpeg Internal-Debug"
+  },
+  {
+    "build": "7551",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.9mpeg"
+  },
+  {
+    "build": "7550",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.9mpeg"
+  },
+  {
+    "build": "7550",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.9mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7550",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.63 MB",
+    "bString": "2.5.9mpeg Internal-Debug"
+  },
+  {
+    "build": "7548",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.63 MB",
+    "bString": "2.5.9mpeg Internal-Debug"
+  },
+  {
+    "build": "7548",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.9mpeg"
+  },
+  {
+    "build": "7548",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.9mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7518",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.8print Internal-Nondebug"
+  },
+  {
+    "build": "7518",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.8print External-Nondebug"
+  },
+  {
+    "build": "7517",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.8print External-Nondebug"
+  },
+  {
+    "build": "7517",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.8print Internal-Nondebug"
+  },
+  {
+    "build": "7515",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.8print Internal-Nondebug"
+  },
+  {
+    "build": "7515",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.8print External-Nondebug"
+  },
+  {
+    "build": "7515",
+    "type": "daily-nondebug-nometer",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.8print Internal-Nondebug"
+  },
+  {
+    "build": "7515",
+    "type": "internal-nondebug-4m",
+    "parts": "32",
+    "size": "1.37 MB",
+    "bString": "2.5.8print Internal-Nondebug"
+  },
+  {
+    "build": "7514",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "941.82 KB",
+    "bString": "2.5.8print Internal-Nondebug"
+  },
+  {
+    "build": "7514",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "940.34 KB",
+    "bString": "2.5.8print External-Nondebug"
+  },
+  {
+    "build": "7512",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.8print External-Nondebug"
+  },
+  {
+    "build": "7512",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.8print Internal-Nondebug"
+  },
+  {
+    "build": "7501",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.14 MB",
+    "bString": "2.5.7print Internal-Nondebug"
+  },
+  {
+    "build": "7501",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.7print External-Nondebug"
+  },
+  {
+    "build": "7500",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.7print External-Nondebug"
+  },
+  {
+    "build": "7500",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.14 MB",
+    "bString": "2.5.7print Internal-Nondebug"
+  },
+  {
+    "build": "7423",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.8.1mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7423",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.8.1mpeg External-Nondebug"
+  },
+  {
+    "build": "7423",
+    "type": "daily-nondebug-nometer",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.8.1mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7423",
+    "type": "internal-nondebug-4m-mpeg",
+    "parts": "32",
+    "size": "1.36 MB",
+    "bString": "2.5.8.1mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7418",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.8mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7418",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.69 MB",
+    "bString": "2.5.8print Internal-Debug"
+  },
+  {
+    "build": "7418",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.11 MB",
+    "bString": "2.5.8mpeg External-Nondebug"
+  },
+  {
+    "build": "7417",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.8mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7417",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.11 MB",
+    "bString": "2.5.8mpeg External-Nondebug"
+  },
+  {
+    "build": "7415",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.11 MB",
+    "bString": "2.5.8mpeg External-Nondebug"
+  },
+  {
+    "build": "7415",
+    "type": "daily-nondebug-nometer",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.8mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7415",
+    "type": "internal-nondebug-4m",
+    "parts": "32",
+    "size": "1.36 MB",
+    "bString": "2.5.8mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7415",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.8mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7412",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.7 MB",
+    "bString": "2.5.8mpeg Internal-Debug"
+  },
+  {
+    "build": "7412",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.11 MB",
+    "bString": "2.5.8mpeg External-Nondebug"
+  },
+  {
+    "build": "7412",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.8mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7401",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.7mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7401",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.71 MB",
+    "bString": "2.5.7mpeg Internal-Debug"
+  },
+  {
+    "build": "7401",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.7mpeg External-Nondebug"
+  },
+  {
+    "build": "7399",
+    "type": "internal-nondebug-4m",
+    "parts": "32",
+    "size": "1.38 MB",
+    "bString": "2.5.7print Internal-Nondebug"
+  },
+  {
+    "build": "7399",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.14 MB",
+    "bString": "2.5.7print Internal-Nondebug"
+  },
+  {
+    "build": "7399",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.7 MB",
+    "bString": "2.5.7print Internal-Debug"
+  },
+  {
+    "build": "7399",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.7print External-Nondebug"
+  },
+  {
+    "build": "7397",
+    "type": "internal-nondebug-4m",
+    "parts": "32",
+    "size": "1.3 MB",
+    "bString": "2.5.7print Internal-Nondebug"
+  },
+  {
+    "build": "7397",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.05 MB",
+    "bString": "2.5.7print Internal-Nondebug"
+  },
+  {
+    "build": "7397",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.58 MB",
+    "bString": "2.5.7print Internal-Debug"
+  },
+  {
+    "build": "7397",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.05 MB",
+    "bString": "2.5.7print External-Nondebug"
+  },
+  {
+    "build": "7394",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.14 MB",
+    "bString": "2.5.7print External-Nondebug"
+  },
+  {
+    "build": "7392",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.05 MB",
+    "bString": "2.5.7print Internal-Nondebug"
+  },
+  {
+    "build": "7392",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.71 MB",
+    "bString": "2.5.7print Internal-Debug"
+  },
+  {
+    "build": "7392",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.14 MB",
+    "bString": "2.5.7print External-Nondebug"
+  },
+  {
+    "build": "7392",
+    "type": "internal-nondebug-4m",
+    "parts": "32",
+    "size": "1.39 MB",
+    "bString": "2.5.7print Internal-Nondebug"
+  },
+  {
+    "build": "7390",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.05 MB",
+    "bString": "2.5.7im Internal-Nondebug"
+  },
+  {
+    "build": "7390",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.71 MB",
+    "bString": "2.5.7im Internal-Debug"
+  },
+  {
+    "build": "7390",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.14 MB",
+    "bString": "2.5.7im External-Nondebug"
+  },
+  {
+    "build": "7388",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.14 MB",
+    "bString": "2.5.7im External-Nondebug"
+  },
+  {
+    "build": "7386",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.14 MB",
+    "bString": "2.5.7im External-Nondebug"
+  },
+  {
+    "build": "7383",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.6im External-Nondebug"
+  },
+  {
+    "build": "7383",
+    "type": "daily-nondebug-nometer",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.6im Internal-Nondebug"
+  },
+  {
+    "build": "7383",
+    "type": "internal-nondebug-4m",
+    "parts": "32",
+    "size": "1.38 MB",
+    "bString": "2.5.6im Internal-Nondebug"
+  },
+  {
+    "build": "7383",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.6im Internal-Nondebug"
+  },
+  {
+    "build": "7383",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.69 MB",
+    "bString": "2.5.6im Internal-Debug"
+  },
+  {
+    "build": "7377",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.5im External-Nondebug"
+  },
+  {
+    "build": "7377",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.5im Internal-Nondebug"
+  },
+  {
+    "build": "7377",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.69 MB",
+    "bString": "2.5.5im Internal-Debug"
+  },
+  {
+    "build": "7352",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.69 MB",
+    "bString": "2.5.5 Internal-Debug"
+  },
+  {
+    "build": "7352",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.5 External-Nondebug"
+  },
+  {
+    "build": "7352",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.5 Internal-Nondebug"
+  },
+  {
+    "build": "7351",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.5 Internal-Nondebug"
+  },
+  {
+    "build": "7351",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.69 MB",
+    "bString": "2.5.5 Internal-Debug"
+  },
+  {
+    "build": "7351",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.5 External-Nondebug"
+  },
+  {
+    "build": "7298",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.7mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7298",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.71 MB",
+    "bString": "2.5.7mpeg Internal-Debug"
+  },
+  {
+    "build": "7298",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.7mpeg External-Nondebug"
+  },
+  {
+    "build": "7298",
+    "type": "daily-nondebug-nometer",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.7mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7298",
+    "type": "internal-nondebug-4m",
+    "parts": "32",
+    "size": "1.37 MB",
+    "bString": "2.5.7mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7297",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.71 MB",
+    "bString": "2.5.7mpeg Internal-Debug"
+  },
+  {
+    "build": "7297",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.7mpeg External-Nondebug"
+  },
+  {
+    "build": "7297",
+    "type": "daily-nondebug-nometer",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.7mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7297",
+    "type": "internal-nondebug-4m",
+    "parts": "32",
+    "size": "1.37 MB",
+    "bString": "2.5.7mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7297",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.7mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7296",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.7mpeg External-Nondebug"
+  },
+  {
+    "build": "7295",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.7mpeg External-Nondebug"
+  },
+  {
+    "build": "7294",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.7mpeg External-Nondebug"
+  },
+  {
+    "build": "7290",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.7mpeg External-Nondebug"
+  },
+  {
+    "build": "7288",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.7mpeg External-Nondebug"
+  },
+  {
+    "build": "7287",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.14 MB",
+    "bString": "2.5.7mpeg External-Nondebug"
+  },
+  {
+    "build": "7286",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.7mpeg External-Nondebug"
+  },
+  {
+    "build": "7285",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.14 MB",
+    "bString": "2.5.7mpeg External-Nondebug"
+  },
+  {
+    "build": "7283",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.6mpeg External-Nondebug"
+  },
+  {
+    "build": "7283",
+    "type": "daily-nondebug-nometer",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.6mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7283",
+    "type": "internal-nondebug-4m",
+    "parts": "32",
+    "size": "1.37 MB",
+    "bString": "2.5.6mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7283",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5.6mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7283",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.69 MB",
+    "bString": "2.5.6mpeg Internal-Debug"
+  },
+  {
+    "build": "7279",
+    "type": "daily-nondebug-nometer",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.5mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7279",
+    "type": "internal-nondebug-4m",
+    "parts": "32",
+    "size": "1.37 MB",
+    "bString": "2.5.5mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7279",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.5mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7279",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.69 MB",
+    "bString": "2.5.5mpeg Internal-Debug"
+  },
+  {
+    "build": "7279",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.5mpeg External-Nondebug"
+  },
+  {
+    "build": "7278",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.5mpeg Internal-Nondebug"
+  },
+  {
+    "build": "7278",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.69 MB",
+    "bString": "2.5.5mpeg Internal-Debug"
+  },
+  {
+    "build": "7278",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5.5mpeg External-Nondebug"
+  },
+  {
+    "build": "7183",
+    "type": "daily-nondebug-nometer",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5 Internal Nometer"
+  },
+  {
+    "build": "7183",
+    "type": "internal-nondebug-4m",
+    "parts": "32",
+    "size": "1.37 MB",
+    "bString": "2.5 Internal"
+  },
+  {
+    "build": "7183",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5 Internal"
+  },
+  {
+    "build": "7183",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.69 MB",
+    "bString": "2.5 Internal Debug"
+  },
+  {
+    "build": "7183",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5"
+  },
+  {
+    "build": "7183",
+    "type": "weekly-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5 Genesis"
+  },
+  {
+    "build": "7182",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5 Internal"
+  },
+  {
+    "build": "7182",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.69 MB",
+    "bString": "2.5 Internal Debug"
+  },
+  {
+    "build": "7182",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5"
+  },
+  {
+    "build": "7181",
+    "type": "internal-nondebug-4m",
+    "parts": "32",
+    "size": "1.37 MB",
+    "bString": "2.5 Internal"
+  },
+  {
+    "build": "7181",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5 Internal"
+  },
+  {
+    "build": "7181",
+    "type": "internal-debug",
+    "parts": "32",
+    "size": "1.69 MB",
+    "bString": "2.5 Internal Debug"
+  },
+  {
+    "build": "7181",
+    "type": "weekly-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5 Genesis"
+  },
+  {
+    "build": "7181",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5"
+  },
+  {
+    "build": "7181",
+    "type": "internal-nondebug-nometer",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "2.5 Internal Nometer"
+  },
+  {
+    "build": "7151",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.12 MB",
+    "bString": "2.5 external-nondebug"
+  },
+  {
+    "build": "1238",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "1.4.2.2 Internal-Ndbg"
+  },
+  {
+    "build": "1235",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "1.4.2.1 Internal-Ndbg"
+  },
+  {
+    "build": "1235",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "1.4.2.1"
+  },
+  {
+    "build": "1233",
+    "type": "internal-debug-4m",
+    "parts": "32",
+    "size": "1.57 MB",
+    "bString": "1.4.2 Internal-Debug"
+  },
+  {
+    "build": "1233",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "1.4.2"
+  },
+  {
+    "build": "1233",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "1.4.2 Internal-Ndbg"
+  },
+  {
+    "build": "1232",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "1.4.2"
+  },
+  {
+    "build": "1230",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "1.4.1 Internal-Ndbg"
+  },
+  {
+    "build": "1230",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "1.4.1"
+  },
+  {
+    "build": "1228",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "1.4.1 Internal-Ndbg"
+  },
+  {
+    "build": "1228",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "1.4.1"
+  },
+  {
+    "build": "1219",
+    "type": "weekly-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "1.4 Weekly-Ndbg"
+  },
+  {
+    "build": "1219",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "1.4"
+  },
+  {
+    "build": "1218",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "1.4 Internal-Ndbg"
+  },
+  {
+    "build": "1218",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "1.4"
+  },
+  {
+    "build": "1130",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.05 MB",
+    "bString": "1.4Retail Retail-NDbg"
+  },
+  {
+    "build": "1130",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.05 MB",
+    "bString": "1.4Retail"
+  },
+  {
+    "build": "1129",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.05 MB",
+    "bString": "1.4Retail Retail-NDbg"
+  },
+  {
+    "build": "1128",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.06 MB",
+    "bString": "1.4Retail Retail-NDbg"
+  },
+  {
+    "build": "1127",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.1 MB",
+    "bString": "1.4Retail Retail-NDbg"
+  },
+  {
+    "build": "1091",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.07 MB",
+    "bString": "1.3retail"
+  },
+  {
+    "build": "1091",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.07 MB",
+    "bString": "1.3"
+  },
+  {
+    "build": "1090",
+    "type": "weekly-nondebug",
+    "parts": "16",
+    "size": "1.07 MB",
+    "bString": "1.3"
+  },
+  {
+    "build": "1090",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.07 MB",
+    "bString": "1.3"
+  },
+  {
+    "build": "1090",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.07 MB",
+    "bString": "1.3retail(build 1090)"
+  },
+  {
+    "build": "1048",
+    "type": "internal-debug-4m",
+    "parts": "32",
+    "size": "1.62 MB",
+    "bString": "1.3 Alpha (Internal, debug)"
+  },
+  {
+    "build": "1048",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.11 MB",
+    "bString": "1.3"
+  },
+  {
+    "build": "1048",
+    "type": "external-debug-4m",
+    "parts": "32",
+    "size": "1.62 MB",
+    "bString": "1.3 Alpha (External, debug)"
+  },
+  {
+    "build": "1048",
+    "type": "weekly-nondebug",
+    "parts": "16",
+    "size": "1.11 MB",
+    "bString": "1.3 Alpha"
+  },
+  {
+    "build": "1048",
+    "type": "export-nondebug",
+    "parts": "16",
+    "size": "1.11 MB",
+    "bString": "1.3 Alpha Exp, non-dbg"
+  },
+  {
+    "build": "1048",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.11 MB",
+    "bString": "1.3 Int nondbg"
+  },
+  {
+    "build": "1047",
+    "type": "external-debug-4m",
+    "parts": "32",
+    "size": "1.62 MB",
+    "bString": "1.3 Alpha (External, debug)"
+  },
+  {
+    "build": "1047",
+    "type": "weekly-nondebug",
+    "parts": "16",
+    "size": "1.11 MB",
+    "bString": "1.3 Alpha"
+  },
+  {
+    "build": "1047",
+    "type": "export-nondebug",
+    "parts": "16",
+    "size": "1.11 MB",
+    "bString": "1.3 Alpha Exp, non-dbg"
+  },
+  {
+    "build": "1047",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.11 MB",
+    "bString": "1.3 Int nondbg"
+  },
+  {
+    "build": "1047",
+    "type": "internal-debug-4m",
+    "parts": "32",
+    "size": "1.62 MB",
+    "bString": "1.3 Alpha (Internal, debug)"
+  },
+  {
+    "build": "1047",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.11 MB",
+    "bString": "1.3"
+  },
+  {
+    "build": "1046",
+    "type": "internal-debug-4m",
+    "parts": "32",
+    "size": "1.62 MB",
+    "bString": "1.3 Alpha (Internal, debug)"
+  },
+  {
+    "build": "1046",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.11 MB",
+    "bString": "1.3"
+  },
+  {
+    "build": "1046",
+    "type": "external-debug-4m",
+    "parts": "32",
+    "size": "1.62 MB",
+    "bString": "1.3 Alpha (External, debug)"
+  },
+  {
+    "build": "1046",
+    "type": "weekly-nondebug",
+    "parts": "16",
+    "size": "1.11 MB",
+    "bString": "1.3 Alpha"
+  },
+  {
+    "build": "1046",
+    "type": "export-nondebug",
+    "parts": "16",
+    "size": "1.11 MB",
+    "bString": "1.3 Alpha (Export, non-debug)"
+  },
+  {
+    "build": "1046",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.11 MB",
+    "bString": "1.3 Int, nondebug (build 1046)"
+  },
+  {
+    "build": "1041",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.1 MB",
+    "bString": "1.3 Alpha"
+  },
+  {
+    "build": "434",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.14 MB",
+    "bString": "1.2"
+  },
+  {
+    "build": "433",
+    "type": "internal-debug-4m",
+    "parts": "32",
+    "size": "1.65 MB",
+    "bString": "1.2 (Internal, debug)"
+  },
+  {
+    "build": "433",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.14 MB",
+    "bString": "1.2"
+  },
+  {
+    "build": "433",
+    "type": "export-nondebug-4m",
+    "parts": "32",
+    "size": "1.42 MB",
+    "bString": "1.2 (Export, non-debug)"
+  },
+  {
+    "build": "433",
+    "type": "export-nondebug",
+    "parts": "16",
+    "size": "1.15 MB",
+    "bString": "1.2 (Export, non-debug)"
+  },
+  {
+    "build": "433",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "1.15 MB",
+    "bString": "1.2 (Internal, non-debug)"
+  },
+  {
+    "build": "432-kiosk",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "1.2 Demo"
+  },
+  {
+    "build": "431-kiosk",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.13 MB",
+    "bString": "1.2 Demo"
+  },
+  {
+    "build": "315",
+    "type": "export-nondebug",
+    "parts": "16",
+    "size": "900.03 KB",
+    "bString": "1.2 Alpha (Export, non-debug)"
+  },
+  {
+    "build": "315",
+    "type": "internal-debug",
+    "parts": "16",
+    "size": "911.2 KB",
+    "bString": "1.2 Alpha (Internal, debug)"
+  },
+  {
+    "build": "315",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "899.96 KB",
+    "bString": "1.2 Alpha"
+  },
+  {
+    "build": "315",
+    "type": "external-debug",
+    "parts": "16",
+    "size": "911.19 KB",
+    "bString": "1.2 Alpha (External, debug)"
+  },
+  {
+    "build": "315",
+    "type": "export-nondebug-jaJP",
+    "parts": "33",
+    "size": "3.09 MB",
+    "bString": "1.2 Alpha (Japanese Demo, non-debug)"
+  },
+  {
+    "build": "304",
+    "type": "export-nondebug-jaJP",
+    "parts": "33",
+    "size": "3.01 MB",
+    "bString": "1.2 Alpha (Japanese Demo, non-debug)"
+  },
+  {
+    "build": "276",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.21 MB",
+    "bString": "Sony Kiosk, v1.1.1"
+  },
+  {
+    "build": "275",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.21 MB",
+    "bString": "Philips Kiosk, v1.1.1"
+  },
+  {
+    "build": "253",
+    "type": "export-nondebug",
+    "parts": "16",
+    "size": "809.04 KB",
+    "bString": "1.1 (Export, non-debug)"
+  },
+  {
+    "build": "253",
+    "type": "internal-nondebug",
+    "parts": "16",
+    "size": "809.48 KB",
+    "bString": "1.1 (Internal, non-debug)"
+  },
+  {
+    "build": "253",
+    "type": "internal-debug",
+    "parts": "16",
+    "size": "945.03 KB",
+    "bString": "1.1 (Internal, debug)"
+  },
+  {
+    "build": "253",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "808.98 KB",
+    "bString": "1.1"
+  },
+  {
+    "build": "253",
+    "type": "external-debug",
+    "parts": "16",
+    "size": "945.02 KB",
+    "bString": "1.1 (External, debug)"
+  },
+  {
+    "build": "117",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "567.07 KB",
+    "bString": "1.0.2"
+  },
+  {
+    "build": "110",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "566.56 KB",
+    "bString": "1.0.1"
+  },
+  {
+    "build": "108",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "584.26 KB",
+    "bString": "1.0 (Internal, non-debug)"
+  },
+  {
+    "build": "107",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "1.08 MB",
+    "bString": "1.0j Export build"
+  },
+  {
+    "build": "105",
+    "type": "special-case",
+    "parts": "30",
+    "size": "2.03 MB",
+    "bString": "1.0"
+  },
+  {
+    "build": "105",
+    "type": "internal-debug",
+    "parts": "16",
+    "size": "644.04 KB",
+    "bString": "1.0 (Internal, debug)"
+  },
+  {
+    "build": "105",
+    "type": "external-nondebug",
+    "parts": "16",
+    "size": "566.54 KB",
+    "bString": "1.0"
+  },
+  {
+    "build": "diagnostic",
+    "type": "special-case",
+    "parts": "16",
+    "size": "1001.93 KB",
+    "bString": "1.2"
+  },
+  {
+    "build": "hp",
+    "type": "special-case",
+    "parts": "16",
+    "size": "1.06 MB",
+    "bString": "1.2"
+  },
+  {
+    "build": "hp",
+    "type": "special-case",
+    "parts": "16",
+    "size": "1.06 MB",
+    "bString": "1.2"
+  },
+  {
+    "build": "canon",
+    "type": "special-case",
+    "parts": "16",
+    "size": "1.03 MB",
+    "bString": "1.2"
+  },
+  {
+    "build": "canon",
+    "type": "special-case",
+    "parts": "16",
+    "size": "1.03 MB",
+    "bString": "1.2"
+  }
+]

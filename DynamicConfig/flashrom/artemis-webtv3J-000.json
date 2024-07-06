@@ -1,0 +1,16 @@
+[
+  {
+    "build": "3766",
+    "type": "external-nondebug",
+    "parts": "39",
+    "size": "2.83 MB",
+    "bString": "2.2"
+  },
+  {
+    "build": "3769",
+    "type": "external-nondebug",
+    "parts": "39",
+    "size": "2.83 MB",
+    "bString": "2.2.1"
+  }
+]

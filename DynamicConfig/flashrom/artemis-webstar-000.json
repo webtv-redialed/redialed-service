@@ -1,0 +1,1829 @@
+[
+  {
+    "build": "17015",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.38 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "17015",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.6"
+  },
+  {
+    "build": "17014",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.38 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "17014",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.6"
+  },
+  {
+    "build": "17013",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.38 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "17013",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.6"
+  },
+  {
+    "build": "17012",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.38 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "17011",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.6"
+  },
+  {
+    "build": "17011",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.38 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "17010",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.38 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "17010",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.6"
+  },
+  {
+    "build": "17008",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.6"
+  },
+  {
+    "build": "17008",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.38 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "17007",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.38 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "17007",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.6"
+  },
+  {
+    "build": "17006",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.6"
+  },
+  {
+    "build": "17006",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.38 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "17006",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.59 MB",
+    "bString": "2.3.4.6 Internal Debug"
+  },
+  {
+    "build": "17005",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.38 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "17005",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.6"
+  },
+  {
+    "build": "17000",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.37 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "17000",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.6"
+  },
+  {
+    "build": "16917",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.37 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "16917",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.5 MB",
+    "bString": "2.3.4.6"
+  },
+  {
+    "build": "16914",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.37 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "16914",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.5 MB",
+    "bString": "2.3.4.6"
+  },
+  {
+    "build": "16913",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.37 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "16913",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.6"
+  },
+  {
+    "build": "16912",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.37 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "16910",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.37 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "16910",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.6"
+  },
+  {
+    "build": "16909",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.37 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "16908",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.37 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "16907",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.38 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "16906",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.38 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "16905",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.37 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "16904",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.37 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "16904",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.6"
+  },
+  {
+    "build": "16903",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.37 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "16902",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.37 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "16901",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.37 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "16900",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.37 MB",
+    "bString": "2.3.4.6 Internal"
+  },
+  {
+    "build": "16833",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.39 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16833",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16831",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.39 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16831",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.6 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16831",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16830",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.39 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16829",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.39 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16828",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.39 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16828",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16825",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16825",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.39 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16825",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.6 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16823",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.39 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16822",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16822",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.39 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16822",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.6 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16821",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.6 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16821",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16821",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.39 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16820",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.39 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16819",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.6 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16819",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16819",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.39 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16818",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.39 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16817",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.39 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16816",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.39 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16815",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.39 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16815",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.53 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16813",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.6 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16813",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16813",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.39 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16811",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16811",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16809",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16809",
+    "type": "weekly-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5 Genesis"
+  },
+  {
+    "build": "16809",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16809",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.6 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16807",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16807",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16806",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16805",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16804",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16804",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16802",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16802",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16801",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16801",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16800",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16800",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16797",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16797",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16796",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16796",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16794",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16794",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16790",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.53 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16789",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.53 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16789",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16788",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.53 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16787",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.55 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16786",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.55 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16786",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.53 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16785",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.55 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16785",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.53 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16784",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.55 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16783",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.53 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16783",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.55 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16782",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.55 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16781",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.55 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16781",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.53 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16779",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.55 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16778",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.55 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16778",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.6 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16777",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.6 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16777",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.55 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16776",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.55 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16776",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.6 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16775",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.6 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16775",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.55 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16774",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16774",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.6 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16773",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.6 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16773",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16772",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16772",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.6 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16771",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.6 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16771",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16769",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16769",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.6 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16768",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.59 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16768",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16767",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16767",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.59 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16766",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.59 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16766",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16765",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16765",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.59 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16764",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.58 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16764",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.53 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16763",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.53 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16763",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.58 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16763",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16762",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.53 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16762",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.58 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16762",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16761",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16761",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.53 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16761",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.58 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16760",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16760",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.58 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16755",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16755",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.58 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16755",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.5"
+  },
+  {
+    "build": "16751",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.57 MB",
+    "bString": "2.3.4.5 Internal Debug"
+  },
+  {
+    "build": "16751",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.5 Internal"
+  },
+  {
+    "build": "16722",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.4 Internal"
+  },
+  {
+    "build": "16722",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.56 MB",
+    "bString": "2.3.4.4 Internal Debug"
+  },
+  {
+    "build": "16721",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.56 MB",
+    "bString": "2.3.4.4 Internal Debug"
+  },
+  {
+    "build": "16721",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.4 Internal"
+  },
+  {
+    "build": "16720",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.4 Internal"
+  },
+  {
+    "build": "16720",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.56 MB",
+    "bString": "2.3.4.4 Internal Debug"
+  },
+  {
+    "build": "16720",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.49 MB",
+    "bString": "2.3.4.4"
+  },
+  {
+    "build": "16720",
+    "type": "weekly-nondebug",
+    "parts": "63",
+    "size": "4.49 MB",
+    "bString": "2.3.4.4 Genesis"
+  },
+  {
+    "build": "16719",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.4 Internal"
+  },
+  {
+    "build": "16719",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.56 MB",
+    "bString": "2.3.4.4 Internal Debug"
+  },
+  {
+    "build": "16719",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.49 MB",
+    "bString": "2.3.4.4"
+  },
+  {
+    "build": "16717",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.4 Internal"
+  },
+  {
+    "build": "16717",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.56 MB",
+    "bString": "2.3.4.4 Internal Debug"
+  },
+  {
+    "build": "16716",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.56 MB",
+    "bString": "2.3.4.4 Internal Debug"
+  },
+  {
+    "build": "16716",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.49 MB",
+    "bString": "2.3.4.4"
+  },
+  {
+    "build": "16716",
+    "type": "weekly-nondebug",
+    "parts": "63",
+    "size": "4.49 MB",
+    "bString": "2.3.4.4 Genesis"
+  },
+  {
+    "build": "16716",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.4 Internal"
+  },
+  {
+    "build": "16715",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.4 Internal"
+  },
+  {
+    "build": "16715",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.56 MB",
+    "bString": "2.3.4.4 Internal Debug"
+  },
+  {
+    "build": "16713",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.4 Internal"
+  },
+  {
+    "build": "16713",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.49 MB",
+    "bString": "2.3.4.4"
+  },
+  {
+    "build": "16711",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.5 MB",
+    "bString": "2.3.4.4"
+  },
+  {
+    "build": "16710",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.56 MB",
+    "bString": "2.3.4.4 Internal Debug"
+  },
+  {
+    "build": "16710",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.4 Internal"
+  },
+  {
+    "build": "16707",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.4 Internal"
+  },
+  {
+    "build": "16707",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.56 MB",
+    "bString": "2.3.4.4 Internal Debug"
+  },
+  {
+    "build": "16707",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.5 MB",
+    "bString": "2.3.4.4"
+  },
+  {
+    "build": "16707",
+    "type": "weekly-nondebug",
+    "parts": "63",
+    "size": "4.5 MB",
+    "bString": "2.3.4.4 Genesis"
+  },
+  {
+    "build": "16705",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.4 Internal"
+  },
+  {
+    "build": "16705",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.56 MB",
+    "bString": "2.3.4.4 Internal Debug"
+  },
+  {
+    "build": "16704",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.56 MB",
+    "bString": "2.3.4.4 Internal Debug"
+  },
+  {
+    "build": "16704",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.4 Internal"
+  },
+  {
+    "build": "16703",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.5 MB",
+    "bString": "2.3.4.4"
+  },
+  {
+    "build": "16702",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.5 MB",
+    "bString": "2.3.4.4"
+  },
+  {
+    "build": "16700",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.5 MB",
+    "bString": "2.3.4.4"
+  },
+  {
+    "build": "16700",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.51 MB",
+    "bString": "2.3.4.4"
+  },
+  {
+    "build": "16700",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.56 MB",
+    "bString": "2.3.4.4"
+  },
+  {
+    "build": "5771",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.49 MB",
+    "bString": "2.3.4.4"
+  },
+  {
+    "build": "5768",
+    "type": "external-nondebug",
+    "parts": "126",
+    "size": "4.54 MB",
+    "bString": "2.3.4.4"
+  },
+  {
+    "build": "5768",
+    "type": "weekly-nondebug",
+    "parts": "126",
+    "size": "4.54 MB",
+    "bString": "2.3.4.4 Genesis"
+  },
+  {
+    "build": "5768",
+    "type": "internal-nondebug",
+    "parts": "126",
+    "size": "4.56 MB",
+    "bString": "2.3.4.4 Internal"
+  },
+  {
+    "build": "5768",
+    "type": "internal-debug",
+    "parts": "138",
+    "size": "4.6 MB",
+    "bString": "2.3.4.4 Internal Debug"
+  },
+  {
+    "build": "5765",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.4"
+  },
+  {
+    "build": "5765",
+    "type": "weekly-nondebug",
+    "parts": "63",
+    "size": "4.52 MB",
+    "bString": "2.3.4.4 Genesis"
+  },
+  {
+    "build": "5765",
+    "type": "internal-nondebug",
+    "parts": "63",
+    "size": "4.54 MB",
+    "bString": "2.3.4.4 Internal"
+  },
+  {
+    "build": "5765",
+    "type": "internal-debug",
+    "parts": "69",
+    "size": "4.58 MB",
+    "bString": "2.3.4.4 Internal Debug"
+  },
+  {
+    "build": "5764",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.53 MB",
+    "bString": "2.3.4.4"
+  },
+  {
+    "build": "5763",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.53 MB",
+    "bString": "2.3.4.4"
+  },
+  {
+    "build": "5762",
+    "type": "external-nondebug",
+    "parts": "63",
+    "size": "4.53 MB",
+    "bString": "2.3.4.4"
+  },
+  {
+    "build": "5721",
+    "type": "external-nondebug",
+    "parts": "62",
+    "size": "4.42 MB",
+    "bString": "2.3.4.3.2"
+  },
+  {
+    "build": "5720",
+    "type": "external-nondebug",
+    "parts": "62",
+    "size": "4.42 MB",
+    "bString": "2.3.4.3.1"
+  },
+  {
+    "build": "5720",
+    "type": "weekly-nondebug",
+    "parts": "62",
+    "size": "4.42 MB",
+    "bString": "2.3.4.3.1 Genesis"
+  },
+  {
+    "build": "5720",
+    "type": "internal-nondebug",
+    "parts": "62",
+    "size": "4.44 MB",
+    "bString": "2.3.4.3.1 Internal"
+  },
+  {
+    "build": "5720",
+    "type": "internal-debug",
+    "parts": "68",
+    "size": "4.48 MB",
+    "bString": "2.3.4.3.1 Internal Debug"
+  },
+  {
+    "build": "5719",
+    "type": "external-nondebug",
+    "parts": "62",
+    "size": "4.42 MB",
+    "bString": "2.3.4.3.1"
+  },
+  {
+    "build": "5719",
+    "type": "internal-nondebug",
+    "parts": "62",
+    "size": "4.44 MB",
+    "bString": "2.3.4.3.1 Internal"
+  },
+  {
+    "build": "5719",
+    "type": "internal-debug",
+    "parts": "68",
+    "size": "4.48 MB",
+    "bString": "2.3.4.3.1 Internal Debug"
+  },
+  {
+    "build": "5718",
+    "type": "internal-debug",
+    "parts": "68",
+    "size": "4.48 MB",
+    "bString": "2.3.4.3.1 Internal Debug"
+  },
+  {
+    "build": "5718",
+    "type": "external-nondebug",
+    "parts": "62",
+    "size": "4.42 MB",
+    "bString": "2.3.4.3.1"
+  },
+  {
+    "build": "5717",
+    "type": "external-nondebug",
+    "parts": "62",
+    "size": "4.42 MB",
+    "bString": "2.3.4.3.1"
+  },
+  {
+    "build": "5716",
+    "type": "internal-nondebug",
+    "parts": "62",
+    "size": "4.44 MB",
+    "bString": "2.3.4.3.1 Internal"
+  },
+  {
+    "build": "5716",
+    "type": "internal-debug",
+    "parts": "68",
+    "size": "4.48 MB",
+    "bString": "2.3.4.3.1 Internal Debug"
+  },
+  {
+    "build": "5716",
+    "type": "external-nondebug",
+    "parts": "62",
+    "size": "4.42 MB",
+    "bString": "2.3.4.3.1"
+  },
+  {
+    "build": "5709",
+    "type": "external-nondebug",
+    "parts": "62",
+    "size": "4.42 MB",
+    "bString": "2.3.4.3"
+  },
+  {
+    "build": "5708",
+    "type": "internal-nondebug",
+    "parts": "62",
+    "size": "4.44 MB",
+    "bString": "2.3.4.3 Internal"
+  },
+  {
+    "build": "5708",
+    "type": "internal-debug",
+    "parts": "68",
+    "size": "4.48 MB",
+    "bString": "2.3.4.3 Internal Debug"
+  },
+  {
+    "build": "5708",
+    "type": "external-nondebug",
+    "parts": "62",
+    "size": "4.42 MB",
+    "bString": "2.3.4.3"
+  },
+  {
+    "build": "5708",
+    "type": "weekly-nondebug",
+    "parts": "62",
+    "size": "4.42 MB",
+    "bString": "2.3.4.3 Genesis"
+  },
+  {
+    "build": "5613",
+    "type": "internal-nondebug",
+    "parts": "68",
+    "size": "4.36 MB",
+    "bString": "2.3.4.2 Internal"
+  },
+  {
+    "build": "5613",
+    "type": "internal-debug",
+    "parts": "74",
+    "size": "4.39 MB",
+    "bString": "2.3.4.2 Internal Debug"
+  },
+  {
+    "build": "5613",
+    "type": "external-nondebug",
+    "parts": "68",
+    "size": "4.34 MB",
+    "bString": "2.3.4.2"
+  },
+  {
+    "build": "5613",
+    "type": "weekly-nondebug",
+    "parts": "68",
+    "size": "4.34 MB",
+    "bString": "2.3.4.2 Genesis"
+  },
+  {
+    "build": "5612",
+    "type": "external-nondebug",
+    "parts": "68",
+    "size": "4.34 MB",
+    "bString": "2.3.4.2"
+  },
+  {
+    "build": "5610",
+    "type": "external-nondebug",
+    "parts": "68",
+    "size": "4.34 MB",
+    "bString": "2.3.4.2"
+  },
+  {
+    "build": "5608",
+    "type": "external-nondebug",
+    "parts": "68",
+    "size": "4.34 MB",
+    "bString": "2.3.4.2"
+  },
+  {
+    "build": "5608",
+    "type": "internal-nondebug",
+    "parts": "68",
+    "size": "4.35 MB",
+    "bString": "2.3.4.2 Internal"
+  },
+  {
+    "build": "5608",
+    "type": "internal-debug",
+    "parts": "74",
+    "size": "4.39 MB",
+    "bString": "2.3.4.2 Internal Debug"
+  },
+  {
+    "build": "5605",
+    "type": "internal-debug",
+    "parts": "74",
+    "size": "4.39 MB",
+    "bString": "2.3bldr-alpha Internal Debug"
+  },
+  {
+    "build": "5605",
+    "type": "external-nondebug",
+    "parts": "68",
+    "size": "4.34 MB",
+    "bString": "2.3bldr-alpha"
+  },
+  {
+    "build": "5605",
+    "type": "internal-nondebug",
+    "parts": "68",
+    "size": "4.36 MB",
+    "bString": "2.3bldr-alpha Internal"
+  },
+  {
+    "build": "5604",
+    "type": "external-nondebug",
+    "parts": "68",
+    "size": "4.34 MB",
+    "bString": "2.3.4.2"
+  },
+  {
+    "build": "5493",
+    "type": "internal-nondebug",
+    "parts": "66",
+    "size": "4.21 MB",
+    "bString": "2.3bldr-alpha Internal"
+  },
+  {
+    "build": "5493",
+    "type": "external-nondebug",
+    "parts": "66",
+    "size": "4.19 MB",
+    "bString": "2.3bldr-alpha"
+  },
+  {
+    "build": "5473",
+    "type": "external-nondebug",
+    "parts": "61",
+    "size": "4.19 MB",
+    "bString": "2.3.4.1"
+  },
+  {
+    "build": "5472",
+    "type": "external-nondebug",
+    "parts": "61",
+    "size": "4.21 MB",
+    "bString": "2.3.4.1"
+  },
+  {
+    "build": "5468",
+    "type": "internal-debug",
+    "parts": "67",
+    "size": "4.26 MB",
+    "bString": "2.3.4"
+  },
+  {
+    "build": "5468",
+    "type": "external-nondebug",
+    "parts": "61",
+    "size": "4.21 MB",
+    "bString": "2.3.4"
+  },
+  {
+    "build": "5468",
+    "type": "internal-nondebug",
+    "parts": "61",
+    "size": "4.2 MB",
+    "bString": "2.3.4 Internal"
+  },
+  {
+    "build": "5464.orig",
+    "type": "internal-debug",
+    "parts": "67",
+    "size": "4.26 MB",
+    "bString": "2.3.4"
+  },
+  {
+    "build": "5464.orig",
+    "type": "external-nondebug",
+    "parts": "61",
+    "size": "4.21 MB",
+    "bString": "2.3.4"
+  },
+  {
+    "build": "5464",
+    "type": "external-nondebug",
+    "parts": "61",
+    "size": "4.21 MB",
+    "bString": "2.3.4"
+  },
+  {
+    "build": "5436",
+    "type": "internal-nondebug",
+    "parts": "61",
+    "size": "4.29 MB",
+    "bString": "2.3.3 Internal"
+  },
+  {
+    "build": "5436",
+    "type": "internal-debug",
+    "parts": "67",
+    "size": "4.33 MB",
+    "bString": "2.3.3"
+  },
+  {
+    "build": "5436",
+    "type": "external-nondebug",
+    "parts": "61",
+    "size": "4.27 MB",
+    "bString": "2.3.3"
+  },
+  {
+    "build": "5433",
+    "type": "external-nondebug",
+    "parts": "61",
+    "size": "4.27 MB",
+    "bString": "2.3.3"
+  },
+  {
+    "build": "5420",
+    "type": "internal-nondebug",
+    "parts": "61",
+    "size": "4.29 MB",
+    "bString": "2.3"
+  },
+  {
+    "build": "5420",
+    "type": "internal-debug",
+    "parts": "67",
+    "size": "4.33 MB",
+    "bString": "2.3"
+  },
+  {
+    "build": "5420",
+    "type": "external-nondebug",
+    "parts": "61",
+    "size": "4.27 MB",
+    "bString": "2.3"
+  },
+  {
+    "build": "5414",
+    "type": "external-nondebug",
+    "parts": "61",
+    "size": "4.27 MB",
+    "bString": "2.3.2"
+  },
+  {
+    "build": "5369",
+    "type": "external-nondebug",
+    "parts": "60",
+    "size": "4.19 MB",
+    "bString": "2.3.1"
+  },
+  {
+    "build": "5301",
+    "type": "external-nondebug",
+    "parts": "62",
+    "size": "4.42 MB",
+    "bString": "2.3dvrtest"
+  },
+  {
+    "build": "5255",
+    "type": "external-nondebug",
+    "parts": "62",
+    "size": "3.53 MB",
+    "bString": "2.3"
+  },
+  {
+    "build": "5253",
+    "type": "external-nondebug",
+    "parts": "62",
+    "size": "3.53 MB",
+    "bString": "2.3"
+  },
+  {
+    "build": "5135",
+    "type": "weekly-nondebug",
+    "parts": "68",
+    "size": "3.85 MB",
+    "bString": "2.3 Weekly"
+  }
+]
