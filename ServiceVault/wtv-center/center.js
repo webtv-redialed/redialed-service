@@ -1804,7 +1804,7 @@ Red Wings scores are currently unavailable.
 <spacer type=horizontal size=10>
 <font size=-1 color=#DED6BD>&#128;</font><spacer type=horizontal size=0>
 <td colspan=2 valign=top>
-<a href=http://covers.msnbc.com/data/mlb/game/mlb_lines.html><font size=-1 color=#DED6BD>Sports Odds</font></a><br>
+<a href="client:showalert?message=caring%20about%20sports%20is%20odd%20enough,%20don't%20double%20dip"><font size=-1 color=#DED6BD>Sports Odds</font></a><br>
 <spacer type=vertical size=7>
 <tr><td height=23 width=25 valign=top ALIGN=LEFT>
 <spacer type=horizontal size=10>
@@ -1816,19 +1816,19 @@ Red Wings scores are currently unavailable.
 <spacer type=horizontal size=10>
 <font size=-1 color=#DED6BD>&#128;</font><spacer type=horizontal size=0>
 <td colspan=2 valign=top>
-<a href=http://webtv.buzztime.com><font size=-1 color=#DED6BD>Sports trivia</font></a><br>
+<a href="client:showalert?message=space%20jam%203%20will%20be%20real%20in%202026"><font size=-1 color=#DED6BD>Sports trivia</font></a><br>
 <spacer type=vertical size=7>
 <tr><td height=23 width=25 valign=top ALIGN=LEFT>
 <spacer type=horizontal size=10>
 <font size=-1 color=#DED6BD>&#128;</font><spacer type=horizontal size=0>
 <td colspan=2 valign=top>
-<a href=http://eshop.msn.com/partnercategory.aspx?ptnrId=15&ptnrData=0&catId=786><font size=-1 color=#DED6BD>Find memorabilia</font></a><br>
+<a href="client:showalert?message=one%20morbillion%20dollar%20baseball%20card%20collection"><font size=-1 color=#DED6BD>Find memorabilia</font></a><br>
 <spacer type=vertical size=7>
 <tr><td height=23 width=25 valign=top ALIGN=LEFT>
 <spacer type=horizontal size=10>
 <font size=-1 color=#DED6BD>&#128;</font><spacer type=horizontal size=0>
 <td colspan=2 valign=top>
-<a href=http://www.barnesandnoble.com/subjects/sports/sports.asp><font size=-1 color=#DED6BD>Browse books</font></a><br>
+<a href="client:showalert?message=Why%20You%20Suck%20At%20Golf%20by%20Clive%20Scraff"><font size=-1 color=#DED6BD>Browse books</font></a><br>
 <spacer type=vertical size=7>
 <tr><td height=23 width=25 valign=top ALIGN=LEFT>
 <spacer type=horizontal size=10>
@@ -2020,19 +2020,19 @@ Red Wings scores are currently unavailable.
 <spacer type="horizontal" size="10">
 <font size="-1" color="#DED6BD">&#128;</font><spacer type="horizontal" size="0">
 </spacer></spacer></td><td colspan="2" valign="top">
-<a href="client:showalert?message=no"><font size="-1" color="#DED6BD">Buy groceries</font></a><br>
+<a href="client:showalert?message=We both know you're just gonna eat nothing but hot pockets"><font size="-1" color="#DED6BD">Buy groceries</font></a><br>
 <spacer type="vertical" size="7">
 </spacer></td></tr><tr><td width="25" valign="top" height="23" align="LEFT">
 <spacer type="horizontal" size="10">
 <font size="-1" color="#DED6BD">&#128;</font><spacer type="horizontal" size="0">
 </spacer></spacer></td><td colspan="2" valign="top">
-<a href="client:showalert?message=stop it"><font size="-1" color="#DED6BD">Coupons</font></a><br>
+<a href="client:showalert?message=1 dollar"><font size="-1" color="#DED6BD">Coupons</font></a><br>
 <spacer type="vertical" size="7">
 </spacer></td></tr><tr><td width="25" valign="top" height="23" align="LEFT">
 <spacer type="horizontal" size="10">
 <font size="-1" color="#DED6BD">&#128;</font><spacer type="horizontal" size="0">
 </spacer></spacer></td><td colspan="2" valign="top">
-<a href="client:showalert?message=stop trying to access 20 year old sites"><font size="-1" color="#DED6BD">Check a merchant</font></a><br>
+<a href="client:showalert?message=Just go to that one alleyway in Detroit, I'm sure the guy there is trustworthy"><font size="-1" color="#DED6BD">Check a merchant</font></a><br>
 <spacer type="vertical" size="7">
 </spacer></td></tr><tr><td width="25" valign="top" height="23" align="LEFT">
 <spacer type="horizontal" size="10">
@@ -2543,7 +2543,7 @@ document.SNForm.submit();
 <td maxlines=4>
 <font color=000100><b>completely unused</b></font>
 <spacer type=vertical height=2><br>
-<font color=000100 size=-1>there are no women</font>
+<font color=000100 size=-1>women do not exist 'round these parts</font>
 </table>
 <tr>
 <td align=right colspan=3>
