@@ -44,7 +44,7 @@
     "unauthorized_url": "wtv-1800:/unauthorized?",
     "enable_port_isolation": true,
     "allow_guests": false,
-    "domain_name": "wtv.zefie.com",
+    "domain_name": "webtv.zone",
     "user_accounts": {
       "max_users_per_account": 6,
       "min_username_length": 5,
