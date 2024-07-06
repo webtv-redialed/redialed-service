@@ -64,7 +64,7 @@ koko please fix this shit
 - DynamicConfig, more jasons for everybody
 
 ## Notes for service configuration
-`includes/config.json` is supposed to contain configuration info applied to *all* instances. `user_config` is for this specific instance. Please take care before modifying either. This is being done to reduce clashing between configs and eliminate potential for misconfiguration.
+`includes/config.json` can be used as a reference for what settings you can configure. Though be warned, it's supposed to contain configuration info applied to *all* instances. `user_config.json` is for this specific instance. Please take care before modifying either. This is being done to reduce clashing between configs and eliminate potential for misconfiguration.
 
 Please make sure of the following:
 - Service IP is correct and the service can be accessed from it
