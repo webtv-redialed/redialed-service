@@ -598,13 +598,13 @@ Weather info is unavailable`;
 <spacer type="horizontal" size="10">
 <font size="-1" color="#DED6BD">&#128;</font><spacer type="horizontal" size="0">
 </spacer></spacer></td><td colspan="2" valign="top">
-<a href=""><font size="-1" color="#DED6BD">Check horoscopes</font></a><br>
+<a href=http://theoldnet.com/get?url=webtv.astroadvice.com/default.htm&year=1999&scripts=false&decode=false><font size="-1" color="#DED6BD">Check horoscopes</font></a><br>
 <spacer type="vertical" size="7">
 </spacer></td></tr><tr><td width="25" valign="top" height="23" align="LEFT">
 <spacer type="horizontal" size="10">
 <font size="-1" color="#DED6BD">&#128;</font><spacer type="horizontal" size="0">
 </spacer></spacer></td><td colspan="2" valign="top">
-<a href=""><font size="-1" color="#DED6BD">Find a date</font></a><br>
+<a href="client:showalert?message=Sorry,%20you're%20a%20WebTV%20user"><font size="-1" color="#DED6BD">Find a date</font></a><br>
 <spacer type="vertical" size="7">
 </spacer></td></tr><tr><td width="25" valign="top" height="23" align="LEFT">
 <spacer type="horizontal" size="10">
@@ -616,7 +616,7 @@ Weather info is unavailable`;
 <spacer type="horizontal" size="10">
 <font size="-1" color="#DED6BD">&#128;</font><spacer type="horizontal" size="0">
 </spacer></spacer></td><td colspan="2" valign="top">
-<a href=""><font size="-1" color="#DED6BD">Get gourmet treats</font></a><br>
+<a href="client:showalert?message=strawberry%20poptart"><font size="-1" color="#DED6BD">Get gourmet treats</font></a><br>
 <spacer type="vertical" size="7">
 </spacer></td></tr><tr><td width="25" valign="top" height="23" align="LEFT">
 <spacer type="horizontal" size="10">
@@ -1352,7 +1352,7 @@ Weather info is unavailable`;
 						<font size=-1 color=#DED6BD>&#128;</font>
 						<spacer type=horizontal size=0>
 					 <td colspan=2 valign=top>
-						<a href=><font size=-1 color=#DED6BD>Check horoscopes</font></a><br>
+						<a href=http://theoldnet.com/get?url=webtv.astroadvice.com/default.htm&year=1999&scripts=false&decode=false><font size=-1 color=#DED6BD>Check horoscopes</font></a><br>
 						<spacer type=vertical size=7>
 				  <tr>
 					 <td height=23 width=25 valign=top ALIGN=LEFT>
