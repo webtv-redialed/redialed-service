@@ -3002,10 +3002,12 @@ if (minisrv_config.config.ServiceVaults) {
 }
 
 if (minisrv_config.config.SessionStore) {
-    var SessionStore = wtvshared.returnAbsolutePath(
-        minisrv_config.config.SessionStore
-    );
+    var SessionStore = wtvshared.returnAbsolutePath(minisrv_config.config.SessionStore);
     console.log(" * Configured Session Storage at", SessionStore);
+    if (!fs.existsSync(SessionStore)) {
+        fs.mkdirSync(SessionStore, { recursive: true });
+        console.log(" * Session Storage directory does not exist, so it was created");
+    }
 } else {
     throw "ERROR: No Session Storage Directory (SessionStore) defined!";
 }
