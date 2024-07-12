@@ -72,7 +72,8 @@ const messages = [
     "<a href='http://frogfind.com/?q=florida+man+" + month + "%2F" + day + "'>Florida is not real.</a>",
     "Brought to you by the letter T",
     "The Polyzoot admin command is not real",
-    "Jarvis, set this guy's access number to 911"
+    "Jarvis, set this guy's access number to 911",
+    "Ran by the meanest sons of bitches in the state of Maryland"
 ];
 
 var motd = messages[Math.floor(Math.random() * messages.length)];
