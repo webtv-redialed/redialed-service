@@ -109,12 +109,13 @@ hspace="0" vspace="0" fontsize="large" noscroll>
 					document.connect.port.value="1615"
 					document.message.msg.value='Default WebTV Internal IP/Port. Can be used to check your routing setup.'
 					break;
-				case "jarhead":
+				case "redialed":
 					document.connect.machine.value="192.161.48.92"
 					document.connect.port.value="1615"
-					document.message.msg.value="Jarhead\'s public minisrv, offers the most production-like WebTV service, to simulate how it was like back then."
+					document.message.msg.value='Simulates the WebTV Network as it was in 1999. Ran by HIDEN.'
+					break;
 				case "other":
-					document.message.msg.value="The WebTV Redialed minisrv, for those who want a more original WebTV experience. Simulates the WebTV Network as it was in 1999. Currently in public beta."
+					document.message.msg.value="Connect to another server that isn't listed."
 
 		}
 	  }
@@ -129,7 +130,7 @@ hspace="0" vspace="0" fontsize="large" noscroll>
 					<select width="440" name="preset" onchange="updateService()" selected>
 						<option value="mattman69" selected>MattMan69's HackTV minisrv</option>
 						<option value="zefie">zefie's minisrv</option>
-						<option value="jarhead">JarHead's WebTV Redialed Server</option>
+						<option value="redialed">WebTV Redialed</option>
 						<option value="local">Your local minisrv</option>
 						<option value="wni-prod">WebTV Production Default</option>
 						<option value="wni-int">WebTV Internal Default</option>

@@ -1,11 +1,11 @@
-From: Jar Head <JarHead@WebTV>
+From: Dylan Funderburg <hiden64@WebTV>
 Subject: Welcome to WebTV!
 
 Welcome to WebTV!
  
 Before we get started, I'd just like to take a moment to thank you for signing up for the WebTV Service. I hope you enjoy it!
  
-With that out of the way, let's get started
+With that out of the way, let's get started!
  
 A great place to start is WebTV Today. You can find it at the bottom of your Home page.
 In WebTV Today, you'll find the latest news for the WebTV Service.
@@ -16,7 +16,13 @@ Mail lets you send and receive e-mail from other users on WebTV.
  
 Favorites lets you save web pages that you find for later.
  
-Chat lets you talk with people all over the world with IRC (Internet Relay Chat)
+Chat lets you talk with people all over the world with IRC (Internet Relay Chat).
+
+Discuss lets you talk to fellow WebTV users about a multitude of topics, separated into groups.
+
+Messenger lets you to talk to your friends via the MSN Messenger (nowadays, Escargot) service.
+
+Page Builder lets you create your own web page, hosted via the WebTV network.
  
 Search lets you type in terms to find a web page.
  

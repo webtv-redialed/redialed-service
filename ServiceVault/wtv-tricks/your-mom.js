@@ -10,7 +10,7 @@ data = `<html>
 <body>
 <center>
 <hr>
-<font size=3><b><p>This page is too big to be shown completely.</p></b></font>
+<font size=3><b>This page is too big to be shown completely.</b></font>
 </center>
 </body>
 </html>

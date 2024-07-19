@@ -1,1 +1,1 @@
-Address book, a new look, and more.
+Service source code is now available, and more.
