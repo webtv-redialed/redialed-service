@@ -111,7 +111,7 @@ SIZE="16"
 MAXLENGTH="16"></FONT>
 <p>
 <input type="hidden" autosubmit="onLeave">`;
-if (!minisrv_config.config.serviceType == "Debug") {
+if (minisrv_config.config.serviceType == "Production") {
     data += `
 <select name="domain">
 <option value="escargot.chat">@escargot.chat
