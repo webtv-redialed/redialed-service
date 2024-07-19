@@ -290,18 +290,18 @@ gRemainderOfScriptLoaded = "true";
 </a>
 </table>
 <td width=128 height=100 valign=middle>
-<table cellspacing=0 cellpadding=0 width="104" href="wtv-mail:/listmail" transition=light
+<table cellspacing=0 cellpadding=0 width="120" href="wtv-mail:/listmail" transition=light
 selected
 insetSelection>
-<tr><td width=104>
+<tr><td width=120>
 <table cellspacing=0 cellpadding=0>
 <tr>
 <td height=14>
 <tr>
 <td align=left valign=bottom abswidth=80 absheight=61>
-<spacer type=block width=22><embed src=wtv-mail:/mailbox-image?mailbox-icon=true width=54 height=47 nobackground>
+<spacer type=block width=30><embed src=wtv-mail:/mailbox-image?mailbox-icon=true width=54 height=47 nobackground>
 <BR><SPACER TYPE=VERTICAL HEIGHT=0>
-<tr><td width=104>
+<tr><td width=120>
 <table cellspacing=0 cellpadding=0>
 <tr>
 <td height=3>
@@ -354,7 +354,7 @@ insetSelection>
 <tr>
 <td height=3>
 <tr>
-<td width=9>
+<td width=3>
 <td align=center>
 <font color=000000>Community</font>
 </table>
