@@ -45,263 +45,433 @@ let exploreUrl = `wtv-center:/sitemap/SiteMap.tmpl`;
 
 /* ========================================================== DREAMCAST ========================================================== */
 
-if (session_data.get("wtv-client-rom-type") == "JP-Fiji") {
-	data = `<HTML>
-<HEAD>
-<DISPLAY HSPACE=0 VSPACE=0 FONTSIZE=MEDIUM NOSCROLL SHOWWHENCOMPLETE>
+if (session_data.get("wtv-client-rom-type") == "JP-Fiji" || request_headers.query.force_dc_home) {
+	data = `<html>
+<head>
+<display hspace=0 vspace=0 fontsize=medium noscroll showwhencomplete>
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html">
-<TITLE>${title}
-</TITLE>
-</HEAD>
-
-<BODY BGCOLOR=13142E HSPACE=0 VSPACE=0>
+<title>${title}
+</title>
 `;
 	if (ismybirthday) {
 		data += `<bgsound src = "sounds/happybirthday.mid"/>`;
 	}
 	data += `
+</head>
+<body onLoad="Initialize()" bgcolor="#303a45" text=e6daa0 link=e6daa0 alink=e6daa0 vlink=e6daa0>
+<script language="JavaScript">
+var gEmbedTag;
+var gNumCategories = 0; // how many categories does the user like?
+var gCurrentIndex; // index of current teaser
+var gNextIndex; // index of next teaser for preloading
+var gNextNextIndex; // index of subsequent teaser for preparing to preload. Really.
+var gEmbedURL; // prefix of URL to point embed to (minus category name)
+var gLinkURL; // prefix of URL that embed should link to (minus category name)
+var gCategories = new Array(); // Names of info categories
+var gTeaserBlacklisted = new Array(); // 1 iff we've tried to load this teaser and timed out
+var gTimeoutHandle; // handle to timer for timeout so we can cancel it if we succeed
+var gRotateTimerHandle = nil; // handle to timer for rotation so we can cancel it when going to generic teaser
+var gStale; // 1 iff we've reverted to generic teaser
+var gWeather = new Array(); // array of weather predictions to rotate through
+var gWeatherIndex; // index of which weather prediction we're showing
+var gFirstWeatherIndex;	// index of first slot in weather rotation
+var gWeatherTimeout;
+var gNumLoaded=0; // 1 for home page, 1 for loading teaser; 2 required to start rotation
+var gRemainderOfScriptLoaded = false;
 
-<SIDEBAR WIDTH=138>
-<TABLE CELLSPACING=0 CELLPADDING=0 BGCOLOR=30364D>
-<TR><TD VALIGN=TOP COLSPAN=3>
-<TABLE CELLSPACING=0 CELLPADDING=0 HEIGHT=110 HREF="wtv-home:/Credits-Introduction" INSETSELECTION>
-<TR>
-<TD HEIGHT=7>
-<TR>
-<TD WIDTH=10>
-<TD COLSPAN=2 VALIGN=TOP ALIGN=CENTER>
-<SPACER TYPE=BLOCK HEIGHT=3><IMG SRC="file://ROM/Cache/WebTVLogoJewel.gif" WIDTH=127 HEIGHT=98>
-</TABLE>
-<TR>
-<TD HEIGHT=2 COLSPAN=3 BGCOLOR=252834>
-<SPACER>
-<TR>
-<TD HEIGHT=1 COLSPAN=3>
-<SPACER>
-<TR>
-<TD HEIGHT=2 COLSPAN=3 BGCOLOR=4D5573>
-<SPACER>
-<TR><TD VALIGN=TOP>
-<TR>
-<TD ABSWIDTH=7>
-<TD ABSWIDTH=125 HEIGHT=28>
-<TABLE CELLSPACING=0 CELLPADDING=0 HREF="wtv-setup:/setup">
-<TR><TD HEIGHT=4>
-<TR><TD VALIGN=MIDDLE>
-<TABLE CELLSPACING=0 CELLPADDING=0>
-<TR><TD VALIGN=MIDDLE><SHADOW><FONT SIZE=2.5 COLOR=E7D694>&nbsp;Setup</FONT></SHADOW>
-<!--i know this isn't the right font size just shut the fuck up about it-->
-</TABLE>
-<TR><TD HEIGHT=1>
-</TABLE>
-<TD ABSWIDTH=6>
-<TR>
-<TD HEIGHT=2 COLSPAN=3 BGCOLOR=252834>
-<SPACER>
-<TR>
-<TD HEIGHT=1 COLSPAN=3>
-<SPACER>
-<TR>
-<TD HEIGHT=2 COLSPAN=3 BGCOLOR=4D5573>
-<SPACER>
-<TR>
-<TD ABSWIDTH=7>
-<TD ABSWIDTH=125 HEIGHT=28>
-<TABLE CELLSPACING=0 CELLPADDING=0 HREF="${helpUrl}">
-<TR><TD HEIGHT=4>
-<TR><TD VALIGN=MIDDLE>
-<TABLE CELLSPACING=0 CELLPADDING=0>
-<TR><TD VALIGN=MIDDLE><SHADOW><FONT SIZE=2.5 COLOR=E7D694>&nbsp;Using WebTV</FONT></SHADOW>
-</TABLE>
-<TR><TD HEIGHT=1>
-</TABLE>
-<TD ABSWIDTH=6>
-<TR>
-<TD HEIGHT=2 COLSPAN=3 BGCOLOR=252834>
-<SPACER>
-<TR>
-<TD HEIGHT=1 COLSPAN=3>
-<SPACER>
-<TR>
-<TD HEIGHT=2 COLSPAN=3 BGCOLOR=4D5573>
-<SPACER>
-<TR>
-<TD ABSWIDTH=7>
-<TD ABSWIDTH=125 HEIGHT=28>
-<TABLE CELLSPACING=0 CELLPADDING=0 HREF="wtv-home:/community">
-<TR><TD HEIGHT=4>
-<TR><TD VALIGN=MIDDLE>
-<TABLE CELLSPACING=0 CELLPADDING=0>
-<TR><TD VALIGN=MIDDLE><SHADOW><FONT SIZE=2.5 COLOR=E7D694>&nbsp;Community</FONT></SHADOW>
-</TABLE>
-<TR><TD HEIGHT=1>
-</TABLE>
-<TD ABSWIDTH=6>
-<TR>
-<TD HEIGHT=2 COLSPAN=3 BGCOLOR=252834>
-<SPACER>
-<TR>
-<TD HEIGHT=1 COLSPAN=3>
-<SPACER>
-<TR>
-<TD HEIGHT=2 COLSPAN=3 BGCOLOR=4D5573>
-<SPACER>
-<TR>
-<TD ABSWIDTH=7>
-<TD ABSWIDTH=125 HEIGHT=28>
-<TABLE CELLSPACING=0 CELLPADDING=0 HREF="wtv-setup:/serve-billing-overview">
-<TR><TD HEIGHT=4>
-<TR><TD VALIGN=MIDDLE>
-<TABLE CELLSPACING=0 CELLPADDING=0>
-<TR><TD VALIGN=MIDDLE><SHADOW><FONT SIZE=2.5 COLOR=E7D694>&nbsp;Users</FONT></SHADOW>
-</TABLE>
-<TR><TD HEIGHT=1>
-</TABLE>
-<TD ABSWIDTH=6>
-<TR>
-<TD HEIGHT=2 COLSPAN=3 BGCOLOR=252834>
-<SPACER>
-<TR>
-<TD HEIGHT=1 COLSPAN=3>
-<SPACER>
-<TR>
-<TD HEIGHT=2 COLSPAN=3 BGCOLOR=4D5573>
-<SPACER>
-<TR><TD VALIGN=BOTTOM ALIGN=RIGHT HEIGHT=140 COLSPAN=3>
-<IMG SRC="file://cdrom/OFFLINE_DEMO/IMAGES/HomeBanner.gif">
-</TABLE>
-</SIDEBAR>
+function Initialize()
+{
+++gNumLoaded;
+if (gNumLoaded < 2)
+return;
+var i;
+gEmbedURL = "wtv-center:/custom-info-teaser?quotesPerTeaser=5&template=GrungeTeasers.tmpl&info=";
+gLinkURL = "wtv-center:/custom-info-page#";
+if ("WebTVToday" != "") { gCategories[0] = "WebTVToday";
+gNumCategories += 1;
+}
+if ("News" != "") { gCategories[1] = "News";
+gNumCategories += 1;
+}
+if ("Weather" != "") { gCategories[2] = "Weather";
+gNumCategories += 1;
+}
+if ("Shopping" != "") { gCategories[3] = "Shopping";
+gNumCategories += 1;
+}
+if ("Entertainment" != "") { gCategories[4] = "Entertainment";
+gNumCategories += 1;
+}
+if ("Sports" != "") { gCategories[5] = "Sports";
+gNumCategories += 1;
+}
+if ("Stocks" != "") { gCategories[6] = "Stocks";
+gNumCategories += 1;
+}
+if ("Intro" != "") { gCategories[7] = "Intro";
+gNumCategories += 1;
+}
+for (i=0; i < gNumCategories; ++i) {	gTeaserBlacklisted[i] = 0;
+}
+gCurrentIndex = 0;
+gNextIndex = 0;
+gStale = 0;
+gEmbedTag = document.customInfoEmbed;
+gLinkTag = document.customInfoLink;
+if (typeof gEmbedTag.document == "undefined") {	setTimeout(Initialize, 100); // wait 0.1 seconds and try again
+return;
+}
+if (gRemainderOfScriptLoaded != "true") {	setTimeout(Initialize, 100); // wait 0.1 seconds and try again
+return;
+}
+if (typeof gRotateTimerHandler != "undefined" && gRotateTimerHandler != null) {	return;
+}
+gRotateTimerHandle = setTimeout(RotateToNextTeaser, 6000);
+setTimeout(CheckConnectionStatus, 600000);
+}
 
+function CheckConnectionStatus()
+{	var nextPoll;
+// Did we just reconnect?
+if (navigator.networkOnline() && gStale == 1) {	ResumeRotation();
+nextPoll = 600000;
+}
+// Are we disconnected?
+else if (!navigator.networkOnline()) {	// Did we just disconnect recently?
+if (gStale == 0)
+RevertToGenericTeaser();
+nextPoll = 1000;
+}
+// We're still connected...
+else {	nextPoll = 60000;
+}
+setTimeout(CheckConnectionStatus, nextPoll);
+}
 
-<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH=486 HEIGHT=378 BORDER=0>
-	<TR>
-	<TD COLSPAN=2>
-		<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0 BACKGROUND="file://cdrom/OFFLINE_DEMO/IMAGES/TopRowGradient.gif">
-			<TR>
-			<TD WIDTH=115 HEIGHT=142>
+function RevertToGenericTeaser()
+{	gStale = 1;
+gCurrentIndex = -1;
+clearTimeout(gTimeoutHandle);
+clearTimeout(gRotateTimerHandle);
+gEmbedTag.src = gEmbedURL + gCategories[0] + "&i1=" + gCategories[0] + "&i2=" + gCategories[1] + "&i3=" + gCategories[2] + "&i4=" + gCategories[3] + "&i5=" + gCategories[4] + "&i6=" + gCategories[5] + "&i7=" + gCategories[6] + "&i8=" + gCategories[7];
+if (typeof gEmbedTag.document == "undefined") {	WriteEvergreenTeaser();
+}
+}
 
-<!--mail navi-->
-				<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="115" HREF="wtv-mail:/listmail" transition=light selected insetSelection>
-				<TR><TD WIDTH=115 ALIGN=CENTER>
-				<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
-				<TR>
-				<TD HEIGHT=16>
-				<TR>
-				<TD ALIGN=CENTER>
-				<SPACER TYPE=BLOCK WIDTH=12><IMG SRC="wtv-mail:/mailbox-image" BORDER=0 WIDTH=68 HEIGHT=57 NOBACKGROUND>
-				<TR>
-				<TD HEIGHT=6>
-				</TABLE>
-				<TR><TD WIDTH=115 ALIGN=CENTER>
-					<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
-					<TR>
-					<TD HEIGHT=5>
-					<TR>
-					<TD WIDTH=20>
-					<TD ALIGN=CENTER>
-					<FONT COLOR=000000 SIZE=2>Mail</FONT>
-				<TR><TD HEIGHT=8>
-				</TABLE></TABLE>
-			<TD WIDTH=123 HEIGHT=142>
+function WriteEvergreenTeaser()
+{	gEmbedTag.document.open();
+gEmbedTag.document.write("<html><head><display showwhencomplete></head> " +
+"<body background=wtv-content:/ROMCache/BackgroundWebTVToday_a.swf BGCOLOR=#949484>" +
+"<table cellspacing=0 cellpadding=0 width=373 height=193>" +
+"<tr><td valign=middle align=center>" +
+"<table cellspacing=0 cellpadding=0>" +
+"<tr height=44><td width=100><SPACER TYPE=BLOCK WIDTH=100 HEIGHT=44>" +
+"<tr height=40><td width=100><SPACER TYPE=BLOCK WIDTH=100 HEIGHT=40><td width=267><SPACER TYPE=BLOCK WIDTH=267 HEIGHT=40><td width=6>" +
+"<tr height=60><td width=100><SPACER TYPE=BLOCK WIDTH=100 HEIGHT=60><td maxlines=2 valign=top align=left width=267><font size=+2><B>Get the latest in</B></font><br><font size=+2><b>WebTV Today</b></font><td width=6>" +
+"<tr height=49><td width=100><SPACER TYPE=BLOCK WIDTH=100 HEIGHT=49><td width=267 valign=middle align=right><td width=6>" +
+"</table></table>" +
+"</body></html>");
+gEmbedTag.document.close();
+gLinkTag.href = "wtv-center:/center?info=WebTVToday";
+}
 
-<!--fav navi-->
-				<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="123" HREF="wtv-favorite:/favorite" transition=light insetSelection>
-				<TR><TD WIDTH=123 ALIGN=CENTER>
-<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
-				<TR>
-				<TD HEIGHT=22>
-				<TR>
-				<TD ALIGN=CENTER>
-				<SPACER TYPE=BLOCK WIDTH=6><IMG SRC="file://ROM/Cache/TreasureChest1.gif" BORDER=0 WIDTH=92 HEIGHT=52>
-				<TR>
-				<TD HEIGHT=5>
-				</TABLE>
-				<TR><TD WIDTH=123 ALIGN=CENTER>
-					<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
-					<TR>
-					<TD HEIGHT=5>
-					<TR>
-					<TD WIDTH=9>
-					<TD ALIGN=CENTER>
-					<FONT COLOR=000000 SIZE=2>Favorites</FONT>
-					<TR>
-					<TD HEIGHT=8>
-					</TABLE>
-				</TABLE>
-			<TD WIDTH=115 HEIGHT=142>
-			
-<!--Explore navi-->
-				<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="115" HREF="${exploreUrl}" transition=light insetSelection>
-				<TR><TD WIDTH=115 ALIGN=CENTER>
-				<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
-				<TR>
-				<TD HEIGHT=15>
-				<TR>
-				<TD ALIGN=CENTER>
-				<SPACER TYPE=BLOCK WIDTH=9><IMG SRC="file://ROM/Cache/NavigationGlobe0.gif" BORDER=0 WIDTH=68 HEIGHT=59>
-				<TR>
-				<TD HEIGHT=5>
-				</TABLE>
-				<TR>
-				<TD WIDTH=115 ALIGN=CENTER>
-					<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
-					<TR>
-					<TD HEIGHT=5>
-					<TR>
-					<TD WIDTH=11>
-					<TD ALIGN=CENTER>
-					<FONT COLOR=000000 SIZE=2>Explore</FONT>
-					<TR>
-					<TD HEIGHT=8>
-					</TABLE>
-				</TABLE>
-			<TD WIDTH=128 HEIGHT=142>
-			
-<!--Search navi-->
-				<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="128" HREF="wtv-center:/search-page" transition=light insetSelection>
-				<TR><TD WIDTH=128 ALIGN=CENTER>
-				<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
-				<TR>
-				<TD HEIGHT=19>
-				<TR>
-				<TD ALIGN=CENTER>
-				<SPACER TYPE=BLOCK WIDTH=8><IMG SRC="file://ROM/Cache/Binoculars0.gif" WIDTH=86 HEIGHT=54>
-				<TR>
-				<TD HEIGHT=6>
-				</TABLE>
-				<TR><TD WIDTH=128 ALIGN=CENTER>
-					<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
-					<TR>
-					<TD HEIGHT=5>
-					<TR>
-					<TD WIDTH=17>
-					<TD ALIGN=CENTER>
-					<FONT COLOR=000000 SIZE=2>Search</FONT>
-					<TR>
-					<TD HEIGHT=8>
-					</TABLE>
-				</TABLE>
-			<TD WIDTH=5 HEIGHT=142>
+function ResumeRotation()
+{	gStale = 0;
+RotateToNextTeaser();
+}
 
-<!--Navigation Bar(right-top) End-->
+function FindNext(startHere)
+{ var nextIndex = startHere + 1;
+nextIndex = nextIndex % gNumCategories;
+// If the next teaser is blacklisted, go to the following one
+if (gTeaserBlacklisted[nextIndex] == 1) { ++nextIndex;
+nextIndex = nextIndex % gNumCategories;
+}
+while (gCategories[nextIndex] == null) { ++nextIndex;
+nextIndex = nextIndex % gNumCategories;
+}
+return nextIndex;
+}
+function RotateToNextTeaser()
+{	if (gStale == 0) {	gCurrentIndex = FindNext(gCurrentIndex);
+// Point the embed to the proper URL
+if (gNumCategories > 1) { gTimeoutHandle = setTimeout(Timeout, 40000);
+}
+if (gCategories[gCurrentIndex] == "Intro") { CustomEmbedLoaded();
+} else { gEmbedTag.src = gEmbedURL + gCategories[gCurrentIndex] + "&i1=" + gCategories[0] + "&i2=" + gCategories[1] + "&i3=" + gCategories[2] + "&i4=" + gCategories[3] + "&i5=" + gCategories[4] + "&i6=" + gCategories[5]+ "&i7=" + gCategories[6]+ "&i8=" + gCategories[7];
+if (gCategories[gCurrentIndex] == "Sports") { gLinkTag.href = "wtv-center:/center?info=Sports";
+} else if (gCategories[gCurrentIndex] == "SportsNews") { gLinkTag.href = "wtv-center:/center?info=Sports";
+} else if (gCategories[gCurrentIndex] == "Entertainment") { gLinkTag.href = "wtv-center:/center?info=Entertainment";
+} else if (gCategories[gCurrentIndex] == "News") { gLinkTag.href = "wtv-center:/center?info=News";
+} else if (gCategories[gCurrentIndex] == "Stocks") { gLinkTag.href = "wtv-center:/center?info=Money#quotes";
+} else if (gCategories[gCurrentIndex] == "Weather") { gLinkTag.href = "wtv-center:/center?info=News#weather";
+} else if (gCategories[gCurrentIndex] == "Shopping") { gLinkTag.href = "wtv-center:/center?info=Shopping";
+} else { gLinkTag.href = "wtv-center:/center?info=WebTVToday";
+}
+}
+}
+}
 
-<!--News bar Start-->
+function Timeout()
+{	if (!navigator.networkOnline()) {	RevertToGenericTeaser();
+}
+else {	gTeaserBlacklisted[gCurrentIndex] = 1;
+SetRotateTimer();
+}
+}
 
-</TABLE>
+function SetRotateTimer()
+{	var delay;
+if (gCategories[gCurrentIndex] == "Weather")
+delay = 8700;
+else
+delay = 7000;
+if (gNumCategories > 1) {	gRotateTimerHandle = setTimeout(RotateToNextTeaser, delay);
+}
+}
 
+function CustomEmbedLoaded()
+{	var doc;
+clearTimeout(gWeatherTimeout);
+doc = document.customInfoEmbed.document;
+if (gCategories[gCurrentIndex] == "Weather" && doc.weatherForm == nil) {	setTimeout(CustomEmbedLoaded(), 100);
+return;
+}
+if (gStale == 0) {	clearTimeout(gTimeoutHandle);
+SetRotateTimer();
+}
+if (gCategories[gCurrentIndex] == "Weather" && typeof doc.weatherForm == "object") {	doc.weatherForm.disp1a.value = doc.weatherForm.disp1.value;
+doc.weatherForm.disp2a.value = doc.weatherForm.disp2.value;
+gFirstWeatherIndex = 0;
+gWeatherIndex = gFirstWeatherIndex;
+gWeatherTimeout = setTimeout(RotateWeather, 2900);
+}
+}
 
-<!--News bar End-->
-
+function RotateWeather()
+{	var doc;
+var str1;
+var str2;
+doc = document.customInfoEmbed.document;
+if ((gCategories[gCurrentIndex] == "Weather")
+&& (doc.weatherForm != nil)
+&& (typeof doc.weatherForm == "object")) { gWeatherIndex += 1;
+if (gWeatherIndex > 2) {	gWeatherIndex = gFirstWeatherIndex;
+}
+if (gWeatherIndex == 1) {	str1 = doc.weatherForm.disp1b.value;
+str2 = doc.weatherForm.disp2b.value;
+} else if (gWeatherIndex == 2) {	str1 = doc.weatherForm.disp1c.value;
+str2 = doc.weatherForm.disp2c.value;
+} else {	str1 = doc.weatherForm.disp1a.value;
+str2 = doc.weatherForm.disp2a.value;
+}
+doc.weatherForm.disp1.value = str1;
+doc.weatherForm.disp2.value = str2;
+if (gWeatherIndex != 2 || gNumCategories == 1) {	gWeatherTimeout = setTimeout(RotateWeather, 2900);
+}
+}
+}
+gRemainderOfScriptLoaded = "true";
+</script>
+<table cellspacing=0 cellpadding=0 border=0 width=624 height=384>
+<tr>
+<td colspan=3 height=100 width=624>
+<table cellspacing=0 cellpadding=0 height=100 width=624 background="wtv-content:/ROMCache/TopBackground_Classic.gif" BGCOLOR="#424A6B" GRADCOLOR="#73849C" GRADANGLE=0>
+<tr>
+<td valign=bottom>
+<table cellspacing=0 cellpadding=0 height=100>
+<tr>
+<td height=1>
+<tr>
+<td colspan=3 valign=middle align=center>
+<spacer type=block width=10>
+<a href="wtv-home:/Credits-Introduction">
+<spacer type=block height=3><img src="wtv-home:/ROMCache/WebTVLogoJewel.gif" width=111 height=87>
+</a>
+</table>
+<td width=128 height=100 valign=middle>
+<table cellspacing=0 cellpadding=0 width="120" href="wtv-mail:/listmail" transition=light
+selected
+insetSelection>
+<tr><td width=120>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td height=14>
+<tr>
+<td align=left valign=bottom abswidth=80 absheight=61>
+<spacer type=block width=30><embed src=wtv-mail:/mailbox-image?mailbox-icon=true width=54 height=47 nobackground>
+<BR><SPACER TYPE=VERTICAL HEIGHT=0>
+<tr><td width=120>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td height=3>
+<tr>
+<td width=39>
+<td align=center>
+<font color=000000>Mail</font>
+</table>
+</table>
+<tr>
+<td height=4>
+</table>
+<td width=128 height=100 valign=middle>
+<table cellspacing=0 cellpadding=0 width="112" href="wtv-favorite:/favorite" transition=light
+insetSelection>
+<tr><td width=112>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td height=25>
+<tr>
+<td align=left valign=bottom absheight=50>
+<spacer type=block width=16><img src=wtv-home:/ROMCache/TreasureChest1.gif width=75 height=42>
+<BR><SPACER TYPE=VERTICAL HEIGHT=2>
+<tr><td width=112>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td height=3>
+<tr>
+<td width=15>
+<td align=center>
+<font color=000000>Favorites</font>
+</table>
+</table>
+<tr>
+<td height=4>
+</table>
+<td width=128 height=100 valign=middle>
+<table cellspacing=0 cellpadding=0 width="112" href="wtv-home:/community" transition=light
+insetSelection>
+<tr><td width=112>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td height=12>
+<tr>
+<td align=left valign=bottom absheight=63>
+<spacer type=block width=19><img src=wtv-content:/ROMCache/Community.gif width=63 height=47>
+<BR><SPACER TYPE=VERTICAL HEIGHT=0>
+<tr><td width=112>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td height=3>
+<tr>
+<td width=3>
+<td align=center>
+<font color=000000>Community</font>
+</table>
+</table>
+<tr>
+<td height=4>
+</table>
+<td width=112 height=100 valign=middle>
+<table cellspacing=0 cellpadding=0 width="112" href="wtv-center:/search-page" transition=light
+insetSelection>
+<tr><td width=112>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td height=21>
+<tr>
+<td align=left valign=bottom absheight=54>
+<spacer type=block width=12><img src=wtv-home:/ROMCache/Binoculars0.gif width=73 height=45>
+<BR><SPACER TYPE=VERTICAL HEIGHT=0>
+<tr><td width=112>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td height=3>
+<tr>
+<td width=19>
+<td align=center>
+<font color=000000>Search</font>
+</table>
+</table>
+<tr>
+<td height=4>
+</table>
+</table>
+<tr>
+<td colspan=3 height=31 width=624>
+<table cellspacing=0 cellpadding=0 bgcolor=#303a45 height=31 width=624">
 <TR>
-<TD WIDTH=280 HEIGHT=242 HREF="client:showalert?message=nah you don't want a webtv mug" insetSelection>
-<!-- for cdrom image, use
-<IMG SRC="file://cdrom/OFFLINE_DEMO/IMAGES/tile60.gif" WIDTH=280 HEIGHT=242> -->
-<IMG SRC="wtv-home:/images/dynamic/0326_webtvstore_sean_hp.jpg" WIDTH=280 HEIGHT=242>
-<TD WIDTH=206 HEIGHT=242 HREF="client:showalert?message=what do you mean dreamcast" insetSelection>
-<IMG SRC="file://cdrom/OFFLINE_DEMO/IMAGES/tile40.gif" WIDTH=206 HEIGHT=242>
-</TABLE>
-</BODY>
-</HTML>`;
+<TD colspan=3 height=5 WIDTH=624>
+<tr>
+`;
+if (session_data.getNumberOfUserAccounts() == 1) {
+			data += `
+<TD width=20>
+<td align=left valign=middle width=127><img width=7 height=7 src=wtv-content:/ROMCache/UtilityBullet.gif align=ABSMIDDLE><spacer type=horizontal width=6><A href="wtv-content:/redirect?req-id=tvguide"><font size=2 color=#C6E7F7>What's on TV</font></a>
+<td align=center valign=middle width=117><img width=7 height=7 src=wtv-content:/ROMCache/UtilityBullet.gif align=ABSMIDDLE><spacer type=horizontal width=6><a href=wtv-setup:/accounts><font size=2 color=#C6E7F7>Add User</font></a>
+<td align=center valign=middle width=110><img width=7 height=7 src=wtv-content:/ROMCache/UtilityBullet.gif align=ABSMIDDLE><spacer type=horizontal width=6><A href=wtv-setup:/setup><font size=2 color=#C6E7F7>Settings</font></A>
+<td align=center valign=middle width=85><img width=7 height=7 src=wtv-content:/ROMCache/UtilityBullet.gif align=ABSMIDDLE><spacer type=horizontal width=6><a href=wtv-setup:/serve-billing-overview><font size=2 color=#C6E7F7>Account</font></a>
+<td align=center valign=middle width=84><img width=7 height=7 src=wtv-content:/ROMCache/UtilityBullet.gif align=ABSMIDDLE><spacer type=horizontal width=6><A href=wtv-guide:/help?topic=Index&subtopic=Main&page=1><font size=2 color=#C6E7F7>Help</font></A>
+<td width=17>`;
+		} else if (session_data.user_id == 0) {
+			data += `
+<TD width=20>
+<td align=left valign=middle width=127><img width=7 height=7 src=wtv-content:/ROMCache/UtilityBullet.gif align=ABSMIDDLE><spacer type=horizontal width=6><A href="wtv-content:/redirect?req-id=tvguide"><font size=2 color=#C6E7F7>What's on TV</font></a>
+<td align=center valign=middle width=117><img width=7 height=7 src=wtv-content:/ROMCache/UtilityBullet.gif align=ABSMIDDLE><spacer type=horizontal width=6><a href=client:relogin><font size=2 color=#C6E7F7>Switch User</font></a>
+<td align=center valign=middle width=110><img width=7 height=7 src=wtv-content:/ROMCache/UtilityBullet.gif align=ABSMIDDLE><spacer type=horizontal width=6><A href=wtv-setup:/setup><font size=2 color=#C6E7F7>Settings</font></A>
+<td align=center valign=middle width=85><img width=7 height=7 src=wtv-content:/ROMCache/UtilityBullet.gif align=ABSMIDDLE><spacer type=horizontal width=6><a href=wtv-setup:/serve-billing-overview><font size=2 color=#C6E7F7>Account</font></a>
+<td align=center valign=middle width=84><img width=7 height=7 src=wtv-content:/ROMCache/UtilityBullet.gif align=ABSMIDDLE><spacer type=horizontal width=6><A href=wtv-guide:/help?topic=Index&subtopic=Main&page=1><font size=2 color=#C6E7F7>Help</font></A>
+<td width=17>`;
+		} else {
+			data += `
+<TD width=20>
+<td align=left valign=middle width=135><img width=7 height=7 src=wtv-content:/ROMCache/UtilityBullet.gif align=ABSMIDDLE><spacer type=horizontal width=6><A href="wtv-content:/redirect?req-id=tvguide"><font size=2 color=#C6E7F7>What's on TV</font></a>
+<td align=center valign=middle width=158><img width=7 height=7 src=wtv-content:/ROMCache/UtilityBullet.gif align=ABSMIDDLE><spacer type=horizontal width=6><a href=client:relogin><font size=2 color=#C6E7F7>Switch User</font></a>
+<td align=center valign=middle width=104><img width=7 height=7 src=wtv-content:/ROMCache/UtilityBullet.gif align=ABSMIDDLE><spacer type=horizontal width=6><A href=wtv-setup:/setup><font size=2 color=#C6E7F7>Settings</font></A>
+<td align=center valign=middle width=75><img width=7 height=7 src=wtv-content:/ROMCache/UtilityBullet.gif align=ABSMIDDLE><spacer type=horizontal width=6><A href=wtv-guide:/help?topic=Index&subtopic=Main&page=1><font size=2 color=#C6E7F7>Help</font></A>
+<td align=center valign=middle width=74><SPACER TYPE=HORIZONTAL SIZE=65>
+<td width=25>`;
+		}
+data += `</table>
+<tr>
+<td>
+<table cellspacing=0 cellpadding=0 bgcolor=#B5B5A5 gradcolor=#848473 gradangle=90>
+<tr>
+<td width=18 bgcolor=#303a45>
+<td width=32 bgcolor=#303a45></td>
+<td width=373 height=193>
+<a name="customInfoLink" href="wtv-center:/center?info=WebTVToday" insetselection>
+<embed name="customInfoEmbed" src="wtv-center:/templates/en-US/CustomInfoLoadingGrunge.tmpl"
+abswidth=373 absheight=193>
+</a>
+</table>
+<td width=169 height=193 bgcolor=181818 align=right valign=bottom>
+<a href="wtv-center:/cwtv/redirect" insetselection>
+<img width=166 height=190 name=promoEmbed bgcolor=191919 src="wtv-home:/shared/ads/default/wtvnews_red_1.jpg">
+</a>
+<tr>
+<td height=60>
+<table width=455 height=60 cellspacing=0 cellpadding=0 bgcolor=313942 gradcolor=#5A5A5A gradangle=90>
+<tr>
+<td rowspan=4 width=18 bgcolor=#303a45>
+<spacer>
+<td rowspan=4 width=3 bgcolor=#212129>
+<spacer>
+<td rowspan=4 width=12>
+<spacer>
+<td height=10>
+<tr>
+<td valign=middle align=left width=154>
+<font size=3>&#128;<spacer type=horizontal width=8><a href="wtv-center:/center?info=WebTVToday"><shadow>WebTV Today</shadow></font></A>
+<td valign=middle align=left width=90>
+<font size=3>&#128;<spacer type=horizontal width=8><a href="wtv-center:/center?info=News"><shadow>News</shadow></font></A>
+<td valign=middle align=left width=114>
+<font size=3>&#128;<spacer type=horizontal width=8><a href="wtv-center:/center?info=Shopping"><shadow>Shopping</shadow></font></A>
+<tr>
+<td valign=middle align=left >
+<font size=3>&#128;<spacer type=horizontal width=8><a href="wtv-center:/center?info=Entertainment"><shadow>Entertainment</shadow></font></A>
+<td valign=middle align=left >
+<font size=3>&#128;<spacer type=horizontal width=8><a href="wtv-center:/center?info=Sports"><shadow>Sports</shadow></font></A>
+<td valign=middle align=left >
+<font size=3>&#128;<spacer type=horizontal width=8><a href="wtv-center:/center?info=Money"><shadow>Money</shadow></font></A>
+<tr>
+<td height=6>
+</table>
+<td width=169 height=60 insetselection bgcolor=181818 align=right valign=ABSBOTTOM>
+<img src="wtv-home:/ROMCache/affinity_none.jpg" width=166 height=60>
+</table>
+</body>
+</html>`;
 
 	/* ========================================================== OLD SHIT ========================================================== */
 
@@ -796,7 +966,7 @@ width=21>
 </table>
 <tr>
 <td abswidth=280 absheight=208>
-<img src="wtv-home:/images/dynamic/ClubWTV_sep_hp60e.jpg" width=280 height=208>
+<img src="wtv-home:/images/dynamic/ClubWTV_hp60e.jpg" width=280 height=208>
 <td abswidth=142 absheight=208>
 <img src="wtv-home:/images/dynamic/E!Online_hp40e.gif" width=142 height=208>
 <tr>
