@@ -436,8 +436,8 @@ abswidth=373 absheight=193>
 </a>
 </table>
 <td width=169 height=193 bgcolor=181818 align=right valign=bottom>
-<a href="wtv-center:/cwtv/redirect" insetselection>
-<img width=166 height=190 name=promoEmbed bgcolor=191919 src="wtv-home:/shared/ads/default/wtvnews_red_1.jpg">
+<a href="${randad.url}" insetselection>
+<img width=166 height=190 name=promoEmbed bgcolor=191919 src="${randad.img}">
 </a>
 <tr>
 <td height=60>
