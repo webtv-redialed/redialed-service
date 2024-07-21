@@ -2967,9 +2967,9 @@ function reloadConfig() {
 
 // SERVER START
 var git_commit = getGitRevision();
-var z_title = "zefie's wtv minisrv v" + require("./package.json").version;
+var z_title = "WebTV Redialed service";
 if (git_commit) z_title += " (git " + git_commit + ")";
-console.log("**** Welcome to " + z_title + "  ****");
+console.log("**** Welcome to " + z_title + " ****");
 
 minisrv_config = wtvshared.getMiniSrvConfig(); // snatches minisrv_config
 const wtvmime = new WTVMime(minisrv_config);

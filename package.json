@@ -1,30 +1,20 @@
 {
-  "name": "zefie_wtvp_minisrv",
-  "version": "0.9.35",
-  "description": "WebTV Service (WTVP) Emulation Server",
+  "name": "redialed-service",
+  "description": "WebTV Redialed service. Based on zefie_wtvp_minisrv.",
   "main": "app.js",
-  "homepage": "https://github.com/zefie/zefie_wtvp_minisrv",
+  "homepage": "https://github.com/webtv-redialed/redialed-nodejs",
   "license": "GPL3",
   "scripts": {
     "start": "node app.js",
     "start17": "node --openssl-legacy-provider app.js",
     "test": "node test.js"
   },
-  "author": {
-    "name": "zefie",
-    "email": "zefie@zefie.net",
-    "url": "https://zef.pw/"
-  },
   "bugs": {
-    "url": "https://github.com/zefie/zefie_wtvp_minisrv/issues"
-  },
-  "funding": {
-    "type": "patreon",
-    "url": "https://www.patreon.com/zefie"
+    "url": "https://github.com/webtv-redialed/redialed-nodejs/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zefie/zefie_wtvp_minisrv.git"
+    "url": "https://github.com/webtv-redialed/redialed-nodejs.git"
   },
   "dependencies": {
     "@atproto/api": "^0.7.4",

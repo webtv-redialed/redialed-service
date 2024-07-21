@@ -1,5 +1,5 @@
 # redialed-nodejs
-The WebTV Redialed Service. **This software is provided AS IS with NO WARRANTY, operators may contract bed bugs**
+The WebTV Redialed Service, (currently) based on zefie's [MiniSrv](https://github.com/zefie/zefie_wtvp_minisrv) project. **This software is provided AS IS with NO WARRANTY, operators may contract bed bugs**
 
 This release is designed for reference purposes only, you really should not be using this to run a service.
 
