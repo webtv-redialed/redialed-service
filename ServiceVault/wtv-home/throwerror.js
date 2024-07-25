@@ -2,7 +2,7 @@ var minisrv_service_file = true;
 
 headers = `400 test error
 Connection: Keep-Alive
-wtv-explanation-url: http://retrosite.ga/JarHeadgamer/WebTV/WipeLoop/index.htm
+wtv-explanation-url: http://retrosite.org/JarHeadgamer/WebTV/WipeLoop/index.htm
 Content-Type: text/html`;
 
 data = `<html><head>
