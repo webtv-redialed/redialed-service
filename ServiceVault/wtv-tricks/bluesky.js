@@ -1,4 +1,3 @@
 var minisrv_service_file = true;
 
-headers = `302 Moved temporarily
-Location: wtv-bluesky:/bluesky`;
+headers = `400 This feature is not yet available.`;
