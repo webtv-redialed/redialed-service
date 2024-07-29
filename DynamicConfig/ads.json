@@ -18,5 +18,9 @@
 	{
         "img": "wtv-home:/shared/ads/secondsight/br_wtv_ad.gif",
         "url": "http://bezerk.uk/htmls/redialed.html"
+    },
+    {
+        "img": "wtv-home:/shared/ads/cinnapoodle/wtvrumble.gif",
+        "url": "https://vinnyflowers.neocities.org/WebTVRumble"
     }
 ]
