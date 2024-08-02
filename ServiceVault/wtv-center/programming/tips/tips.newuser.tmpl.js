@@ -7,7 +7,7 @@ Content-Type: text/html`
 
 data = `<html>
 <head>
-<title>Tip: Get to know WebTV</title>
+<title>Tip: Get to know your WebTV</title>
 <script>
 function otherTips() {	var previousURL = "wtv-center:/tips/TipsIndex.tmpl";
 with(history) {	if ((previous != previousURL) && (previous != previousURL + "?"))
