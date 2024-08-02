@@ -1,3 +1,5 @@
+// secks
+
 var minisrv_service_file = true;
 
 headers = `200 OK
