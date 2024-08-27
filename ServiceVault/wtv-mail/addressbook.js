@@ -649,7 +649,8 @@ Address
 cursor=#cc9933
 text="E7CE4A"
 font=proportional
-nosoftbreaks nohardbreaksname="address"
+nosoftbreaks nohardbreaks
+name="address"
 value="`;
 			if (action == 'editfromheader') {
 				data += request_headers.query.address
