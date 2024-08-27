@@ -1,6 +1,8 @@
 # WebTV Redialed
 The WebTV Redialed Service, currently based on zefie's [MiniSrv](https://github.com/zefie/zefie_wtvp_minisrv) project. **This software is provided AS IS, with NO WARRANTY.**
 
+This service is not designed to be ran anywhere except on the main Redialed server. It's assumed that you know what you're doing when running it; no help for setting up the server will be provided for any reason. **You're on your own, kid**.
+
 ## Setup + running the service
 - Run `npm install` to install all dependencies.
 - Configure the service to your preferences (see the below section)
