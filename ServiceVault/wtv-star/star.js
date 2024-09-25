@@ -2,7 +2,7 @@ var minisrv_service_file = true;
 
 const date = new Date();
 var hourNow = date.getHours();
-var isFixyTime = hourNow == 4
+var isFixyTime = hourNow == 3
 
 headers = `200 OK
 Content-type: text/html
