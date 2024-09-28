@@ -94,7 +94,6 @@
       "flags": "0x00000004",
       "connections": 1,
       "privileged": true,
-      "messengerServer": "msnmsgr.escargot.chat",
       "modules": [
         "WTVMessenger"
       ]

@@ -190,7 +190,7 @@ wtv-login-timeout: 7200
                 headers += `wtv-messenger-authorized: ${messenger_authorized}
 wtv-messenger-enable: ${messenger_enabled}
 wtv-messenger-login-url: wtv-passport:/messengerlogin
-wtv-messenger-server: ${minisrv_config.services["wtv-head-waiter"].messengerServer}
+wtv-messenger-server: ${session_data.getSessionData("messenger_server")}
 wtv-messenger-connect-timeout: 240
 wtv-messenger-retry-interval: 20
 wtv-messenger-passportd-timeout: 240

@@ -78,7 +78,7 @@ VALUE="${session_data.getSessionData(
 </tr>
 <tr>
 <td>Messenger server</td>
-<td>${minisrv_config.services["wtv-head-waiter"].messengerServer}</td>
+<td>${session_data.getSessionData("messenger_server")}</td>
 </tr>
 </table>
 <p>

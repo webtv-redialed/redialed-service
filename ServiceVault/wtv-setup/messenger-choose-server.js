@@ -8,7 +8,7 @@ data = `<!--- *=* Copyright 1996, 1997 WebTV Networks, Inc. All rights reserved.
 <HTML>
 <HEAD>
 <TITLE>
-Messenger account
+Messenger server
 </TITLE>
 <DISPLAY noscroll nologo>
 </HEAD>
@@ -87,7 +87,7 @@ width=54 height=${session_data.hasCap("client-has-tuner") ? 166 : 123}>
 <tr>
 <td valign=center absheight=80>
 <font size="+2" color="E7CE4A"><blackface><shadow>
-Messenger account
+Messenger server
 </table>
 <td abswidth=20>
 <TR>
@@ -96,49 +96,20 @@ Messenger account
 <table cellspacing=0 cellpadding=0>
 <tr>
 <td absheight=195 valign=top>
-Type your Messenger account details here.
+Choose which Messenger server you wish to connect to.
 </table>
 <TD WIDTH=20>
 <TD WIDTH=198 VALIGN=top ALIGN=left>
 <table cellspacing=0 cellpadding=0>
 <tr>
 <td align=left>
-User Name<form action=validate-messenger-account>
-<INPUT noSubmit name="email" id="email" Value=""
-bgcolor=#444444 text=#ffdd33 cursor=#cc9933
-TYPE="input" ASCIIONLY
-SIZE="16"
-MAXLENGTH="16"></FONT>
+Server<form action=validate-messenger-server>
 <p>
-<input type="hidden" autosubmit="onLeave">`;
-if (session_data.getSessionData("messenger_server") == "msnmsgr.escargot.chat") {
-    data += `
-<select name="domain">
-<option value="escargot.chat">@escargot.chat
-</option><option value="escargot.live">@escargot.live
-</option></select>`;
-} else {
-    data += `<INPUT name="domain" Value=""
-bgcolor=#444444 text=#ffdd33 cursor=#cc9933
-TYPE="input" ASCIIONLY
-SIZE="16"
-MAXLENGTH="16">`;
-}
-data += `
-<p>
-Password
-<INPUT noSubmit name="password" id="password" Value=""
-bgcolor=#444444 text=#ffdd33 cursor=#cc9933
-TYPE="password" ASCIIONLY
-SIZE="16"
-MAXLENGTH="20"></input>
-<br><br>
-Type again to verify
-<INPUT noSubmit name="verify" id="verify" Value=""
-bgcolor=#444444 text=#ffdd33 cursor=#cc9933
-TYPE="password" ASCIIONLY
-SIZE="16"
-MAXLENGTH="20">
+<input type="hidden" autosubmit="onLeave">
+<select name="server">
+<option value="msnmsgr.escargot.chat">Escargot
+</option><option value="crosstalksrv.hiden.cc">CrossTalk
+</option></select>
 </table>
 <TR>
 <TD>
