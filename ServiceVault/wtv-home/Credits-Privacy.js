@@ -13,7 +13,7 @@ data = nunjucks.render('ServiceDeps/templates/wtv-home/termsPrivacy.njk', { titl
 <tr>
 <td>
 <td valign=top align=left>
-<p>The purpose of this WebTV server is to recreate the 1999 WebTV experience using pages and assets from that era, and continuing to maintain it with new features/QOL improvemnts, without losing the WebTV look and feel. There will be inaccuracies 623in some areas. If you do find any, please report them to @hiden64 or @webtv on Discord.</p>
+<p>The purpose of this WebTV server is to recreate the 1999 WebTV experience using pages and assets from that era, and continuing to maintain it with new features/QOL improvemnts, without losing the WebTV look and feel. There will be inaccuracies in some areas. If you do find any, please report them to @hiden64 or @webtv on Discord.</p>
 <p><b>With Whom Personal Information Is Shared and What Is Collected</b><br>
 <p>When you register with a WebTV account on this server, you are sharing the following:</p>
 <ul>
