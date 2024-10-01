@@ -182,7 +182,7 @@ Build: <select name="build" id="build">
 <p><font size="2" face="verdana,helvetica,arial">
 <img src="http://webtv.zone/images/global/spacer.gif" alt="" width="7" height="1" border="0">
 cSetup & Messenger proxy: <select name="diskset" id="diskset">
-<option selected value="0">Not Included</option>
+<option value="0">Not Included</option>
 <option selected value="1">Included</option>
 </select></p>
 
