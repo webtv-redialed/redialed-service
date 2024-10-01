@@ -76,7 +76,7 @@ function validateSSID(ssid) {
 
 <a href="http://webtv.zone/index.html
 ">
-<img src="http://webtv.zone/images/logo.gif" alt="WebTV Redialed" width="118" height="80" border="0"></a>
+<img src="http://webtv.zone/images/logo.gif" alt="WebTV Redialed" width="108" height="80" border="0"></a>
 
 </p>
 
@@ -171,7 +171,6 @@ function validateSSID(ssid) {
 <p><font size="2" face="verdana,helvetica,arial">
 <img src="http://webtv.zone/images/global/spacer.gif" alt="" width="7" height="1" border="0">
 SSID: <input name="client_ssid" id="client_ssid" maxlength=16" value="91"></font> </p>
-
 <p><font size="2" face="verdana,helvetica,arial">
 <img src="http://webtv.zone/images/global/spacer.gif" alt="" width="9" height="1" border="0">
 Build: <select name="build" id="build">
@@ -180,6 +179,12 @@ Build: <select name="build" id="build">
 <option selected value="7352">Build 7352 (Old Plus)</option>
 <option value="16276">Build 16276 (Old Plus)</option>
 </select></font> </p>
+<p><font size="2" face="verdana,helvetica,arial">
+<img src="http://webtv.zone/images/global/spacer.gif" alt="" width="7" height="1" border="0">
+cSetup & Messenger proxy: <select name="diskset" id="diskset">
+<option selected value="0">Not Included</option>
+<option selected value="1">Included</option>
+</select></p>
 
 <center>
 <p><input type="button" onclick="validateForm()" value="Download"></p>
