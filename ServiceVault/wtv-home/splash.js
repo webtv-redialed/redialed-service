@@ -23,7 +23,7 @@ data += `
 <bgsound src="file://ROM/Sounds/Splash.mid">
 <display nooptions nostatus skipback>
 <center>`;
-if (session_data.hasCap("client-supports-etude-service")) { // Be sure we only give the microsoft logo to the clients that have it in rom
+if (!isHall || session_data.hasCap("client-supports-etude-service")) { // Be sure we only give the microsoft logo to the clients that have it in rom
     data += `<spacer type=block height=${session_data.hasCap("client-has-tuner") ? 108 : 116} width=21>
 <img src="file://ROM/Images/MicrosoftName.gif"><img src="file://ROM/Images/MicrosoftR.gif"><br>`;
 } else {
