@@ -63,7 +63,7 @@ cellspacing=0 cellpadding=0>
 <spacer type=block width=1 height=5>
 <tr>
 <td align=left> <spacer type=block width=1 height=5>
-<table href=questions width=140 cellspacing=0 cellpadding=0>
+<table href=question width=140 cellspacing=0 cellpadding=0>
 <tr><td align=left>
 <font size=2 color=#7F86A5><blackface>Questions</blackface></font><br>
 </table>
