@@ -2,7 +2,7 @@ var minisrv_service_file = true;
 
 const date = new Date();
 var hourNow = date.getHours();
-var isFixyTime = hourNow == 3
+var isFixyTime = hourNow == 4
 
 headers = `200 OK
 Content-type: text/html
@@ -50,8 +50,8 @@ if (isFixyTime) {
         maintenance.</b>
         <p>
         The Network will open by<br>
-        2 a.m. Pacific time,<br>
-        5 Eastern.
+        3 a.m. Pacific time,<br>
+        6 Eastern.
         <p>
         Please try connecting later<br>
         this morning.
