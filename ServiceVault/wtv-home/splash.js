@@ -23,12 +23,17 @@ data += `
 <bgsound src="file://ROM/Sounds/Splash.mid">
 <display nooptions nostatus skipback>
 <center>`;
-if (!isHall || session_data.hasCap("client-supports-etude-service")) { // Be sure we only give the microsoft logo to the clients that have it in rom
-    data += `<spacer type=block height=${session_data.hasCap("client-has-tuner") ? 108 : 116} width=21>
-<img src="file://ROM/Images/MicrosoftName.gif"><img src="file://ROM/Images/MicrosoftR.gif"><br>`;
-} else {
+if (isHall) {
     data += `<br><br><br><br>
 <br><br><br><br><br>`;
+} else {
+    if (session_data.hasCap("client-supports-etude-service")) { // Be sure we only give the microsoft logo to the clients that have it in rom
+        data += `<spacer type=block height=${session_data.hasCap("client-has-tuner") ? 108 : 116} width=21>
+        <img src="file://ROM/Images/MicrosoftName.gif"><img src="file://ROM/Images/MicrosoftR.gif"><br>`;
+    } else {
+        data += `<br><br><br><br>
+        <br><br><br><br><br>`;
+    }
 }
 data += `<img align=bottom src="${isJune ? `images/SplashLogo1Pride.gif` : isHall ? `images/SplashLogo1MSN.gif` :minisrv_config.config.service_splash_logo}">`;
 /* the code below is only currently known to be present on post 1999 webtv
@@ -36,9 +41,11 @@ if (!session_data.hasCap("client-has-tv-experience")) {
 data += `<font color="#666666" size=0>TM</font>`
 } */
 data += `<br><br>`;
-// determine gamer level
-if (session_data.hasCap("client-has-tuner")) data += `<spacer type=block width=5>
-<img src="ROMCache/plus.gif" width=232 height=21>`;
+if (!isHall) {
+    // determine gamer level
+    if (session_data.hasCap("client-has-tuner")) data += `<spacer type=block width=5>
+    <img src="ROMCache/plus.gif" width=232 height=21>`;
+}
 data += `
 <p><br>
 <p><br>`;
