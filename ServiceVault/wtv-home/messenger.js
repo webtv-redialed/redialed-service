@@ -252,7 +252,7 @@ selected id="panelLink">
 <tr>
 <td valign=top><font color="FFEFAD">&#128;&nbsp;
 <td width=5><spacer type=horizontal width=5>
-<td><a href="wtv-setup:/validate-messenger-enable?turnOnMessenger=true&fromMessengerStartPage=true"><font color="FFEFAD"><b>Turn MSN Messenger on</b></a>
+<td><a href="wtv-setup:/validate-messenger-enable?turnOnMessenger=${session_data.getSessionData("messenger_enabled") == 1 ? 'false' : 'true'}&fromMessengerStartPage=true"><font color="FFEFAD"><b>Turn MSN Messenger ${session_data.getSessionData("messenger_enabled") == 1 ? `off` : `on`} </b></a>
 </table>
 <tr><td><spacer type=vertical height=9>
 <tr><td>
