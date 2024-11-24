@@ -15,7 +15,7 @@ if (!session_data.getSessionData("messenger_enabled") == 1) {
 
     headers = `302 Moved temporarily
 Content-type: text/html
-wtv-expire: wtv-setup:/messenger
+wtv-expire: wtv-home:/messenger
 Location: wtv-home:/messenger
 wtv-messenger-enable: ${enablestatus}
 `;
