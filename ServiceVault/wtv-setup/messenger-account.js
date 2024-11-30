@@ -111,7 +111,7 @@ SIZE="16"
 MAXLENGTH="16"></FONT>
 <p>
 <input type="hidden" autosubmit="onLeave">`;
-if (session_data.getSessionData("messenger_server") == "msnmsgr.escargot.chat") {
+if (session_data.getSessionData("messenger_server") == "msnmsgr.escargot.chat" || session_data.getSessionData("messenger_server") == "ds.escargot.nina.chat") {
     data += `
 <select name="domain">
 <option value="escargot.chat">@escargot.chat

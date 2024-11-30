@@ -107,7 +107,7 @@ Server<form action=validate-messenger-server>
 <p>
 <input type="hidden" autosubmit="onLeave">
 <select name="server">
-<option value="msnmsgr.escargot.chat">Escargot
+<option value="ds.escargot.nina.chat">Escargot
 </option><option value="master.ctsrv.hiden.cc">CrossTalk
 </option></select>
 </table>
