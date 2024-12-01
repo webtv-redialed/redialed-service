@@ -10,10 +10,10 @@ else if (request_headers.query.email.length > 16)
         400,
         "Your User Name includes less than 17 characters."
     );
-else if (request_headers.query.password.length < 8)
+else if (request_headers.query.password.length < 6)
     errpage = wtvshared.doErrorPage(
         400,
-        "Your password includes at least 8 characters."
+        "Your password includes at least 6 characters."
     );
 else if (request_headers.query.password.length > 20)
     errpage = wtvshared.doErrorPage(

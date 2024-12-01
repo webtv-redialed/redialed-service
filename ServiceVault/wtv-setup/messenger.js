@@ -265,7 +265,7 @@ href="wtv-setup:/messenger-account"
 <table border=0 cellspacing=0 cellpadding=0 
 href="wtv-setup:/messenger-choose-server"
 <td valign=top>&#128;&nbsp;
-<td valign=top>Change server
+<td valign=top>Choose Messenger server
 </td></tr></table>
 </table>
 <TD>
