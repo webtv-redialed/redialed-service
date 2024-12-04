@@ -5,8 +5,7 @@ var wtvt = new WTVTricks(minisrv_config);
 headers = `200 OK
 Content-Type: text/html`;
 
-if (request_headers.query.password == wtvt.getPasswordByType("low")) {
-	data = `<html>
+data = `<html>
 <display nosave nosend skipback>
 <title>Rare Retro Gaming</title>
 
@@ -22,6 +21,3 @@ NOTE: This tool does not install the games, you'll need to use a different servi
 		<td valign=top align=right><shadow><a href="gaming-dothe">let's get this over with</a></shadow>
 </table>
 </body> </html>`;
-} else {
-	data = wtvt.getTricksAndTrapsTemplated();
-}

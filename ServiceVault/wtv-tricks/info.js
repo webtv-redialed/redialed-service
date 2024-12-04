@@ -188,8 +188,7 @@ else bank1Type = "Mask";
 if ((sysConfigHex & 0x40000000) == 0) bank1Mode = "Normal";
 else bank1Mode = "PageMode";
 
-if (request_headers.query.password == wtvt.getPasswordByType("low")) {
-    data = `<html>
+data = `<html>
 <!--- *=* Copyright 1996, 1997 WebTV Networks, Inc. All rights reserved. --->
 <display nosave nosend skipback>
 <title>${minisrv_config.config.service_name} Info</title>
@@ -328,6 +327,3 @@ Board type = ${boardType}, board rev = ${boardRev}`;
 </pre>
 <br>
 </body></html>`;
-} else {
-    data = wtvt.getTricksAndTrapsTemplated();
-}
