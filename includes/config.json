@@ -102,8 +102,7 @@
       "port": 1602,
       "flags": "0x00000004",
       "privileged": true,
-      "password_low": "exampleHighBitch",
-      "password_high": "exampleLowBitch",
+      "password_high": "examplePass",
       "modules": [
         "WTVTricks"
       ]
