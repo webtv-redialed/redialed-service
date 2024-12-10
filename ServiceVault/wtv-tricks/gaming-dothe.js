@@ -2,7 +2,7 @@ var minisrv_service_file = true;
 var wtvt = new WTVTricks(minisrv_config);
 
 headers = `300 OK
-Location: wtv-tricks:/gaming-doed?password=${wtvt.getPasswordByType("low")}`;
+Location: wtv-tricks:/gaming-doed`;
 
 var folder_exists = session_data.favstore.folderExists("LC2 Games");
 
