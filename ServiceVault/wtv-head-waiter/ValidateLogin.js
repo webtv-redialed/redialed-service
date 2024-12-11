@@ -124,7 +124,7 @@ minisrv-no-mail-count: true
         ) {
             gourl = "wtv-head-waiter:/choose-user?";
         } else if (hourNow == 4 && wantsMessageWatch && minisrv_config.config.serviceType == "Production") { // Make sure datadownload & messagewatch can still function
-            gourl = `wtv-star:/star?`; // Daily service maintenance, from 4AM EST to 5 (this has been a pain in the ass in the past)
+            gourl = `wtv-star:/star?`; // Daily service maintenance, from 4AM CST to 5 (this has been a pain in the ass in the past)
         }
         else if (request_headers.query.needTMPfilesystem) {
             gourl = `wtv-flashrom:/get-tmp?needTMPfilesystem=${request_headers.query.needTMPfilesystem}`; // Handle FCS pants shitting
