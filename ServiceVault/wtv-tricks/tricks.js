@@ -160,6 +160,7 @@ ${sentence}
 </table>
 <br>
 <br>`
+    // TODO: proper error handling
     if (request_headers.query.password !== wtvt.getPasswordByType("high")) {
         data += `
 <table width=100%>

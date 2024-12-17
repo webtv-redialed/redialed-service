@@ -60,8 +60,6 @@ ENCTYPE="x-www-form-encoded" METHOD="POST">
 <td colspan=2 width=124 valign=top align=left>
 <td colspan=4 valign=top align=left>	<font size="+1">	<P>In signing up, you provide your name and other info. You'll have a chance to confirm all the information
 before sending it to us.
-<P>WebTV Network service costs $0.00
-per month.
 </font>
 <td width=20 valign=middle align=center>
 </table>

@@ -112,7 +112,7 @@ hspace="0" vspace="0" fontsize="large" noscroll>
 				case "redialed":
 					document.connect.machine.value="217.160.150.209"
 					document.connect.port.value="1615"
-					document.message.msg.value='Simulates the WebTV Network as it was in 1999. Ran by HIDEN.'
+					document.message.msg.value='Continuation of the WebTV service that keeps the vibe of the original service. Ran by HIDEN.'
 					break;
 				case "other":
 					document.message.msg.value="Connect to another server that isn't listed."
