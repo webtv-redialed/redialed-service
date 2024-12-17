@@ -16,9 +16,7 @@ data = `<html>
 <h1>The Favorite testinator!</h1>
 Here you can test. You must test.<br><br>
 <font color=red>WARNING! Fuck you!</font>
-<form action="wtv-tricks:/validate-name-change?password=${wtvt.getPasswordByType(
-    "high"
-)}"
+<form action="wtv-tricks:/validate-name-change">
 ENCTYPE="x-www-form-encoded" METHOD="POST">
 <table>
 <tr>
