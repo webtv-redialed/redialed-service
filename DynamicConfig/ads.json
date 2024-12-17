@@ -18,5 +18,9 @@
     {
         "img": "wtv-home:/shared/ads/cinnapoodle/wtvrumble.gif",
         "url": "https://vinnyflowers.neocities.org/WebTVRumble"
-    }
+    },
+    {
+        "img": "wtv-home:/shared/ads/cinnapoodle/dreamscape.gif",
+        "url": "http://cinnapoodle.github.io/chronospace/wtv/index.html"
+    }   
 ]
