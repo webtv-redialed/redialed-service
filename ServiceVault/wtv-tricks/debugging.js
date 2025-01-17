@@ -77,7 +77,7 @@ VALUE="${session_data.getSessionData(
 <td>${minisrv_config.config.enable_lzpf_compression}</td>
 </tr>
 <tr>
-<td>Messenger server</td>
+<td>Current user's Messenger server</td>
 <td>${session_data.getSessionData("messenger_server")}</td>
 </tr>
 </table>

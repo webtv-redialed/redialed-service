@@ -1,15 +1,12 @@
 var minisrv_service_file = true;
 var errpage;
-if (request_headers.query.email.length < 2)
-    errpage = wtvshared.doErrorPage(
-        400,
-        "Your User Name includes at least 2 characters."
-    );
-else if (request_headers.query.email.length > 16)
-    errpage = wtvshared.doErrorPage(
-        400,
-        "Your User Name includes less than 17 characters."
-    );
+
+if (request_headers.query.email) {
+    const [email, domain] = request_headers.query.email.split('@');
+    request_headers.query.email = email;
+    request_headers.query.domain = domain;
+}
+
 else if (request_headers.query.password.length < 6)
     errpage = wtvshared.doErrorPage(
         400,
@@ -37,6 +34,7 @@ if (errpage) {
     session_data.setSessionData("messenger_password", encryptedpass);
     session_data.setSessionData("messenger_email", request_headers.query.email);
     session_data.setSessionData("messenger_domain", request_headers.query.domain);
+    session_data.setSessionData("messenger_server", request_headers.query.server);
     session_data.saveSessionData;
 
     headers = `302 Moved temporarily
@@ -44,5 +42,6 @@ Location: wtv-setup:/messenger-enable-redir
 wtv-domain: ${session_data.getSessionData("messenger_domain")}
 passport-domain: ${session_data.getSessionData("messenger_domain")}
 wtv-user-name: ${session_data.getSessionData("messenger_email")}
+wtv-messenger-server: ${session_data.getSessionData("messenger_server")}
 wtv-messenger-enable: 0`;
 }

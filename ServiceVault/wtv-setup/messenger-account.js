@@ -10,7 +10,7 @@ data = `<!--- *=* Copyright 1996, 1997 WebTV Networks, Inc. All rights reserved.
 <TITLE>
 Messenger account
 </TITLE>
-<DISPLAY noscroll nologo>
+<DISPLAY nologo>
 </HEAD>
 <sidebar width=110> <table cellspacing=0 
 cellpadding=0 bgcolor=452a36>
@@ -77,8 +77,7 @@ width=54 height=${session_data.hasCap("client-has-tuner") ? 166 : 123}>
 <tr><td absheight=41>
 </table>
 </sidebar>
-<BODY BGCOLOR="#191919" TEXT="#42CC55" LINK="189CD6" VLINK="189CD6" HSPACE=0 VSPACE=0 FONTSIZE="large"
->
+<BODY BGCOLOR="#191919" TEXT="#42CC55" LINK="189CD6" VLINK="189CD6" HSPACE=0 VSPACE=0 FONTSIZE="large">
 <table cellspacing=0 cellpadding=0>
 <tr>
 <td abswidth=14>
@@ -103,28 +102,11 @@ Type your Messenger account details here.
 <table cellspacing=0 cellpadding=0>
 <tr>
 <td align=left>
-User Name<form action=validate-messenger-account>
-<INPUT noSubmit name="email" id="email" Value=""
-bgcolor=#444444 text=#ffdd33 cursor=#cc9933
-TYPE="input" ASCIIONLY
-SIZE="16"
-MAXLENGTH="16"></FONT>
+<form action=validate-messenger-account>
 <p>
-<input type="hidden" autosubmit="onLeave">`;
-if (session_data.getSessionData("messenger_server") == "msnmsgr.escargot.chat" || session_data.getSessionData("messenger_server") == "ds.escargot.nina.chat") {
-    data += `
-<select name="domain">
-<option value="escargot.chat">@escargot.chat
-</option><option value="escargot.live">@escargot.live
-</option></select>`;
-} else {
-    data += `<INPUT name="domain" Value=""
-bgcolor=#444444 text=#ffdd33 cursor=#cc9933
-TYPE="input" ASCIIONLY
-SIZE="16"
-MAXLENGTH="16">`;
-}
-data += `
+<input type="hidden" autosubmit="onLeave">
+<br>
+Email<input name="email" id="email" Value="" bgcolor=#444444 text=#ffdd33 cursor=#cc9933 TYPE="input" ASCIIONLY SIZE="16" MAXLENGTH="64">
 <p>
 Password
 <INPUT noSubmit name="password" id="password" Value=""
@@ -133,13 +115,21 @@ TYPE="password" ASCIIONLY
 SIZE="16"
 MAXLENGTH="20"></input>
 <br><br>
-Type again to verify
+Password (again)
 <INPUT noSubmit name="verify" id="verify" Value=""
 bgcolor=#444444 text=#ffdd33 cursor=#cc9933
 TYPE="password" ASCIIONLY
 SIZE="16"
 MAXLENGTH="20">
+<br><br>
+<p>Server
+<input type="hidden" autosubmit="onLeave">
+<select name="server">
+<option value="master.ctsrv.hiden.cc">CrossTalk
+</option><option value="ds.escargot.nina.chat">Escargot
+</option></select>
 </table>
+<br><br>
 <TR>
 <TD>
 <TD COLSPAN=4 HEIGHT=0 VALIGN=top ALIGN=left>

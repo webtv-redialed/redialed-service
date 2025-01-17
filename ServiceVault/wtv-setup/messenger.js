@@ -256,16 +256,7 @@ data += `
 <table border=0 cellspacing=0 cellpadding=0 
 href="wtv-setup:/messenger-account"
 <td valign=top>&#128;&nbsp;
-<td valign=top>Change your account
-</td></tr></table>
-<tr>
-<td height=5>
-<tr>
-<td>
-<table border=0 cellspacing=0 cellpadding=0 
-href="wtv-setup:/messenger-choose-server"
-<td valign=top>&#128;&nbsp;
-<td valign=top>Choose Messenger server
+<td valign=top>Change your account details
 </td></tr></table>
 </table>
 <TD>
