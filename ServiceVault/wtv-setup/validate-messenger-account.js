@@ -6,7 +6,11 @@ if (request_headers.query.email) {
     request_headers.query.email = email;
     request_headers.query.domain = domain;
 }
-
+else if (!request_headers.query.email) 
+    errpage = wtvshared.doErrorPage(
+        400,
+        "You must enter an E-mail addresss."
+    );
 else if (request_headers.query.password.length < 6)
     errpage = wtvshared.doErrorPage(
         400,

@@ -106,7 +106,7 @@ Type your Messenger account details here.
 <p>
 <input type="hidden" autosubmit="onLeave">
 <br>
-Email<input name="email" id="email" Value="" bgcolor=#444444 text=#ffdd33 cursor=#cc9933 TYPE="input" ASCIIONLY SIZE="16" MAXLENGTH="64">
+E-mail<input name="email" id="email" Value="" bgcolor=#444444 text=#ffdd33 cursor=#cc9933 TYPE="input" ASCIIONLY SIZE="16" MAXLENGTH="64">
 <p>
 Password
 <INPUT noSubmit name="password" id="password" Value=""
