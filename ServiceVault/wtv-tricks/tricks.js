@@ -97,7 +97,7 @@ const theShit = [
     { name: "Info", url: `wtv-tricks:/info` },
     { name: "Run a WWW Tour", url: `wtv-home:/content/tourist.html` },
     //{ name: "Visit the Name Changer&#153;", url: `wtv-tricks:/namechange?password=${wtvt.getPasswordByType("high")}`, highOnly: true },
-    { name: "Visit Big Willie's!", url: `wtv-flashrom:/willie` },
+    { name: "Visit Big Willie's!", url: `client:showalert?message=Only%20proceed%20to%20this%20page%20if%20you%20are%20%3Cb%3EABSOLUTEY%20%3C%2Fb%3Esure%20you%20know%20what%20you%20are%20doing.%3Cbr%3E%3Cbr%3E%20You%20can%20cause%20serious%20damage%20to%20and%20even%20brick%20your%20receiver%20if%20you%20aren%27t%20careful.&buttonLabel1=Cancel&buttonAction1=client:donothing&buttonLabel2=Proceed to Big Willie's&buttonAction2=wtv-flashrom:/willie` },
     { name: "Server Switcher 9000", url: `wtv-tricks:/switcher` },
     { name: "Blast Backlist", url: `wtv-tricks:/blastbacklist` },
     { name: "Visit Little Willie's!", url: `wtv-flashrom:/willie?label=LittleWillie` },
