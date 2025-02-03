@@ -22,9 +22,10 @@ data += `
 <body bgcolor="#000000" text="#449944">
 <bgsound src="file://ROM/Sounds/Splash.mid">
 <display nooptions nostatus skipback>
-<center><br><br><br>
-<br><br><br><br><br>`;
-
+<center><br><br><br><br><br>`;
+if (minisrv_config.config.serviceType != "Debug") {
+    data += `<br><br><br>`;
+}
 data += `<img align=bottom src="${isJune ? `images/SplashLogo1Pride.gif` : isHall ? `images/SplashLogo1MSN.gif` :minisrv_config.config.service_splash_logo}">`;
 /* the code below is only currently known to be present on post 1999 webtv
 if (!session_data.hasCap("client-has-tv-experience")) {
@@ -37,15 +38,23 @@ if (!isHall) {
     <img src="ROMCache/plus.gif" width=232 height=21>`;
 }
 data += `
-<p><br>
 <p><br>`;
-if (minisrv_config.config.serviceType == "Debug") data += `
-<table border>
-<tr><td width=150>
-WebTV Redialed
-<tr><td>
-Run by ${os.userInfo().username}
-</table>`;
-data += `
-</center>
-</html>`;
+
+if (minisrv_config.config.serviceType == "Debug") {
+    const process = require("process");
+    data += `
+    <table border>
+    <tr><td width=150>
+    WebTV Redialed (Debug)
+    <tr><td>
+    <b>Node.js version</b>: ${process.version}<br>
+    <b>Server OS</b>: ${os.type()} v${os.release()} (${os.machine()})<br>
+    <b>Server account</b>: ${os.userInfo().username}
+    </table>
+    </center>
+    </html>`;
+} else {
+    data += `
+    </center>
+    </html>`;
+}

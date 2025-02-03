@@ -392,3 +392,6 @@ ServiceInfoCache/*
 /.idea
 /.github
 ServiceDeps/messengerSecret.key
+
+# visual studio code bullshit
+.vscode/

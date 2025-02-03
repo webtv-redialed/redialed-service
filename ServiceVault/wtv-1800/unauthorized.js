@@ -56,7 +56,7 @@ Account cancelled
 <td colspan=9 width=100 height=258 valign=top align=left>
 <font size=-1>The service account for this
 WebTV receiver
-has been cancelled for violation of the Terms of Service (TOS). <p>Customer Care does not handle calls regarding cancellations due to TOS violations. </font>
+has been cancelled for violation of the Terms of Service (TOS). <p>Customer Care does not handle support requests regarding cancellations due to TOS violations. </font>
 <tr>
 <td width=104 valign=middle align=center>
 <td width=20 valign=middle align=center>
