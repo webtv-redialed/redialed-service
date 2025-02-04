@@ -384,5 +384,5 @@ Content-Disposition: attachment; filename="${viewer_file.replace(".exe", ".zip")
 } else {
 
     headers = `302 Moved temporarily
-Location: http://community.webtv.zone:1337`
+Location: http://viewergen.webtv.zone`
 }
