@@ -234,21 +234,31 @@ class WTVCache {
 	}
 
     async getNewsCache() {
-		// load the file from disk
-        var newsCacheRaw = this.fs.readFileSync('./ServiceInfoCache/newsCache.json');
-		var newsCache = JSON.parse(newsCacheRaw)
-		const now = Math.floor(Date.now() / 1000)
-		// check if (and how) we should be downloading new data
-		if (newsCache.lastUpdated + 86400 <= now) {
-			// news is unreasonably outdated (1+ day old), so force the user to wait while we update it
-			console.log(" * News is over a day old, forcing the user to wait while we download the latest headlines")
-			await this.updateNewsCache();
-			newsCacheRaw = this.fs.readFileSync('./ServiceInfoCache/newsCache.json');
+		// check if it exists, get new cache if it doesn't
+		// TODO: clean up and add this check to the other caches too
+		const cacheFile = './ServiceInfoCache/newsCache.json';
+		if (!this.fs.existsSync(cacheFile)) {
+			console.log(" * News cache file doesn't exist, getting news data")
+			await this.updateNewsCache()
+			newsCacheRaw = this.fs.readFileSync(cacheFile);
 			newsCache = JSON.parse(newsCacheRaw)
-		} else if (newsCache.lastUpdated + 3600 <= now) {
-			// news is only slightly outdated (1-23 hours old), so treat the update as a background function (no async)
-			console.log(" * News has passed its shelf life, downloading new info in the background")
-			this.updateNewsCache();
+		} else {
+			// load the file from disk
+        	var newsCacheRaw = this.fs.readFileSync(cacheFile);
+			var newsCache = JSON.parse(newsCacheRaw)
+			const now = Math.floor(Date.now() / 1000)
+			// check if (and how) we should be downloading new data
+			if (newsCache.lastUpdated + 86400 <= now) {
+				// news is unreasonably outdated (1+ day old), so force the user to wait while we update it
+				console.log(" * News is over a day old, forcing the user to wait while we download the latest headlines")
+				await this.updateNewsCache();
+				newsCacheRaw = this.fs.readFileSync(cacheFile);
+				newsCache = JSON.parse(newsCacheRaw)
+			} else if (newsCache.lastUpdated + 3600 <= now) {
+				// news is only slightly outdated (1-23 hours old), so treat the update as a background function (no async)
+				console.log(" * News has passed its shelf life, downloading new info in the background")
+				this.updateNewsCache();
+			}
 		}
 		// data is good to send to the user
         return newsCache;

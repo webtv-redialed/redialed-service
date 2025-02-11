@@ -96,6 +96,9 @@ data += `
 <spacer type=block width=1 height=5><BR>
 <font color=36d5ff>&#128;</font><spacer type=block width=6 height=1>
 <a href="wtv-setup:/keyboard">Keyboard</a><BR>
+<spacer type=block width=1 height=5><BR>
+<font color=36d5ff>&#128;</font><spacer type=block width=6 height=1>
+<a href="wtv-setup:/home">Home</a><BR>
 <spacer type=block width=1 height=5><BR>`;
 var supportsmessenger = session_data.hasCap("client-can-use-messenger");
 var msnchat = session_data.hasCap("client-supports-MSN-chat");
@@ -143,7 +146,9 @@ Play background songs<BR>
 <spacer type=block width=2 height=5><font size="2"><br>
 Change how you print<BR>
 <spacer type=block width=2 height=5><font size="2"><br>
-Choose an on-screen keyboard<BR>`;
+Choose an on-screen keyboard<BR>
+<spacer type=block width=2 height=5><font size="2"><br>
+Web Home options<BR>`;
 if (supportsmessenger || msnchat == true) {
     data += `
 <spacer type=block width=2 height=5><font size="2"><br>
