@@ -270,7 +270,7 @@ switch (infoCenter) {
 
         (async () => {
             let newsData = await wtvcache.getNewsCache();
-            sendToClient(socket, headers, renderSports(sportsData));
+            sendToClient(socket, headers, renderSports(newsData));
         })();
         break;
 }

@@ -833,8 +833,8 @@ gEmbedTag.document.write(	"<html><body bgcolor=13142e>
 "background=wtv-home:/ROMCache/PromotionLeftEdge.gif><td width=415 height=44 " +
 "align=left valign=center><font color=bdbdbd size=-1>Choose the news and entertainment topics, sports,<br>and " +
 "stocks that you want to see here.</font></table></table></body></html>");
-gEmbedTag.document.close();
 gLinkTag.href = "wtv-center:/center?info=WebTVToday";
+gEmbedTag.document.close();
 }
 // --------------------------------------------------------------------
 // --------------------------------------------------------------------
