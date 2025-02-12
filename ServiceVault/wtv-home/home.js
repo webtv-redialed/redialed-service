@@ -1225,7 +1225,9 @@ width=21>
 </table>
 <tr>
 <td abswidth=280 absheight=208>
+<a href="wtv-center:/cwtv/redirect">
 <img src="wtv-home:/images/dynamic/ClubWTV_hp60e.jpg" width=280 height=208>
+</a>
 <td abswidth=142 absheight=208>
 <img src="wtv-home:/images/dynamic/E!Online_hp40e.gif" width=142 height=208>
 <tr>
