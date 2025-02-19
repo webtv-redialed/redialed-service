@@ -981,6 +981,7 @@ ${response.length == 0 ? "No " : ""}Discussion groups found
 
                     data += `
 </table>
+<br><br>
 <TABLE width=446 cellspacing=0 cellpadding=0>
 <tr>
 <td rowspan=3 width=10 height=1>
