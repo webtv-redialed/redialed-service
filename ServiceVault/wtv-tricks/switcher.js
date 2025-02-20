@@ -12,7 +12,7 @@ wtv-visit: client:activ
 `
 	data = `<html>
 <head>
-<title>Server Switchinator 9000</title>
+<title>Server Switcher 9000</title>
 <DISPLAY noscroll allowoffline notvaudio nooptions switchtowebmode noreconnectalert>
 </head>
 <body bgcolor="#191919" text="#44cc55" link="#aaaaaa"
