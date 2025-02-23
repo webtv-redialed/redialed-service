@@ -27,7 +27,7 @@ var viewer_stock_md5s = {
 
 
 var patch_defaults = {
-    "start_url": (request_headers.query.diskset === 1) ? "file://disk/Browser/cSetup.htm" : "client:GoToConn",
+    "start_url": "client:GoToConn",
     "default_ip": "10.0.0.1"
 }
 
