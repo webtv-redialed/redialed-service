@@ -10,18 +10,13 @@ class WTVTricks {
     getPasswordByType(type) {
         if ((type == "high" && this.minisrv_config.services["wtv-tricks"].password_high) || this.minisrv_config.config.serviceType == "Debug") {
             return this.minisrv_config.services["wtv-tricks"].password_high;
-        } else if (
-            type == "low" &&
-            this.minisrv_config.services["wtv-tricks"].password_low
-        ) {
-            return this.minisrv_config.services["wtv-tricks"].password_low;
         } else {
             throw ` * Tricks password type "${type}" not known or undefined in config, THIS IS BAD!`; // password type not known, should not reach this code
         }
     }
 
     // yea this sucks but it's better than repeating the HTML all over again, just ask our friend Michael Huntington
-    getTricksAndTrapsTemplated() {
+    highTricksUnauthorized() {
         return `<html><head></head><body vspace="0" vlink="36d5ff" text="#44cc55" link="36d5ff" bgcolor="#191919"><label nicetry="">
 <display nosave="" nosend="" skipback="">
 <title>Tricks and Traps</title>

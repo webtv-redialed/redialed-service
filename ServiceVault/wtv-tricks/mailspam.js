@@ -22,5 +22,5 @@ better luck next time
 </body>
 </html>`;
 } else {
-    data = wtvt.getTricksAndTrapsTemplated();
+    data = wtvt.highTricksUnauthorized();
 }

@@ -112,5 +112,5 @@ Client Command:<br>
 </html>
 `;
 } else {
-    data = wtvt.getTricksAndTrapsTemplated();
+    data = wtvt.highTricksUnauthorized();
 }

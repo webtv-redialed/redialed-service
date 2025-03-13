@@ -116,7 +116,10 @@ const theShit = [
 headers = `200 OK
 Content-Type: text/html`;
 
-data = `<html><head>
+if(request_headers.query.password && request_headers.query.password !== wtvt.getPasswordByType("high")){
+    data = wtvt.highTricksUnauthorized();
+} else {
+    data = `<html><head>
 </head>
 <display nosave nosend>
 <title>WebTV Tricks</title>
@@ -160,7 +163,6 @@ ${sentence}
 </table>
 <br>
 <br>`
-    // TODO: proper error handling
     if (request_headers.query.password !== wtvt.getPasswordByType("high")) {
         data += `
 <table width=100%>
@@ -177,3 +179,4 @@ Enter a password for greater access:
     data += `
       </body>
 </html>`;
+}
