@@ -179,7 +179,7 @@ Build: <select name="build" id="build">
 <option selected value="7352">Build 7352 (Old Plus)</option>
 <option value="16276">Build 16276 (Old Plus)</option>
 </select></font> </p>
-<p><font size="2" face="verdana,helvetica,arial">
+<p title="To enable cSetup, go to Edit -> Preferences, change Web Mode Home Page to other, enter 'file://disk/Browser/cSetup.htm', click OK, and restart WebTV Viewer."><font size="2" face="verdana,helvetica,arial">
 <img src="http://webtv.zone/images/global/spacer.gif" alt="" width="7" height="1" border="0">
 cSetup & Messenger proxy: <select name="diskset" id="diskset">
 <option value="0">Not Included</option>

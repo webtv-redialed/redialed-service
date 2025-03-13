@@ -12,7 +12,7 @@ wtv-visit: client:activ
 `
 	data = `<html>
 <head>
-<title>Connect Setup v2.4-sailor tv edition</title>
+<title>Server Switcher 9000</title>
 <DISPLAY noscroll allowoffline notvaudio nooptions switchtowebmode noreconnectalert>
 </head>
 <body bgcolor="#191919" text="#44cc55" link="#aaaaaa"
@@ -40,7 +40,7 @@ Content-Type: text/html`
 
 	data = `<html>
 <head>
-<title>the switchinator 9000</title>
+<title>Server Switcher 9000</title>
 <DISPLAY noscroll notvaudio switchtowebmode>
 </head>
 <body bgcolor="#191919" text="#44cc55" link="#aaaaaa"
@@ -69,7 +69,9 @@ hspace="0" vspace="0" fontsize="large" noscroll>
 
   
 	  function doConnect() {
-		if (document.connect.machine.value == "${minisrv_config.services['wtv-1800'].host}" && document.connect.port.value == "${minisrv_config.services['wtv-1800'].port}") {
+	    if (document.connect.preset.value == "noneofem") {
+            	alert("Please choose a WebTV server to connect to.")
+		} else if (document.connect.machine.value == "${minisrv_config.services['wtv-1800'].host}" && document.connect.port.value == "${minisrv_config.services['wtv-1800'].port}") {
 				alert("You are already here!");
 		} else {
 			document.connect.submit();
@@ -84,13 +86,18 @@ hspace="0" vspace="0" fontsize="large" noscroll>
 	  function updateService() {
 		srv = document.connect.preset[document.connect.preset.selectedIndex].value;
 		switch (srv) {
+				case "noneofem":
+					document.connect.machine.value="x.x.x.x"
+                    document.connect.port.value="1615"
+					document.message.msg.value="Choose a WebTV server to connect to."
+					break;
 				case "mattman69":
 					document.connect.machine.value="71.244.121.234"
                     document.connect.port.value="1615"
                     document.message.msg.value="This is MattMan69's Public HackTV shittysrv, all are welcome to connect and enjoy the wonders of WebTV. Offers a custom experience."
 					break;
 				case "zefie":
-					document.connect.machine.value="24.105.201.236"
+					document.connect.machine.value="216.126.232.171"
 					document.connect.port.value="1615"
                     document.message.msg.value="This is zefie's public minisrv, for those who want the vanilla minisrv experience."
 					break;
@@ -112,7 +119,7 @@ hspace="0" vspace="0" fontsize="large" noscroll>
 				case "redialed":
 					document.connect.machine.value="217.160.150.209"
 					document.connect.port.value="1615"
-					document.message.msg.value='Continuation of the WebTV service that keeps the vibe of the original service. Ran by HIDEN.'
+					document.message.msg.value='Continuation of the WebTV service that keeps the vibe of the original. Ran by HIDEN.'
 					break;
 				case "other":
 					document.message.msg.value="Connect to another server that isn't listed."
@@ -128,9 +135,10 @@ hspace="0" vspace="0" fontsize="large" noscroll>
 				</td>
 				<td><spacer W=24 type=block>
 					<select width="440" name="preset" onchange="updateService()" selected>
-						<option value="mattman69" selected>MattMan69's HackTV minisrv</option>
-						<option value="zefie">zefie's minisrv</option>
+						<option value="noneofem" selected>- Choose a WebTV server to connect to. -</option>
 						<option value="redialed">WebTV Redialed</option>
+						<option value="mattman69">MattMan69's HackTV minisrv</option>
+						<option value="zefie">zefie's minisrv</option>
 						<option value="local">Your local minisrv</option>
 						<option value="wni-prod">WebTV Production Default</option>
 						<option value="wni-int">WebTV Internal Default</option>
@@ -158,7 +166,7 @@ hspace="0" vspace="0" fontsize="large" noscroll>
                   &nbsp;Custom:&nbsp;&nbsp;&nbsp;
                <td>
                   Address:
-                  <input size=16 ASCIIONLY name=machine bgcolor=#444444 text=#cc9933 cursor=#cc9933 value="71.244.121.234" onkeypress="setOther()">
+                  <input size=16 ASCIIONLY name=machine bgcolor=#444444 text=#cc9933 cursor=#cc9933 value="x.x.x.x" onkeypress="setOther()">
                   &nbsp;&nbsp;&nbsp;Port:
                   <input size=5 ASCIIONLY NUMBERS name=port bgcolor=#444444 text=#cc9933 cursor=#cc9933 value="1615" onkeypress="setOther()">
          </table>
@@ -175,7 +183,7 @@ hspace="0" vspace="0" fontsize="large" noscroll>
                <td width=20>
                <td width=390 align=left valign=top>
                   <form name=message>
-                   <textarea rows=4 size=46 text=#44cc55 id=msg name=msg border="0" bgcolor=#191919 value='This is the public HackTV shittysrv, all are welcome to connect and enjoy the wonders of WebTV. Custom experience!' nohighlight noselect>
+                   <textarea rows=4 size=46 text=#44cc55 id=msg name=msg border="0" bgcolor=#191919 value='Choose a WebTV server to connect to.' nohighlight noselect>
                    </textarea>
                   </form>
                <td>

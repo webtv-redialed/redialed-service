@@ -8,8 +8,8 @@ This service is not designed to be ran anywhere except on the main Redialed serv
 - Configure the service to your preferences (see the below section)
 - Run the service: `npm start`. If you get an error with the code `ERR_OSSL_EVP_UNSUPPORTED`, try `npm run start17` instead.
   
-## Notes for service configuration
-`includes/config.json` can be used as a reference for what settings you can configure. Though be warned, it's supposed to contain configuration info applied to *all* instances. `user_config.json` is for this specific instance. Please take care before modifying either. This is being done to reduce clashing between configs and eliminate potential for misconfiguration.
+## Notes for service configuration 
+`includes/config.json` is the default configuration file that applies to *all* instances. `user_config.json` should contain configuration options specific to your instance and enviornment. If you wish to change the server's configuration from the defualts, please put your configuration changes in `user_config.json`. The file should be created in the root directory of this repository, and will be ignored by Git. We do this, as to not have enviornment-specific, and potentially sensitive configuration options (API keys, Tricks passwords, etc) exposed in a public repo.
 
 Please make sure of the following:
 - Service IP is correct and the service can be accessed from it
