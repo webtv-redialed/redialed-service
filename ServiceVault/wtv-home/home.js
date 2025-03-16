@@ -971,7 +971,7 @@ ${title}
 <sidebar width=138>
 <table cellspacing=0 cellpadding=0 bgcolor=30364d>
 <tr><td valign=top colspan=3>
-<table cellspacing=0 cellpadding=0 height=110>
+<table cellspacing=0 cellpadding=0 height=105>
 <tr>
 <td height=7>
 <tr>
@@ -1042,6 +1042,127 @@ ${title}
 <table cellspacing=0 cellpadding=0>
 <tr><td valign=middle><shadow><font size=3 color=e7d694>&nbsp;Community</font></shadow>
 </table>
+`;	
+	// TODO: make this suck less
+	if (session_data.getNumberOfUserAccounts() == 1) {
+		data += `
+<tr><td height=1>
+</table>
+<td abswidth=6>
+<tr>
+<td height=2 colspan=3 bgcolor=252834>
+<spacer>
+<tr>
+<td height=1 colspan=3>
+<spacer>
+<tr>
+<td height=2 colspan=3 bgcolor=4d5573>
+<spacer>
+<tr>
+<td abswidth=7>
+<td abswidth=125 height=24>
+<table cellspacing=0 cellpadding=0 href="wtv-setup:/accounts">
+<tr><td height=4>
+<tr><td valign=middle>
+<table cellspacing=0 cellpadding=0>
+<tr><td valign=middle><shadow><font size=3 color=e7d694>&nbsp;Add User</font></shadow>
+</table>
+<tr><td height=1>
+</table>
+<td abswidth=6>
+<tr>
+<td height=2 colspan=3 bgcolor=252834>
+<spacer>
+<tr>
+<td height=1 colspan=3>
+<spacer>
+<tr>
+<td height=2 colspan=3 bgcolor=4d5573>
+<spacer>
+<tr>
+<td abswidth=7>
+<td abswidth=125 height=24>
+<table cellspacing=0 cellpadding=0 href="wtv-setup:/serve-billing-overview">
+<tr><td height=4>
+<tr><td valign=middle>
+<table cellspacing=0 cellpadding=0>
+<tr><td valign=middle><shadow><font size=3 color=e7d694>&nbsp;Account</font></shadow>
+</table>
+<tr><td height=1>
+</table>
+<td abswidth=6>
+<tr>`;
+} else if (session_data.user_id == 0) {
+		data += `
+<tr><td height=1>
+</table>
+<td abswidth=6>
+<tr>
+<td height=2 colspan=3 bgcolor=252834>
+<spacer>
+<tr>
+<td height=1 colspan=3>
+<spacer>
+<tr>
+<td height=2 colspan=3 bgcolor=4d5573>
+<spacer>
+<tr>
+<td abswidth=7>
+<td abswidth=125 height=24>
+<table cellspacing=0 cellpadding=0 href="client:relogin">
+<tr><td height=4>
+<tr><td valign=middle>
+<table cellspacing=0 cellpadding=0>
+<tr><td valign=middle><shadow><font size=3 color=e7d694>&nbsp;Switch User</font></shadow>
+</table>
+<tr><td height=1>
+</table>
+<td abswidth=6>
+<tr>
+<td height=2 colspan=3 bgcolor=252834>
+<spacer>
+<tr>
+<td height=1 colspan=3>
+<spacer>
+<tr>
+<td height=2 colspan=3 bgcolor=4d5573>
+<spacer>
+<tr>
+<td abswidth=7>
+<td abswidth=125 height=24>
+<table cellspacing=0 cellpadding=0 href="wtv-setup:/accounts">
+<tr><td height=4>
+<tr><td valign=middle>
+<table cellspacing=0 cellpadding=0>
+<tr><td valign=middle><shadow><font size=3 color=e7d694>&nbsp;Account</font></shadow>
+</table>
+<tr><td height=1>
+</table>
+<td abswidth=6>
+<tr>`;
+	} else {
+		data += `
+<tr><td height=1>
+</table>
+<td abswidth=6>
+<tr>
+<td height=2 colspan=3 bgcolor=252834>
+<spacer>
+<tr>
+<td height=1 colspan=3>
+<spacer>
+<tr>
+<td height=2 colspan=3 bgcolor=4d5573>
+<spacer>
+<tr>
+<td abswidth=7>
+<td abswidth=125 height=24>
+<table cellspacing=0 cellpadding=0 href="client:relogin">
+<tr><td height=4>
+<tr><td valign=middle>
+<table cellspacing=0 cellpadding=0>
+<tr><td valign=middle><shadow><font size=3 color=e7d694>&nbsp;Switch User</font></shadow>
+</table>
 <tr><td height=1>
 </table>
 <td abswidth=6>
@@ -1061,12 +1182,14 @@ ${title}
 <tr><td height=4>
 <tr><td valign=middle>
 <table cellspacing=0 cellpadding=0>
-<tr><td valign=middle><shadow><font size=3 color=e7d694>&nbsp;What's on TV</font></shadow>
+<tr><td valign=middle><shadow><font size=3 color=e7d694>&nbsp;What's on TV</font></shadow> <!-- temporary -->
 </table>
 <tr><td height=1>
 </table>
 <td abswidth=6>
-<tr>
+<tr>`
+	}
+data += ` 
 <td height=2 colspan=3 bgcolor=252834>
 <spacer>
 <tr>
@@ -1075,7 +1198,7 @@ ${title}
 <tr>
 <td height=2 colspan=3 bgcolor=4d5573>
 <spacer>
-<tr><td valign=bottom align=right height=153 colspan=3>
+<tr><td valign=bottom align=right height=130 colspan=3>
 <img src="wtv-home:/ROMCache/HomeBanner.gif">
 </table>
 </sidebar>
@@ -1204,12 +1327,12 @@ width=21>
 <tr>
 <td height=16>
 <tr>
-<td align=left >
+<td align=left>
 <spacer type=block width=14><spacer type=block height=52>
 <tr>
 <td height=11>
 </table>
-<tr><td
+<tr><td>
 width=21>
 <table border=0 cellspacing=0 cellpadding=0>
 <tr>

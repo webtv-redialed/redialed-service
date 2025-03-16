@@ -7,11 +7,19 @@ Content-Type: text/html`;
 const nunjucks = require("nunjucks");
 nunjucks.configure({ autoescape: false });
 
-data = nunjucks.render('ServiceDeps/templates/wtv-setup/setupGeneral.njk', { title: "Web Home options", body: `<td abswidth=20>
+// this sucks
+let sitetitle = ''
+
+if (session_data.hasCap("client-has-tv-experience"))
+    sitetitle = 'Web Home options'
+else
+    sitetitle = 'Home options'
+
+data = nunjucks.render('ServiceDeps/templates/wtv-setup/setupGeneral.njk', { title: sitetitle, body: `<td abswidth=20>
 <TR>
 <td>
 <td WIDTH=215 HEIGHT=236 VALIGN=top ALIGN=left>
-<p>Turn ${session_data.getSessionData("alt_home") == '1' ? "off" : "on"} the classic (pre-1999) home page.
+<p>Turn ${session_data.getSessionData("alt_home") == '1' ? "off" : "on"} the classic ${session_data.hasCap("client-has-tv-experience") ? `Web Home` : 'Home'} page design.
 <TD WIDTH=20>
 <TD WIDTH=198 VALIGN=top ALIGN=left>
 <form action="wtv-setup:/validate-home-options">
