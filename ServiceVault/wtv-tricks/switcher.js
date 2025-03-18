@@ -12,7 +12,7 @@ wtv-visit: client:activ
 `
 	data = `<html>
 <head>
-<title>Server Switcher 9000</title>
+<title>Server Switchinator 9000</title>
 <DISPLAY noscroll allowoffline notvaudio nooptions switchtowebmode noreconnectalert>
 </head>
 <body bgcolor="#191919" text="#44cc55" link="#aaaaaa"
@@ -40,7 +40,7 @@ Content-Type: text/html`
 
 	data = `<html>
 <head>
-<title>Server Switcher 9000</title>
+<title>Server Switchinator 9000</title>
 <DISPLAY noscroll notvaudio switchtowebmode>
 </head>
 <body bgcolor="#191919" text="#44cc55" link="#aaaaaa"
@@ -54,7 +54,7 @@ hspace="0" vspace="0" fontsize="large" noscroll>
       </td>
     <td width="456" height="80" valign="middle" align="center">
  <br><h2>
-         &nbsp;<font size=+1>Server Switcher 9000</font><br>
+         &nbsp;<font size=+1>Server Switchinator 9000</font><br>
 		 &nbsp;<font size=-1><i>for when you just really hate the 90s</i></font>
          </h2>
 </td>
@@ -72,7 +72,7 @@ hspace="0" vspace="0" fontsize="large" noscroll>
 	    if (document.connect.preset.value == "noneofem") {
             	alert("Please choose a WebTV server to connect to.")
 		} else if (document.connect.machine.value == "${minisrv_config.services['wtv-1800'].host}" && document.connect.port.value == "${minisrv_config.services['wtv-1800'].port}") {
-				alert("You are already here!");
+				alert("Mate, you're already here.");
 		} else {
 			document.connect.submit();
 		}
