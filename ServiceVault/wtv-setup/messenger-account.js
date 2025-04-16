@@ -125,7 +125,7 @@ MAXLENGTH="20">
 <p>Server
 <input type="hidden" autosubmit="onLeave">
 <select name="server">
-<option value="master.ctsrv.hiden.cc">CrossTalk
+<option value="ms.msgrsvcs.ctsrv.xyz">CrossTalk
 </option><option value="ds.escargot.nina.chat">Escargot
 </option></select>
 </table>
