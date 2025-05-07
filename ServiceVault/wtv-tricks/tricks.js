@@ -63,7 +63,7 @@ const messages = [
     "<a href=wtv-home:/content/index_shows.html>Access the super-ultra secret Weblitzer!!!!!!!</a>",
     "<b>GREETINGS, PROFESSOR " + session_data.getSessionData("subscriber_last_name").toUpperCase() + "</b>",
     "FIX ME HOOK HAT",
-    "You call that knife? <b>This</b> is a knife:<br>https://aliexpress.us/item/3256802483880276.html",
+    "You call that a knife? <b>This</b> is a knife:<br>https://aliexpress.us/item/3256802483880276.html",
     "<img src=images/autism.gif>",
     "This is the sign you've been looking for",
     "Hey Lois, I'm in wtv-tricks:/tricks",
@@ -98,9 +98,9 @@ const theShit = [
     { name: "Run a WWW Tour", url: `wtv-home:/content/tourist.html` },
     //{ name: "Visit the Name Changer&#153;", url: `wtv-tricks:/namechange?password=${wtvt.getPasswordByType("high")}`, highOnly: true },
     { name: "Visit Big Willie's!", url: `client:showalert?message=Only%20proceed%20to%20this%20page%20if%20you%20are%20%3Cb%3EABSOLUTELY%20%3C%2Fb%3Esure%20you%20know%20what%20you%20are%20doing.%3Cbr%3E%3Cbr%3E%20You%20can%20cause%20serious%20damage%20to%20and%20even%20brick%20your%20receiver%20if%20you%20aren%27t%20careful.&buttonLabel1=Cancel&buttonAction1=client:donothing&buttonLabel2=Proceed to Big Willie%27s&buttonAction2=wtv-flashrom:/willie` },
+    { name: "Visit Little Willie's!", url: `client:showalert?message=Only%20proceed%20to%20this%20page%20if%20you%20are%20%3Cb%3EABSOLUTELY%20%3C%2Fb%3Esure%20you%20know%20what%20you%20are%20doing.%3Cbr%3E%3Cbr%3E%20You%20can%20cause%20serious%20damage%20to%20and%20even%20brick%20your%20receiver%20if%20you%20aren%27t%20careful.&buttonLabel1=Cancel&buttonAction1=client:donothing&buttonLabel2=Proceed to Little Willie%27s&buttonAction2=wtv-flashrom:/willie?label=LittleWillie` },
     { name: "Server Switchinator 9000", url: `wtv-tricks:/switcher` },
     { name: "Blast Backlist", url: `wtv-tricks:/blastbacklist` },
-    { name: "Visit Little Willie's!", url: `client:showalert?message=Only%20proceed%20to%20this%20page%20if%20you%20are%20%3Cb%3EABSOLUTELY%20%3C%2Fb%3Esure%20you%20know%20what%20you%20are%20doing.%3Cbr%3E%3Cbr%3E%20You%20can%20cause%20serious%20damage%20to%20and%20even%20brick%20your%20receiver%20if%20you%20aren%27t%20careful.&buttonLabel1=Cancel&buttonAction1=client:donothing&buttonLabel2=Proceed to Little Willie%27s&buttonAction2=wtv-flashrom:/willie?label=LittleWillie` },
     { name: "Blast NVRAM", url: `client:ResetNVAndPowerOff`, highOnly: true },
     { name: "Smart Card Factory", url: `wtv-smartcard:/content/scf.html` },
     { name: "Unregister This Box", url: `client:showalert?message=You%20are%20about%20to%20%3Cb%3Eunregister%20this%20box.%3C%2Fb%3E%3Cp%3E%0AThe%20next%20person%20to%20use%20this%20box%20will%20have%20to%20sign%20up.&buttonLabel1=Cancel&buttonAction1=client:donothing&buttonLabel2=Unregister&buttonAction2=wtv-head-waiter:/unregister`, highOnly: true },
@@ -134,7 +134,6 @@ link="36d5ff" vlink="36d5ff" vspace=0>
 <br>
 <br>
 <h1>WebTV Tricks</h1>
-<br>
 <table>
 <tr>
 <i>
@@ -164,7 +163,7 @@ ${sentence}
 <br>
 <br>`
     if (request_headers.query.password !== wtvt.getPasswordByType("high")) {
-        data += `
+        data += `<br><br>
 <table width=100%>
 <TD VALIGN=top ALIGN=left>
 Enter a password for greater access:

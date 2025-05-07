@@ -961,8 +961,7 @@ ${response.length == 0 ? "No " : ""}Discussion groups found
                         data += `There are no discussion groups that match your request. Do you want to look for something else?`;
                     } else {
                         response.forEach((group) => {
-                            data += `<hr width=436>
-<IMG src="wtv-home:/ROMCache/Spacer.gif" width=1 height=6><br>
+                            data += `
 <table cellspacing=0 cellpadding=0>
 <tr>
 <td width=10>
@@ -975,30 +974,16 @@ ${response.length == 0 ? "No " : ""}Discussion groups found
                             if (group.description) {
                                 data += `<tr><td colspan=3 width=10 height=6><tr><td width=10><td colspan=99><i><font color=828282>${group.description}</font></i>`;
                             }
-                            data += "</table>";
+                            data +=`</table><hr width=436><IMG src="wtv-home:/ROMCache/Spacer.gif" width=1 height=6><br>`;
                         });
                     }
 
                     data += `
 </table>
 <br><br>
-<TABLE width=446 cellspacing=0 cellpadding=0>
-<tr>
-<td rowspan=3 width=10 height=1>
-<img src="wtv-home:/ROMCache/Spacer.gif" width=10 height=1>
-<td height=2 width=436 bgcolor="2B2B2B">
-<img src="wtv-home:/ROMCache/Spacer.gif" width=436 height=1>
-<tr>
-<td height=1>
-<tr>
-<td height=2 bgcolor="0D0D0D">
-<img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
-</TABLE>
 <table cellspacing=0 cellpadding=0>
 <tr>
 <td rowspan=2 abswidth=10>
-<td absheight=10>
-<tr>
 <td abswidth=416 valign=top align=left>
 Do you want to look for something else?<br>
 <img src="/ROMCache/Spacer.gif" width=1 height=4>
