@@ -117,7 +117,7 @@ hspace="0" vspace="0" fontsize="large" noscroll>
 					document.message.msg.value='Default WebTV Internal IP/Port. Can be used to check your routing setup.'
 					break;
 				case "redialed":
-					document.connect.machine.value="217.160.150.209"
+					document.connect.machine.value="31.97.129.116"
 					document.connect.port.value="1615"
 					document.message.msg.value='Continuation of the WebTV service that keeps the vibe of the original. Ran by HIDEN.'
 					break;
