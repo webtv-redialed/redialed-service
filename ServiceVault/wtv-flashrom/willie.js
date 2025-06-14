@@ -90,8 +90,8 @@ Ask about our 10% employee discount!
     // this shit sucks, yo.
     if (boxInfo && boxInfo.warning) data += `<font color=red><b><p><u>WARNING: ${boxInfo.warning}.</font>`;
     data += `
-<font color=e7ce4a><p>${boxInfo ? `Showing ${flashRoms.length} builds for <b>${boxInfo.romType}</b>.` : `we ain't got that`}
-<br>
+<font color=e7ce4a><p>${boxInfo ? `Showing ${flashRoms.length} builds for <b>${boxInfo.romType}</b>.` : `No builds are available for your WebTV receiver.`}
+<br>    
 <br>`;
     nav = `<table width=100%>
 <td align=left><a href=>prev</a></td>
