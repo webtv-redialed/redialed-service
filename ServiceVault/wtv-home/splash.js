@@ -14,7 +14,7 @@ let isNewYear = now.getMonth() == 0 && now.getDate() == 1 && !usingCustomSplash
 let isJarBday = now.getMonth() == 2 && now.getDate() == 5 //JarHead and I did a buncha work overhauling all this, so why not have splashes for our birthdays? :P
 let isSKCroBday = now.getMonth() == 4 && now.getDate() == 13
 let isJune = now.getMonth() == 5
-let isJoeb = now.getMonth() == 6 && now.getDate() = 8
+let isJoeb = now.getMonth() == 6 && now.getDate() == 8
 let isHall = now.getMonth() == 9 && now.getDate() == 31 && !usingCustomSplash
 let isCrimmis = now.getMonth() == 11 && !usingCustomSplash
 let debug = (minisrv_config.config.serviceType == 'Debug')
