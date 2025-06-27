@@ -7,20 +7,15 @@ Content-Type: text/html`;
 const nunjucks = require('nunjucks');
 nunjucks.configure({ autoescape: false });
 
-// this sucks
-let sitetitle = ''
-
-if (session_data.hasCap("client-has-tv-experience"))
-		sitetitle = 'Web Home options'
-else
-		sitetitle = 'Home options'
+// this sucks slightly less now
+let sitetitle = `${session_data.hasCap('client-has-tv-experience') ? 'Web ' : ''}Home options`
 
 data = nunjucks.render('ServiceDeps/templates/wtv-setup/setupGeneral.njk', { title: sitetitle, body: `<td abswidth=20>
 <tr><td>
 <td width=215 height=236 Valign=top align=left>
-<p>Use these options to customize how WebTV's home page looks and acts.
+<p>Use these options to customize how your ${session_data.hasCap('client-has-tv-experience') ? 'Web Home' : 'Home'} page looks and acts.
 <td width=20>
-<td width=198 Valign=top align=left>
+<td width=198 valign=top align=left>
 <form action="wtv-setup:/validate-home-options">
 <table cellspacing=0 cellpadding=0>
 <tr><td valign=middle>
@@ -60,22 +55,15 @@ default:return;
 <tr><td absheight=10>
 <tr><td valign=top>
 </table>
-<tr><td>
-<td colspan=4 height=14 Valign=top align=left>
-<tr><td>
-<td colspan=4 height=2 valign=middle align=center bgcolor=2b2b2b>
+<tr><td><td colspan=4 height=14 valign=top align=left>
+<tr><td><td colspan=4 height=2 valign=middle align=center bgcolor=2b2b2b>
 <spacer type=block width=436 height=1>
-<tr><td>
-<td colspan=4 height=1 valign=top align=left>
-<tr><td>
-<td colspan=4 height=2 valign=top align=left bgcolor=0d0d0d>
+<tr><td><td colspan=4 height=1 valign=top align=left>
+<tr><td><td colspan=4 height=2 valign=top align=left bgcolor=0d0d0d>
 <spacer type=block width=436 height=1>
-<tr><td>
-<td colspan=4 height=4 Valign=top align=left>
-<tr><td>
-<td colspan=3 Valign=top align=right>
+<tr><td><td colspan=4 height=4 Valign=top align=left>
+<tr><td><td colspan=3 Valign=top align=right>
 <font color=e7ce4a size=-1 effect=shadow>
 <input type=submit name=Done value=Done width=103 borderimage=file://ROM/Borders/ButtonBorder2.bif name=Button2 usestyle width=103>
 </font></form>
-<td>
-</table>`, hasTuner: session_data.hasCap('client-has-tuner'), isJapaneseClient: session_data.isJapaneseClient()});
+<td></table>`, hasTuner: session_data.hasCap('client-has-tuner'), isJapaneseClient: session_data.isJapaneseClient()});
