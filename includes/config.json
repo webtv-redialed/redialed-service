@@ -10,7 +10,7 @@
       "ServiceDeps/templates"
     ],
     "ssid_block_list": [
-      "exampleBitch"
+      "81BannedUser1234"
     ],
     "ServiceDeps": "ServiceDeps",
     "SessionStore": "SessionStore",
