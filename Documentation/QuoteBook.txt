@@ -11,3 +11,6 @@
 
 "the patient needs tmpfs 6726440d to live"
      -jarhead, observing someone's bf0 romfs combusting live
+
+"gaming"
+     -SKCro, right after breaking the splash page
