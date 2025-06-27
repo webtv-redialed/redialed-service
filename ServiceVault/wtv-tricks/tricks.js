@@ -73,7 +73,8 @@ const messages = [
     "Brought to you by the letter T",
     "The Polyzoot admin command is not real",
     "Jarvis, set this guy's access number to 911",
-    "Ran by the meanest sons of bitches in the state of Maryland"
+    "Ran by the meanest sons of bitches in the state of Maryland",
+		"I've been delayed but I will be there around that time"
 ];
 
 var motd = messages[Math.floor(Math.random() * messages.length)];
@@ -81,7 +82,7 @@ var motd = messages[Math.floor(Math.random() * messages.length)];
 if (today == "12/25") {
     motd = "<embed src=sounds/christmas.xm autostart=true> Merry Christmas!";
 } else if (today == "10/31") {
-    motd = "<embed src=sounds/adams.mid autostart=true> BOO!";
+    motd = "<embed src=sounds/adams.mid autostart=true><blackface><b>BOO!</b></blackface>";
 }
 
 /*  even index placed at the left, odd gets placed on the right.
