@@ -4,8 +4,7 @@ var date = new Date();
 var month = parseInt(date.getMonth()) + 1;
 var day = date.getDate();
 var today = month + "/" + day;
-var notAllowedMessage =
-    "client:showalert?message=You%20are%20not%20allowed%20to%20access%20this%20area.";
+var notAllowedMessage = "client:showalert?message=You%20are%20not%20allowed%20to%20access%20this%20area.";
 var wtvt = new WTVTricks(minisrv_config);
 
 const messages = [
@@ -74,7 +73,7 @@ const messages = [
     "The Polyzoot admin command is not real",
     "Jarvis, set this guy's access number to 911",
     "Ran by the meanest sons of bitches in the state of Maryland",
-		"I've been delayed but I will be there around that time"
+    "I've been delayed but I will be there around that time"
 ];
 
 var motd = messages[Math.floor(Math.random() * messages.length)];
@@ -120,16 +119,11 @@ Content-Type: text/html`;
 if(request_headers.query.password && request_headers.query.password !== wtvt.getPasswordByType("high")){
     data = wtvt.highTricksUnauthorized();
 } else {
-    data = `<html><head>
-</head>
+    data = `<html><head></head>
 <display nosave nosend>
 <title>WebTV Tricks</title>
-<sidebar width=20%>
-<img 
-src="wtv-tricks:/images/Favorites_bg.jpg">
-</sidebar>
-<body bgcolor="#191919" text="#44cc55" 
-link="36d5ff" vlink="36d5ff" vspace=0>
+<sidebar width=20%><img src=wtv-tricks:/images/Favorites_bg.jpg></sidebar>
+<body bgcolor=191919 text=44cc55 link=36d5ff vlink=36d5ff vspace=0>
 
 
 <br>
@@ -137,9 +131,7 @@ link="36d5ff" vlink="36d5ff" vspace=0>
 <h1>WebTV Tricks</h1>
 <table>
 <tr>
-<i>
-${motd}
-</i>`;
+<i>${motd}</i>`;
     //overengineering time
     let sentence = "";
 
@@ -148,12 +140,10 @@ ${motd}
             sentence += `<tr>
 <td colspan=3 height=6>
 <tr>
-<td><a 
-href="${details.highOnly && request_headers.query.password !== wtvt.getPasswordByType("high") ? notAllowedMessage : details.url}">${details.name}</a>`;
+<td><a href="${details.highOnly && request_headers.query.password !== wtvt.getPasswordByType("high") ? notAllowedMessage : details.url}">${details.name}</a>`;
         } else {
-            sentence += `<td width = 25>
-<td><a 
-href="${details.highOnly && request_headers.query.password !== wtvt.getPasswordByType("high") ? notAllowedMessage : details.url}">${details.name}</a>`;
+            sentence += `<td width=25>
+<td><a href="${details.highOnly && request_headers.query.password !== wtvt.getPasswordByType("high") ? notAllowedMessage : details.url}">${details.name}</a>`;
         }
         if (index !== Object.keys(theShit).length - 1) sentence += `\n`; //make sure we don't newline right before the end of the table
     });
@@ -161,22 +151,16 @@ href="${details.highOnly && request_headers.query.password !== wtvt.getPasswordB
     data += `
 ${sentence}
 </table>
-<br>
-<br>`
+<br><br>`
     if (request_headers.query.password !== wtvt.getPasswordByType("high")) {
         data += `<br><br>
 <table width=100%>
-<TD VALIGN=top ALIGN=left>
+<td valign=top align=left>
 Enter a password for greater access:
-<tr>
-<TD ALIGN=left>
+<tr><td align=left>
 <img src="/ROMCache/Spacer.gif" height=12>
-<form action="wtv-tricks:/tricks">
-<input name="password" id="password" bgcolor="#444444" text="#ffdd33" cursor="#cc9933" value="" type="password" size="16" maxlength="16" autocomplete="off">
-</form>
+<form action="wtv-tricks:/tricks"><input name=password id=password bgcolor=444444 text=ffdd33 cursor=cc9933 value="" type=password size=16 maxlength=16 autocomplete=off></form>
 </table>`;
     }
-    data += `
-      </body>
-</html>`;
+    data += `</body></html>`;
 }
