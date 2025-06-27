@@ -18,7 +18,7 @@ else
 data = nunjucks.render('ServiceDeps/templates/wtv-setup/setupGeneral.njk', { title: sitetitle, body: `<td abswidth=20>
 <tr><td>
 <td width=215 height=236 Valign=top align=left>
-<p>Use these options to customize how WebTV's home page looks and acts.
+<p>Use these options to customize how your ${session_data.hasCap("client-has-tv-experience") ? 'Web Home' : 'Home'} page looks and acts.
 <td width=20>
 <td width=198 Valign=top align=left>
 <form action="wtv-setup:/validate-home-options">
