@@ -15,7 +15,7 @@ let isSKCroBday = now.getMonth() == 4 && now.getDate() == 13
 let isJune = now.getMonth() == 5
 let isJoeb = now.getMonth() == 6 && now.getDate() == 8
 let isHall = now.getMonth() == 9 && now.getDate() == 31
-let isCrimmis = now.getMonth() == 11 &&
+let isCrimmis = now.getMonth() == 11
 let debug = (minisrv_config.config.serviceType == 'Debug')
 
 let splashImage = minisrv_config.config.service_splash_logo
