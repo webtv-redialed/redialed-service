@@ -22,7 +22,7 @@ if (
     session_data.get("wtv-system-version") < 1127
 ) {
     //make sure that clients below 1.4 can't access page builder
-    headers = `400 This feature requires you to receive an upgrade. Upgrades are not being offered for this Internet terminal at this time.`;
+    headers = `400 This feature requires you to receive an upgrade. Upgrades are not recommended for this Internet terminal, as there is not a reliable method to install upgrades on WebTV Classic units at this time.`;
     data = ``;
 } else {
     headers = `200 OK

@@ -12,18 +12,28 @@ let sitetitle = `${session_data.hasCap('client-has-tv-experience') ? 'Web ' : ''
 
 data = nunjucks.render('ServiceDeps/templates/wtv-setup/setupGeneral.njk', { title: sitetitle, body: `<td abswidth=20>
 <tr><td>
-<td width=215 height=236 Valign=top align=left>
-<p>Use these options to customize how your ${session_data.hasCap('client-has-tv-experience') ? 'Web Home' : 'Home'} page looks and acts.
+<td width=215 height=236 valign=top align=left>
+<p>Use these options to customize how your ${session_data.hasCap('client-has-tv-experience') ? 'Web Home' : 'Home'} page looks and acts.${!session_data.hasCap('client-supports-etude-service') ? `<br><br>
+<font size=-2>Your &boxname; receiver is currently running an older version of the software that does not support the new home page.<br><br>${session_data.get('wtv-client-rom-type') == 'bf0app' ? 'Upgrades are not being offered for your &boxname; at this time.' : 'You may opt to upgrade your &boxname; the next time you log into WebTV.'}` : ''}
 <td width=20>
 <td width=198 valign=top align=left>
-<form action="wtv-setup:/validate-home-options">
+<form action=wtv-setup:/validate-home-options><input type=hidden autosubmit=onleave>
 <table cellspacing=0 cellpadding=0>
 <tr><td valign=middle>
-<input type=checkbox name=home value=1${session_data.getSessionData('alt_home') == '1' ? ' checked' : ''}>
+<input type=checkbox name=home value=1${!session_data.hasCap('client-supports-etude-service') ? ' checked disabled><input type=hidden name=ignorehome value=1' : session_data.getSessionData('alt_home') == '1' ? ' checked' : ''}>
 <td abswidth=4>
-<td valign=middle>
+<td valign=bottom>
 <font size=-1>Classic home <a href="client:showalert?message=Enable this option to use the classic 1998 home page design rather than the current one.&buttonlabel1=Dismiss&buttonaction1=client:doNothing&buttonlabel2=Preview&buttonaction2=wtv-home:/home?force_old_home%3Dtrue"><img src=images/HelpButton.gif width=20 height=20 align=absbottom></a></font>
-<tr><td absheight=10>
+<tr><td absheight=8>
+<tr><td valign=top>
+</table>
+<table cellspacing=0 cellpadding=0>
+<tr><td valign=middle>
+<input type=checkbox name=fastsplash value=1${session_data.getSessionData('fast_splash') == '1' ? ' checked' : ''}>
+<td abswidth=4>
+<td valign=bottom>
+<font size=-1>Faster splash <a href="client:showalert?message=Enable this option to skip the 4-second delay that allows the splash jingle to play out in full.<br>You may not see a difference if you're on a slow connection.&buttonlabel1=Dismiss&buttonaction1=client:doNothing"><img src=images/HelpButton.gif width=20 height=20 align=absbottom></a></font>
+<tr><td absheight=8>
 <tr><td valign=top>
 </table>
 <table cellspacing=0 cellpadding=0>
@@ -61,8 +71,8 @@ default:return;
 <tr><td><td colspan=4 height=1 valign=top align=left>
 <tr><td><td colspan=4 height=2 valign=top align=left bgcolor=0d0d0d>
 <spacer type=block width=436 height=1>
-<tr><td><td colspan=4 height=4 Valign=top align=left>
-<tr><td><td colspan=3 Valign=top align=right>
+<tr><td><td colspan=4 height=4 valign=top align=left>
+<tr><td><td colspan=3 valign=top align=right>
 <font color=e7ce4a size=-1 effect=shadow>
 <input type=submit name=Done value=Done width=103 borderimage=file://ROM/Borders/ButtonBorder2.bif name=Button2 usestyle width=103>
 </font></form>
