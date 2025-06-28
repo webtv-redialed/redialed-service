@@ -21,7 +21,7 @@ let debug = (minisrv_config.config.serviceType == 'Debug')
 let splashImage = minisrv_config.config.service_splash_logo
 let splashBackground = ''
 
-// We need to make this into a switch later somehow
+// We really need to make this if-else-if mess into a switch later somehow
 if (isJune) { splashBackground = ' background=images/SplashPrideBG.gif'}
 else if (isDC) { splashBackground = ' background=images/SplashDreamcastBG.jpg' }
 else if (isNewYear) { splashBackground = ' background=images/SplashNewYearsBG.gif' }
@@ -31,10 +31,9 @@ else if (isJoeb) { splashBackground = ' background=images/SplashJoebBG.jpg' }
 else if (isHall) { splashImage = 'images/SplashLogo1MSN.gif' }
 else if (isCrimmis) { splashBackground = ' background=images/SplashChristmasBG.gif' }
 
-// TODO: apparently the title of the page changed depending on if you were using a webtv plus or not? at least it did for the home service, not register it seems
-data = `<html><title>${service_name == 'wtv-home' ? `WebTV Service` : `Splash`}</title>
-<meta http-equiv=refresh content="4;URL=${service_name == 'wtv-home' ? `wtv-home:/home` : `wtv-register:/register`}?">`
-if (service_name == 'wtv-home') data += `\n<link rel=next href=wtv-content:/ROMCache/BackgroundWebTVToday_a.swf>`;
+data = `<html><title>Splash</title>
+<meta http-equiv=refresh content="4;URL=wtv-register:/register?">
+<link rel=next href=wtv-register:/register>`;
 data += `
 <body bgcolor=0 text=449944><bgsound src=file://ROM/Sounds/Splash.mid><display nooptions nostatus skipback switchtowebmode vspace=0 hspace=0>
 <table width=100% height=100% cellspacing=0 cellpadding=12><tr><td align=center valign=${debug ? 'bottom' : 'middle'}>`;
