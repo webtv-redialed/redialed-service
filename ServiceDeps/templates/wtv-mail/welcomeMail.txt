@@ -20,7 +20,7 @@ Chat lets you talk with people all over the world with IRC (Internet Relay Chat)
  
 Discuss lets you talk to fellow WebTV users about a multitude of topics, separated into groups.
  
-Messenger lets you to talk to your friends via the MSN Messenger (nowadays, Escargot) service.
+Messenger lets you to talk to your friends via the MSN Messenger service, though nowadays we use third party recreations (Escargot and CrossTalk).
  
 Page Builder lets you create your own web page, hosted via the WebTV network.
  
