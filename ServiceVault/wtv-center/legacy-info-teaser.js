@@ -54,11 +54,11 @@ switch (infoCenter) {
 			</font>
 		</table>
 		<tr>
-			<td width=422 height=44>
+			<td width=422 height=62>
 			<table border=0 cellspacing=0 cellpadding=0>
 			<tr>
-			<td width=7 height=44 background=wtv-home:/ROMCache/PromotionLeftEdge.gif>
-			<td width=415 height=44 align=left valign=center>
+			<td width=7 height=62 background=wtv-home:/ROMCache/PromotionLeftEdge.gif>
+			<td width=415 height=62 align=left valign=center>
 			<font color=bdbdbd size=-1> ${clubWebTVTitle}</font></table></table></body></html>`;
         return data;
     }
@@ -85,8 +85,8 @@ switch (infoCenter) {
 			</font>
 		</table>
 		<tr>
-			<td width=422 height=44>
-			<table cellspacing=0 cellpadding=0><tr><td width=7 height=44 background=wtv-home:/ROMCache/PromotionLeftEdge.gif><td width=120 height=44 align=left valign=center><font color=bdbd8d size=-1>Headlines</font><td width=305 height=44 align=left valign=center><font color=bdbdbd size=-1>`;
+			<td width=422 height=62>
+			<table cellspacing=0 cellpadding=0><tr><td width=7 height=62 background=wtv-home:/ROMCache/PromotionLeftEdge.gif><td width=120 height=62 align=left valign=center><font color=bdbd8d size=-1>Headlines</font><td width=305 height=62 align=left valign=center><font color=bdbdbd size=-1>`;
         try {
             data += newsData.newsHeadlines[0].title;
         } catch (e) {
@@ -125,8 +125,8 @@ switch (infoCenter) {
 			</font>
 		</table>
 		<tr>
-			<td width=422 height=44>
-			<table cellspacing=0 cellpadding=0><tr><td width=7 height=44 background=wtv-home:/ROMCache/PromotionLeftEdge.gif><td width=190 height=44 align=left valign=center><font color=bdbd8d size=-1>${cityname}</font><td width=225 height=44 align=left valign=center><table cellspacing=0 cellpadding=0><tr><td width=300 height=16 align=left valign=center><form name=weatherForm>
+			<td width=422 height=62>
+			<table cellspacing=0 cellpadding=0><tr><td width=7 height=62 background=wtv-home:/ROMCache/PromotionLeftEdge.gif><td width=190 height=62 align=left valign=center><font color=bdbd8d size=-1>${cityname}</font><td width=225 height=62 align=left valign=center><table cellspacing=0 cellpadding=0><tr><td width=300 height=16 align=left valign=center><form name=weatherForm>
 			<font color=bdbdbd size=-1><blackface>
 			<input id=disp1 type=text size=28 usestyle nobackground border=0 marginheight=3 nocursor noselect value="CURRENT">
 </blackface>
@@ -180,11 +180,11 @@ switch (infoCenter) {
 			</font>
 		</table>
 		<tr>
-			<td width=422 height=44>
+			<td width=422 height=62>
 			<table border=0 cellspacing=0 cellpadding=0>
 			<tr>
-			<td width=7 height=44 background=wtv-home:/ROMCache/PromotionLeftEdge.gif>
-			<td width=415 height=44 align=left valign=center>
+			<td width=7 height=62 background=wtv-home:/ROMCache/PromotionLeftEdge.gif>
+			<td width=415 height=62 align=left valign=center>
 			<font color=bdbdbd size=-1> Stocks information is temporarily unavailable.</font></table></table></body></html>`;
         return data;
     }
@@ -213,11 +213,11 @@ switch (infoCenter) {
 			</font>
 		</table>
 		<tr>
-			<td width=422 height=44>
+			<td width=422 height=62>
 			<table border=0 cellspacing=0 cellpadding=0>
 			<tr>
-			<td width=7 height=44 background=wtv-home:/ROMCache/PromotionLeftEdge.gif>
-			<td width=415 height=44 align=left valign=center>
+			<td width=7 height=62 background=wtv-home:/ROMCache/PromotionLeftEdge.gif>
+			<td width=415 height=62 align=left valign=center>
 			<font color=bdbdbd size=-1> `;
         try {
             data += newsData.entertainmentHeadlines[0].title;
@@ -253,11 +253,11 @@ switch (infoCenter) {
 			</font>
 		</table>
 		<tr>
-			<td width=422 height=44>
+			<td width=422 height=62>
 			<table border=0 cellspacing=0 cellpadding=0>
 			<tr>
-			<td width=7 height=44 background=wtv-home:/ROMCache/PromotionLeftEdge.gif>
-			<td width=415 height=44 align=left valign=center>
+			<td width=7 height=62 background=wtv-home:/ROMCache/PromotionLeftEdge.gif>
+			<td width=415 height=62 align=left valign=center>
 			<font color=bdbdbd size=-1> `;
         try {
             data += newsData.sportsHeadlines[0].title;
