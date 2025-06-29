@@ -14,7 +14,7 @@ data = nunjucks.render('ServiceDeps/templates/wtv-setup/setupGeneral.njk', { tit
 <tr><td>
 <td width=215 height=236 valign=top align=left>
 <p>Use these options to customize how your ${session_data.hasCap('client-has-tv-experience') ? 'Web Home' : 'Home'} page looks and acts.${!session_data.hasCap('client-supports-etude-service') ? `<br><br>
-<font size=-2>Your &boxname; receiver is currently running an older version of the software that does not support the new home page.<br><br>${session_data.get('wtv-client-rom-type') == 'bf0app' ? 'Upgrades are not being offered for your &boxname; at this time.' : 'You may opt to upgrade your &boxname; the next time you log into WebTV.'}` : ''}
+<font size=-2>Your &boxname; receiver is currently running an older version of the software that does not support the new ${session_data.hasCap('client-has-tv-experience') ? 'Web Home' : 'Home'} page.<br><br>${session_data.get('wtv-client-rom-type') == 'bf0app' ? 'Upgrades are not being offered for your &boxname; at this time.' : 'You may opt to upgrade your &boxname; the next time you log into WebTV.'}` : ''}
 <td width=20>
 <td width=198 valign=top align=left>
 <form action=wtv-setup:/validate-home-options><input type=hidden autosubmit=onleave>
@@ -23,7 +23,7 @@ data = nunjucks.render('ServiceDeps/templates/wtv-setup/setupGeneral.njk', { tit
 <input type=checkbox name=home value=1${!session_data.hasCap('client-supports-etude-service') ? ' checked disabled><input type=hidden name=ignorehome value=1' : session_data.getSessionData('alt_home') == '1' ? ' checked' : ''}>
 <td abswidth=4>
 <td valign=bottom>
-<font size=-1>Classic home <a href="client:showalert?message=Enable this option to use the classic 1998 home page design rather than the current one.&buttonlabel1=Dismiss&buttonaction1=client:doNothing&buttonlabel2=Preview&buttonaction2=wtv-home:/home?force_old_home%3Dtrue"><img src=images/HelpButton.gif width=20 height=20 align=absbottom></a></font>
+<font size=-1>Classic home <a href="client:showalert?message=Enable this option to use the classic 1998 ${session_data.hasCap('client-has-tv-experience') ? 'Web Home' : 'Home'} page design rather than the current one.&buttonlabel1=Dismiss&buttonaction1=client:doNothing&buttonlabel2=Preview&buttonaction2=wtv-home:/home?force_old_home%3Dtrue"><img src=images/HelpButton.gif width=20 height=20 align=absbottom></a></font>
 <tr><td absheight=8>
 <tr><td valign=top>
 </table>
@@ -54,7 +54,7 @@ break
 default:return;
 }}</script>
 <font size=-1>Splash logo: <a href="client:showalert?message=Use the dropdown menu to change the splash logo that appears when you log into WebTV.&buttonlabel1=Dismiss&buttonaction1=client:doNothing"><img src=images/HelpButton.gif width=20 height=20 align=absbottom></a>
-<spacer type=vertical height=48><font size=-2><select name=splash usestyle insetselection onchange="preview();return false">
+<spacer type=vertical height=40><font size=-2><select name=splash width=182 usestyle insetselection onchange="preview();return false">
 <option value=auto${session_data.getSessionData('splash') == 'auto' || !session_data.getSessionData('splash') ? ' selected' : ''}>Automatic</option>
 <option value=SKCro${session_data.getSessionData('splash') == 'SKCro' ? ' selected' : ''}>SKCro Blue</option>
 <option value=pride${session_data.getSessionData('splash') == 'pride' ? ' selected' : ''}>Pride Month</option>
@@ -62,8 +62,6 @@ default:return;
 <option value=supergay${session_data.getSessionData('splash') == 'supergay' ? ' selected' : ''}>Pride Month Bright</option>
 <option value=joeb${session_data.getSessionData('splash') == 'joeb' ? ' selected' : ''}>joeb</option>
 </select></font></font>
-<tr><td absheight=10>
-<tr><td valign=top>
 </table>
 <tr><td><td colspan=4 height=14 valign=top align=left>
 <tr><td><td colspan=4 height=2 valign=middle align=center bgcolor=2b2b2b>
