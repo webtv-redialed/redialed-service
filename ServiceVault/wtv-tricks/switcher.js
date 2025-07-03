@@ -87,7 +87,7 @@ hspace="0" vspace="0" fontsize="large" noscroll>
 		srv = document.connect.preset[document.connect.preset.selectedIndex].value;
 		switch (srv) {
 				case "noneofem":
-					document.connect.machine.value="x.x.x.x"
+					document.connect.machine.value=""
                     document.connect.port.value="1615"
 					document.message.msg.value="Choose a WebTV server to connect to."
 					break;
