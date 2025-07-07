@@ -117,14 +117,15 @@ minisrv-no-mail-count: true
                 !request_headers.query.noupdate)
         ) {
             gourl = "wtv-flashrom:/ready-to-update";
-        } else if (
+        } else if (minisrv_config.config.maintenance_mode && wantsMessageWatch && minisrv_config.config.serviceType == "Production") { // Make sure datadownload & messagewatch can still function
+            gourl = `wtv-star:/star?maintenance=true`; // Maintenance mode 
+        } 
+        else if (
             session_data.getNumberOfUserAccounts() > 1 &&
             user_id === 0 &&
             (request_headers.query.initial_login || request_headers.query.relogin)
         ) {
             gourl = "wtv-head-waiter:/choose-user?";
-        } else if (hourNow == 4 && wantsMessageWatch && minisrv_config.config.serviceType == "Production") { // Make sure datadownload & messagewatch can still function
-            gourl = `wtv-star:/star?`; // Daily service maintenance, from 4AM CST to 5 (this has been a pain in the ass in the past)
         }
         else if (request_headers.query.needTMPfilesystem) {
             gourl = `wtv-flashrom:/get-tmp?needTMPfilesystem=${request_headers.query.needTMPfilesystem}`; // Handle FCS pants shitting

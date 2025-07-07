@@ -1,8 +1,6 @@
 var minisrv_service_file = true;
 
-const date = new Date();
-var hourNow = date.getHours();
-var isFixyTime = hourNow == 4
+var fixyModeOn = request_headers.query.maintenance
 
 headers = `200 OK
 Content-type: text/html
@@ -14,7 +12,7 @@ data = `<html>
     
 <head>
     
-<title>${isFixyTime ? `Closed for Maintenance` : `${minisrv_config.config.service_name} Unavailable`}</title>
+<title>${fixyModeOn ? `Closed for Maintenance` : `${minisrv_config.config.service_name} Unavailable`}</title>
 <display noscroll nooptions nologo hspace=0 vspace=0>
 
 </head>
@@ -43,18 +41,14 @@ data = `<html>
 <tr>
     <td colspan=2  width=184 height=312  valign=top align=left bgcolor=000000>
         <font size="+1">`;
-if (isFixyTime) {
+if (fixyModeOn) {
     data += `
         <b>The ${minisrv_config.config.service_name} Network<br> 
-        is closed for scheduled<br>
-        maintenance.</b>
+        is closed for maintenance.</b>
         <p>
-        The Network will open by<br>
-        3 a.m. Pacific time,<br>
-        6 Eastern.
+        The Network will re-open soon.<br>
         <p>
-        Please try connecting later<br>
-        this morning.
+        Please try connecting later.<br>
         </font>`;
 } else {
     data += `<b>

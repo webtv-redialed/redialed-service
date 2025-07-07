@@ -15,6 +15,7 @@
     "ServiceDeps": "ServiceDeps",
     "SessionStore": "SessionStore",
     "SharedROMCache": "SharedROMCache",
+    "maintenance_mode": false,
     "enable_shared_romcache": false,
     "service_owner": "somebody",
     "service_owner_account": "huh",
