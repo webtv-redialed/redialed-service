@@ -190,7 +190,7 @@ hspace="0" vspace="0" fontsize="large" noscroll>
 			   <td width=100% align=right valign=top>
 			   <form>
                 <spacer type=block height="60">
-					<font color="#E7CE4A" size=-2><shadow>&nbsp;
+					<font size=-2>&nbsp;
                     <input type=hidden name=useEncryption value=true checked>
 					<input
 						type=button
