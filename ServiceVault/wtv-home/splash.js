@@ -53,7 +53,7 @@ else if (isCrimmis) { splashBackground = ' background=images/SplashChristmasBG.g
 
 // TODO: apparently the title of the page changed depending on if you were using a webtv plus or not? at least it did for the home service, not register it seems
 data = `<html><title>${service_name == 'wtv-home' ? `WebTV Service` : `Splash`}</title>
-<!--meta http-equiv=refresh content="${session_data.getSessionData('fast_splash') == 1 ? '0' : '4'};URL=wtv-home:/home"-->`
+<meta http-equiv=refresh content="${session_data.getSessionData('fast_splash') == 1 ? '0' : '4'};URL=wtv-home:/home">`
 if (service_name == 'wtv-home') data += `\n<link rel=next href=wtv-content:/ROMCache/BackgroundWebTVToday_a.swf>`;
 data += `
 <bgsound src=file://ROM/Sounds/Splash.mid><body bgcolor=0 text=449944><display nooptions nostatus skipback switchtowebmode vspace=0 hspace=0>
