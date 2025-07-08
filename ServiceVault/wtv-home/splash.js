@@ -11,8 +11,9 @@ let usingCustomSplash = session_data.getSessionData('splash') != 'auto'
 
 let isDC = session_data.getManufacturer() == 'SegaFiji' && !usingCustomSplash
 let isNewYear = now.getMonth() == 0 && (now.getDate() == 1 || now.getDate() == 2) && !usingCustomSplash
+let isAprilFools = now.getMonth() == 4 && (now.getDate() == 1 || now.getDate() == 2) && !usingCustomSplash
 let isJune = now.getMonth() == 5 && !usingCustomSplash
-let isHall = now.getMonth() == 9 && now.getDate() == 31 //MSN is mandatory
+let isHall = now.getMonth() == 9 && now.getDate() == 31
 let isCrimmis = now.getMonth() == 11 && !usingCustomSplash
 let debug = minisrv_config.config.serviceType == 'Debug'
 
@@ -20,17 +21,13 @@ let splashImage = minisrv_config.config.service_splash_logo
 let splashBackground = ''
 
 // We really need to make this if-else-if mess into a switch later somehow
-if (usingCustomSplash && !isHall) {
+if (usingCustomSplash) {
 	switch (session_data.getSessionData('splash')) {
 		case 'pride':
 			splashBackground = ' background=images/SplashPrideBG.gif'
 		break
 		case 'multicolor':
 			splashImage = 'images/SplashLogo1Pride.gif'
-		break
-		case 'supergay':
-			splashImage = 'images/SplashLogo1Pride.gif'
-			splashBackground = ' background=images/SplashPrideBG.gif'
 		break
 		case 'MSN':
 			splashImage = 'images/SplashLogo1MSN.gif'
@@ -41,30 +38,30 @@ if (usingCustomSplash && !isHall) {
 		case 'joeb':
 			splashBackground = ' background=images/SplashJoebBG.jpg'
 		break
+		case 'default':
 		default: //fallback for if they somehow set it to an unsupported value
 			splashImage = minisrv_config.config.service_splash_logo
 			splashBackground = ''
+		break
 	}
 } else if (isDC) { splashBackground = ' background=images/SplashDreamcastBG.jpg' }
 else if (isNewYear) { splashBackground = ' background=images/SplashNewYearsBG.gif' }
+else if (isAprilFools) { splashImage = 'images/SplashLogo1MSN.gif' }
 else if (isJune) { splashBackground = ' background=images/SplashPrideBG.gif' }
-else if (isHall) { splashImage = 'images/SplashLogo1MSN.gif' }
 else if (isCrimmis) { splashBackground = ' background=images/SplashChristmasBG.gif' }
 
-// TODO: apparently the title of the page changed depending on if you were using a webtv plus or not? at least it did for the home service, not register it seems
-data = `<html><title>${service_name == 'wtv-home' ? `WebTV Service` : `Splash`}</title>
-<meta http-equiv=refresh content="${session_data.getSessionData('fast_splash') == 1 ? '0' : '4'};URL=wtv-home:/home">`
+data = `<html><title>${service_name == 'wtv-home' ? `WebTV${session_data.hasCap('client-has-tv-experience') ? ' Plus' : ''} Service` : `Splash`}</title>
+<meta http-equiv=refresh content="${session_data.getSessionData('fast_splash') && !isHall == 1 ? '0' : '4'};URL=wtv-home:/home">`
 if (service_name == 'wtv-home') data += `\n<link rel=next href=wtv-content:/ROMCache/BackgroundWebTVToday_a.swf>`;
 data += `
-<bgsound src=file://ROM/Sounds/Splash.mid><body bgcolor=0 text=449944><display nooptions nostatus skipback switchtowebmode vspace=0 hspace=0>
-<table width=100% height=100% cellspacing=0 cellpadding=12><tr><td align=center valign=${debug ? 'bottom' : 'middle'}>`;
+<bgsound src=${isHall ? 'wtv-home:/content/polyzoot-stinger.mid' : 'file://ROM/Sounds/Splash.mid'}><body bgcolor=0 text=449944><display nooptions nostatus skipback switchtowebmode vspace=0 hspace=0>
+<table width=100% height=100% cellspacing=0 cellpadding=12 href=wtv-home:/home nohighlight nocursor selected><tr><td align=center valign=${debug ? 'bottom' : 'middle'}>`;
 //Table with splash image
 data += `<table cellspacing=0 cellpadding=0><tr><td align=center valign=middle${splashBackground}><img src=${splashImage}></td></tr></table>`;
 /* the code below is only currently known to be present on post 1999 webtv
 if (!session_data.hasCap('client-has-tv-experience')) { data += `<font color=666666 size=0>TM</font>` } */
-if (splashImage != 'images/SplashLogo1MSN.gif') {
-	// determine gamer level
-	if (session_data.hasCap('client-has-tuner')) data += `<br><br><img src=ROMCache/plus.gif width=232 height=21>`;
+if (splashImage != 'images/SplashLogo1MSN.gif' && session_data.hasCap('client-has-tuner')) { // determine gamer level
+	data += `<br><br><img src=ROMCache/plus.gif width=232 height=21>`;
 }
 
 if (debug) {
