@@ -38,23 +38,17 @@ if (!isHall) {
 		if (session_data.hasCap('client-has-tuner')) data += `<br><br><img src=ROMCache/plus.gif width=232 height=21>`
 }
 
-//Seasonal additions
-if (isNewYear) { data += `<br><br><hr width=50% invertborder><br><font size=3>Happy New Year!</font>`; }
-if (isJune) { data += `<br><br><hr width=50% invertborder><br><font size=3>Happy Pride Month!</font>`; }
-if (isHall) { data += `<br><br><hr width=50% invertborder><br><font size=9 effect=emboss><blackface><b>BOO!</font>`; }
-if (isCrimmis) { data += `<br><br><hr width=50% invertborder><br><font size=3>Merry Christmas!</font>`; }
-
 if (debug) {
-		const process = require('process');
-		const os = require('os');
-		data += `
-		</tr></td><tr><td align=center valign=top height=128>
-		<table bgcolor=191919 gradcolor=080808 border>
-		<tr><td align=center colspan=2><blackface><b><shadow>${minisrv_config.config.service_name} (Debug)
-		<tr><td><shadow><b>Node.js version:<td><shadow>${process.version}
-		<tr><td><shadow><b>Server OS:<td><shadow>${os.type()} v${os.release()} (${os.machine()})
-		<tr><td><shadow><b>Server account:<td><shadow>${os.userInfo().username}
-		</table>
-		</td></tr></table>
-		</html>`;
+	const process = require('process');
+	const os = require('os');
+	data += `
+	</tr></td><tr><td align=center valign=top height=128>
+	<table bgcolor=191919 gradcolor=080808 border>
+	<tr><td align=center colspan=2><blackface><b><shadow>${minisrv_config.config.service_name} (Debug)
+	<tr><td><shadow><b>Node.js version:<td><shadow>${process.version}
+	<tr><td><shadow><b>Server OS:<td><shadow>${os.type()} v${os.release()} (${os.machine()})
+	<tr><td><shadow><b>Server account:<td><shadow>${os.userInfo().username}
+	</table>
+	</td></tr></table>
+	</html>`;
 } else { data += `</td></tr></table></html>` }
