@@ -14,7 +14,6 @@ let isNewYear = now.getMonth() == 0 && (now.getDate() == 1 || now.getDate() == 2
 let isJarBday = now.getMonth() == 2 && now.getDate() == 5 && !usingCustomSplash //JarHead and I did a buncha work overhauling all this, so why not have splashes for our birthdays? :P
 let isSKCroBday = now.getMonth() == 4 && now.getDate() == 13 && !usingCustomSplash
 let isJune = now.getMonth() == 5
-let isHidenBday = now.getMonth() == 5 && now.getDate() == 9 || true
 let isMattBday = now.getMonth() == 6 && now.getDate() == 12 && !usingCustomSplash
 let isJoeb = now.getMonth() == 6 && now.getDate() == 8 //joeb and MSN are mandatory
 let isHall = now.getMonth() == 9 && now.getDate() == 31
