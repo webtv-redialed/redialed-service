@@ -1168,8 +1168,8 @@ width=95>
 </table>
 </table>
 </body>
-<LINK href="/ROMCache/teaser-News.gif" rel=next>
-<LINK href="wtv-partner:/custom-info-teaser?info=News" rel=next>
+<link href="/ROMCache/teaser-News.gif" rel=next>
+<link href="wtv-partner:/custom-info-teaser?info=News" rel=next>
 </html>`;
 } else {
 

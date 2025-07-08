@@ -10,10 +10,7 @@ let now = new Date()
 
 let isDC = session_data.getManufacturer() == 'SegaFiji'
 let isNewYear = now.getMonth() == 0 && now.getDate() == 1
-let isJarBday = now.getMonth() == 2 && now.getDate() == 5 //JarHead and I did a buncha work overhauling all this, so why not have splashes for our birthdays? :P
-let isSKCroBday = now.getMonth() == 4 && now.getDate() == 13
 let isJune = now.getMonth() == 5
-let isJoeb = now.getMonth() == 6 && now.getDate() == 8
 let isHall = now.getMonth() == 9 && now.getDate() == 31
 let isCrimmis = now.getMonth() == 11
 let debug = (minisrv_config.config.serviceType == 'Debug')
@@ -25,9 +22,6 @@ let splashBackground = ''
 if (isJune) { splashBackground = ' background=images/SplashPrideBG.gif'}
 else if (isDC) { splashBackground = ' background=images/SplashDreamcastBG.jpg' }
 else if (isNewYear) { splashBackground = ' background=images/SplashNewYearsBG.gif' }
-else if (isJarBday) { splashBackground = ' background=images/SplashSaturnBG.jpg' }
-else if (isSKCroBday) { splashBackground = ' background=images/SplashSKCroBG.gif' }
-else if (isJoeb) { splashBackground = ' background=images/SplashJoebBG.jpg' }
 else if (isHall) { splashImage = 'images/SplashLogo1MSN.gif' }
 else if (isCrimmis) { splashBackground = ' background=images/SplashChristmasBG.gif' }
 
@@ -43,6 +37,12 @@ if (!isHall) {
 		// determine gamer level
 		if (session_data.hasCap('client-has-tuner')) data += `<br><br><img src=ROMCache/plus.gif width=232 height=21>`
 }
+
+//Seasonal additions
+if (isNewYear) { data += `<br><br><hr width=50% invertborder><br><font size=3>Happy New Year!</font>`; }
+if (isJune) { data += `<br><br><hr width=50% invertborder><br><font size=3>Happy Pride Month!</font>`; }
+if (isHall) { data += `<br><br><hr width=50% invertborder><br><font size=9 effect=emboss><blackface><b>BOO!</font>`; }
+if (isCrimmis) { data += `<br><br><hr width=50% invertborder><br><font size=3>Merry Christmas!</font>`; }
 
 if (debug) {
 		const process = require('process');
