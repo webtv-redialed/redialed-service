@@ -41,21 +41,24 @@ data = nunjucks.render('ServiceDeps/templates/wtv-setup/setupGeneral.njk', { tit
 <script>function preview(){switch(document.forms[0].splash.selectedIndex){
 case 0:location.href='client:showSplash?message=<font size%3D1>Let WebTV choose a splash logo.&action=client:doNothing&image=wtv-setup:/images/SplashPreviewAuto.gif'
 break
-case 1:location.href='client:showSplash?message=<font size%3D1>A splash logo with a blue background.&action=client:doNothing&image=wtv-setup:/images/SplashPreviewSKCro.gif'
+case 1:location.href='client:showSplash?message=<font size%3D1>The MSN TV splash logo.&action=client:doNothing&image=wtv-setup:/images/SplashPreviewMSN.gif'
 break
-case 2:location.href='client:showSplash?message=<font size%3D1>A pride month splash logo.&action=client:doNothing&image=wtv-setup:/images/SplashPreviewPride.gif'
+case 2:location.href='client:showSplash?message=<font size%3D1>A splash logo with a blue background.&action=client:doNothing&image=wtv-setup:/images/SplashPreviewSKCro.gif'
 break
-case 3:location.href='client:showSplash?message=<font size%3D1>A darker pride month splash logo.&action=client:doNothing&image=wtv-setup:/images/SplashPreviewMulticolor.gif'
+case 3:location.href='client:showSplash?message=<font size%3D1>A pride month splash logo.&action=client:doNothing&image=wtv-setup:/images/SplashPreviewPride.gif'
 break
-case 4:location.href='client:showSplash?message=<font size%3D1>A brighter pride month splash logo.&action=client:doNothing&image=wtv-setup:/images/SplashPreviewSupergay.gif'
+case 4:location.href='client:showSplash?message=<font size%3D1>A darker pride month splash logo.&action=client:doNothing&image=wtv-setup:/images/SplashPreviewMulticolor.gif'
 break
-case 5:location.href='client:showSplash?message=<font size%3D1>joeb&action=client:doNothing&image=wtv-setup:/images/SplashPreviewJoeb.gif'
+case 5:location.href='client:showSplash?message=<font size%3D1>A brighter pride month splash logo.&action=client:doNothing&image=wtv-setup:/images/SplashPreviewSupergay.gif'
 break
-default:return;
+case 6:location.href='client:showSplash?message=<font size%3D1>joeb&action=client:doNothing&image=wtv-setup:/images/SplashPreviewJoeb.gif'
+break
+default:return
 }}</script>
 <font size=-1>Splash logo: <a href="client:showalert?message=Use the dropdown menu to change the splash logo that appears when you log into WebTV.&buttonlabel1=Dismiss&buttonaction1=client:doNothing"><img src=images/HelpButton.gif width=20 height=20 align=absbottom></a>
 <spacer type=vertical height=40><font size=-2><select name=splash width=182 usestyle insetselection onchange="preview();return false">
 <option value=auto${session_data.getSessionData('splash') == 'auto' || !session_data.getSessionData('splash') ? ' selected' : ''}>Automatic</option>
+<option value=MSN${session_data.getSessionData('splash') == 'MSN' ? ' selected' : ''}>MSN TV</option>
 <option value=SKCro${session_data.getSessionData('splash') == 'SKCro' ? ' selected' : ''}>SKCro Blue</option>
 <option value=pride${session_data.getSessionData('splash') == 'pride' ? ' selected' : ''}>Pride Month</option>
 <option value=multicolor${session_data.getSessionData('splash') == 'multicolor' ? ' selected' : ''}>Pride Month Dark</option>
