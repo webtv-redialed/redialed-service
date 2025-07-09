@@ -6,33 +6,13 @@ wtv-expire-all: wtv-
 wtv-expire-all: http
 Content-Type: text/html`;
 
-let now = new Date()
-
-let isDC = session_data.getManufacturer() == 'SegaFiji'
-let isNewYear = now.getMonth() == 0 && now.getDate() == 1
-let isAprilFools = now.getMonth() == 4 && (now.getDate() == 1 || now.getDate() == 2)
-let isJune = now.getMonth() == 5
-let isCrimmis = now.getMonth() == 11
-let debug = (minisrv_config.config.serviceType == 'Debug')
-
-let splashImage = minisrv_config.config.service_splash_logo
-let splashBackground = ''
-
-// We really need to make this if-else-if mess into a switch later somehow
-if (isDC) { splashBackground = ' background=images/SplashDreamcastBG.jpg' }
-else if (isNewYear) { splashBackground = ' background=images/SplashNewYearsBG.gif' }
-else if (isJune) { splashBackground = ' background=images/SplashPrideBG.gif' }
-else if (isAprilFools) { splashImage = 'images/SplashLogo1MSN.gif' }
-else if (isCrimmis) { splashBackground = ' background=images/SplashChristmasBG.gif' }
-
 data = `<html><title>Splash</title>
-<meta http-equiv=refresh content="4;URL=wtv-register:/register"><link rel=next href=wtv-register:/register>`;
-data += `
+<meta http-equiv=refresh content="4;URL=wtv-register:/register"><link rel=next href=wtv-register:/register>
 <body bgcolor=0 text=449944><bgsound src=file://ROM/Sounds/Splash.mid><display nooptions nostatus skipback switchtowebmode vspace=0 hspace=0>
 <table width=100% height=100% cellspacing=0 cellpadding=12 href=wtv-register:/register nohighlight nocursor selected><tr><td align=center valign=${debug ? 'bottom' : 'middle'}>`;
 //Table with splash image
-data += `<table cellspacing=0 cellpadding=0><tr><td align=center valign=middle${splashBackground}><img src=${splashImage}></td></tr></table>`;
-if (!isAprilFools && session_data.hasCap('client-has-tuner')) { // determine gamer level
+data += `<table cellspacing=0 cellpadding=0><tr><td align=center valign=middle><img src=${minisrv_config.config.service_splash_logo}></td></tr></table>`;
+if (session_data.hasCap('client-has-tuner')) { // determine gamer level
 	data += `<br><br><img src=ROMCache/plus.gif width=232 height=21>`;
 }
 
