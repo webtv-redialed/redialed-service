@@ -90,7 +90,7 @@ by HIDEN</font></b>
 <P>
 <i>Polyzoots not included.</i>
 <p>
-Hello all! I'm Dylan Funderburg, and I'm the new owner of WebTV Redialed (well, actually, for 2 weeks as of writing this post, but you know what I mean :P).
+Hello all! I'm Athena Funderburg, and I'm the new owner of WebTV Redialed (well, actually, for 2 weeks as of writing this post, but you know what I mean :P).
 <p>
 JarHead (the previous owner) still remains a part of the development team, however, just less active. I won't go into the nitty-gritty of why he stepped down, but rest assured, he's fine. I thank him being the original creator of this awesome service and running it for a year up to this point.
 <p>
