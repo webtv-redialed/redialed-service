@@ -6,6 +6,8 @@ wtv-expire-all: wtv-
 wtv-expire-all: http
 Content-Type: text/html`;
 
+let debug = minisrv_config.config.serviceType == 'Debug'
+
 data = `<html><title>Splash</title>
 <meta http-equiv=refresh content="4;URL=wtv-register:/register"><link rel=next href=wtv-register:/register>
 <body bgcolor=0 text=449944><bgsound src=file://ROM/Sounds/Splash.mid><display nooptions nostatus skipback switchtowebmode vspace=0 hspace=0>
