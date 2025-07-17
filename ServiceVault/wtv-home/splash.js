@@ -9,7 +9,6 @@ Content-Type: text/html`;
 let now = new Date()
 let usingCustomSplash = session_data.getSessionData('splash') != 'auto'
 
-let isDC = session_data.getManufacturer() == 'SegaFiji' && !usingCustomSplash
 let isNewYear = now.getMonth() == 0 && (now.getDate() == 1 || now.getDate() == 2) && !usingCustomSplash
 let isAprilFools = now.getMonth() == 4 && (now.getDate() == 1 || now.getDate() == 2) && !usingCustomSplash
 let isJune = now.getMonth() == 5 && !usingCustomSplash
@@ -32,20 +31,13 @@ if (usingCustomSplash) {
 		case 'MSN':
 			splashImage = 'images/SplashLogo1MSN.gif'
 		break
-		case 'SKCro':
-			splashBackground = ' background=images/SplashSKCroBG.gif'
-		break
-		case 'joeb':
-			splashBackground = ' background=images/SplashJoebBG.jpg'
-		break
 		case 'default':
 		default: //fallback for if they somehow set it to an unsupported value
 			splashImage = minisrv_config.config.service_splash_logo
 			splashBackground = ''
 		break
 	}
-} else if (isDC) { splashBackground = ' background=images/SplashDreamcastBG.jpg' }
-else if (isNewYear) { splashBackground = ' background=images/SplashNewYearsBG.gif' }
+} else if (isNewYear) { splashBackground = ' background=images/SplashNewYearsBG.gif' }
 else if (isAprilFools) { splashImage = 'images/SplashLogo1MSN.gif' }
 else if (isJune) { splashBackground = ' background=images/SplashPrideBG.gif' }
 else if (isCrimmis) { splashBackground = ' background=images/SplashChristmasBG.gif' }

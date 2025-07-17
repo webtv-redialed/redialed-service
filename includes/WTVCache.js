@@ -27,7 +27,7 @@ class WTVCache {
 	async updateNewsCache() {
 		let parser = new this.Parser();
 		var newsCache = new Object();
-		// download and format data from NYT's RSS feeds
+		// download and format data from a bunch of RSS feeds
 		// this code looked so nice before i added this shitass error handling, i am beyond disappointed
 		try { newsCache.newsHeadlines = this.createNewsArray(await parser.parseURL("https://rss.nytimes.com/services/xml/rss/nyt/World.xml")) } catch { newsCache.newsHeadlines = null; }
 		try { newsCache.regionalHeadlines = this.createNewsArray(await parser.parseURL("https://rss.nytimes.com/services/xml/rss/nyt/US.xml")) } catch { newsCache.regionalHeadlines = null; }

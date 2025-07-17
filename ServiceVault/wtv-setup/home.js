@@ -60,10 +60,8 @@ default:return
 <option value=auto${splash == 'auto' || !splash ? ' selected' : ''}>Automatic</option>
 <option value=default${splash == 'default' ? ' selected' : ''}>Default</option>
 <option value=MSN${splash == 'MSN' ? ' selected' : ''}>MSN TV</option>
-<option value=SKCro${splash == 'SKCro' ? ' selected' : ''}>SKCro Blue</option>
 <option value=pride${splash == 'pride' ? ' selected' : ''}>Pride Month</option>
 <option value=multicolor${splash == 'multicolor' ? ' selected' : ''}>Pride Month Dark</option>
-<option value=joeb${splash == 'joeb' ? ' selected' : ''}>joeb</option>
 </select></font></font>
 </table>
 <tr><td><td colspan=4 height=14 valign=top align=left>

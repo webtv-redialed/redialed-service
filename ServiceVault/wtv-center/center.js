@@ -1504,12 +1504,11 @@ Weather info is unavailable`;
 				data += "Sports headlines are temporarily unavailable";
 				console.log("oh shit something really bad happened when trying to pull sports headlines: " + e)
 			}
-			// should we replace the MSNBC link here with deadspin? not accurate to the original service, but MSNBC isn't where we get our headlines from either
 			data += `
 </table>
 </font>
 <tr><td HEIGHT=46 align=right valign=MIDDLE>
-<font size=-1 color=#4A3121>&#128; </font><a href=http://www.msnbc.com/news/SPT_Front.asp?a><font size=-1 color=#4A3121><b>more headlines at MSNBC</b></font></a>
+<font size=-1 color=#4A3121>&#128; </font><a href=http:/deadspin.com><font size=-1 color=#4A3121><b>more headlines at Deadspin</b></font></a>
 <tr><td height=5>
 </table>
 <td bgcolor=#9C9C8C>
