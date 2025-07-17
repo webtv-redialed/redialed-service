@@ -31,7 +31,7 @@ async function loadSportsRssData(enable) {
     }
 
     /**
-     * This method extracts news from the NYT public RSS Feed
+     * This method extracts news from Deadspin's RSS Feed
      */
     try {
         if (parseInt(session_data.getSessionData("infocenter_cache").sportsHeadlines.time) + 10800 >= Math.floor(Date.now() / 1000)) {
@@ -39,7 +39,7 @@ async function loadSportsRssData(enable) {
             return session_data.getSessionData("infocenter_cache").sportsHeadlines.data
         } else {
             console.log("* Using new sports headlines")
-            let feed = await parser.parseURL('https://rss.nytimes.com/services/xml/rss/nyt/Sports.xml');
+            let feed = await parser.parseURL('https://deadspin.com/rss');
 
             var currentData = feed.items.slice(0, 3).map(function (item) {
                 return {

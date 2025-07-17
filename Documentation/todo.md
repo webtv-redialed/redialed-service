@@ -1,18 +1,25 @@
-Server issues to fix before launch
-
-Required
+# Shit That Needs To Get Done™
+### In Progress
 - General cleaning up (Fix broken links, pages, etc.)
-- Do all the page builder styles
+- Fix the issues with page builder (particularly #15 as it's the most severe arguably)
+- Switch to Nunjucks for templating for the entire service
 
-Optional
+### Top Priority
+- Fix the ProtoWeb proxy
+- Implement headlines/teasers for the Money center
+- Do all the page builder styles
+- Scrapbook
+
+### Low Priority
 - Finish wtv-guide templating then work a data entry job
-- address book funnies
 - Real IMAP/SMTP support for mail
 - Consider migrating to a SQL based db
+- Support adding a "middle" proxy for HTTP, mainly for use with ProtoWeb (which is what minisrv does). The current implementation makes me want to slide the sewers
+- Replace the New York Times as the headlines source for all centers
+- Re-base off of the latest version of minisrv as of writing (v0.9.60)/backport stuff if needed
+- More Address Book funnies
 
-In Progress
-
-Finished
+### Finished
 - Chat still has that issue where trying to use the Channel List or Enter panel breaks (Fixed: 11/24/21 Fix: Simple JS string detector)
 - Add GoToTitle.gif to wtv-chat:/type and fix Chat listing banner size (Fixed: 11/24/21 Fix: idk just do it)
 - Get someone with an old classic to test the server (Done: 11/28/21 Notes: Issues observed seem to be build dependent)

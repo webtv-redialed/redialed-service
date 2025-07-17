@@ -15,14 +15,14 @@ class WTVCache {
 	
 	createNewsArray(data) {
 		const array = data.items.slice(0, 3).map(function (item) {
-                return {
-                    title: item.title.replace(/’|‘/g, "'").replace(/“|”/g, '"').replace(/—/g, "-").replace(/ /gi, " "),
-                    link: "http://frogfind.com/read.php?a=" + item.link,
-                    content: item.content.replace(/’|‘/g, "'").replace(/“|”/g, '"').replace(/—/g, "-").replace(/ /gi, " "),
-                };
-            });
+			return {
+				title: item.title.replace(/’|‘/g, "'").replace(/“|”/g, '"').replace(/—/g, "-").replace(/[\t\r\n]+/g, "").trim(),
+				link:  "http://frogfind.com/read.php?a=" + item.link.replace(/[\t\r\n]+/g, "").trim(),
+				content: item.content.replace(/’|‘/g, "'").replace(/“|”/g, '"').replace(/—/g, "-").replace(/[\t\r\n]+/g, "").trim(),
+			};
+		});
 		return array
-	}
+	}	
 	
 	async updateNewsCache() {
 		let parser = new this.Parser();
@@ -37,7 +37,7 @@ class WTVCache {
 		try { newsCache.nytOpinionHeadlines = this.createNewsArray(await parser.parseURL("https://rss.nytimes.com/services/xml/rss/nyt/sunday-review.xml")) } catch { newsCache.nytOpinionHeadlines = null; }
 		try { newsCache.healthHeadlines = this.createNewsArray(await parser.parseURL("https://rss.nytimes.com/services/xml/rss/nyt/Health.xml")) } catch { newsCache.healthHeadlines = null; }
 		try { newsCache.opinionHeadlines = this.createNewsArray(await parser.parseURL("https://slate.com/feeds/all.rss")) } catch { newsCache.opinionHeadlines = null; }
-		try { newsCache.sportsHeadlines = this.createNewsArray(await parser.parseURL("https://rss.nytimes.com/services/xml/rss/nyt/Sports.xml")) } catch { newsCache.sportsHeadlines = null; }
+		try { newsCache.sportsHeadlines = this.createNewsArray(await parser.parseURL("https://deadspin.com/rss")) } catch { newsCache.sportsHeadlines = null; }
 		try { newsCache.entertainmentHeadlines = this.createNewsArray(await parser.parseURL("https://rss.nytimes.com/services/xml/rss/nyt/Arts.xml")) } catch { newsCache.entertainmentHeadlines = null; }
 		// set the last updated timestamp and save the file
 		newsCache.lastUpdated = Math.floor(Date.now() / 1000)
