@@ -4,7 +4,6 @@ headers = `200 OK
 Connection: Keep-Alive
 Content-Type: text/html`;
 
-const nunjucks = require("nunjucks");
 nunjucks.configure({ autoescape: false });
 
 var altocomCreds = "";

@@ -4,7 +4,6 @@ headers = `200 OK
 Connection: Keep-Alive
 Content-Type: text/html`;
 
-const nunjucks = require("nunjucks");
 nunjucks.configure({ autoescape: false });
 
 data = nunjucks.render('ServiceDeps/templates/wtv-setup/setupGeneral.njk', { title: "Music", body: `<td abswidth=20>

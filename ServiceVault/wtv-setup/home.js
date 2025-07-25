@@ -4,7 +4,6 @@ headers = `200 OK
 Connection: Keep-Alive
 Content-Type: text/html`;
 
-const nunjucks = require('nunjucks');
 const splash = session_data.getSessionData('splash')
 const isPlus = session_data.hasCap('client-has-tv-experience')
 const supportsEtude = session_data.hasCap('client-supports-etude-service')
@@ -45,13 +44,9 @@ case 1:location.href='client:showSplash?message=<font size%3D1>The default WebTV
 break
 case 2:location.href='client:showSplash?message=<font size%3D1>The MSN TV splash logo.&action=client:doNothing&image=wtv-setup:/images/SplashPreviewMSN.gif'
 break
-case 3:location.href='client:showSplash?message=<font size%3D1>A splash logo with a blue background.&action=client:doNothing&image=wtv-setup:/images/SplashPreviewSKCro.gif'
+case 3:location.href='client:showSplash?message=<font size%3D1>A Pride splash logo.&action=client:doNothing&image=wtv-setup:/images/SplashPreviewPride.gif'
 break
-case 4:location.href='client:showSplash?message=<font size%3D1>A pride month splash logo.&action=client:doNothing&image=wtv-setup:/images/SplashPreviewPride.gif'
-break
-case 5:location.href='client:showSplash?message=<font size%3D1>A darker pride month splash logo.&action=client:doNothing&image=wtv-setup:/images/SplashPreviewMulticolor.gif'
-break
-case 6:location.href='client:showSplash?message=<font size%3D1>joeb&action=client:doNothing&image=wtv-setup:/images/SplashPreviewJoeb.gif'
+case 4:location.href='client:showSplash?message=<font size%3D1>A darker Pride splash logo.&action=client:doNothing&image=wtv-setup:/images/SplashPreviewMulticolor.gif'
 break
 default:return
 }}</script>
@@ -60,8 +55,8 @@ default:return
 <option value=auto${splash == 'auto' || !splash ? ' selected' : ''}>Automatic</option>
 <option value=default${splash == 'default' ? ' selected' : ''}>Default</option>
 <option value=MSN${splash == 'MSN' ? ' selected' : ''}>MSN TV</option>
-<option value=pride${splash == 'pride' ? ' selected' : ''}>Pride Month</option>
-<option value=multicolor${splash == 'multicolor' ? ' selected' : ''}>Pride Month Dark</option>
+<option value=pride${splash == 'pride' ? ' selected' : ''}>Pride</option>
+<option value=multicolor${splash == 'multicolor' ? ' selected' : ''}>Pride (dark)</option>
 </select></font></font>
 </table>
 <tr><td><td colspan=4 height=14 valign=top align=left>

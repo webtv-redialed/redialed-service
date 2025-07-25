@@ -5,6 +5,7 @@ const wtvshared = new WTVShared(); // creates minisrv_config
 classPath = wtvshared.getAbsolutePath(classPath, __dirname);
 
 const fs = require("fs");
+const nunjucks = require('nunjucks');
 const path = require("path");
 const zlib = require("zlib");
 const http = require("follow-redirects").http;
@@ -262,6 +263,7 @@ var runScriptInVM = function (
         wtvmime: wtvmime,
         http: http,
         https: https,
+        nunjucks: nunjucks,
         wtvshared: wtvshared,
         zlib: zlib,
         clientShowAlert: clientShowAlert,
@@ -2464,11 +2466,7 @@ async function processRequest(
                     if (typeof socket_sessions[socket.id].post_data == "undefined") {
                         if (socket_sessions[socket.id].post_data_percents_shown)
                             delete socket_sessions[socket.id].post_data_percents_shown;
-                        socket_sessions[socket.id].post_data_length =
-                            headers["Content-length"] || headers["Content-Length"] || 0;
-                        socket_sessions[socket.id].post_data_length = parseInt(
-                            socket_sessions[socket.id].post_data_length
-                        );
+                        socket_sessions[socket.id].post_data_length = parseInt(headers['Content-length'] || headers['Content-Length'] || 0);
                         socket_sessions[socket.id].post_data = "";
                         socket_sessions[socket.id].headers = headers;
                         var post_string = "POST";
@@ -2560,12 +2558,18 @@ async function processRequest(
                     await processURL(socket, headers);
                 }
             } else {
-                socket_sessions[socket.id].headers = headers;
+                if (headers.length > 0) {
+                    socket_sessions[socket.id].headers = headers;
+                }
             }
         } else {
             // handle streaming POST
             if (socket_sessions[socket.id].expecting_post_data && headers) {
-                socket_sessions[socket.id].headers = headers;
+                if (headers.length == 0) {
+                    headers = socket_sessions[socket.id].headers;
+                } else {
+                    socket_sessions[socket.id].headers = headers;
+                }
                 if (
                     socket_sessions[socket.id].post_data.length <
                     socket_sessions[socket.id].post_data_length * 2
@@ -2667,7 +2671,6 @@ async function processRequest(
                         if (minisrv_config.config.debug_flags.debug)
                             console.log(" # Unencrypted POST Content", "on", socket.id);
                     }
-                    socket_sessions[socket.id].expecting_post_data = false;
                     delete socket_sessions[socket.id].headers;
                     delete socket_sessions[socket.id].post_data;
                     delete socket_sessions[socket.id].post_data_length;
@@ -2676,7 +2679,6 @@ async function processRequest(
                     socket_sessions[socket.id].post_data.length >
                     socket_sessions[socket.id].post_data_length * 2
                 ) {
-                    socket_sessions[socket.id].expecting_post_data = false;
                     if (socket_sessions[socket.id].expecting_post_data)
                         delete socket_sessions[socket.id].expecting_post_data;
                     socket.setTimeout(minisrv_config.config.socket_timeout * 1000);

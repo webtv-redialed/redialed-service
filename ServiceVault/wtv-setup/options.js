@@ -5,7 +5,6 @@ Connection: Keep-Alive
 Expires: Wed, 09 Oct 1991 22:00:00 GMT
 Content-Type: text/html`;
 
-const nunjucks = require("nunjucks");
 nunjucks.configure({ autoescape: false });
 
 data = nunjucks.render('ServiceDeps/templates/wtv-setup/setupGeneral.njk', { title: "Advanced options", body: `<td abswidth=20>
