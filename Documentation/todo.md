@@ -9,6 +9,7 @@
 - Implement headlines/teasers for the Money center
 - Do all the page builder styles
 - Scrapbook
+- Fix the "Too much data in POST request" error that sometimes happens when sending emails/posting to Discuss. Appears to be related to encryption, so that's going to be *fun*
 
 ### Low Priority
 - Finish wtv-guide templating then work a data entry job
