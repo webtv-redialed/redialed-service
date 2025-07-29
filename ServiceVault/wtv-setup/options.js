@@ -54,9 +54,4 @@ action="client:SetSetupValue" selected &wtv-adv-opt;>
 <TR>
 <TD>
 <TD COLSPAN=3 VALIGN=top ALIGN=right>
-<FONT COLOR="#E7CE4A" SIZE=-1><SHADOW>
-<INPUT name="Done" value="Done" WIDTH=103
-TYPE=SUBMIT BORDERIMAGE="file://ROM/Borders/ButtonBorder2.bif" NAME="Button2" USESTYLE WIDTH=103>
-</SHADOW></FONT></FORM>
-<TD>
-</TABLE>`, hasTuner: session_data.hasCap("client-has-tuner"), isJapaneseClient: session_data.isJapaneseClient()});
+<FONT COLOR="#E7CE4A" SIZE=-1><SHADOw>`, hasTuner: session_data.hasCap("client-has-tuner"), isJapaneseClient: session_data.isJapaneseClient(), button: true});

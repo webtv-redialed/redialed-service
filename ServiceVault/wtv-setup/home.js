@@ -59,15 +59,25 @@ default:return
 <option value=multicolor${splash == 'multicolor' ? ' selected' : ''}>Pride (dark)</option>
 </select></font></font>
 </table>
-<tr><td><td colspan=4 height=14 valign=top align=left>
-<tr><td><td colspan=4 height=2 valign=middle align=center bgcolor=2b2b2b>
+<TR>
+<TD>
+<TD COLSPAN=4 HEIGHT=0 VALIGN=top ALIGN=left>
+<tr>
+<TD>
+<td colspan=4 height=2 valign=middle align=center bgcolor="2B2B2B">
 <spacer type=block width=436 height=1>
-<tr><td><td colspan=4 height=1 valign=top align=left>
-<tr><td><td colspan=4 height=2 valign=top align=left bgcolor=0d0d0d>
+<tr>
+<TD>
+<td colspan=4 height=1 valign=top align=left>
+<tr>
+<TD>
+<td colspan=4 height=2 valign=top align=left bgcolor="0D0D0D">
 <spacer type=block width=436 height=1>
-<tr><td><td colspan=4 height=4 valign=top align=left>
-<tr><td><td colspan=3 valign=top align=right>
-<font color=e7ce4a size=-1 effect=shadow>
-<input type=submit name=Done value=Done width=103 borderimage=file://ROM/Borders/ButtonBorder2.bif name=Button2 usestyle width=103>
-</font></form>
-<td></table>`, hasTuner: session_data.hasCap('client-has-tuner'), isJapaneseClient: session_data.isJapaneseClient()});
+<TR>
+<TD>
+<TD COLSPAN=4 HEIGHT=4 VALIGN=top ALIGN=left>
+<TR>
+<TD>
+<TD COLSPAN=2 VALIGN=top ALIGN=left>
+<TD VALIGN=top ALIGN=right>
+<font color="#E7CE4A" size=-1><shadow>`, hasTuner: session_data.hasCap('client-has-tuner'), isJapaneseClient: session_data.isJapaneseClient(), button: true});

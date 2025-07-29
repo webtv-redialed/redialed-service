@@ -221,7 +221,8 @@ class WTVShared {
     sanitizeSignature(string) {
         var allowedSchemes = ["http", "https", "ftp", "mailto", "proto"];
         var self = this;
-
+        var audioscopeAmount = 0;
+    
         const clean = this.sanitizeHtml(
             string,
             {
@@ -323,11 +324,10 @@ class WTVShared {
                     table: [
                         "align",
                         "bgcolor",
-						"gradcolor",
+                        "gradcolor",
                         "border",
                         "cellpadding",
                         "cellspacing",
-                        "border",
                         "rules",
                         "width",
                     ],
@@ -338,6 +338,15 @@ class WTVShared {
                 allowedSchemesAppliedToAttributes: ["href", "src", "cite"],
                 allowVulnerableTags: false,
                 allowProtocolRelative: false,
+                transformTags: {
+                    audioscope: (tagName, attribs) => {
+                        audioscopeAmount++;
+                        if (audioscopeAmount > 2) {
+                            return { tagName: 'span', text: '' };
+                        }
+                        return { tagName, attribs };
+                    }
+                }
             },
             true
         );
