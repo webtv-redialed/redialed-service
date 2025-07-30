@@ -2,19 +2,19 @@
   "name": "redialed-service",
   "description": "WebTV Redialed service. Based on zefie_wtvp_minisrv.",
   "main": "app.js",
-  "homepage": "https://github.com/webtv-redialed/redialed-nodejs",
+  "homepage": "https://github.com/webtv-redialed/redialed-service",
   "license": "GPL3",
   "scripts": {
     "start": "node app.js",
-    "start17": "node --openssl-legacy-provider app.js",
+    "startossl": "node --openssl-legacy-provider app.js",
     "test": "node test.js"
   },
   "bugs": {
-    "url": "https://github.com/webtv-redialed/redialed-nodejs/issues"
+    "url": "https://github.com/webtv-redialed/redialed-service/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/webtv-redialed/redialed-nodejs.git"
+    "url": "https://github.com/webtv-redialed/redialed-service.git"
   },
   "dependencies": {
     "@onereach/time-interpreter": "^1.0.27",
