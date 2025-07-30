@@ -4,7 +4,7 @@ headers = `200 OK
 Connection: Keep-Alive
 Content-Type: text/html`;
 
-nunjucks.configure({ autoescape: false });
+
 
 var altocomCreds = "";
 

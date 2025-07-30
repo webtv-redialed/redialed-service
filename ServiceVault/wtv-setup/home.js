@@ -7,7 +7,7 @@ Content-Type: text/html`;
 const splash = session_data.getSessionData('splash')
 const isPlus = session_data.hasCap('client-has-tv-experience')
 const supportsEtude = session_data.hasCap('client-supports-etude-service')
-nunjucks.configure({ autoescape: false });
+
 
 data = nunjucks.render('ServiceDeps/templates/wtv-setup/setupGeneral.njk', { title: `${isPlus ? 'Web ' : ''}Home options`, body: `<td abswidth=20>
 <tr><td>

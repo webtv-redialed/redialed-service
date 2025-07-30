@@ -31,7 +31,7 @@
 <spacer type=block width=1 height=1>
 </table>
 {#- Does our sidebar need a help button? #}
-{%- if helpButton %}
+{% if helpButton %}
 <tr>
 <td height=31 colspan=3>
 <table cellspacing=0 cellpadding=0>
@@ -60,7 +60,7 @@ transparency=64>
 transparency=88>
 <spacer>
 </table>
-{%- endif %}
+{% endif %}
 {#- Make sure we use the appropriate banner image and associated sizing! #}
 <tr><td absheight={% if hasTuner and helpButton %}101{% elif hasTuner %}132{% elif not hasTuner and helpButton %}140{% else %}171{% endif %}>
 <tr><td absheight={% if hasTuner %}166{% else %}123{% endif %} align=right colspan=3>
@@ -84,11 +84,11 @@ transparency=88>
 </table>
 {{ body }}
 {#- Does this have a button at the end? Only use this if you explicitly know this is how the page has it set up! #}
-{%- if button %}
+{% if button %}
 <INPUT TYPE=SUBMIT BORDERIMAGE="file://ROM/Borders/ButtonBorder2.bif" Value={% if buttonText %}{{ buttonText }}{% else %}Done{% endif %} NAME="{% if buttonText %}{{ buttonText }}{% else %}Done{% endif %}" USESTYLE WIDTH=103>
 </SHADOW></FONT></FORM>
 <TD>
 </TABLE>
-{%- endif %}
+{% endif %}
 </BODY>
 </HTML>

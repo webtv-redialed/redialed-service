@@ -4,7 +4,7 @@ headers = `200 OK
 Connection: Keep-Alive
 Content-Type: text/html`;
 
-nunjucks.configure({ autoescape: false });
+
 
 data = nunjucks.render('ServiceDeps/templates/wtv-home/credits.njk', { title: "Credits", body: `<td WIDTH=198 HEIGHT=236 VALIGN=top ALIGN=left>
 <A HREF="wtv-home:/Credits-AboutWebTV"><BLACKFACE>About WebTV</BLACKFACE></A><BR>

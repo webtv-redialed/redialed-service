@@ -253,6 +253,9 @@ var runScriptInVM = function (
         }
     }
 
+    // configure nunjucks
+    nunjucks.configure({ autoescape: false });
+
     // create global context object
     var contextObj = {
         // node core variables and functions

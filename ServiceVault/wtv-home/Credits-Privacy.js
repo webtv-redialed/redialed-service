@@ -4,7 +4,7 @@ headers = `200 OK
 Connection: Keep-Alive
 Content-Type: text/html`;
 
-nunjucks.configure({ autoescape: false });
+
 
 data = nunjucks.render('ServiceDeps/templates/wtv-home/termsPrivacy.njk', { title: "WebTV Service Privacy Statement", body: `<CENTER><B>WebTV Service Privacy Statement</B></font><br>
 <B><font size="-1">(Release date January 2, 2024)</B></CENTER></font>

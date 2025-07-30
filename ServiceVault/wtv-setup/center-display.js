@@ -4,52 +4,13 @@ headers = `200 OK
 Connection: Keep-Alive
 Content-Type: text/html`;
 
-data = `<HTML>
-<HEAD>
-<TITLE>
-Center the screen
-</TITLE>
-<DISPLAY >
-</HEAD>
-<sidebar width=110> <table cellspacing=0 cellpadding=0 BGCOLOR=452a36>
-<tr>
-<td colspan=3 abswidth=104 absheight=4>
-<td rowspan=99 width=6 absheight=420 valign=top align=left>
-<img src="wtv-home:/ROMCache/Shadow.gif" width=6 height=420>
-<tr>
-<td abswidth=6>
-<td abswidth=92 absheight=76>
-<table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
-<tr>
-<td align=right>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
-</table>
-<td abswidth=6>
-<tr><td absheight=5 colspan=3>
-<table cellspacing=0 cellpadding=0>
-<tr><td abswidth=104 absheight=2 valign=middle align=center bgcolor=2e1e26>
-<img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
-<tr><td abswidth=104 absheight=1 valign=top align=left>
-<tr><td abswidth=104 absheight=2 valign=top align=left bgcolor=6b4657>
-<img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
-</table>
-<tr><td absheight=${session_data.hasCap("client-has-tuner") ? 132 : 171}>
-<tr><td absheight=${session_data.hasCap("client-has-tuner") ? 166 : 123} align=right colspan=3>
-<img src="${session_data.hasCap("client-has-tuner") ? "wtv-setup:/ROMCache/Settings" : "images/Setup"}Banner.gif" width=54 height=${session_data.hasCap("client-has-tuner") ? 166 : 123}>
-<tr><td absheight=41>
-</table>
-</sidebar>
-<BODY BGCOLOR="#191919" TEXT="#42CC55" LINK="36d5ff" VLINK="36d5ff" FONTSIZE="${session_data.isJapaneseClient() ? `medium` : `large`}"
-hspace=0 vspace=0>            
-<table cellspacing=0 cellpadding=0>
-<tr>
+data = nunjucks.render('ServiceDeps/templates/wtv-setup/setupGeneral.njk', {
+    title: 'Center the screen',
+    body: `
 <td abswidth=14>
 <td colspan=3>
 <table cellspacing=0 cellpadding=0>
 <tr>
-<td valign=center absheight=80>
-<font size="+2" color="E7CE4A"><blackface><shadow>
-Center the screen
 </table>
 <td abswidth=20>
 <TR>
@@ -96,13 +57,10 @@ You can adjust the position of WebTV pages on your screen using these arrows. Th
 <TR>
 <TD>
 <TD COLSPAN=3 VALIGN=top ALIGN=right>
-<FORM
-action="client:goback">
+<FORM action="client:goback">
 <FONT COLOR="#E7CE4A" SIZE=-1><SHADOW>
-<INPUT TYPE=SUBMIT BORDERIMAGE="file://ROM/Borders/ButtonBorder2.bif" Value=Done NAME="Done" USESTYLE WIDTH=103>
-</SHADOW></FONT></FORM>
-<TD>
-</TABLE>
-</BODY>
-</HTML>
-`;
+`,
+    hasTuner: session_data.hasCap('client-has-tuner'),
+    isJapaneseClient: session_data.isJapaneseClient(),
+    button: true
+});
