@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 session_data.loadSessionData();
 
@@ -25,7 +25,7 @@ if (user_id != null) {
     if (session_data.user_id == request_headers.query.user_id)
         userSession = session_data;
     else {
-        userSession = new WTVClientSessionData(minisrv_config, socket.ssid);
+        userSession = new WTVClientSessionData(wtvrsvc_config, socket.ssid);
         userSession.user_id = user_id;
     }
 
@@ -58,7 +58,7 @@ noscroll>
 <table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
 <tr>
 <td align=right>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${wtvrsvc_config.config.service_logo}" width=87 height=67>
 </table>
 <td abswidth=6>
 <tr><td absheight=5 colspan=3>

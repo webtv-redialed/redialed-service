@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 // WARNING: BANDAID ASS FIX
 if (!Object.prototype.getCaseInsensitiveKey) {
@@ -15,7 +15,7 @@ if (!Object.prototype.getCaseInsensitiveKey) {
 }
 
 var diskmap = Object.getCaseInsensitiveKey(request_headers.query, "DiskMap");
-var wtvdl = new WTVDisk(minisrv_config, service_name);
+var wtvdl = new WTVDisk(wtvrsvc_config, service_name);
 
 var force_update = (request_headers.query.force == "true") ? true : false;
 var no_delete = (request_headers.query.dont_delete_files == "true") ? true : false;
@@ -322,13 +322,13 @@ if (request_headers['wtv-request-type'] == 'download') {
             var errpage = wtvshared.doErrorPage(404, "The requested DiskMap does not exist.");
             headers = errpage[0];
             data = errpage[1];
-            if (minisrv_config.config.debug_flags.debug) console.error(" # " + service_name +":/sync error", "could not find diskmap");
+            if (wtvrsvc_config.config.debug_flags.debug) console.error(" # " + service_name +":/sync error", "could not find diskmap");
         }
     } else {
         var errpage = wtvshared.doErrorPage(400);
         headers = errpage[0];
         data = errpage[1];
-        if (minisrv_config.config.debug_flags.debug) console.error(" # " + service_name + ":/sync error", "missing query arguments");
+        if (wtvrsvc_config.config.debug_flags.debug) console.error(" # " + service_name + ":/sync error", "missing query arguments");
     }
 } else if (request_headers.query.group && diskmap) {
     var message = request_headers.query.message || "Retrieving Files";

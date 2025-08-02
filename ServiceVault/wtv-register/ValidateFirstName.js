@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 const randN = wtvshared.getDynamicConfig(`randomNoun`);
 
@@ -7,7 +7,7 @@ if (!request_headers.query.registering) {
     headers = errpage[0];
     data = errpage[1];
 } else {
-    var wtvr = new WTVRegister(minisrv_config, SessionStore);
+    var wtvr = new WTVRegister(wtvrsvc_config, SessionStore);
     var errpage = null;
     if (!request_headers.query.registering) errpage = wtvshared.doErrorPage(400);
     else if (!request_headers.query.subscriber_first_name)
@@ -148,7 +148,7 @@ Last name<img src="ROMCache/Spacer.gif" width=8>
 <td valign=top align=left>
 <td valign=top align=left>
 <input type="text" name="subscriber_last_name" id="subscriber_last_name" value="`;
-if (minisrv_config.config.serviceType == "Debug") data += randN[Math.floor(Math.random() * randN.length)];
+if (wtvrsvc_config.config.serviceType == "Debug") data += randN[Math.floor(Math.random() * randN.length)];
 data += `" size="18"
 maxlength="18"
 bgcolor=#444444 AutoCaps text=#ffdd33 cursor=#cc9933

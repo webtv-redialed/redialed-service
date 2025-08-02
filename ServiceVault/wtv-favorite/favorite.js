@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 var favstore_exists = session_data.favstore.favstoreExists();
 
@@ -31,7 +31,7 @@ wtv-expire-all: wtv-favorite:/favorite
 Favorite folders
 </title>
 </head><body fontsize="${session_data.isJapaneseClient() ? `medium` : `large`}" vspace="0" hspace="0" vlink="189cd6" text="44cc55" link="189cd6" bgcolor="191919"><display ${
-        minisrv_config.services[service_name].max_folders <= 14 ? "noscroll" : ""
+        wtvrsvc_config.services[service_name].max_folders <= 14 ? "noscroll" : ""
     }>
 
 

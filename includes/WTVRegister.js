@@ -1,33 +1,21 @@
 class WTVRegister {
     fs = require("fs");
     path = require("path");
-    minisrv_config = [];
-    service_owner = "a minisrv user";
+    wtvrsvc_config = [];
     session_store_dir = null;
 
-    constructor(minisrv_config, session_store_dir = null) {
-        this.minisrv_config = minisrv_config;
-        this.service_owner =
-            minisrv_config.config.service_owner || "a minisrv user";
+    constructor(wtvrsvc_config, session_store_dir = null) {
+        this.wtvrsvc_config = wtvrsvc_config;
         this.session_store_dir =
-            session_store_dir || this.minisrv_config.config.SessionStore;
-    }
-
-    getServiceOperator(first_letter_lower = false) {
-        if (this.service_owner == "a minisrv user") {
-            if (first_letter_lower) return "the operator of this service";
-            else return "The operator of this service";
-        } else {
-            return this.service_owner;
-        }
+            session_store_dir || this.wtvrsvc_config.config.SessionStore;
     }
 
     checkUsernameSanity(username) {
         var regex_str =
             "^([A-Za-z0-9-_]{" +
-            this.minisrv_config.config.user_accounts.min_username_length +
+            this.wtvrsvc_config.config.user_accounts.min_username_length +
             "," +
-            this.minisrv_config.config.user_accounts.max_username_length +
+            this.wtvrsvc_config.config.user_accounts.max_username_length +
             "})$";
         var regex = new RegExp(regex_str);
         return regex.test(username);
@@ -35,7 +23,7 @@ class WTVRegister {
 
     checkDoorsOpen(ssid) {
         // Check whether this service is open for registrations and if an exception has been made for the user
-        return (!this.minisrv_config.services["wtv-register"].doorsOpen && !this.minisrv_config.services["wtv-register"].doorsOpenTo.includes(ssid) ? false : true);
+        return (!this.wtvrsvc_config.services["wtv-register"].doorsOpen && !this.wtvrsvc_config.services["wtv-register"].doorsOpenTo.includes(ssid) ? false : true);
     }
 
     checkUsernameAvailable(username, directory = null) {
@@ -44,12 +32,12 @@ class WTVRegister {
         // returns the user's ssid, and user_id and userid in an array if true, false if not
 
         // check against reserved name list
-        if (this.minisrv_config.config.user_accounts.reserved_names) {
+        if (this.wtvrsvc_config.config.user_accounts.reserved_names) {
             Object.keys(
-                this.minisrv_config.config.user_accounts.reserved_names
+                this.wtvrsvc_config.config.user_accounts.reserved_names
             ).forEach((k) => {
                 if (
-                    self.minisrv_config.config.user_accounts.reserved_names[
+                    self.wtvrsvc_config.config.user_accounts.reserved_names[
                         k
                     ].toLowerCase() == username.toLowerCase()
                 )
@@ -124,7 +112,7 @@ class WTVRegister {
    <table cellspacing=0 cellpadding=0>
       <tr>
          <td width=104 height=74 valign=middle align=center bgcolor=#3B3A4D>
-            <img src="${this.minisrv_config.config.service_logo}" width=86 height=64>
+            <img src="${this.wtvrsvc_config.config.service_logo}" width=86 height=64>
          <td width=20 valign=top align=left bgcolor=#3B3A4D>
             <spacer>
          <td colspan=2 width=100% align=left bgcolor=#3B3A4D>
@@ -181,7 +169,7 @@ hspace=0 vspace=0 fontsize="large"
 <table cellspacing=0 cellpadding=0 border=0 width=560 bgcolor=#171726>
 <tr>
 <td align=middle bgcolor="#5b6c81" border=0 colspan= 3 width="100" height="80">
-<img src="${this.minisrv_config.config.service_logo}" WIDTH="87" HEIGHT="67">
+<img src="${this.wtvrsvc_config.config.service_logo}" WIDTH="87" HEIGHT="67">
 <td colspan= 6 bgcolor="#5b6c81" border=0 width=100% absheight="80" valign=bottom >
 <img src="images/head_registration.gif" >
 <tr>

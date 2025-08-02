@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 var mailstore_exists = false;
 
@@ -17,18 +17,18 @@ if (!intro_seen && !request_headers.query.intro_seen) {
         // User has come from intro
         session_data.mailstore.setMailIntroSeen(true);
     }
-    // check if mailstore exists (returns null if guest)
+    // check if mailstore exists
     mailstore_exists = session_data.mailstore.mailstoreExists();
 
-    // create mailstore if it doesnt exist (also returns null if guest)
+    // create mailstore if it doesn't exist
     if (!mailstore_exists)
         mailstore_exists = session_data.mailstore.createMailstore();
 
     if (mailstore_exists) {
-        // mailstore exists and user is not guest
+        // mailstore exists
 
-        var default_limit = minisrv_config.services[service_name].messages_per_page
-            ? minisrv_config.services[service_name].messages_per_page
+        var default_limit = wtvrsvc_config.services[service_name].messages_per_page
+            ? wtvrsvc_config.services[service_name].messages_per_page
             : 25; // user config or 25
         var mailbox = request_headers.query.mailbox
             ? parseInt(request_headers.query.mailbox)
@@ -101,7 +101,7 @@ if (!intro_seen && !request_headers.query.intro_seen) {
 
             var username = session_data.getSessionData("subscriber_username");
             var notImplementedAlert = new clientShowAlert({
-                image: minisrv_config.config.service_logo,
+                image: wtvrsvc_config.config.service_logo,
                 message: "This feature is not available.",
                 buttonlabel1: "Okay",
                 buttonaction1: "client:donothing",

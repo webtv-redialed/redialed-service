@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 if (request_headers.query && session_data) {
     var settings_obj = session_data.getSessionData("wtv-setup");
     if (settings_obj === null) settings_obj = {};

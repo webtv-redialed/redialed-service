@@ -18,7 +18,7 @@ class WTVClientSessionData {
     login_security = null;
     capabilities = null;
     session_storage = "";
-    minisrv_config = [];
+    wtvrsvc_config = [];
     wtvshared = null;
     wtvmime = null;
     lockdown = null;
@@ -29,23 +29,23 @@ class WTVClientSessionData {
     user_id = 0;
     cryptoKey = "FHjDK8fd89sghdG89gfdhjskaGKFIOSP";
 
-    constructor(minisrv_config, ssid) {
-        if (!minisrv_config) throw "minisrv_config required";
+    constructor(wtvrsvc_config, ssid) {
+        if (!wtvrsvc_config) throw "wtvrsvc_config required";
         var WTVShared = require("./WTVShared.js")["WTVShared"];
         var WTVMime = require("./WTVMime.js");
-        this.minisrv_config = minisrv_config;
-        this.wtvshared = new WTVShared(minisrv_config);
-        this.wtvmime = new WTVMime(minisrv_config);
+        this.wtvrsvc_config = wtvrsvc_config;
+        this.wtvshared = new WTVShared(wtvrsvc_config);
+        this.wtvmime = new WTVMime(wtvrsvc_config);
         this.lockdown = false;
         this.ssid = ssid;
         this.data_store = new Array();
         this.session_store = {};
-        this.lockdownWhitelist = minisrv_config.config.lockdownWhitelist;
-        this.lockdownWhitelist.push(minisrv_config.config.unauthorized_url);
-        this.lockdownWhitelist.push(minisrv_config.config.service_logo);
-        this.mailstore = new WTVMail(this.minisrv_config, this);
-        this.favstore = new WTVFavorites(this.minisrv_config, this);
-        this.pagestore = new WTVAuthor(this.minisrv_config, this);
+        this.lockdownWhitelist = wtvrsvc_config.config.lockdownWhitelist;
+        this.lockdownWhitelist.push(wtvrsvc_config.config.unauthorized_url);
+        this.lockdownWhitelist.push(wtvrsvc_config.config.service_logo);
+        this.mailstore = new WTVMail(this.wtvrsvc_config, this);
+        this.favstore = new WTVFavorites(this.wtvrsvc_config, this);
+        this.pagestore = new WTVAuthor(this.wtvrsvc_config, this);
         this.loginWhitelist = Object.assign([], this.lockdownWhitelist); // clone lockdown whitelist into login whitelist
         this.loginWhitelist.push("wtv-head-waiter:/choose-user");
         this.loginWhitelist.push("wtv-head-waiter:/password");
@@ -55,18 +55,18 @@ class WTVClientSessionData {
     }
 
     assignMailStore() {
-        this.mailstore = new WTVMail(this.minisrv_config, this);
+        this.mailstore = new WTVMail(this.wtvrsvc_config, this);
     }
 
     assignFavoriteStore() {
         this.mailstore = this.favstore = new WTVFavorites(
-            this.minisrv_config,
+            this.wtvrsvc_config,
             this
         );
     }
 
     createWTVSecSession() {
-        return new WTVSec(this.minisrv_config);
+        return new WTVSec(this.wtvrsvc_config);
     }
 
     //this was really pissing me off so i inserted old code. fuck. i am at my god damned limit
@@ -74,10 +74,10 @@ class WTVClientSessionData {
         var total_unread_messages = 0;
         for (
             var i = 0;
-            i < this.minisrv_config.config.user_accounts.max_users_per_account;
+            i < this.wtvrsvc_config.config.user_accounts.max_users_per_account;
             i++
         ) {
-            var subUserSession = new this.constructor(this.minisrv_config, this.ssid);
+            var subUserSession = new this.constructor(this.wtvrsvc_config, this.ssid);
             subUserSession.switchUserID(i, false, false);
             subUserSession.assignMailStore();
             if (subUserSession.mailstore) {
@@ -144,7 +144,7 @@ class WTVClientSessionData {
         if (this.fs.existsSync(master_directory)) {
             for (
                 var i = 0;
-                i < this.minisrv_config.config.user_accounts.max_users_per_account;
+                i < this.wtvrsvc_config.config.user_accounts.max_users_per_account;
                 i++
             ) {
                 var test_dir = master_directory + "user" + i;
@@ -224,7 +224,7 @@ class WTVClientSessionData {
     }
 
     getAccountStoreDirectory() {
-        return this.minisrv_config.config.SessionStore + this.path.sep + "accounts";
+        return this.wtvrsvc_config.config.SessionStore + this.path.sep + "accounts";
     }
 
     /**
@@ -554,7 +554,7 @@ class WTVClientSessionData {
     }
 
     getUserPasswordEnabled() {
-        if (!this.minisrv_config.config.passwords.enabled) return false; // master config override
+        if (!this.wtvrsvc_config.config.passwords.enabled) return false; // master config override
         var enabled = this.getSessionData("subscriber_password");
         return enabled != null && typeof enabled != undefined; // true if set, false if null/disabled
     }
@@ -849,20 +849,20 @@ class WTVClientSessionData {
 
         var checkSSIDIPWhitelist = function (ssid, blacklist) {
             var ssid_access_list_ip_override = false;
-            if (self.minisrv_config.config.ssid_ip_allow_list) {
-                if (self.minisrv_config.config.ssid_ip_allow_list[self.ssid]) {
+            if (self.wtvrsvc_config.config.ssid_ip_allow_list) {
+                if (self.wtvrsvc_config.config.ssid_ip_allow_list[self.ssid]) {
                     Object.keys(
-                        self.minisrv_config.config.ssid_ip_allow_list[self.ssid]
+                        self.wtvrsvc_config.config.ssid_ip_allow_list[self.ssid]
                     ).forEach(function (k) {
                         if (
-                            self.minisrv_config.config.ssid_ip_allow_list[self.ssid][
+                            self.wtvrsvc_config.config.ssid_ip_allow_list[self.ssid][
                                 k
                             ].indexOf("/") > 0
                         ) {
                             if (
                                 isInSubnet(
                                     self.clientAddress,
-                                    self.minisrv_config.config.ssid_ip_allow_list[self.ssid][k]
+                                    self.wtvrsvc_config.config.ssid_ip_allow_list[self.ssid][k]
                                 )
                             ) {
                                 // remoteAddr is in allowed subnet
@@ -871,7 +871,7 @@ class WTVClientSessionData {
                         } else {
                             if (
                                 self.clientAddress ==
-                                self.minisrv_config.config.ssid_ip_allow_list[self.ssid][k]
+                                self.wtvrsvc_config.config.ssid_ip_allow_list[self.ssid][k]
                             ) {
                                 // remoteAddr directly matches IP
                                 ssid_access_list_ip_override = true;
@@ -888,7 +888,7 @@ class WTVClientSessionData {
             }
             if (
                 ssid_access_list_ip_override &&
-                self.minisrv_config.config.debug_flags.debug
+                self.wtvrsvc_config.config.debug_flags.debug
             )
                 console.log(
                     " * Request from disallowed SSID",
@@ -898,9 +898,9 @@ class WTVClientSessionData {
         };
 
         // process whitelist first
-        if (self.ssid && self.minisrv_config.config.ssid_allow_list) {
+        if (self.ssid && self.wtvrsvc_config.config.ssid_allow_list) {
             var ssid_is_in_whitelist =
-                self.minisrv_config.config.ssid_allow_list.findIndex(
+                self.wtvrsvc_config.config.ssid_allow_list.findIndex(
                     (element) => element == self.ssid
                 );
             if (ssid_is_in_whitelist == -1) {
@@ -910,9 +910,9 @@ class WTVClientSessionData {
         }
 
         // now check blacklist
-        if (self.ssid && self.minisrv_config.config.ssid_block_list) {
+        if (self.ssid && self.wtvrsvc_config.config.ssid_block_list) {
             var ssid_is_in_blacklist =
-                self.minisrv_config.config.ssid_block_list.findIndex(
+                self.wtvrsvc_config.config.ssid_block_list.findIndex(
                     (element) => element == self.ssid
                 );
             if (ssid_is_in_blacklist != -1) {
@@ -920,9 +920,9 @@ class WTVClientSessionData {
                 checkSSIDIPWhitelist(self.ssid, true);
             }
         }
-		if (self.clientAddress && self.minisrv_config.config.ip_block_list) {
+		if (self.clientAddress && self.wtvrsvc_config.config.ip_block_list) {
             var ip_is_in_blacklist =
-                self.minisrv_config.config.ip_block_list.findIndex(
+                self.wtvrsvc_config.config.ip_block_list.findIndex(
                     (element) => element == self.clientAddress
                 );
 				if (ip_is_in_blacklist != -1) {

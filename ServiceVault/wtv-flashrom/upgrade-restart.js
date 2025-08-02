@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 const romType = ssid_sessions[socket.ssid].get("wtv-client-rom-type")
 const build = request_headers.query.build

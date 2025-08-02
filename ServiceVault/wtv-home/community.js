@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 var accounts = session_data.listPrimaryAccountUsers();
 

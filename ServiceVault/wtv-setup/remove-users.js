@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 var errpage;
 
 if (Object.keys(session_data.listPrimaryAccountUsers()).length == 1) {
@@ -38,7 +38,7 @@ noscroll>
 <table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
 <tr>
 <td align=right>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${wtvrsvc_config.config.service_logo}" width=87 height=67>
 </table>
 <td abswidth=6>
 <tr><td absheight=5 colspan=3>
@@ -103,7 +103,7 @@ noscroll>
     if (num_accounts > 1) {
         delete accounts.subscriber;
         for (const [key, value] of Object.entries(accounts)) {
-            var userSession = new WTVClientSessionData(minisrv_config, socket.ssid);
+            var userSession = new WTVClientSessionData(wtvrsvc_config, socket.ssid);
             userSession.user_id = parseInt(key.replace("user", ""));
 
             var mailcount = 0;

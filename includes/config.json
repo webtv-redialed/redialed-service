@@ -1,7 +1,7 @@
 {
   "config": {
     "service_ip": "127.0.0.1",
-    "serviceType": "Production",
+    "serviceType": "Debug",
     "ServiceVaults": [
       "ServiceVault"
     ],
@@ -17,10 +17,6 @@
     "SharedROMCache": "SharedROMCache",
     "maintenance_mode": false,
     "enable_shared_romcache": false,
-    "service_owner": "somebody",
-    "service_owner_account": "huh",
-    "service_owner_contact": "what",
-    "service_owner_contact_method": "Discord",
     "service_name": "WebTV",
     "service_logo": "WebTVLogoJewel.gif",
     "service_splash_logo": "file://ROM/images/SplashLogo1.gif",
@@ -37,14 +33,10 @@
     "post_data_socket_timeout": 30,
     "error_log_file": "errors.log",
     "catchall_file_name": "catchall.js",
-    "hide_incomplete_features": true,
     "enable_lzpf_compression": true,
     "enable_gzip_compression": true,
-    "show_detailed_splash": true,
-    "show_diskmap": false,
     "unauthorized_url": "wtv-1800:/unauthorized?",
     "enable_port_isolation": true,
-    "allow_guests": false,
     "domain_name": "webtv.zone",
     "user_accounts": {
       "max_users_per_account": 6,
@@ -84,10 +76,11 @@
       "wtv-head-waiter:/validatebirthday",
       "wtv-log:/log"
     ],
-    "geolocationApiKey": "no",
-    "weatherApiKey": "no",
-    "movieApiKey": "no",
-    "sessionClearTimeout": 30000
+    "geolocationApiKey": "changeme",
+    "weatherApiKey": "changeme",
+    "movieApiKey": "changeme",
+    "sessionClearTimeout": 30000,
+    "local_nntp_requires_auth": true
   },
   "services": {
     "wtv-head-waiter": {
@@ -116,7 +109,7 @@
     "wtv-news": {
       "port": 1605,
       "local_nntp_port": 57319,
-      "local_nntp_requires_auth": true,
+      "local_nntp_uses_tls": true,
       "modules": [
         "WTVNews"
       ],
@@ -290,22 +283,36 @@
     "http": {
       "port": 1650,
       "connections": 3,
+      "use_external_proxy": false,
+      "external_proxy_is_socks": false,
+      "external_proxy_host": "127.0.0.1",
+      "external_proxy_port": 1080,
       "flags": "0x00000001"
     },
     "https": {
       "port": 1650,
       "connections": 3,
+      "use_external_proxy": false,
+      "external_proxy_is_socks": false,
+      "external_proxy_host": "127.0.0.1",
+      "external_proxy_port": 1080,
       "flags": "0x00000001"
     },
     "proto": {
       "port": 1650,
       "connections": 3,
+      "use_external_proxy": true,
+      "replace_protocol": "http",
+      "external_proxy_is_socks": false,
+      "external_proxy_host": "wayback.protoweb.org",
+      "external_proxy_port": 7851,
+      "external_proxy_is_http1": true,
       "flags": "0x00000001"
     },
     "pc_services": {
       "port": 1337,
       "pc_services": true,
-      "hide_minisrv_version": true,
+      "hide_wtvrsvc_version": true,
       "disabled": false,
       "servicevault_dir": "http_pc",
       "drop_connection_on_wrong_port": true,

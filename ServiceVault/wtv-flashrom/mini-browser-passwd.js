@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 const messages = [
         "Bzzzzt! Thank you for playing!",

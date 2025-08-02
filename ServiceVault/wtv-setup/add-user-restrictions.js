@@ -1,7 +1,7 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 var errpage = null;
 
-const wtvr = new WTVRegister(minisrv_config, SessionStore);
+const wtvr = new WTVRegister(wtvrsvc_config, SessionStore);
 const nonoWords = wtvshared.getDynamicConfig(`nonoWords`);
 const reservedWords = wtvshared.getDynamicConfig(`reservedWords`);
 var lowerusername = request_headers.query.user_name.toLowerCase();
@@ -45,14 +45,14 @@ else if (!wtvr.checkUsernameAvailable(request_headers.query.user_name))
     );
 else if (
     session_data.getNumberOfUserAccounts() >
-    minisrv_config.config.user_accounts.max_users_per_account
+    wtvrsvc_config.config.user_accounts.max_users_per_account
 )
     errpage = wtvshared.doErrorPage(
         400,
         "You are not authorized to add more than " +
-        minisrv_config.config.user_accounts.max_users_per_account +
+        wtvrsvc_config.config.user_accounts.max_users_per_account +
         ` account${
-            minisrv_config.config.user_accounts.max_users_per_account > 1 ? "s" : ""
+            wtvrsvc_config.config.user_accounts.max_users_per_account > 1 ? "s" : ""
         }.`
     );
 
@@ -60,23 +60,23 @@ if (!errpage) {
     if (request_headers.query.user_password) {
         if (
             request_headers.query.user_password.length <
-            minisrv_config.config.passwords.min_length
+            wtvrsvc_config.config.passwords.min_length
         )
             errpage = wtvshared.doErrorPage(
                 400,
                 "Your password must contain at least " +
-                minisrv_config.config.passwords.min_length +
+                wtvrsvc_config.config.passwords.min_length +
                 " characters."
             );
     } else {
         if (
             request_headers.query.user_password.length >
-            minisrv_config.config.passwords.max_length
+            wtvrsvc_config.config.passwords.max_length
         )
             errpage = wtvshared.doErrorPage(
                 400,
                 "Your password must contain no more than than " +
-                minisrv_config.config.passwords.max_length +
+                wtvrsvc_config.config.passwords.max_length +
                 " characters."
             );
         else if (
@@ -132,7 +132,7 @@ noscroll>
 <table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
 <tr>
 <td align=right>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${wtvrsvc_config.config.service_logo}" width=87 height=67>
 </table>
 <td abswidth=6>
 <tr><td absheight=5 colspan=3>

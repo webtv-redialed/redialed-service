@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Content-Type: text/html`;
@@ -80,7 +80,7 @@ SIZE="15"
 MAXLENGTH="15"><spacer width=8>
 <td width=242 valign=top align=left>
 <img src="ROMCache/Spacer.gif" width=1 height=4><br>
-<tt>@WebTV</tt>
+<tt>@webtv.zone</tt>
 <tr>
 <td height=12>
 <tr>

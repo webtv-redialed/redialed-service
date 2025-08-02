@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 var offsetvalue = session_data.getSessionData("messagewatch-offset");
 

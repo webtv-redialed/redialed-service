@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 headers = `200 OK
 Content-Type: text/html
 wtv-nvstorage-dump: wtv-tricks:/post-nvstorage-dump`;

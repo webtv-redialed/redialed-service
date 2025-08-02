@@ -379,7 +379,7 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-# minisrv error log file
+# Error log file
 errors.log
 
 # redialed default config file, this is important for when pulling from main to production

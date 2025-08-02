@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 session_data.setUserLoggedIn(false);
 
 var challenge_response,
@@ -8,13 +8,6 @@ if (socket.ssid !== null) session_data.switchUserID(0);
 var gourl = "wtv-head-waiter:/ValidateLogin?initial_login=true&";
 if (request_headers.query.relogin) gourl += "relogin=true";
 else if (request_headers.query.reconnect) gourl += "reconnect=true";
-
-if (request_headers.query.guest_login) {
-    if (request_headers.query.relogin || request_headers.query.reconnect)
-        gourl += "&";
-    gourl += "guest_login=true";
-    if (request_headers.query.skip_splash) gourl += "&skip_splash=true";
-}
 
 var send_to_relogin = true;
 

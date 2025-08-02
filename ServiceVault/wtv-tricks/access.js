@@ -1,6 +1,6 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
-// Allow URL access outside our trusted minisrv
+// Allow URL access outside our trusted server
 
 if (request_headers.query.url) var url = request_headers.query.url;
 else

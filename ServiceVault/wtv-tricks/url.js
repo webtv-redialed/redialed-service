@@ -1,5 +1,5 @@
-var minisrv_service_file = true;
-var wtvt = new WTVTricks(minisrv_config);
+var wtvrsvc_service_file = true;
+var wtvt = new WTVTricks(wtvrsvc_config);
 
 headers = `200 OK
 Content-Type: text/html`;

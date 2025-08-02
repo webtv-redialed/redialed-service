@@ -1,16 +1,16 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 var errpage;
 
 if (
     Object.keys(session_data.listPrimaryAccountUsers()).length >=
-    minisrv_config.config.user_accounts.max_users_per_account
+    wtvrsvc_config.config.user_accounts.max_users_per_account
 ) {
     errpage = wtvshared.doErrorPage(
         400,
         "You are not authorized to add more than " +
-        minisrv_config.config.user_accounts.max_users_per_account +
+        wtvrsvc_config.config.user_accounts.max_users_per_account +
         ` account${
-            minisrv_config.config.user_accounts.max_users_per_account > 1 ? "s" : ""
+            wtvrsvc_config.config.user_accounts.max_users_per_account > 1 ? "s" : ""
         }.`
     );
 } else if (session_data.user_id != 0)
@@ -50,7 +50,7 @@ noscroll>
 <table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
 <tr>
 <td align=right>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${wtvrsvc_config.config.service_logo}" width=87 height=67>
 </table>
 <td abswidth=6>
 <tr><td absheight=5 colspan=3>
@@ -109,7 +109,7 @@ person's name.
 <td colspan=3 align=left>
 First name<br>
 <INPUT noSubmit name="user_human_name_first" id="user_human_name_first" Value="`;
-if (minisrv_config.config.serviceType == "Debug") data += randA[Math.floor(Math.random() * randA.length)];
+if (wtvrsvc_config.config.serviceType == "Debug") data += randA[Math.floor(Math.random() * randA.length)];
 data += `"
 bgcolor=#444444 text=#ffdd33 cursor=#cc9933
 TYPE="text" ASCIIONLY
@@ -121,7 +121,7 @@ MAXLENGTH="18">
 <td colspan=3 align=left>
 <br>Last name<br>
 <INPUT noSubmit name="user_human_name_last" id="user_human_name_last" Value="`;
-if (minisrv_config.config.serviceType == "Debug") data += randN[Math.floor(Math.random() * randN.length)];
+if (wtvrsvc_config.config.serviceType == "Debug") data += randN[Math.floor(Math.random() * randN.length)];
 data += `"
 bgcolor=#444444 text=#ffdd33 cursor=#cc9933
 TYPE="text" ASCIIONLY

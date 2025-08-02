@@ -1,5 +1,5 @@
 // TODO: holy SHIT clean this up
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 var ismybirthday = false;
 const date = new Date();

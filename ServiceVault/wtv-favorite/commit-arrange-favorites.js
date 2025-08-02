@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 var with_pictures = request_headers.query.with_pictures;
 

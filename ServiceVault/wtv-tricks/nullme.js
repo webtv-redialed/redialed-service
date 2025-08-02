@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 if (session_data) {
     if (session_data.data_store.wtvsec_login) {

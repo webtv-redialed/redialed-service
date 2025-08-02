@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 if (session_data.getSessionData("infocenter_cache") == null) {
     var object = new Object()
@@ -92,7 +92,7 @@ async function loadCurrentData() {
             return session_data.getSessionData("infocenter_cache").currentWeather.data
         } else {
             console.log("* Using new weather data")
-            const response = await fetch('https://api.weather.com/v3/wx/observations/current?postalKey=' + (accounts.subscriber.subscriber_zip_code || "98052") + ':US&units=e&language=en-US&format=json&apiKey=' + minisrv_config.config.weatherApiKey);
+            const response = await fetch('https://api.weather.com/v3/wx/observations/current?postalKey=' + (accounts.subscriber.subscriber_zip_code || "98052") + ':US&units=e&language=en-US&format=json&apiKey=' + wtvrsvc_config.config.weatherApiKey);
             const weather = await response.json();
 
             const currentData = {

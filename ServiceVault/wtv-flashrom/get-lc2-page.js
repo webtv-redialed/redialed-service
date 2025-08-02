@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 const WTVFlashrom = require(classPath + "/WTVFlashrom.js");
 var wtvflashrom;
@@ -10,12 +10,12 @@ if (!request_headers.query.path) {
     data = errpage[1];
 } else {
     var wtvflashrom = new WTVFlashrom(
-        minisrv_config,
+        wtvrsvc_config,
         service_vaults,
         service_name,
-        minisrv_config.services[service_name].use_zefie_server,
+        wtvrsvc_config.services[service_name].use_zefie_server,
         false,
-        minisrv_config.services[service_name].debug ? false : true
+        wtvrsvc_config.services[service_name].debug ? false : true
     );
     var request_path = request_headers.query.path;
 
@@ -98,7 +98,7 @@ hspace=0 vspace=0 fontsize="large">
 <table cellspacing=0 cellpadding=0>
 <tr>
 <td width=104 height=74 valign=middle align=center bgcolor="3B3A4D">
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${wtvrsvc_config.config.service_logo}" width=87 height=67>
 <td width=20 valign=top align=left bgcolor="3B3A4D">
 <img src="${service_name}:/ROMCache/Spacer.gif" width=1 height=1>
 <td colspan=10 width=436 valign=middle align=left bgcolor="3B3A4D">

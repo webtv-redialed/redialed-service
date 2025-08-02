@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 var pagestore_exists = session_data.pagestore.pagestoreExists();
 var docName = request_headers.query.docName;

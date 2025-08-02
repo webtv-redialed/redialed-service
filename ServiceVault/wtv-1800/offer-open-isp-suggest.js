@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 var gourl = "wtv-1800:/finish-prereg?";
 if (request_headers.query.relogin) gourl += "relogin=true";
@@ -10,7 +10,7 @@ if (request_headers["wtv-ticket"]) {
 headers =
     `200 OK
 Connection: Keep-Alive
-minisrv-no-mail-count: true
+wtvr-no-mail-count: true
 wtv-expire-all: wtv-
 wtv-open-isp-disabled: false
 wtv-visit: ` +

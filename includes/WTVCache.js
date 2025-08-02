@@ -1,12 +1,12 @@
 class WTVCache {
-    minisrv_config = [];
+    wtvrsvc_config = [];
     type = null;
 	fs = require("fs");
 	Parser = require("rss-parser");
 	fetch = require("node-fetch");
 
-    constructor(minisrv_config = null) {
-        this.minisrv_config = minisrv_config;
+    constructor(wtvrsvc_config = null) {
+        this.wtvrsvc_config = wtvrsvc_config;
     }
 	
 	makeFriendlyString(string) {
@@ -74,7 +74,7 @@ class WTVCache {
 		try { 
 			let theaterfeed = await this.fetch("https://api.themoviedb.org/3/movie/now_playing", {
 				headers: {
-					'Authorization': 'Bearer ' + this.minisrv_config.config.movieApiKey
+					'Authorization': 'Bearer ' + this.wtvrsvc_config.config.movieApiKey
 				}
 			})
 			theaterfeed = await theaterfeed.json()
@@ -193,13 +193,13 @@ class WTVCache {
 		var weatherCache = new Object();
 		// download and format data from NYT's RSS feeds
 		// this code looked so nice before i added this shitass error handling, i am beyond disappointed
-		var weather = await fetch("https://api.weather.com/v3/wx/observations/current?postalKey=" + zip +":US&units=e&language=en-US&format=json&apiKey=" + this.minisrv_config.config.weatherApiKey)
+		var weather = await fetch("https://api.weather.com/v3/wx/observations/current?postalKey=" + zip +":US&units=e&language=en-US&format=json&apiKey=" + this.wtvrsvc_config.config.weatherApiKey)
 		weather = await weather.json()
 		weatherCache.temp = weather.temperature
         weatherCache.humid = weather.relativeHumidity
         weatherCache.icon = twcIcons[weather.iconCode]
         weatherCache.cond = weather.wxPhraseMedium.toLowerCase()
-		var forecast = await fetch("https://api.weather.com/v3/wx/forecast/daily/7day?postalKey=" + zip +":US&units=e&language=en-US&format=json&apiKey=" + this.minisrv_config.config.weatherApiKey)
+		var forecast = await fetch("https://api.weather.com/v3/wx/forecast/daily/7day?postalKey=" + zip +":US&units=e&language=en-US&format=json&apiKey=" + this.wtvrsvc_config.config.weatherApiKey)
 		forecast = await forecast.json()
 		let dayIcons = {};
 

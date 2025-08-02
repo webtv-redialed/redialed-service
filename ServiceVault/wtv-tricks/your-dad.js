@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `410 The publisher couldn't find the requested page because it no longer exists.
 Content-Type: text/html`;

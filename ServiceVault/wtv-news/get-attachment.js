@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 var request_is_async = true;
 var errpage = null;
@@ -9,11 +9,11 @@ if ((!attachment_id && attachment_id != 0) || !group || !article) {
     errpage = wtvshared.doErrorPage(400, "Attachment ID required.");
     sendToClient(socket, errpage[0], errpage[1]);
 } else {
-    const wtvnews = new WTVNews(minisrv_config, service_name);
-    var service_config = minisrv_config.services[service_name];
+    const wtvnews = new WTVNews(wtvrsvc_config, service_name);
+    var service_config = wtvrsvc_config.services[service_name];
     if (service_config.local_nntp_port && wtvnewsserver) {
         var tls_path = this.wtvshared.getAbsolutePath(
-            this.minisrv_config.config.ServiceDeps + "/wtv-news"
+            this.wtvrsvc_config.config.ServiceDeps + "/wtv-news"
         );
         var tls_options = {
             ca: this.fs.readFileSync(tls_path + "/localserver_ca.pem"),

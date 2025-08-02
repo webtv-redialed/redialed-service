@@ -1,7 +1,7 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 var WTVBGMusic = require("./includes/WTVBGMusic.js");
-var wtvbgm = new WTVBGMusic(minisrv_config, session_data);
+var wtvbgm = new WTVBGMusic(wtvrsvc_config, session_data);
 
 var catsListed = 0;
 var categories = wtvbgm.getCategoryList();
@@ -31,7 +31,7 @@ Background music styles
 <table href="wtv-home:/home" absheight="76" cellspacing="0" cellpadding="0">
 <tbody><tr>
 <td align="right">
-<img src="${minisrv_config.config.service_logo}" width="87" height="67">
+<img src="${wtvrsvc_config.config.service_logo}" width="87" height="67">
 </td></tr></tbody></table>
 </td><td abswidth="6">
 </td></tr><tr><td absheight="5" colspan="3">

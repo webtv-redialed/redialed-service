@@ -1,12 +1,12 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `400 tough luck, try again never`;
 
-/* var wtvt = new WTVTricks(minisrv_config);
+/* var wtvt = new WTVTricks(wtvrsvc_config);
 
 // TODO: make this not broken
 const WTVRegister = require("./WTVRegister.js");
-var wtvr = new WTVRegister(minisrv_config, SessionStore);
+var wtvr = new WTVRegister(wtvrsvc_config, SessionStore);
 
 const nonoWords = wtvshared.getDynamicConfig(`nonoWords`);
 var lowerusername = request_headers.query.subscriber_username.toLowerCase();

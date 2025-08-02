@@ -1,6 +1,6 @@
 // secks
 
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Connection: Keep-Alive

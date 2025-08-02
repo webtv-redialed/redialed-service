@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 var request_is_async = true;
 
 var max_redirects = 3;
@@ -96,7 +96,7 @@ async function saveFavorite(favstore, title, folder, imagetype, favurl) {
             try {
                 await getTitle(favurl).then(function (res) {
                     title = res;
-                    if (!minisrv_config.config.debug_flags.quiet)
+                    if (!wtvrsvc_config.config.debug_flags.quiet)
                         console.log(
                             " * Client sent favorite-url without title, got title:",
                             title
@@ -117,9 +117,9 @@ async function saveFavorite(favstore, title, folder, imagetype, favurl) {
 
         if (
             favoritenum ==
-            minisrv_config.services[service_name].max_favorites_per_folder
+            wtvrsvc_config.services[service_name].max_favorites_per_folder
         ) {
-            headers = `400 You can only have ${minisrv_config.services[service_name].max_favorites_per_folder} favorites in a folder. Discard some favorites or choose a different folder, then try again.`;
+            headers = `400 You can only have ${wtvrsvc_config.services[service_name].max_favorites_per_folder} favorites in a folder. Discard some favorites or choose a different folder, then try again.`;
         } else {
             var createresult = favstore.createFavorite(
                 title,

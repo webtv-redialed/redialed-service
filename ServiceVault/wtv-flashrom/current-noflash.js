@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 const WTVFlashrom = require(classPath + "/WTVFlashrom.js");
 request_is_async = true;
@@ -9,7 +9,7 @@ request_is_async = true;
 // and put everything from 'content/' onwards, including the part000.rom filename
 // example is below
 var default_build_to_send =
-    minisrv_config.services[service_name].bf0app_default_rom ||
+    wtvrsvc_config.services[service_name].bf0app_default_rom ||
     "content/artemis-webtv-000/build7181/daily-nondebug/bf0app-part000.rom";
 
 var request_path = "";
@@ -29,10 +29,10 @@ if (
 
 if (!session_data.data_store.WTVFlashrom) {
     session_data.data_store.WTVFlashrom = new WTVFlashrom(
-        minisrv_config,
+        wtvrsvc_config,
         service_vaults,
         service_name,
-        minisrv_config.services[service_name].use_zefie_server,
+        wtvrsvc_config.services[service_name].use_zefie_server,
         bf0app_update
     );
 }

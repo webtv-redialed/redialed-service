@@ -6,40 +6,40 @@ const path = require("path");
 const crypto = require("crypto");
 var classPath = __dirname + "/includes/";
 const {WTVShared} = require(classPath + "WTVShared.js");
-const wtvshared = new WTVShared(); // creates minisrv_config
+const wtvshared = new WTVShared(); // creates wtvrsvc_config
 classPath = wtvshared.getAbsolutePath(classPath, __dirname);
-const minisrv_config = wtvshared.getMiniSrvConfig();
+const wtvrsvc_config = wtvshared.getWTVRSvcConfig();
 const WTVNews = require(classPath + "/WTVNews.js");
 const WTVNewsServer = require(classPath + "/WTVNewsServer.js");
 var data_path = wtvshared.getAbsolutePath(
-    minisrv_config.config.SessionStore + "/minisrv_internal_nntp"
+    wtvrsvc_config.config.SessionStore + "/wtvrsvc_internal_nntp"
 );
 const service_name = "wtv-news";
 
-if (!minisrv_config.services[service_name].upstream_address) {
-    console.error("minisrv config not configured with usenet upstream");
+if (!wtvrsvc_config.services[service_name].upstream_address) {
+    console.error("Service config not configured with usenet upstream");
     process.exit(1);
 }
 
-if (!minisrv_config) {
-    console.error("Something went wrong loading minisrv config");
+if (!wtvrsvc_config) {
+    console.error("Something went wrong loading service config");
     process.exit(1);
 }
 
-if (!minisrv_config.config.debug_flags.quiet)
-    console.log(" *** Successfully read minisrv configuration....");
+if (!wtvrsvc_config.config.debug_flags.quiet)
+    console.log(" *** Successfully read service configuration....");
 
-const service_config = minisrv_config.services[service_name];
+const service_config = wtvrsvc_config.services[service_name];
 const wtvnewsserver = new WTVNewsServer(
-    minisrv_config,
-    minisrv_config.services["wtv-news"].local_server_port,
+    wtvrsvc_config,
+    wtvrsvc_config.services["wtv-news"].local_server_port,
     false,
     null,
     null,
     false
 );
 
-const wtvnews = new WTVNews(minisrv_config, service_name);
+const wtvnews = new WTVNews(wtvrsvc_config, service_name);
 
 if (service_config.upstream_auth) {
     wtvnews.initializeUsenet(

@@ -15,12 +15,12 @@ class WTVShared {
     extend = require("util")._extend;
     debug = require("debug")("WTVShared");
 
-    minisrv_config = [];
+    wtvrsvc_config = [];
 
-    constructor(minisrv_config, quiet = false) {
-        if (minisrv_config == null)
-            this.minisrv_config = this.readMiniSrvConfig(true, !quiet);
-        else this.minisrv_config = minisrv_config;
+    constructor(wtvrsvc_config, quiet = false) {
+        if (wtvrsvc_config == null)
+            this.wtvrsvc_config = this.readMiniSrvConfig(true, !quiet);
+        else this.wtvrsvc_config = wtvrsvc_config;
 
         if (!String.prototype.reverse) {
             String.prototype.reverse = function () {
@@ -163,8 +163,8 @@ class WTVShared {
     }
 
     isConfiguredService(service) {
-        if (this.minisrv_config.services[service]) {
-            if (!this.minisrv_config.services[service].disabled) return true;
+        if (this.wtvrsvc_config.services[service]) {
+            if (!this.wtvrsvc_config.services[service].disabled) return true;
         }
         return false;
     }
@@ -173,25 +173,25 @@ class WTVShared {
         // used externally by service scripts
         if (service === "all") {
             var out = "";
-            Object.keys(minisrv_config.services).forEach(function (k) {
+            Object.keys(wtvrsvc_config.services).forEach(function (k) {
                 if (overrides.exceptions) {
                     Object.keys(overrides.exceptions).forEach(function (j) {
                         if (k != overrides.exceptions[j])
-                            out += minisrv_config.services[k].toString(overrides) + "\n";
+                            out += wtvrsvc_config.services[k].toString(overrides) + "\n";
                     });
                 } else {
-                    out += minisrv_config.services[k].toString(overrides) + "\n";
+                    out += wtvrsvc_config.services[k].toString(overrides) + "\n";
                 }
             });
             return out;
         } else {
-            if (!this.minisrv_config.services[service]) {
+            if (!this.wtvrsvc_config.services[service]) {
                 throw (
                     "SERVICE ERROR: Attempted to provision unconfigured service: " +
                     service
                 );
             } else {
-                return this.minisrv_config.services[service].toString(overrides);
+                return this.wtvrsvc_config.services[service].toString(overrides);
             }
         }
     }
@@ -488,19 +488,19 @@ class WTVShared {
 
             if (this.fs.lstatSync(user_config_filename)) {
                 try {
-                    var minisrv_user_config = this.parseJSON(
+                    var wtvrsvc_user_config = this.parseJSON(
                         this.fs.readFileSync(user_config_filename)
                     );
                 } catch (e) {
                     throw ("ERROR: Could not read user_config.json", e);
                 }
             } else {
-                var minisrv_user_config = {};
+                var wtvrsvc_user_config = {};
             }
-            return minisrv_user_config;
+            return wtvrsvc_user_config;
         } catch (e) {
-            if (minisrv_config.config.debug_flags) {
-                if (minisrv_config.config.debug_flags.debug)
+            if (wtvrsvc_config.config.debug_flags) {
+                if (wtvrsvc_config.config.debug_flags.debug)
                     console.error(
                         " * Notice: Could not find user configuration (user_config.json). Using default configuration."
                     );
@@ -549,7 +549,7 @@ class WTVShared {
         if (notices || reload_notice)
             console.log(" *** Reading global configuration...");
         try {
-            var minisrv_config = this.parseJSON(
+            var wtvrsvc_config = this.parseJSON(
                 this.fs.readFileSync(this.getAbsolutePath("config.json", __dirname))
             );
         } catch (e) {
@@ -575,17 +575,17 @@ class WTVShared {
             try {
                 if (notices || reload_notice)
                     console.log(" *** Reading user configuration...");
-                var minisrv_user_config = this.getUserConfig();
-                if (!minisrv_user_config)
+                var wtvrsvc_user_config = this.getUserConfig();
+                if (!wtvrsvc_user_config)
                     throw "ERROR: Could not read user_config.json";
                 try {
-                    minisrv_config = integrateConfig(minisrv_config, minisrv_user_config);
+                    wtvrsvc_config = integrateConfig(wtvrsvc_config, wtvrsvc_user_config);
                 } catch (e) {
                     console.error("ERROR: Could not read user_config.json", e);
                 }
             } catch (e) {
-                if (minisrv_config.config.debug_flags) {
-                    if (minisrv_config.config.debug_flags.debug)
+                if (wtvrsvc_config.config.debug_flags) {
+                    if (wtvrsvc_config.config.debug_flags.debug)
                         console.error(
                             " * Notice: Could not find user configuration (user_config.json). Using default configuration."
                         );
@@ -594,46 +594,46 @@ class WTVShared {
         }
 
         // defaults
-        minisrv_config.config.debug_flags = [];
-        minisrv_config.config.debug_flags.debug = false;
-        minisrv_config.config.debug_flags.quiet = true; // will squash minisrv_config.config.debug_flags.debug even if its true
-        minisrv_config.config.debug_flags.show_headers = false;
+        wtvrsvc_config.config.debug_flags = [];
+        wtvrsvc_config.config.debug_flags.debug = false;
+        wtvrsvc_config.config.debug_flags.quiet = true; // will squash wtvrsvc_config.config.debug_flags.debug even if its true
+        wtvrsvc_config.config.debug_flags.show_headers = false;
 
-        if (minisrv_config.config.verbosity) {
-            switch (minisrv_config.config.verbosity) {
+        if (wtvrsvc_config.config.verbosity) {
+            switch (wtvrsvc_config.config.verbosity) {
                 case 0:
-                    minisrv_config.config.debug_flags.debug = false;
-                    minisrv_config.config.debug_flags.quiet = true;
-                    minisrv_config.config.debug_flags.show_headers = false;
+                    wtvrsvc_config.config.debug_flags.debug = false;
+                    wtvrsvc_config.config.debug_flags.quiet = true;
+                    wtvrsvc_config.config.debug_flags.show_headers = false;
                     if (notices) console.log(" * Console Verbosity level 0 (quietest)");
                     break;
                 case 1:
-                    minisrv_config.config.debug_flags.debug = false;
-                    minisrv_config.config.debug_flags.quiet = true;
-                    minisrv_config.config.debug_flags.show_headers = true;
+                    wtvrsvc_config.config.debug_flags.debug = false;
+                    wtvrsvc_config.config.debug_flags.quiet = true;
+                    wtvrsvc_config.config.debug_flags.show_headers = true;
                     if (notices)
                         console.log(" * Console Verbosity level 1 (headers shown)");
                     break;
                 case 2:
-                    minisrv_config.config.debug_flags.debug = true;
-                    minisrv_config.config.debug_flags.quiet = true;
-                    minisrv_config.config.debug_flags.show_headers = false;
+                    wtvrsvc_config.config.debug_flags.debug = true;
+                    wtvrsvc_config.config.debug_flags.quiet = true;
+                    wtvrsvc_config.config.debug_flags.show_headers = false;
                     if (notices)
                         console.log(
                             " * Console Verbosity level 2 (verbose without headers)"
                         );
                     break;
                 case 3:
-                    minisrv_config.config.debug_flags.debug = true;
-                    minisrv_config.config.debug_flags.quiet = true;
-                    minisrv_config.config.debug_flags.show_headers = true;
+                    wtvrsvc_config.config.debug_flags.debug = true;
+                    wtvrsvc_config.config.debug_flags.quiet = true;
+                    wtvrsvc_config.config.debug_flags.show_headers = true;
                     if (notices)
                         console.log(" * Console Verbosity level 3 (verbose with headers)");
                     break;
                 default:
-                    minisrv_config.config.debug_flags.debug = true;
-                    minisrv_config.config.debug_flags.quiet = false;
-                    minisrv_config.config.debug_flags.show_headers = true;
+                    wtvrsvc_config.config.debug_flags.debug = true;
+                    wtvrsvc_config.config.debug_flags.quiet = false;
+                    wtvrsvc_config.config.debug_flags.show_headers = true;
                     if (notices)
                         console.log(" * Console Verbosity level 4 (debug verbosity)");
                     break;
@@ -642,20 +642,20 @@ class WTVShared {
 
         if (notices || reload_notice)
             console.log(" *** Configuration successfully read.");
-        this.minisrv_config = minisrv_config;
-        return this.minisrv_config;
+        this.wtvrsvc_config = wtvrsvc_config;
+        return this.wtvrsvc_config;
     }
 
     writeToUserConfig(config) {
         if (config) {
             try {
-                var minisrv_user_config = this.getUserConfig();
+                var wtvrsvc_user_config = this.getUserConfig();
 
                 // write back
                 try {
                     var new_user_config = {};
-                    Object.assign(new_user_config, minisrv_user_config, config);
-                    if (this.minisrv_config.config.debug_flags.debug)
+                    Object.assign(new_user_config, wtvrsvc_user_config, config);
+                    if (this.wtvrsvc_config.config.debug_flags.debug)
                         console.log(" * Writing new user configuration...");
                     this.fs.writeFileSync(
                         this.getAbsolutePath("user_config.json", this.parentDirectory),
@@ -663,8 +663,8 @@ class WTVShared {
                     );
                     return true;
                 } catch (e) {
-                    if (this.minisrv_config.config.debug_flags) {
-                        if (this.minisrv_config.config.debug_flags.debug)
+                    if (this.wtvrsvc_config.config.debug_flags) {
+                        if (this.wtvrsvc_config.config.debug_flags.debug)
                             console.error(
                                 " * WARNING: Could not update user config. Data may have been lost.",
                                 e
@@ -672,8 +672,8 @@ class WTVShared {
                     }
                 }
             } catch (e) {
-                if (this.minisrv_config.config.debug_flags) {
-                    if (this.minisrv_config.config.debug_flags.debug)
+                if (this.wtvrsvc_config.config.debug_flags) {
+                    if (this.wtvrsvc_config.config.debug_flags.debug)
                         console.error(
                             " * Notice: Could not find user configuration (user_config.json). Using default configuration."
                         );
@@ -699,8 +699,8 @@ class WTVShared {
         return this.generateString(len, simple ? null : "!@#$%&()[]-_+=?.");
     }
 
-    getMiniSrvConfig() {
-        return this.minisrv_config;
+    getWTVRSvcConfig() {
+        return this.wtvrsvc_config;
     }
 
     lineWrap(string, len = 72, join = "\n") {
@@ -789,7 +789,7 @@ class WTVShared {
      * @param {string|Array} obj SSID String or Headers Object
      */
     filterSSID(obj) {
-        if (this.minisrv_config.config.hide_ssid_in_logs === true) {
+        if (this.wtvrsvc_config.config.hide_ssid_in_logs === true) {
             if (typeof obj == "string") {
                 if (obj.substr(0, 8) == "MSTVSIMU") {
                     return obj.substr(0, 10) + "*".repeat(10) + obj.substr(20);
@@ -822,7 +822,7 @@ class WTVShared {
     }
 
     filterRequestLog(obj) {
-        if (this.minisrv_config.config.filter_passwords_in_logs === true) {
+        if (this.wtvrsvc_config.config.filter_passwords_in_logs === true) {
             if (obj.query) {
                 var newobj = this.cloneObj(obj);
                 try {
@@ -837,7 +837,7 @@ class WTVShared {
                     });
                     return newobj;
                 } catch (e) {
-                    if (!this.minisrv_config.config.debug_flags.quiet)
+                    if (!this.wtvrsvc_config.config.debug_flags.quiet)
                         console.error(" *** error filtering logs", e);
                     return obj;
                 }
@@ -848,7 +848,7 @@ class WTVShared {
 
     decodePostData(obj) {
         if (obj.post_data) {
-            if (this.minisrv_config.config.filter_passwords_in_logs === true) {
+            if (this.wtvrsvc_config.config.filter_passwords_in_logs === true) {
                 // complex, to filter
                 var post_obj = {};
                 post_obj.query = [];
@@ -985,14 +985,14 @@ class WTVShared {
         wtv_reset = false
     ) {
         var headers = null;
-        var minisrv_config = this.minisrv_config;
+        var wtvrsvc_config = this.wtvrsvc_config;
         switch (code) {
             case 401:
                 if (data === null)
-                    data = minisrv_config.config.errorMessages[code].replace(
+                    data = wtvrsvc_config.config.errorMessages[code].replace(
                         /\$\{(\w{1,})\}/g,
                         function (x) {
-                            return minisrv_config.config[
+                            return wtvrsvc_config.config[
                                 x.replace("${", "").replace("}", "")
                             ];
                         }
@@ -1003,10 +1003,10 @@ class WTVShared {
                 break;
             case 403:
                 if (data === null)
-                    data = minisrv_config.config.errorMessages[code].replace(
+                    data = wtvrsvc_config.config.errorMessages[code].replace(
                         /\$\{(\w{1,})\}/g,
                         function (x) {
-                            return minisrv_config.config[
+                            return wtvrsvc_config.config[
                                 x.replace("${", "").replace("}", "")
                             ];
                         }
@@ -1017,10 +1017,10 @@ class WTVShared {
                 break;
             case 404:
                 if (data === null)
-                    data = minisrv_config.config.errorMessages[code].replace(
+                    data = wtvrsvc_config.config.errorMessages[code].replace(
                         /\$\{(\w{1,})\}/g,
                         function (x) {
-                            return minisrv_config.config[
+                            return wtvrsvc_config.config[
                                 x.replace("${", "").replace("}", "")
                             ];
                         }
@@ -1032,10 +1032,10 @@ class WTVShared {
             case 400:
             case 500:
                 if (data === null)
-                    data = minisrv_config.config.errorMessages[code].replace(
+                    data = wtvrsvc_config.config.errorMessages[code].replace(
                         /\$\{(\w{1,})\}/g,
                         function (x) {
-                            return minisrv_config.config[
+                            return wtvrsvc_config.config[
                                 x.replace("${", "").replace("}", "")
                             ];
                         }
@@ -1046,11 +1046,11 @@ class WTVShared {
                 headers += "Content-Type: text/html\n";
                 break;
             default:
-                if (data === null && this.minisrv_config.config.errorMessages[code])
-                    data = minisrv_config.config.errorMessages[code].replace(
+                if (data === null && this.wtvrsvc_config.config.errorMessages[code])
+                    data = wtvrsvc_config.config.errorMessages[code].replace(
                         /\$\{(.+)\}/g,
                         function (x) {
-                            return minisrv_config.config[
+                            return wtvrsvc_config.config[
                                 x.replace("${", "").replace("}", "")
                             ];
                         }
@@ -1145,7 +1145,7 @@ class WTVShared {
         var self = this;
         var outdata = null;
         var found = false;
-        this.minisrv_config.config.ServiceTemplates.forEach(function (
+        this.wtvrsvc_config.config.ServiceTemplates.forEach(function (
             template_vault_dir
         ) {
             if (found) return;
@@ -1155,7 +1155,7 @@ class WTVShared {
             if (self.fs.existsSync(search)) {
                 if (path_only) outdata = search;
                 else outdata = self.fs.readFileSync(search);
-                if (!self.minisrv_config.config.debug_flags.quiet)
+                if (!self.wtvrsvc_config.config.debug_flags.quiet)
                     console.log(" * Found " + search + " to handle template");
                 found = true;
                 return false;

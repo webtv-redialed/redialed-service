@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 var challenge_response,
     challenge_header = "";
@@ -56,12 +56,12 @@ wtv-visit: client:hangupphone`;
                         " * wtv-challenge-response FAILED for " +
                         wtvshared.filterSSID(socket.ssid)
                     );
-                    if (minisrv_config.config.debug_flags.debug)
+                    if (wtvrsvc_config.config.debug_flags.debug)
                         console.log(
                             "Response Expected:",
                             challenge_response.toString(CryptoJS.enc.Base64)
                         );
-                    if (minisrv_config.config.debug_flags.debug)
+                    if (wtvrsvc_config.config.debug_flags.debug)
                         console.log("Response Received:", client_challenge_response);
                     gourl = "wtv-head-waiter:/login?reissue_challenge=true";
                 }
@@ -75,13 +75,6 @@ wtv-visit: client:hangupphone`;
         }
     }
 
-    if (request_headers.query.guest_login) {
-        if (request_headers.query.relogin || request_headers.query.reconnect)
-            gourl += "&";
-        gourl += "guest_login=true";
-        if (request_headers.query.skip_splash) gourl += "&skip_splash=true";
-    }
-
     if (
         user_id != null &&
         !request_headers.query.initial_login &&
@@ -90,7 +83,7 @@ wtv-visit: client:hangupphone`;
     ) {
         if (request_headers.query.password == "") {
             headers = `403 Please enter your password and try again
-minisrv-no-mail-count: true
+wtvr-no-mail-count: true
 `;
         } else if (
             session_data.validateUserPassword(request_headers.query.password)
@@ -99,13 +92,13 @@ minisrv-no-mail-count: true
 			// store last used IP to assist with bans
 			session_data.setSessionData("last_ip", socket.remoteAddress);
             headers = `200 OK
-minisrv-no-mail-count: true
+wtvr-no-mail-count: true
 Content-Type: text/html
 wtv-visit: ${gourl}
 `;
         } else {
             headers = `403 The password you entered was incorrect. Please retype it and try again.
-minisrv-no-mail-count: true
+wtvr-no-mail-count: true
 `;
         }
     } else {
@@ -119,7 +112,7 @@ minisrv-no-mail-count: true
             gourl = "wtv-flashrom:/ready-to-update";
         // having to restart the server to enable maintenance mode isn't ideal
         // instead we should probably make a script that interfaces with the server to enable it (like with CrossTalk)
-        } else if (minisrv_config.config.maintenance_mode && wantsMessageWatch && minisrv_config.config.serviceType == "Production") { // Make sure datadownload & messagewatch can still function
+        } else if (wtvrsvc_config.config.maintenance_mode && wantsMessageWatch && wtvrsvc_config.config.serviceType == "Production") { // Make sure datadownload & messagewatch can still function
             gourl = `wtv-star:/star?maintenance=true`;
         } 
         else if (
@@ -148,7 +141,7 @@ minisrv-no-mail-count: true
         headers = `200 OK
 wtv-connection-close: true
 Connection: close
-minisrv-no-mail-count: true
+wtvr-no-mail-count: true
 Content-Type: text/html`;
         if (client_challenge_response) {
             headers += `

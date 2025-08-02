@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 if (request_headers.query && session_data) {
     session_data.setSessionData(

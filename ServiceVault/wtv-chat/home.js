@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 var irc_nick = "";
 headers = `200 OK`;
@@ -8,7 +8,7 @@ else if (!session_data.getSessionData("subscriber_irc_nick"))
     session_data.getSessionData("subscriber_username") ||
     session_data
         .setIRCNick(
-            minisrv_config.config.service_name +
+            wtvrsvc_config.config.service_name +
             "_" +
             Math.floor(Math.random() * 100000)
         )

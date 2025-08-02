@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Connection: Keep-Alive
@@ -107,7 +107,7 @@ by JarHead</font></b>
 <p>
 This one is a bit simple, but still deserves to be talked about nonetheless.
 <p>
-You can now send Mail to multiple users at the same time by simply separating their addresses in the "To:" box with a comma (eg: "ClubWebTV@WebTV, WeCare@WebTV")
+You can now send Mail to multiple users at the same time by simply separating their addresses in the "To:" box with a comma (eg: "ClubWebTV@webtv.zone, WeCare@webtv.zone")
 <p>
 So go and send that funny site to everyone that comes to mind, you've earned it.
 <P>

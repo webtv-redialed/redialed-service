@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Connection: Keep-Alive
@@ -101,7 +101,7 @@ These are some questions that some of our users have asked us since the last Clu
 <p>
 <img src="wtv-home:/ROMCache/Spacer.gif" width=0 height=3>
 <p>
-If you have a question that you'd like to be answered in the next issue, send it to <a href="mailto:ClubWebTV@WebTV">ClubWebTV@WebTV</a>.
+If you have a question that you'd like to be answered in the next issue, send it to <a href="mailto:ClubWebTV@webtv.zone">ClubWebTV@webtv.zone</a>.
 <p>
 &nbsp;&nbsp;<spacer type=horizontal width=220>&#128; <a href="top">Back to news</a>
 </font>

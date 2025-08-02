@@ -1,11 +1,11 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 if (socket.ssid !== null) session_data.switchUserID(0);
 console.log(session_data.getAccountTotalUnreadMessages());
 
 var mailcount = ssid_sessions[socket.ssid].getAccountTotalUnreadMessages();
 
 headers = `200 OK
-minisrv-no-mail-count: true
+wtvr-no-mail-count: true
 wtv-mail-count: ${mailcount}
 wtv-expire-all: wtv-head-waiter:/ValidateLogin
 wtv-noback-all: wtv-
@@ -25,7 +25,7 @@ Choose your name
 <td width=138 absheight=109 valign=top align=center>
 <img src="ROMCache/Spacer.gif" width=1 height=8><br>
 <img src="ROMCache/Spacer.gif" width=7 height=1>
-<img src="${minisrv_config.config.service_logo}" width=127 height=98>
+<img src="${wtvrsvc_config.config.service_logo}" width=127 height=98>
 <td rowspan=99 width=6 absheight=420 valign=top align=left>
 <img src="ROMCache/Shadow.gif" width=6 height=420>
 <tr>
@@ -88,7 +88,7 @@ for (const [key, value] of Object.entries(accounts)) {
         data += `<font size=+1><b>${value["subscriber_username"]}</b></font></a>`;
     else data += `<font size=+1>${value["subscriber_username"]}</font>`;
     data += "<td width=15><td nowrap>	<font color=42BD52>";
-    var userSession = new WTVClientSessionData(minisrv_config, socket.ssid);
+    var userSession = new WTVClientSessionData(wtvrsvc_config, socket.ssid);
     userSession.user_id = user_id;
 
     var mailcount = 0;
@@ -118,7 +118,7 @@ for (const [key, value] of Object.entries(accounts)) {
     accounts_listed++;
 }
 while (
-    accounts_listed < minisrv_config.config.user_accounts.max_users_per_account
+    accounts_listed < wtvrsvc_config.config.user_accounts.max_users_per_account
     ) {
     data += `<tr>
 <td>

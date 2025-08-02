@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Connection: Keep-Alive
@@ -85,7 +85,7 @@ Considering this is the first article there are no changes to discuss, so how ab
 </p><p>
 <blackface>Mail</blackface>
 </p><p>
-Mail is dead simple. When you signed up for WebTV, you were assigned an internal Mail address (your Internet name + "@WebTV"). anybody can send you Mail through that address, and anybody you send Mail to will also see your Mail address. You should already have one message, from me. (Note: at the moment, you can only send Mail to other WebTV Redialed users.)
+Mail is dead simple. When you signed up for WebTV, you were assigned an internal Mail address (your Internet name + "@webtv.zone"). anybody can send you Mail through that address, and anybody you send Mail to will also see your Mail address. You should already have one message, from me. (Note: at the moment, you can only send Mail to other WebTV Redialed users.)
 </p><p>
 <blackface>Favorites</blackface>
 </p><p>

@@ -1,8 +1,8 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Content-type: text/html
-minisrv-no-mail-count: true`;
+wtvr-no-mail-count: true`;
 
 data = `<html>
 <head>

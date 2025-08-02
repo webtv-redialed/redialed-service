@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 var mailstore_exists = false;
 
@@ -48,7 +48,7 @@ if (!intro_seen && !request_headers.query.intro_seen) {
         } else {
             session_data.mailstore.setMessageReadStatus(messageid);
             var notImplementedAlert = new clientShowAlert({
-                image: minisrv_config.config.service_logo,
+                image: wtvrsvc_config.config.service_logo,
                 message: "This feature is not available.",
                 buttonlabel1: "Okay",
                 buttonaction1: "client:donothing",

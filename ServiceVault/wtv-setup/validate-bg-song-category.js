@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 var playlist;
 if (session_data.hasCap("client-can-do-rmf")) {
@@ -13,7 +13,7 @@ if (request_headers.query && session_data) {
             ? request_headers.query.category
             : null;
         var WTVBGMusic = require("./includes/WTVBGMusic.js");
-        var wtvbgm = new WTVBGMusic(minisrv_config, session_data);
+        var wtvbgm = new WTVBGMusic(wtvrsvc_config, session_data);
         var music_obj = wtvbgm.getMusicObj();
         var old_music_obj = Object.assign({}, music_obj);
 

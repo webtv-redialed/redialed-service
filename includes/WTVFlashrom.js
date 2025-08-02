@@ -6,11 +6,11 @@ class WTVFlashrom {
     service_vaults = new Array();
     no_debug = false;
     service_name = "";
-    minisrv_config = [];
+    wtvrsvc_config = [];
     wtvshared = null;
 
     constructor(
-        minisrv_config,
+        wtvrsvc_config,
         service_vaults,
         service_name,
         use_zefie_server = true,
@@ -23,8 +23,8 @@ class WTVFlashrom {
         this.use_zefie_server = use_zefie_server;
         this.bf0app_update = bf0app_update;
         this.no_debug = no_debug;
-        this.minisrv_config = minisrv_config;
-        this.wtvshared = new WTVShared(minisrv_config);
+        this.wtvrsvc_config = wtvrsvc_config;
+        this.wtvshared = new WTVShared(wtvrsvc_config);
     }
 
     async doLocalFlashROM(
@@ -93,12 +93,12 @@ class WTVFlashrom {
                 ")..."
             );
 
-        //if (this.minisrv_config.config.debug_flags.debug && !this.no_debug) console.log(" # FlashROM File Magic (" + flashrom_info.magic + "), expected magic (" + flashrom_magic + "), OK = " + flashrom_info.valid_flashrom + "...");
+        //if (this.wtvrsvc_config.config.debug_flags.debug && !this.no_debug) console.log(" # FlashROM File Magic (" + flashrom_info.magic + "), expected magic (" + flashrom_magic + "), OK = " + flashrom_info.valid_flashrom + "...");
         flashrom_info.byte_progress = data.readUInt32BE(68);
         flashrom_info.compression_type = parseInt(part_header[16], 16);
-        //if (this.minisrv_config.config.debug_flags.debug && !this.no_debug) console.log(" # Flashrom Part Compression Type:", flashrom_info.compression_type);
+        //if (this.wtvrsvc_config.config.debug_flags.debug && !this.no_debug) console.log(" # Flashrom Part Compression Type:", flashrom_info.compression_type);
         flashrom_info.part_data_size = data.readUInt32BE(4);
-        //if (this.minisrv_config.config.debug_flags.debug && !this.no_debug) console.log(" # Flashrom Part Data Size:", flashrom_info.part_data_size);
+        //if (this.wtvrsvc_config.config.debug_flags.debug && !this.no_debug) console.log(" # Flashrom Part Data Size:", flashrom_info.part_data_size);
         flashrom_info.part_total_size =
             flashrom_info.part_data_size + flashrom_info.header_length;
         flashrom_info.total_parts_size = data.readUInt32BE(32);
@@ -109,20 +109,20 @@ class WTVFlashrom {
         ).toFixed(1);
 
         if (
-            this.minisrv_config.config.debug_flags.debug &&
-            !this.minisrv_config.config.debug_flags.quiet &&
+            this.wtvrsvc_config.config.debug_flags.debug &&
+            !this.wtvrsvc_config.config.debug_flags.quiet &&
             !this.no_debug
         )
             console.log(" # Flashrom Part Size  :", flashrom_info.part_total_size);
         if (
-            this.minisrv_config.config.debug_flags.debug &&
-            !this.minisrv_config.config.debug_flags.quiet &&
+            this.wtvrsvc_config.config.debug_flags.debug &&
+            !this.wtvrsvc_config.config.debug_flags.quiet &&
             !this.no_debug
         )
             console.log(" # Flashrom Bytes Sent :", flashrom_info.byte_progress);
         if (
-            this.minisrv_config.config.debug_flags.debug &&
-            !this.minisrv_config.config.debug_flags.quiet &&
+            this.wtvrsvc_config.config.debug_flags.debug &&
+            !this.wtvrsvc_config.config.debug_flags.quiet &&
             !this.no_debug
         )
             console.log(
@@ -131,8 +131,8 @@ class WTVFlashrom {
                 "(" + flashrom_info.percent_complete + "% complete)"
             );
         if (
-            this.minisrv_config.config.debug_flags.debug &&
-            !this.minisrv_config.config.debug_flags.quiet &&
+            this.wtvrsvc_config.config.debug_flags.debug &&
+            !this.wtvrsvc_config.config.debug_flags.quiet &&
             !this.no_debug
         )
             console.log(" # Flashrom Total Size :", flashrom_info.total_parts_size);
@@ -141,8 +141,8 @@ class WTVFlashrom {
         flashrom_info.part_number = data.readUInt16BE(28);
 
         if (
-            this.minisrv_config.config.debug_flags.debug &&
-            !this.minisrv_config.config.debug_flags.quiet &&
+            this.wtvrsvc_config.config.debug_flags.debug &&
+            !this.wtvrsvc_config.config.debug_flags.quiet &&
             !this.no_debug
         )
             console.log(" # Flashrom Curr Part Number :", flashrom_info.part_number);
@@ -154,8 +154,8 @@ class WTVFlashrom {
 
         if (flashrom_info.is_last_part) {
             if (
-                this.minisrv_config.config.debug_flags.debug &&
-                !this.minisrv_config.config.debug_flags.quiet &&
+                this.wtvrsvc_config.config.debug_flags.debug &&
+                !this.wtvrsvc_config.config.debug_flags.quiet &&
                 !this.no_debug
             )
                 console.log(
@@ -165,8 +165,8 @@ class WTVFlashrom {
         } else {
             flashrom_info.next_part_number = flashrom_info.part_number + 1;
             if (
-                this.minisrv_config.config.debug_flags.debug &&
-                !this.minisrv_config.config.debug_flags.quiet &&
+                this.wtvrsvc_config.config.debug_flags.debug &&
+                !this.wtvrsvc_config.config.debug_flags.quiet &&
                 !this.no_debug
             )
                 console.log(
@@ -176,8 +176,8 @@ class WTVFlashrom {
         }
 
         if (
-            this.minisrv_config.config.debug_flags.debug &&
-            this.minisrv_config.config.debug_flags.quiet
+            this.wtvrsvc_config.config.debug_flags.debug &&
+            this.wtvrsvc_config.config.debug_flags.quiet
         )
             console.log(
                 " # Sending",
@@ -223,7 +223,7 @@ class WTVFlashrom {
         else headers += "Content-Type: binary/x-wtv-flashblock";
         if (flashrom_info.next_rompath != null && this.bf0app_update)
             headers += "\nwtv-visit: " + flashrom_info.next_rompath;
-        headers += "\nminisrv-no-mail-count: true";
+        headers += "\nwtvr-no-mail-count: true";
         callback(data, headers);
     }
 
@@ -266,7 +266,7 @@ class WTVFlashrom {
                 });
 
                 res.on("end", function () {
-                    if (self.minisrv_config.config.debug_flags.debug)
+                    if (self.wtvrsvc_config.config.debug_flags.debug)
                         console.log(
                             ` * Zefie's FlashROM Server HTTP Status: ${res.statusCode} ${res.statusMessage}`
                         );

@@ -1,11 +1,11 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 if (!request_headers.query.registering) {
     var errpage = wtvshared.doErrorPage(400);
     headers = errpage[0];
     data = errpage[1];
 } else {
-    var wtvr = new WTVRegister(minisrv_config, SessionStore);
+    var wtvr = new WTVRegister(wtvrsvc_config, SessionStore);
     var errpage = null;
     var month = request_headers.query.subscriber_birth_month;
     var day = request_headers.query.subscriber_birth_date;

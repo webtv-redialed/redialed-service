@@ -1,6 +1,6 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
-const wtvbgm = new WTVBGMusic(minisrv_config, session_data);
+const wtvbgm = new WTVBGMusic(wtvrsvc_config, session_data);
 if (session_data.getSessionData("wtv-bgmusic")) {
 	wtvbgm.convertPlaylist();
 }

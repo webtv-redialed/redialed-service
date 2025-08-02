@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 // write posted log data to disk. should be decrypted by this point (if it was encrypted) if the crypto stream didn't break
 
@@ -29,9 +29,9 @@ Content-length: 0`;
         "hex"
     );
     logdata_outstring_hex += request_headers.post_data.toString(CryptoJS.enc.Hex);
-    if (minisrv_config.services[service_name].write_logs_to_disk) {
+    if (wtvrsvc_config.services[service_name].write_logs_to_disk) {
         fs.writeFile(fullpath, logdata_outstring_hex, "Hex", function () {
-            if (!minisrv_config.config.debug_flags.quiet)
+            if (!wtvrsvc_config.config.debug_flags.quiet)
                 console.log(
                     " * Wrote POST log data from",
                     wtvshared.filterSSID(socket.ssid),
@@ -55,9 +55,9 @@ Content-length: 0`;
     var logdata_outstring_hex = Buffer.from(logdata_outstring, "utf8").toString(
         "hex"
     );
-    if (minisrv_config.services[service_name].write_logs_to_disk) {
+    if (wtvrsvc_config.services[service_name].write_logs_to_disk) {
         fs.writeFile(fullpath, logdata_outstring_hex, "Hex", function () {
-            if (!minisrv_config.config.debug_flags.quiet)
+            if (!wtvrsvc_config.config.debug_flags.quiet)
                 console.log(
                     " * Wrote GET log data from",
                     wtvshared.filterSSID(socket.ssid),

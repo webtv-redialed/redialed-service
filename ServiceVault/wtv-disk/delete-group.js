@@ -1,8 +1,8 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 if (request_headers.query.group) {
     const WTVDownloadList = require("./WTVDownloadList.js");
-    var wtvdl = new WTVDownloadList(minisrv_config, service_name);
+    var wtvdl = new WTVDownloadList(wtvrsvc_config, service_name);
     if (request_headers["wtv-request-type"]) {
         headers = "200 OK\nContent-Type: " + wtvdl.content_type;
         wtvdl.deleteGroup(request_headers.query.group);

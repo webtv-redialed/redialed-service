@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 if (!request_headers.query.registering) {
     var errpage = wtvshared.doErrorPage(400);
@@ -6,7 +6,7 @@ if (!request_headers.query.registering) {
     data = errpage[1];
 } else {
     const WTVRegister = require(classPath + "/WTVRegister.js");
-    var wtvr = new WTVRegister(minisrv_config, SessionStore);
+    var wtvr = new WTVRegister(wtvrsvc_config, SessionStore);
     var errpage = null;
     if (!request_headers.query.registering) errpage = wtvshared.doErrorPage(400);
     else if (!request_headers.query.subscriber_name)
@@ -18,22 +18,22 @@ if (!request_headers.query.registering) {
         errpage = wtvshared.doErrorPage(400, "Please enter a username.");
     else if (
         request_headers.query.subscriber_username.length <
-        minisrv_config.config.user_accounts.min_username_length
+        wtvrsvc_config.config.user_accounts.min_username_length
     )
         errpage = wtvshared.doErrorPage(
             400,
             "Please choose a username with <b>" +
-            minisrv_config.config.user_accounts.min_username_length +
+            wtvrsvc_config.config.user_accounts.min_username_length +
             "</b> or more characters."
         );
     else if (
         request_headers.query.subscriber_username.length >
-        minisrv_config.config.user_accounts.max_username_length
+        wtvrsvc_config.config.user_accounts.max_username_length
     )
         errpage = wtvshared.doErrorPage(
             400,
             "Please choose a username with <b>" +
-            minisrv_config.config.user_accounts.max_username_length +
+            wtvrsvc_config.config.user_accounts.max_username_length +
             "</b> or less characters."
         );
     else if (!wtvr.checkUsernameSanity(request_headers.query.subscriber_username))

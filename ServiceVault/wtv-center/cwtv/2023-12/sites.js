@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Connection: Keep-Alive
@@ -102,7 +102,7 @@ cellspacing=0 cellpadding=0>
 <P>
 Here, we've compiled a list of websites made by members of the WebTV Redialed community.
 <p>
-If you'd like your site to be showcased here, simply send it to <a href="mailto:ClubWebTV@WebTV">ClubWebTV@WebTV</a>.
+If you'd like your site to be showcased here, simply send it to <a href="mailto:ClubWebTV@webtv.zone">ClubWebTV@webtv.zone</a>.
 <p>
 <table abswidth=357 cellspacing=0 cellpadding=0 href="http://community.webtv.zone/Ryder/C-A-T/"> <tr> 
 <td width=79 valign=top> 

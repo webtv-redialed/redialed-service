@@ -1,6 +1,6 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
-if (minisrv_config.config.serviceType == "Debug") {
+if (wtvrsvc_config.config.serviceType == "Debug") {
     headers = `200 OK
     Connection: Keep-Alive
     Content-Type: text/html`;

@@ -21,7 +21,7 @@ bgcolor=00292f
 <spacer type=vertical height=7><br>
 <spacer type=horizontal width=7>
 <a href='wtv-home:/home'>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${wtvrsvc_config.config.service_logo}" width=87 height=67>
 </a>
 <td width=453 valign=top>
 <spacer type=vertical height=54><br>

@@ -1,5 +1,5 @@
 class WTVBGMusic {
-    minisrv_config = null;
+    wtvrsvc_config = null;
     session_data = null;
     wtvshared = null;
     categories = [
@@ -985,13 +985,13 @@ class WTVBGMusic {
         },
     };
 
-    constructor(minisrv_config, session_data) {
-        if (!minisrv_config) throw "minisrv_config required";
+    constructor(wtvrsvc_config, session_data) {
+        if (!wtvrsvc_config) throw "wtvrsvc_config required";
         if (!session_data) throw "WTVClientSessionData required";
         var WTVShared = require("./WTVShared.js")["WTVShared"];
-        this.minisrv_config = minisrv_config;
+        this.wtvrsvc_config = wtvrsvc_config;
         this.session_data = session_data;
-        this.wtvshared = new WTVShared(minisrv_config);
+        this.wtvshared = new WTVShared(wtvrsvc_config);
     }
 
     getMusicObj(force_default = false, playlist) {

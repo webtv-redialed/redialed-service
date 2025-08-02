@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 var gourl = "wtv-head-waiter:/login?";
 
@@ -28,7 +28,7 @@ if (session_data) {
                     }
                 }
             });
-            if (i > 0 && minisrv_config.config.debug_flags.debug)
+            if (i > 0 && wtvrsvc_config.config.debug_flags.debug)
                 console.log(
                     " # Closed",
                     i,
@@ -38,7 +38,7 @@ if (session_data) {
         }
     }
     if (session_data.data_store.wtvsec_login) {
-        if (minisrv_config.config.debug_flags.debug)
+        if (wtvrsvc_config.config.debug_flags.debug)
             console.log(
                 " # Recreating primary WTVSec login instance for",
                 wtvshared.filterSSID(socket.ssid)
@@ -75,7 +75,7 @@ if (
 if (session_data.data_store.wtvsec_login) {
     var prereg_contype = "text/html";
 
-    if (request_headers.query.relogin || request_headers.query.guest_login) {
+    if (request_headers.query.relogin) {
         // relogin
         session_data.data_store.wtvsec_login.ticket_b64 = null; // clear old ticket
     }
@@ -90,9 +90,8 @@ if (session_data.data_store.wtvsec_login) {
     var romtype = session_data.get("wtv-client-rom-type");
     var bootrom = parseInt(session_data.get("wtv-client-bootrom-version"));
     var send_tellyscript =
-        minisrv_config.services[service_name].send_tellyscripts &&
+        wtvrsvc_config.services[service_name].send_tellyscripts &&
         !request_headers.query.relogin &&
-        !request_headers.query.guest_login &&
         !bootrom !== 0;
     var wtv_script_id = parseInt(session_data.get("wtv-script-id"));
     if (
@@ -101,9 +100,9 @@ if (session_data.data_store.wtvsec_login) {
     )
         send_tellyscript = false;
     if (send_tellyscript) {
-        if (minisrv_config.services[service_name].send_tellyscript_ssid_whitelist) {
+        if (wtvrsvc_config.services[service_name].send_tellyscript_ssid_whitelist) {
             var send_telly_to_ssid =
-                minisrv_config.services[
+                wtvrsvc_config.services[
                     service_name
                     ].send_tellyscript_ssid_whitelist.findIndex(
                     (element) => element == socket.ssid
@@ -226,22 +225,16 @@ if (session_data.data_store.wtvsec_login) {
 
     if (request_headers.query.reconnect) gourl = null;
 
-    if (request_headers.query.guest_login) {
-        send_tellyscript = false;
-        if (gourl != null) gourl += "&guest_login=true";
-        if (request_headers.query.skip_splash) gourl += "&skip_splash=true";
-    }
-
     if (
         !file_path != null &&
         send_tellyscript &&
-        !minisrv_config.config.debug_flags.quiet
+        !wtvrsvc_config.config.debug_flags.quiet
     )
         console.log(" * Sending TellyScript", file_path, "on socket", socket.id);
 
     headers = "200 OK\n";
-    headers += "minisrv-no-mail-count: true\n";
-    if (bf0app_update) headers += "minisrv-use-carriage-return: false\n";
+    headers += "wtvr-no-mail-count: true\n";
+    if (bf0app_update) headers += "wtvr-use-carriage-return: false\n";
     headers += "Connection: Keep-Alive\n";
     headers +=
         "wtv-initial-key: " +
@@ -273,7 +266,6 @@ if (session_data.data_store.wtvsec_login) {
     if (bf0app_update) headers += "wtv-boot-url: " + gourl + "\n";
     else {
         headers += "wtv-boot-url: wtv-head-waiter:/relogin?relogin=true";
-        if (request_headers.query.guest_login) headers += "&guest_login=true";
         headers += "\n";
     }
     if (gourl != null) headers += "wtv-visit: " + gourl + "\n";

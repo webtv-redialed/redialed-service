@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Connection: Keep-Alive
@@ -29,7 +29,7 @@ hspace=0 vspace=0 fontsize="large">
 <table cellspacing=0 cellpadding=0>
 <tr>
 <td width=104 height=74 valign=middle align=center bgcolor="3B3A4D">
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${wtvrsvc_config.config.service_logo}" width=87 height=67>
 <td width=20 valign=top align=left bgcolor="3B3A4D">
 <img src="${service_name}:/ROMCache/Spacer.gif" width=1 height=1>
 <td colspan=10 width=436 valign=middle align=left bgcolor="3B3A4D">
@@ -66,7 +66,7 @@ Updating complete
 <font size=+1>
 The update is complete.<br>
 <p><font size=+1>Choose <b>Connect Now</b> if you<br>want to connect to ${
-    minisrv_config.config.service_name
+    wtvrsvc_config.config.service_name
 }.
 	<p><font size=+1>Press the <b>power</b> button to switch<br>off your ${session_data.getBoxName()}.
 </font>

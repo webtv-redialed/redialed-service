@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Connection: Keep-Alive
@@ -94,7 +94,7 @@ The WebTV Redialed service is now open source (under the GPL 3.0 license), meani
 <p>
 This has been in the making for a few months now, with some roadblocks in the way that prevented it from being done sooner (things like hardcoding API keys that we don't want public, for example).
 <p>
-If you find any issues/want to submit a feature request, submit an issue on GitHub or email me on WebTV (<a href=mailto:hiden64@WebTV>hiden64@WebTV</a>).
+If you find any issues/want to submit a feature request, submit an issue on GitHub or email me on WebTV (<a href=mailto:hiden64@webtv.zone>hiden64@webtv.zone</a>).
 <P>
 &nbsp;&nbsp;<spacer type=horizontal width=220>&#128; <a href="top">Back to news</a>
 </font>

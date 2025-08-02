@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 const randA = wtvshared.getDynamicConfig(`randomAdjective`);
 const randN = wtvshared.getDynamicConfig(`randomNoun`);
@@ -9,7 +9,7 @@ if (!request_headers.query.registering) {
     headers = errpage[0];
     data = errpage[1];
 } else {
-    var wtvr = new WTVRegister(minisrv_config, SessionStore);
+    var wtvr = new WTVRegister(wtvrsvc_config, SessionStore);
     var errpage = null;
     if (!request_headers.query.registering) errpage = wtvshared.doErrorPage(400);
     else if (!request_headers.query.subscriber_first_name)
@@ -93,7 +93,7 @@ name<img src="ROMCache/Spacer.gif" width=7 height=1>
 <td width=3 valign=top align=left>
 <td width=174 valign=top align=left>
 <INPUT noSubmit name="subscriber_username" id="username" Value="`;
-        if (minisrv_config.config.serviceType == "Debug") data += randResult;
+        if (wtvrsvc_config.config.serviceType == "Debug") data += randResult;
         data += `"
 bgcolor=#444444 text=#ffdd33 cursor=#cc9933
 TYPE="text" ASCIIONLY
@@ -101,7 +101,7 @@ SIZE="15"
 MAXLENGTH="15"><spacer width=8>
 <td width=242 valign=top align=left>
 <img src="ROMCache/Spacer.gif" width=1 height=4><br>
-<tt>@WebTV</tt>
+<tt>@webtv.zone</tt>
 <tr>
 <td height=12>
 <tr>

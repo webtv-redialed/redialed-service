@@ -1,8 +1,8 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 var userSession = null;
 var errpage = null;
 
-var wtvr = new WTVRegister(minisrv_config, SessionStore);
+var wtvr = new WTVRegister(wtvrsvc_config, SessionStore);
 
 if (session_data.user_id != 0)
   errpage = wtvshared.doErrorPage(
@@ -16,7 +16,7 @@ if (!errpage) {
   if (request_headers.query.user_password) {
     if (
       request_headers.query.user_password.length <
-      minisrv_config.config.passwords.min_length
+      wtvrsvc_config.config.passwords.min_length
     )
       errpage = wtvshared.doErrorPage(
         400,
@@ -25,7 +25,7 @@ if (!errpage) {
   } else {
     if (
       request_headers.query.user_password.length >
-      minisrv_config.config.passwords.max_length
+      wtvrsvc_config.config.passwords.max_length
     )
       errpage = wtvshared.doErrorPage(
         400,
@@ -62,7 +62,7 @@ var day = request_headers.query.subscriber_birth_date;
 if (!errpage) {
   if (
     session_data.getNumberOfUserAccounts() >
-    minisrv_config.config.user_accounts.max_users_per_account
+    wtvrsvc_config.config.user_accounts.max_users_per_account
   )
     errpage = wtvshared.doErrorPage(
       400,
@@ -115,7 +115,7 @@ if (errpage) {
 } else {
   if (!request_headers.query.display_name)
     request_headers.query.display_name = request_headers.query.username;
-  userSession = new WTVClientSessionData(minisrv_config, socket.ssid);
+  userSession = new WTVClientSessionData(wtvrsvc_config, socket.ssid);
   var freeUserId = session_data.findFreeUserSlot(session_data);
   if (freeUserId) {
 	birthdaydata = { month: month, day: day };

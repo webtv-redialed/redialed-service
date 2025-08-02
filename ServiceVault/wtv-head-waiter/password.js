@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Connection: Keep-Alive
@@ -8,7 +8,7 @@ wtv-expire-all: client:closeallpanels`;
 
 data = `<html><HEAD><title>Password</title> 
 <DISPLAY noscroll nooptions nostatus switchtowebmode> </HEAD> <sidebar width=144> <table cellspacing=0 cellpadding=0 bgcolor="30364D"> <tr> <td width=138 absheight=109 valign=top align=center> <img src="ROMCache/Spacer.gif" width=1 height=8><br> <img src="ROMCache/Spacer.gif" width=7 height=1>
-<img src="${minisrv_config.config.service_logo}" width=127 height=98>
+<img src="${wtvrsvc_config.config.service_logo}" width=127 height=98>
 <td rowspan=99 width=6 absheight=420 valign=top align=left> <img src="ROMCache/Shadow.gif" width=6 height=420> <tr> <td absheight=5>
 <table cellspacing=0 cellpadding=0> 
 <tr><td abswidth=138 absheight=2 valign=middle align=center bgcolor="1C1E28"> <img src="ROMCache/Spacer.gif" width=1 height=1> <tr><td abswidth=138 absheight=1 valign=top align=left> <tr><td abswidth=138 absheight=2 valign=top align=left bgcolor="4D5573"> <img src="ROMCache/Spacer.gif" width=1 height=1> </table> <tr> 

@@ -1,7 +1,7 @@
 class WTVNewsServer {
     fs = require("fs");
     path = require("path");
-    minisrv_config = null;
+    wtvrsvc_config = null;
     strftime = require("strftime");
     wtvshared = null;
     username = null;
@@ -12,17 +12,17 @@ class WTVNewsServer {
     featuredGroups = null;
 
     constructor(
-        minisrv_config,
+        wtvrsvc_config,
         local_server_port,
         using_auth = false,
         username = null,
         password = null,
         run_server = true
     ) {
-        this.minisrv_config = minisrv_config;
+        this.wtvrsvc_config = wtvrsvc_config;
         const {WTVShared} = require("./WTVShared.js");
-        this.wtvshared = new WTVShared(minisrv_config);
-        this.featuredGroups = minisrv_config.services["wtv-news"].featuredGroups;
+        this.wtvshared = new WTVShared(wtvrsvc_config);
+        this.featuredGroups = wtvrsvc_config.services["wtv-news"].featuredGroups;
         const nntp_server = require("nntp-server-zefie");
         var nntp_statuses = require("nntp-server-zefie/lib/status");
 
@@ -30,9 +30,9 @@ class WTVNewsServer {
         this.password = password || null;
         this.using_auth = using_auth;
         this.scan_interval =
-            minisrv_config.services["wtv-news"].groupMetaRefreshInterval || 86400;
+            wtvrsvc_config.services["wtv-news"].groupMetaRefreshInterval || 86400;
         this.data_path = this.wtvshared.getAbsolutePath(
-            this.minisrv_config.config.SessionStore + "/minisrv_internal_nntp"
+            this.wtvrsvc_config.config.SessionStore + "/wtvrsvc_internal_nntp"
         );
         this.createDataStore();
 
@@ -175,7 +175,7 @@ class WTVNewsServer {
             };
 
             var tls_path = this.wtvshared.getAbsolutePath(
-                this.minisrv_config.config.ServiceDeps + "/wtv-news"
+                this.wtvrsvc_config.config.ServiceDeps + "/wtv-news"
             );
             var tls_options = {
                 ca: this.fs.readFileSync(
@@ -276,13 +276,13 @@ class WTVNewsServer {
                     "<" +
                     this.wtvshared.generateString(16) +
                     "@" +
-                    this.minisrv_config.config.domain_name +
+                    this.wtvrsvc_config.config.domain_name +
                     ">";
                 post_data.messageId = post_data.headers["Message-ID"] = messageId;
             }
 
             if (!post_data.headers.Path)
-                post_data.headers.Path = "@" + this.minisrv_config.config.domain_name;
+                post_data.headers.Path = "@" + this.wtvrsvc_config.config.domain_name;
             if (!post_data.headers.Subject)
                 post_data.headers.Subject = "(No subject)";
 

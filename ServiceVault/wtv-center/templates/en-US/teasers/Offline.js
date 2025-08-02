@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 // We should be expiring all service pages, but that would wipe the preloaded offline teaser as well
 headers = `200 OK
 Connection: Keep-Alive

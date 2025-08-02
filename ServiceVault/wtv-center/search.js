@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 headers = `302 Moved temporarily\nLocation: `;
 
 // Did the user enter a website domain? Did they try to enter a "wtv-" URL like a smartass?

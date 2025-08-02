@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Connection: Keep-Alive
@@ -102,7 +102,7 @@ cellspacing=0 cellpadding=0>
 <P>
 Since this is the first release of Club WebTV with the Frequently Asked Questions section, there actually haven't been any questions asked yet!
 <p>
-If you've got a question that you'd like to be answered next time, send it to <a href="mailto:ClubWebTV@WebTV">ClubWebTV@WebTV</a>.
+If you've got a question that you'd like to be answered next time, send it to <a href="mailto:ClubWebTV@webtv.zone">ClubWebTV@webtv.zone</a>.
 <P>
 &nbsp;&nbsp;<spacer type=horizontal width=220>&#128; <a href="top">Back to news</a>
 </font>

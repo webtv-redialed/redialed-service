@@ -1,4 +1,4 @@
-var minisrv_service_file = true
+var wtvrsvc_service_file = true
 
 headers = `200 OK
 Connection: Keep-Alive
@@ -14,9 +14,9 @@ let isAprilFools = now.getMonth() == 4 && (now.getDate() == 1 || now.getDate() =
 let isJune = now.getMonth() == 5 && !usingCustomSplash
 let isHall = now.getMonth() == 9 && now.getDate() == 31
 let isCrimmis = now.getMonth() == 11 && !usingCustomSplash
-let debug = minisrv_config.config.serviceType == 'Debug'
+let debug = wtvrsvc_config.config.serviceType == 'Debug'
 
-let splashImage = minisrv_config.config.service_splash_logo
+let splashImage = wtvrsvc_config.config.service_splash_logo
 let splashBackground = ''
 
 // We really need to make this if-else-if mess into a switch later somehow
@@ -33,7 +33,7 @@ if (usingCustomSplash) {
 		break
 		case 'default':
 		default: //fallback for if they somehow set it to an unsupported value
-			splashImage = minisrv_config.config.service_splash_logo
+			splashImage = wtvrsvc_config.config.service_splash_logo
 			splashBackground = ''
 		break
 	}
@@ -50,23 +50,25 @@ data += `
 <table width=100% height=100% cellspacing=0 cellpadding=12 href=wtv-home:/home? nohighlight nocursor selected><tr><td align=center valign=${debug ? 'bottom' : 'middle'}>`;
 //Table with splash image
 data += `<table cellspacing=0 cellpadding=0><tr><td align=center valign=middle${splashBackground}><img src=${splashImage}></td></tr></table>`;
-/* the code below is only currently known to be present on post 1999 webtv
-if (!session_data.hasCap('client-has-tv-experience')) { data += `<font color=666666 size=0>TM</font>` } */
 if (splashImage != 'images/SplashLogo1MSN.gif' && session_data.hasCap('client-has-tuner')) { // determine gamer level
 	data += `<br><br><img src=ROMCache/plus.gif width=232 height=21>`;
 }
 
-if (debug) {
+if (debug || request_headers.query.show_debug_splash) {
 	const process = require('process');
 	const os = require('os');
+	const cpus = os.cpus();
 	data += `
 	</tr></td><tr><td align=center valign=top height=128>
-	<table bgcolor=191919 gradcolor=080808 border>
-	<tr><td align=center colspan=2><blackface><b><shadow>${minisrv_config.config.service_name} (Debug)
-	<tr><td><shadow><b>Node.js version:<td><shadow>${process.version}
-	<tr><td><shadow><b>Server OS:<td><shadow>${os.type()} v${os.release()} (${os.machine()})
-	<tr><td><shadow><b>Server account:<td><shadow>${os.userInfo().username}
+	<table bgcolor=191919 gradcolor=080808 border cellpadding=1 cellspacing=0>
+	<tr><td align=center colspan=2><blackface><b><shadow>${wtvrsvc_version_string}</shadow></b></blackface></td></tr>
+	<tr><td><shadow><b>Node:</b></shadow></td><td><shadow>${process.version}</shadow></td></tr>
+	<tr><td><shadow><b>OS:</b></shadow></td><td><shadow>${os.type()} ${os.release()} (${os.arch()})</shadow></td></tr>
+	<tr><td><shadow><b>CPU:</b></shadow></td><td><shadow>${cpus.length}x ${cpus[0].model}</shadow></td></tr>
+	<tr><td><shadow><b>RAM:</b></shadow></td><td><shadow>${(os.totalmem() / 1024 / 1024).toFixed(0)} MB</shadow></td></tr>
 	</table>
 	</td></tr></table>
 	</html>`;
-} else { data += `</td></tr></table></html>`; }
+} else {
+	data += `</td></tr></table></html>`;
+}

@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Connection: Keep-Alive
@@ -118,7 +118,7 @@ Community Sites does exactly what it says on the tin; shows off sites made by We
 <p>
 FAQ is where we compile questions asked by the community, so everyone can benefit from them.<p>
 You can submit both websites and questions by sending a message to
-<a href="mailto:ClubWebTV@WebTV">ClubWebTV@WebTV</a>.
+<a href="mailto:ClubWebTV@webtv.zone">ClubWebTV@webtv.zone</a>.
 <p>
 Finally, we've got these absolutely lovely seasonal themes, just for a little extra flavor.
 <p>

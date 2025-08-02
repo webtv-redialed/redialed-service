@@ -1,12 +1,12 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 if (request_headers.query.url) {
     if (request_headers.query.url.indexOf(":/") > 0) {
         var service_request = request_headers.query.url.split(":/")[0];
         var service_port = 0;
-        Object.keys(minisrv_config.services).forEach(function (k) {
-            if (minisrv_config.services[k].disabled) return;
-            if (k == service_request) service_port = minisrv_config.services[k].port;
+        Object.keys(wtvrsvc_config.services).forEach(function (k) {
+            if (wtvrsvc_config.services[k].disabled) return;
+            if (k == service_request) service_port = wtvrsvc_config.services[k].port;
         });
         if (service_port > 0) {
             request_is_async = true;

@@ -1,15 +1,15 @@
 class WTVTricks {
-    minisrv_config = [];
+    wtvrsvc_config = [];
     type = null;
 
     //i would NEVER copy this code from another file, that would be programatical malpractice!
-    constructor(minisrv_config = null) {
-        this.minisrv_config = minisrv_config;
+    constructor(wtvrsvc_config = null) {
+        this.wtvrsvc_config = wtvrsvc_config;
     }
 
     getPasswordByType(type) {
-        if ((type == "high" && this.minisrv_config.services["wtv-tricks"].password_high) || this.minisrv_config.config.serviceType == "Debug") {
-            return this.minisrv_config.services["wtv-tricks"].password_high;
+        if ((type == "high" && this.wtvrsvc_config.services["wtv-tricks"].password_high) || this.wtvrsvc_config.config.serviceType == "Debug") {
+            return this.wtvrsvc_config.services["wtv-tricks"].password_high;
         } else {
             throw ` * Tricks password type "${type}" not known or undefined in config, THIS IS BAD!`; // password type not known, should not reach this code
         }

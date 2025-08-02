@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 // If bf0app client wants its tellyscript stolen, it's going to need an NVRAM dump
 if (ssid_sessions[socket.ssid].get("wtv-client-rom-type") == "bf0app") {
@@ -24,7 +24,7 @@ Content-Type: text/html`;
 <table cellspacing=0 cellpadding=0>
         <tr>
                 <td width=104 height=74 valign=middle align=center bgcolor=3B3A4D>
-                        <img src="${this.minisrv_config.config.service_logo
+                        <img src="${this.wtvrsvc_config.config.service_logo
     }" width=86 height=64>
                 <td width=20 valign=top align=left bgcolor=3B3A4D>
                         <spacer>

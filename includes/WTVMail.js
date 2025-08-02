@@ -7,7 +7,7 @@ class WTVMail {
     inbox_store = null;
     sent_store = null;
     saved_store = null;
-    minisrv_config = [];
+    wtvrsvc_config = [];
     wtvshared = null;
     wtvmime = null;
     wtvclient = null;
@@ -19,14 +19,14 @@ class WTVMail {
     defaultColors = {};
     sendmailDefaultBGColor = "#242424";
 
-    constructor(minisrv_config, wtvclient) {
-        if (!minisrv_config) throw "minisrv_config required";
+    constructor(wtvrsvc_config, wtvclient) {
+        if (!wtvrsvc_config) throw "wtvrsvc_config required";
         var WTVShared = require("./WTVShared.js")["WTVShared"];
         var WTVMime = require("./WTVMime.js");
         this.WTVClientSessionData = require("./WTVClientSessionData.js");
-        this.minisrv_config = minisrv_config;
-        this.wtvshared = new WTVShared(minisrv_config);
-        this.wtvmime = new WTVMime(minisrv_config);
+        this.wtvrsvc_config = wtvrsvc_config;
+        this.wtvshared = new WTVShared(wtvrsvc_config);
+        this.wtvmime = new WTVMime(wtvrsvc_config);
         this.wtvclient = wtvclient;
         this.ssid = this.wtvclient.ssid;
         this.unread_mail = this.wtvclient.getSessionData("subscriber_unread_mail")
@@ -46,7 +46,48 @@ class WTVMail {
             vlink: "#189CD6",
             cursor: "#cc9933",
         };
-    }
+
+        // migrate existing mail from service name based addresses to domain name based addresses (so for prod, @WebTV addresses to @webtv.zone addresses)
+        // that way shit doesn't explode
+        // this code pisses me off so much
+		if (!this.didAddressMigration) {
+			const oldShit = this.wtvrsvc_config.config.service_name;
+			const newShit = this.wtvrsvc_config.config.domain_name;
+
+			this.mailboxes.forEach((mailboxName) => {
+				const mailboxID = this.getMailboxByName(mailboxName);
+				if (mailboxID === false) return;
+				const messages = this.listMessages(mailboxID, 1000, false);
+				if (!messages) return;
+
+				messages.forEach((msg) => {
+					if (!msg || (!msg.to_addr && !msg.from_addr)) return;
+
+					let updated = false;
+					const replaceDomain = (addr) => {
+						if (!addr) return addr;
+						const regex = new RegExp(`@${oldShit}$`, 'i');
+						if (regex.test(addr)) {
+							updated = true;
+							return addr.replace(regex, `@${newShit}`);
+						}
+						return addr;
+					};
+
+					msg.to_addr = msg.to_addr
+						? msg.to_addr.split(', ').map(replaceDomain).join(', ')
+						: msg.to_addr;
+					msg.from_addr = replaceDomain(msg.from_addr);
+
+					if (updated) {
+						this.updateMessage(msg);
+					}
+				});
+			});
+
+			this.didAddressMigration = true;
+		}
+	}
 
     checkMailIntroSeen() {
         return this.wtvclient.getSessionData("subscriber_mail_intro_seen")
@@ -62,19 +103,17 @@ class WTVMail {
     }
 
     mailstoreExists() {
-        if (!this.isguest) {
-            if (this.mailstore_dir === null) {
-                // set mailstore directory local var so we don't call the function every time
-                var userstore_dir = this.wtvclient.getUserStoreDirectory();
+        if (this.mailstore_dir === null) {
+            // set mailstore directory local var so we don't call the function every time
+            var userstore_dir = this.wtvclient.getUserStoreDirectory();
 
-                // MailStore
-                var store_dir = "MailStore" + this.path.sep;
-                this.mailstore_dir = userstore_dir + store_dir;
-            }
-            return this.fs.existsSync(this.mailstore_dir);
+            // MailStore
+            var store_dir = "MailStore" + this.path.sep;
+            this.mailstore_dir = userstore_dir + store_dir;
         }
-        return null;
+        return this.fs.existsSync(this.mailstore_dir);
     }
+    
 
     getSignatureColors(signature = null, sendmail = true) {
         var colors = Object.assign({}, this.defaultColors); // start with default colors
@@ -259,10 +298,10 @@ class WTVMail {
         var to_addr =
             this.wtvclient.getSessionData("subscriber_username") +
             "@" +
-            this.minisrv_config.config.service_name;
+            this.wtvrsvc_config.config.domain_name;
         var to_name = this.wtvclient.getSessionData("subscriber_name");
         var available_tags = {
-            ...this.minisrv_config.config,
+            ...this.wtvrsvc_config.config,
             user_address: to_addr,
             user_name: to_name,
         };
@@ -472,7 +511,7 @@ class WTVMail {
 
     checkUserExists(username, directory = null) {
         // returns the user's ssid, and user_id and userid in an array if true, false if not
-        var search_dir = this.minisrv_config.config.SessionStore + '/accounts';
+        var search_dir = this.wtvrsvc_config.config.SessionStore + '/accounts';
         var return_val = false;
         var self = this;
         if (directory) search_dir = directory;
@@ -500,7 +539,7 @@ class WTVMail {
                 ) {
                     return_val = search_dir
                         .replace(
-                            this.minisrv_config.config.SessionStore +
+                            this.wtvrsvc_config.config.SessionStore +
                             self.path.sep +
                             "accounts" +
                             self.path.sep,
@@ -521,11 +560,11 @@ class WTVMail {
         var user_data = this.checkUserExists(username);
         if (user_data) {
             var user_wtvsession = new this.WTVClientSessionData(
-                this.minisrv_config,
+                this.wtvrsvc_config,
                 user_data[0]
             );
             user_wtvsession.user_id = user_data[1];
-            var user_mailstore = new WTVMail(this.minisrv_config, user_wtvsession);
+            var user_mailstore = new WTVMail(this.wtvrsvc_config, user_wtvsession);
             return user_mailstore;
         }
         return false;
@@ -567,7 +606,7 @@ class WTVMail {
 
 		for (let i = 0; i < recipients.length; i++) {
 			var addr = recipients[i].split("@")[0];
-			recipients[i] = addr + "@" + this.minisrv_config.config.service_name;
+			recipients[i] = addr + "@" + this.wtvrsvc_config.config.domain_name;
 			usernames.push(addr)
 		}
 

@@ -1,6 +1,6 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 var accounts = session_data.listPrimaryAccountUsers();
-var wtvt = new WTVTricks(minisrv_config);
+var wtvt = new WTVTricks(wtvrsvc_config);
 const os = require('node:os');
 
 headers = `200 OK
@@ -43,7 +43,7 @@ VALUE="${session_data.getSessionData(
 		"messagewatch-offset"
 	)}" TYPE="text" SIZE="5" selected></form>
 <tr>
-		<td valign=top align=right><a href="mailto:Jar2D2@WebTV?subject=test&body=lmfao"><shadow>mailto link test</shadow></a>
+		<td valign=top align=right><a href="mailto:Jar2D2@webtv.zone?subject=test&body=lmfao"><shadow>mailto link test</shadow></a>
 		<td width=10>
 		<td valign=top><br>
 		<tr>
@@ -74,7 +74,7 @@ VALUE="${session_data.getSessionData(
 <th colspan=2>Service configuration</th>
 <tr>
 <td>LZPF compression</td>
-<td>${minisrv_config.config.enable_lzpf_compression}</td>
+<td>${wtvrsvc_config.config.enable_lzpf_compression}</td>
 </tr>
 <tr>
 <td>Current user's Messenger server</td>
@@ -85,8 +85,8 @@ VALUE="${session_data.getSessionData(
 <table border cellpadding=2>
 <th colspan=2>System statistics</th>
 <tr>
-<td>CPU Cores</td>
-<td>${os.cpus().length}</td>
+<td>CPU</td>
+<td>${cpus.length}x ${cpus[0].model}}</td>
 </tr>
 <tr>
 <td>Free Memory</td>

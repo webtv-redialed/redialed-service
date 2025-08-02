@@ -1,11 +1,11 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Content-Type: text/html`;
 
 var ssid = ssid_sessions[socket.ssid].get("wtv-client-serial-number");
 var romType = ssid_sessions[socket.ssid].get("wtv-client-rom-type");
-var wtvr = new WTVRegister(minisrv_config, SessionStore);
+var wtvr = new WTVRegister(wtvrsvc_config, SessionStore);
 var canRegister = wtvr.checkDoorsOpen(ssid);
 var brand = session_data.getManufacturer();
 

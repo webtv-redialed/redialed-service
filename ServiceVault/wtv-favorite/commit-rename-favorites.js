@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 var favoritenum = 0;
 var folder = request_headers.query.favorite_folder_name;

@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 // willie is just a graphical frontend to a list of ROMs
 // the rest of the scripts should work if you manually link to a ROM, and actually have it.
@@ -14,8 +14,8 @@ for (const [key, value] of Object.entries(request_headers.query)) {
     proxy_query += "&" + key + "=" + escape(value);
 }
 
-if (!minisrv_config.services[service_name].use_zefie_server) {
-    proxy_query += "&minisrv_local_mode=true";
+if (!wtvrsvc_config.services[service_name].use_zefie_server) {
+    proxy_query += "&wtvrsvc_local_mode=true";
 }
 
 var options = {
@@ -38,7 +38,7 @@ const req = https.request(options, function (res) {
     });
 
     res.on("error", function (e) {
-        if (!minisrv_config.config.debug_flags.quiet)
+        if (!wtvrsvc_config.config.debug_flags.quiet)
             console.log(" * Upstream Ultra Willies HTTP Error:", e);
         var errpage = wtvshared.doErrorPage(400);
         headers = errpage[0];
@@ -47,7 +47,7 @@ const req = https.request(options, function (res) {
     });
 
     res.on("end", function () {
-        if (!minisrv_config.config.debug_flags.quiet)
+        if (!wtvrsvc_config.config.debug_flags.quiet)
             console.log(
                 " * Upstream Ultra Willies HTTP Response:",
                 res.statusCode,

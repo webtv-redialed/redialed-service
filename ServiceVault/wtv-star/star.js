@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 var fixyModeOn = request_headers.query.maintenance
 
@@ -12,7 +12,7 @@ data = `<html>
     
 <head>
     
-<title>${fixyModeOn ? `Closed for Maintenance` : `${minisrv_config.config.service_name} Unavailable`}</title>
+<title>${fixyModeOn ? `Closed for Maintenance` : `${wtvrsvc_config.config.service_name} Unavailable`}</title>
 <display noscroll nooptions nologo hspace=0 vspace=0>
 
 </head>
@@ -27,7 +27,7 @@ data = `<html>
     <td rowspan=2 width=184 valign=top align=left>
         <img src="wtv-star:/ROMCache/Spacer.gif" width=184 height=63><br>
         <img src="wtv-star:/ROMCache/Spacer.gif" width=21>
-        <img src="${minisrv_config.config.service_logo}">
+        <img src="${wtvrsvc_config.config.service_logo}">
     
     <td rowspan=2 width=40 valign=top align=left bgcolor=000000>
         <img src="wtv-star:/ROMCache/Spacer.gif" width=1 height=1>
@@ -43,7 +43,7 @@ data = `<html>
         <font size="+1">`;
 if (fixyModeOn) {
     data += `
-        <b>The ${minisrv_config.config.service_name} Network<br> 
+        <b>The ${wtvrsvc_config.config.service_name} Network<br> 
         is closed for maintenance.</b>
         <p>
         The Network will re-open soon.<br>
@@ -52,7 +52,7 @@ if (fixyModeOn) {
         </font>`;
 } else {
     data += `<b>
-The ${minisrv_config.config.service_name} Network is temporarily unavailable.
+The ${wtvrsvc_config.config.service_name} Network is temporarily unavailable.
 </b>
 <p>
 Please try connecting later.`;

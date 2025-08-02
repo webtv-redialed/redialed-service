@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 if (socket.ssid != null && !session_data.get("wtvsec_login")) {
     var wtvsec_login = session_data.createWTVSecSession();
@@ -14,8 +14,8 @@ if (wtvsec_login) {
     headers =
         `200 OK
 Connection: Keep-Alive
-minisrv-use-carriage-return: false
-minisrv-no-mail-count: true
+wtvr-use-carriage-return: false
+wtvr-no-mail-count: true
 wtv-initial-key: ` +
         wtvsec_login.challenge_key.toString(CryptoJS.enc.Base64) +
         `

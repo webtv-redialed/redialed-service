@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 //TODO: move this to wtv-customscript
 
 var now = Math.floor(Date.now() / 1000)

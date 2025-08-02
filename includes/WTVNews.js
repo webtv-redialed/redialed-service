@@ -1,5 +1,5 @@
 class WTVNews {
-    minisrv_config = null;
+    wtvrsvc_config = null;
     newsie = require("newsie").default;
     strftime = require("strftime");
     wtvshared = null;
@@ -10,11 +10,11 @@ class WTVNews {
     posting_allowed = true;
     debug = null;
 
-    constructor(minisrv_config, service_name) {
-        this.minisrv_config = minisrv_config;
+    constructor(wtvrsvc_config, service_name) {
+        this.wtvrsvc_config = wtvrsvc_config;
         this.service_name = service_name;
         const {WTVShared} = require("./WTVShared.js");
-        this.wtvshared = new WTVShared(minisrv_config);
+        this.wtvshared = new WTVShared(wtvrsvc_config);
         this.debug = require("debug")("WTVNews");
     }
 
@@ -401,16 +401,16 @@ class WTVNews {
                                 var articleData = {};
                                 articleData.headers = {
                                     "Relay-Version":
-                                        "version zefie_wtvp_minisrv " +
-                                        this.minisrv_config.version +
+                                        "version wtvrsvc " +
+                                        this.wtvrsvc_config.version +
                                         "; site " +
-                                        this.minisrv_config.config.domain_name,
+                                        this.wtvrsvc_config.config.domain_name,
                                     "Posting-Version":
-                                        "version zefie_wtvp_minisrv " +
-                                        this.minisrv_config.version +
+                                        "version wtvrsvc " +
+                                        this.wtvrsvc_config.version +
                                         "; site " +
-                                        this.minisrv_config.config.domain_name,
-                                    Path: "@" + this.minisrv_config.config.domain_name,
+                                        this.wtvrsvc_config.config.domain_name,
+                                    Path: "@" + this.wtvrsvc_config.config.domain_name,
                                     From: from_addr,
                                     Newsgroups: group,
                                     Subject: msg_subject || "(No subject)",
@@ -418,7 +418,7 @@ class WTVNews {
                                         "<" +
                                         this.wtvshared.generateString(16) +
                                         "@" +
-                                        this.minisrv_config.config.domain_name +
+                                        this.wtvrsvc_config.config.domain_name +
                                         ">",
                                     Date: this.strftime("%a, %-d %b %Y %H:%M:%S %z", new Date()),
                                 };

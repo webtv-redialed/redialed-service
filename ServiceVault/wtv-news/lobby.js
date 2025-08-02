@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 // max of 6, any more will be ignored
 
@@ -23,7 +23,7 @@ data = `<HTML>
 <table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
 <tr>
 <td align=right>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${wtvrsvc_config.config.service_logo}" width=87 height=67>
 </table>
 <td abswidth=5>
 <tr>
@@ -108,7 +108,7 @@ Featured discussions
 <td>
 <td WIDTH=198 HEIGHT=200 VALIGN=top ALIGN=left>`;
 
-var featuredGroups = minisrv_config.services[service_name].featuredGroups;
+var featuredGroups = wtvrsvc_config.services[service_name].featuredGroups;
 var limit = 6;
 while (featuredGroups.length > limit) featuredGroups.pop(); // remove anything passing our limit
 

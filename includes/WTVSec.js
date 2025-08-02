@@ -31,7 +31,7 @@ class WTVSec {
     hRC4_Key1 = null;
     hRC4_Key2 = null;
     RC4Session = new Array();
-    minisrv_config = [];
+    wtvrsvc_config = [];
     update_ticket = false;
     ticket_store = {};
 
@@ -40,11 +40,11 @@ class WTVSec {
      * Initialize the WTVSec class.
      *
      * @param {Number} wtv_incarnation Sets the wtv-incarnation for this instance
-     * @param {Boolean} minisrv_config.config.debug_flags.debug Enable debugging
+     * @param {Boolean} wtvrsvc_config.config.debug_flags.debug Enable debugging
      *
      */
-    constructor(minisrv_config, wtv_incarnation = 1) {
-        this.minisrv_config = minisrv_config;
+    constructor(wtvrsvc_config, wtv_incarnation = 1) {
+        this.wtvrsvc_config = wtvrsvc_config;
         this.initial_shared_key = CryptoJS.enc.Base64.parse(
             this.initial_shared_key_b64
         );
@@ -91,7 +91,7 @@ class WTVSec {
      */
     PrepareTicket() {
         // store last challenge response in ticket
-        if (this.minisrv_config.config.debug_flags.debug)
+        if (this.wtvrsvc_config.config.debug_flags.debug)
             console.log(
                 " * Preparing a new ticket with ticket_store:",
                 this.ticket_store
@@ -175,7 +175,7 @@ class WTVSec {
         }
 
         this.ProcessChallenge(challenge_code_b64, challenge_key);
-        if (this.minisrv_config.config.debug_flags.debug)
+        if (this.wtvrsvc_config.config.debug_flags.debug)
             console.log(
                 " * Decoded session from wtv-ticket with ticket_store:",
                 this.ticket_store
@@ -354,7 +354,7 @@ class WTVSec {
      *
      */
     SecureOn(rc4session = null) {
-        if (this.minisrv_config.config.debug_flags.debug)
+        if (this.wtvrsvc_config.config.debug_flags.debug)
             console.log(
                 " # Generating RC4 sessions with wtv-incarnation: " + this.incarnation
             );

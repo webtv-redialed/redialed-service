@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 const months = [
     "January",
@@ -53,7 +53,7 @@ if (!request_headers.query.registering) {
     headers = errpage[0];
     data = errpage[1];
 } else {
-    var wtvr = new WTVRegister(minisrv_config, SessionStore);
+    var wtvr = new WTVRegister(wtvrsvc_config, SessionStore);
     var errpage = null;
     const nonoWords = wtvshared.getDynamicConfig(`nonoWords`);
     const reservedWords = wtvshared.getDynamicConfig(`reservedWords`);
@@ -248,7 +248,7 @@ Internet<img src="ROMCache/Spacer.gif" width=7 height=1>
         }&subscriber_birth_month=${month}&subscriber_birth_date=${day}&brand=${
             request_headers.query.brand
         }">
-<tt>${request_headers.query.subscriber_username}@WebTV</tt>
+<tt>${request_headers.query.subscriber_username}@webtv.zone</tt>
 
 <tr>
 <td width=121 valign=top align=right>

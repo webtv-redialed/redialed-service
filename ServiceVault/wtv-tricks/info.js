@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 let client_caps = null;
 
@@ -47,8 +47,8 @@ function getVersion(givenBuild) {
     return (versionMap.at(versionMap.findIndex(({ build }) => build > givenBuild) - 1).vers);
 }
 
-let serviceIP = minisrv_config.config.service_ip;
-let zTitle = `WebTV Services, (${minisrv_version_string})`;
+let serviceIP = wtvrsvc_config.config.service_ip;
+let zTitle = wtvrsvc_version_string;
 
 let systemVersion = session_data.get("wtv-system-version");
 let bootromVersion = session_data.get("wtv-client-bootrom-version");
@@ -61,7 +61,7 @@ let chipVersionStr =
 let sysConfigHex =
     "0x" + parseInt(session_data.get("wtv-system-sysconfig")).toString(16);
 let capabilitiesTable = new WTVClientCapabilities().capabilities_table;
-let wtvt = new WTVTricks(minisrv_config);
+let wtvt = new WTVTricks(wtvrsvc_config);
 
 // halen's sysconfig/chipversion stuff
 let soloVersion = (chipVersionStr & 0xf00000) >> 0x14;
@@ -191,7 +191,7 @@ else bank1Mode = "PageMode";
 data = `<html>
 <!--- *=* Copyright 1996, 1997 WebTV Networks, Inc. All rights reserved. --->
 <display nosave nosend skipback>
-<title>${minisrv_config.config.service_name} Info</title>
+<title>${wtvrsvc_config.config.service_name} Info</title>
 
 <sidebar width=20%>
 		<img src="wtv-tricks:/images/About_bg.jpg">
@@ -202,7 +202,7 @@ data = `<html>
 <br>
 <br>
 
-<h1>${minisrv_config.config.service_name} Info</h1>
+<h1>${wtvrsvc_config.config.service_name} Info</h1>
 
 <table>
 <tr>
@@ -210,11 +210,11 @@ data = `<html>
 <tr>
 		<td valign=top align=right><shadow>Connected to:</shadow>
 		<td width=10>
-		<td valign=top>${minisrv_config.config.serviceType} Service
+		<td valign=top>${wtvrsvc_config.config.serviceType} Service
 <tr>
 		<td valign=top align=right><shadow>Host/Port:</shadow>
 		<td width=10>
-		<td valign=top>${serviceIP}/${minisrv_config.services[service_name].port}
+		<td valign=top>${serviceIP}/${wtvrsvc_config.services[service_name].port}
 <tr>
 		<td valign=top align=right width=150><shadow>Service:</shadow>
 		<td width=10>

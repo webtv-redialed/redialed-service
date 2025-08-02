@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 var viewer = 2 // debug override
 
 var viewergen_resource_dir = ServiceDeps + "/viewergen/";
@@ -304,7 +304,7 @@ if (request_headers.query.viewer &&
 
     var viewer_file = viewers[request_headers.query.viewer];
     if (!viewer_file) {
-        errpage = wtvshared.doErrorPage("500", null, socket.minisrv_pc_mode)
+        errpage = wtvshared.doErrorPage("500", null, socket.wtvrsvc_pc_mode)
         headers = errpage[0];
         data = errpage[1];
     } else {
@@ -313,7 +313,7 @@ if (request_headers.query.viewer &&
         var viewer_md5 = crypto.createHash('md5').update(viewer_data).digest("hex");
         if (viewer_md5 != viewer_stock_md5s[viewer_file]) {
             console.log(viewer_file, "md5sum error. expected:", viewer_stock_md5s[viewer_file], ", got:", viewer_md5)
-            errpage = wtvshared.doErrorPage("500", null, socket.minisrv_pc_mode)
+            errpage = wtvshared.doErrorPage("500", null, socket.wtvrsvc_pc_mode)
             headers = errpage[0];
             data = errpage[1];
         } else {
@@ -335,7 +335,7 @@ if (request_headers.query.viewer &&
             }
 
             if (!patchDataObject.patch_data) {
-                errpage = wtvshared.doErrorPage("500", null, socket.minisrv_pc_mode)
+                errpage = wtvshared.doErrorPage("500", null, socket.wtvrsvc_pc_mode)
                 headers = errpage[0];
                 data = errpage[1];
             } else {

@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 var errpage;
 
 if (Object.keys(session_data.listPrimaryAccountUsers()).length == 1) {
@@ -26,7 +26,7 @@ if (errpage) {
     if (!request_headers.query.confirm_remove) {
         var message = "";
         if (usersToRemove.length == 1) {
-            var userSession = new WTVClientSessionData(minisrv_config, socket.ssid);
+            var userSession = new WTVClientSessionData(wtvrsvc_config, socket.ssid);
             userSession.switchUserID(usersToRemove[0]);
             var userName = userSession.getSessionData("subscriber_username");
             message = `Removing <b>${userName}</b> will permanently remove all of <b>${userName}</b>'s e-mail and favorites as well. You will not be able to restore <b>${userName}</b>.`;

@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 var signature = session_data.getSessionData("subscriber_signature");
 if (signature === null) signature = "";
 session_data.saveSessionData();

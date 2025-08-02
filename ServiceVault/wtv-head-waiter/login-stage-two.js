@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 var gourl = null;
 const fetch = require("node-fetch");
 const timeInterpreter = require("@onereach/time-interpreter");
@@ -10,7 +10,7 @@ request_is_async = true; // Make us async
 async function getTimezone() {
     // proper error handling is for bitches
     try {
-        const response = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=${minisrv_config.config.geolocationApiKey}&ip=${socket.remoteAddress}&fields=time_zone`);
+        const response = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=${wtvrsvc_config.config.geolocationApiKey}&ip=${socket.remoteAddress}&fields=time_zone`);
         const locdata = await response.json();
         if (locdata.time_zone) {
             return locdata.time_zone.offset_with_dst;
@@ -32,7 +32,7 @@ function doShit(timezone) {
         var accounts = session_data.listPrimaryAccountUsers();
 
     // Take unregistered users to registration
-    if (!session_data.isRegistered() && (!request_headers.query.guest_login || !minisrv_config.config.allow_guests))
+    if (!session_data.isRegistered())
         gourl = "wtv-register:/splash?";
     var home_url = "wtv-home:/home?";
 
@@ -53,7 +53,7 @@ wtv-visit: client:hangupphone`;
         headers = `200 OK
 wtv-open-isp-disabled: false
 `;
-        if (!session_data.isRegistered() && (!request_headers.query.guest_login || !minisrv_config.config.allow_guests)) {
+        if (!session_data.isRegistered()) {
             headers += `wtv-encrypted: true
 ${getServiceString("wtv-register")}
 ${getServiceString("wtv-head-waiter")}
@@ -66,16 +66,7 @@ Content-type: text/html`;
         data = "";
     } else {
         if (session_data.lockdown) {
-            home_url = minisrv_config.config.unauthorized_url;
-        } else if (request_headers.query.guest_login && minisrv_config.config.allow_guests) { // Won't encounter this condition on Redialed, no guest users
-            var namerand = Math.floor(Math.random() * 100000);
-            var nickname = minisrv_config.config.service_name + "_" + namerand;
-            var human_name = nickname;
-            var userid = "1" + Math.floor(Math.random() * 1000000000000000000);
-            var messenger_enabled = 0;
-            var messenger_authorized = 0;
-            if (request_headers.query.skip_splash) gourl = "wtv-home:/home?";
-            else gourl = "wtv-home:/splash?";
+            home_url = wtvrsvc_config.config.unauthorized_url;
         } else if (!session_data.getSessionData("registered")) {
             var errpage = wtvshared.doErrorPage(400);
             headers = errpage[0];
@@ -244,7 +235,7 @@ wtv-inactive-timeout: 0
                   headers += `wtv-bypass-proxy: true
           user-id: 0
           wtv-human-name: Unauthorized User
-          wtv-domain: ${minisrv_config.config.domain_name}
+          wtv-domain: ${wtvrsvc_config.config.domain_name}
           wtv-input-timeout: 30
           wtv-connection-timeout: 60
           wtv-fader-timeout: 60
@@ -254,13 +245,10 @@ wtv-inactive-timeout: 0
 
             if (!limitedLogin && !limitedLoginRegistered) {
                 headers += "\nwtv-relogin-url: wtv-head-waiter:/relogin?relogin=true";
-                if (request_headers.query.guest_login) headers += "&guest_login=true"; // Won't encounter this condition on Redialed, no guest users
 
                 headers += "\nwtv-reconnect-url: wtv-head-waiter:/login-stage-two?reconnect=true";
-                if (request_headers.query.guest_login) headers += "&guest_login=true";
 
                 headers += "\nwtv-boot-url: wtv-head-waiter:/relogin?relogin=true";
-                if (request_headers.query.guest_login) headers += "&guest_login=true";
                 headers += "\nwtv-home-url: " + home_url;
             }
 

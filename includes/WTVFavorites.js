@@ -4,7 +4,7 @@ class WTVFavorites {
     uuid = require("uuid");
 
     ssid = null;
-    minisrv_config = [];
+    wtvrsvc_config = [];
     wtvshared = null;
     wtvmime = null;
     wtvclient = null;
@@ -14,15 +14,15 @@ class WTVFavorites {
     folderArr = [];
     messageArr = [];
 
-    constructor(minisrv_config, wtvclient) {
-        if (!minisrv_config) throw "minisrv_config required";
+    constructor(wtvrsvc_config, wtvclient) {
+        if (!wtvrsvc_config) throw "wtvrsvc_config required";
         if (!wtvclient) throw "WTVClientSessionData required";
         var WTVShared = require("./WTVShared.js")["WTVShared"];
         var WTVMime = require("./WTVMime.js");
         this.WTVClientSessionData = require("./WTVClientSessionData.js");
-        this.minisrv_config = minisrv_config;
-        this.wtvshared = new WTVShared(minisrv_config);
-        this.wtvmime = new WTVMime(minisrv_config);
+        this.wtvrsvc_config = wtvrsvc_config;
+        this.wtvshared = new WTVShared(wtvrsvc_config);
+        this.wtvmime = new WTVMime(wtvrsvc_config);
         this.wtvclient = wtvclient;
         this.ssid = wtvclient.ssid;
         this.folderArr = this.folderArr;
@@ -43,18 +43,15 @@ class WTVFavorites {
     }
 
     favstoreExists() {
-        if (!this.isguest) {
-            if (this.favstore_dir === null) {
-                // set favstore directory local var so we don't call the function every time
-                var userstore_dir = this.wtvclient.getUserStoreDirectory(false, 0);
+        if (this.favstore_dir === null) {
+            // set favstore directory local var so we don't call the function every time
+            var userstore_dir = this.wtvclient.getUserStoreDirectory(false, 0);
 
-                // FavStore
-                var store_dir = "FavStore" + this.path.sep;
-                this.favstore_dir = userstore_dir + store_dir;
-            }
-            return this.fs.existsSync(this.favstore_dir);
+            // FavStore
+            var store_dir = "FavStore" + this.path.sep;
+            this.favstore_dir = userstore_dir + store_dir;
         }
-        return null;
+        return this.fs.existsSync(this.favstore_dir);
     }
 
     folderExists(foldername) {
@@ -87,7 +84,7 @@ class WTVFavorites {
     createTemplateFolder(folder) {
         // create emply folder
         this.createFolder(folder);
-        var folder_templates = this.minisrv_config.favorites.folder_templates;
+        var folder_templates = this.wtvrsvc_config.favorites.folder_templates;
         // populate it if a template exists
         var self = this;
         if (folder_templates[folder]) {

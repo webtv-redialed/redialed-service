@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Content-Type: text/html`;
@@ -121,7 +121,7 @@ First name<img src="ROMCache/Spacer.gif" width=8>
 ID="subscriber_first_name"
 bgcolor=#444444 text=#ffdd33 cursor=#cc9933
 VALUE="`;
-if (minisrv_config.config.serviceType == "Debug") data += randA[Math.floor(Math.random() * randA.length)];
+if (wtvrsvc_config.config.serviceType == "Debug") data += randA[Math.floor(Math.random() * randA.length)];
 data += `" TYPE="text" SIZE="18"
 MAXLENGTH="18"
 AutoCaps selected

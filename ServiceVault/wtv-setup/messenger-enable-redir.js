@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 // this file's sole purpose in life is to turn messenger off and on when changing accounts, so the user doesn't have to relog
 

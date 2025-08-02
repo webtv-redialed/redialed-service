@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Connection: Keep-Alive
@@ -7,7 +7,7 @@ Expires: Wed, 09 Oct 1991 22:00:00 GMT
 Content-Type: text/plain`;
 
 const crypto = require("crypto");
-var wtvMe = new WTVMessenger(minisrv_config, SessionStore);
+var wtvMe = new WTVMessenger(wtvrsvc_config, SessionStore);
 //const https = require("https");
 
 const algorithm = "aes-256-ctr";

@@ -1,10 +1,10 @@
 class WTVMessenger {
-    minisrv_config = [];
+    wtvrsvc_config = [];
     type = null;
 
     //i would NEVER copy this code from another file, that would be programatical malpractice!
-    constructor(minisrv_config = null) {
-        this.minisrv_config = minisrv_config;
+    constructor(wtvrsvc_config = null) {
+        this.wtvrsvc_config = wtvrsvc_config;
     }
 
     getMessengerLoginSecret() {

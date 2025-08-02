@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 var errpage;
 
 session_data.loadSessionData();
@@ -26,7 +26,7 @@ if (user_id != null) {
     if (session_data.user_id == request_headers.query.user_id)
         userSession = session_data;
     else {
-        userSession = new WTVClientSessionData(minisrv_config, socket.ssid);
+        userSession = new WTVClientSessionData(wtvrsvc_config, socket.ssid);
         userSession.user_id = user_id;
     }
 

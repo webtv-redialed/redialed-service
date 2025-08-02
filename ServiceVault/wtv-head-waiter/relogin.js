@@ -1,16 +1,9 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 session_data.setUserLoggedIn(false);
 
 var gourl = "wtv-1800:/preregister?";
 if (request_headers.query.relogin) gourl += "relogin=true";
 else if (request_headers.query.reconnect) gourl += "reconnect=true";
-
-if (request_headers.query.guest_login) {
-    if (request_headers.query.relogin || request_headers.query.reconnect)
-        gourl += "&";
-    gourl += "guest_login=true";
-    if (request_headers.query.skip_splash) gourl += "&skip_splash=true";
-}
 
 if (request_headers.query.needTMPfilesystem) {
 	gourl = `wtv-flashrom:/get-tmp?needTMPfilesystem=${request_headers.query.needTMPfilesystem}`; // Handle FCS pants shitting

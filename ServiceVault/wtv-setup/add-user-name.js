@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 var errpage;
 
 if (session_data.user_id != 0)
@@ -8,13 +8,13 @@ if (session_data.user_id != 0)
     );
 else if (
     session_data.getNumberOfUserAccounts() >
-    minisrv_config.config.user_accounts.max_users_per_account
+    wtvrsvc_config.config.user_accounts.max_users_per_account
 )
     errpage = wtvshared.doErrorPage(
         400,
         "You are not authorized to add more than " +
-        minisrv_config.config.user_accounts.max_users_per_account +
-        ` account${minisrv_config.config.user_accounts.max_users_per_account > 1 ? "s" : ""
+        wtvrsvc_config.config.user_accounts.max_users_per_account +
+        ` account${wtvrsvc_config.config.user_accounts.max_users_per_account > 1 ? "s" : ""
         }.`
     );
 
@@ -50,7 +50,7 @@ noscroll>
 <table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
 <tr>
 <td align=right>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${wtvrsvc_config.config.service_logo}" width=87 height=67>
 </table>
 <td abswidth=6>
 <tr><td absheight=5 colspan=3>
@@ -118,7 +118,7 @@ Internet name<br>
 <INPUT noSubmit name="user_name" id="user_name" Value="`;
     if (request_headers.query.display_name) {
         data += request_headers.query.display_name;
-    } else if (minisrv_config.config.serviceType == "Debug") {
+    } else if (wtvrsvc_config.config.serviceType == "Debug") {
         data += randResult;
     } else {
         data += "";

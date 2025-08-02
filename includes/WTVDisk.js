@@ -8,16 +8,16 @@ class WTVDownloadList {
     content_type = "wtv/download-list";
     wtvshared = null;
     clientShowAlert = null;
-    minisrv_config = [];
+    wtvrsvc_config = [];
 
     /**
      * Constructs the WTVDownloadList Class
      * @param {string} service_name Service name to use in wtv-urls
      */
-    constructor(minisrv_config, service_name = "wtv-disk") {
+    constructor(wtvrsvc_config, service_name = "wtv-disk") {
         var {WTVShared, clientShowAlert} = require("./WTVShared.js");
-        this.minisrv_config = minisrv_config;
-        this.wtvshared = new WTVShared(minisrv_config);
+        this.wtvrsvc_config = wtvrsvc_config;
+        this.wtvshared = new WTVShared(wtvrsvc_config);
         this.clientShowAlert = clientShowAlert;
         this.service_name = service_name;
         this.clear();
@@ -284,7 +284,7 @@ class WTVDownloadList {
 
     /**
      * Generates the Download page
-     * @param {object} minisrv_config minisrv config object
+     * @param {object} wtvrsvc_config wtvrsvc config object
      * @param {string} title Page title
      * @param {string} group
      * @param {string|null} diskmap
@@ -324,7 +324,7 @@ class WTVDownloadList {
 
         if (success_url === null)
             success_url = new this.clientShowAlert({
-                image: this.minisrv_config.config.service_logo,
+                image: this.wtvrsvc_config.config.service_logo,
                 message: "Download successful!",
                 buttonlabel1: "Okay",
                 buttonaction1: "client:goback",
@@ -333,7 +333,7 @@ class WTVDownloadList {
 
         if (fail_url === null)
             fail_url = new this.clientShowAlert({
-                image: this.minisrv_config.config.service_logo,
+                image: this.wtvrsvc_config.config.service_logo,
                 message: "Download failed...",
                 buttonlabel1: "Okay",
                 buttonaction1: "client:goback",
@@ -358,7 +358,7 @@ class WTVDownloadList {
         <tr>
                 <td width=104 height=74 valign=middle align=center bgcolor=3B3A4D>
                         <img src="${
-            this.minisrv_config.config.service_logo
+            this.wtvrsvc_config.config.service_logo
         }" width=86 height=64>
                 <td width=20 valign=top align=left bgcolor=3B3A4D>
                         <spacer>

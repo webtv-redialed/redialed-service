@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 var error = "";
 if (request_headers.query.error) {
@@ -52,7 +52,7 @@ data = `<html>
         <tr>
             <td width=104 height=74 valign=middle align=center bgcolor="3B3A4D">
                 <img src="${
-    minisrv_config.config.service_logo
+    wtvrsvc_config.config.service_logo
 }" width=87 height=67>
             <td width=20 valign=top align=left bgcolor="3B3A4D">
                 <img src="${service_name}:/ROMCache/Spacer.gif" width=1 height=1>

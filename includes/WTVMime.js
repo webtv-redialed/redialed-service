@@ -5,12 +5,12 @@
 class WTVMime {
     mime = require("mime-types");
     wtvshared = null;
-    minisrv_config = [];
+    wtvrsvc_config = [];
 
-    constructor(minisrv_config) {
+    constructor(wtvrsvc_config) {
         const {WTVShared} = require("./WTVShared.js");
-        this.minisrv_config = minisrv_config;
-        this.wtvshared = new WTVShared(minisrv_config);
+        this.wtvrsvc_config = wtvrsvc_config;
+        this.wtvshared = new WTVShared(wtvrsvc_config);
         if (!String.prototype.reverse) {
             String.prototype.reverse = function () {
                 var splitString = this.split("");
@@ -28,8 +28,8 @@ class WTVMime {
             if (ssid_session.capabilities) {
                 if (ssid_session.capabilities["client-can-receive-compressed-data"]) {
                     if (
-                        this.minisrv_config.config.enable_lzpf_compression ||
-                        this.minisrv_config.config.force_compression_type
+                        this.wtvrsvc_config.config.enable_lzpf_compression ||
+                        this.wtvrsvc_config.config.force_compression_type
                     ) {
                         compression_type = 1; // lzpf
                     }
@@ -37,8 +37,8 @@ class WTVMime {
                     if (ssid_session) {
                         // if gzip is enabled...
                         if (
-                            this.minisrv_config.config.enable_gzip_compression ||
-                            this.minisrv_config.config.force_compression_type
+                            this.wtvrsvc_config.config.enable_gzip_compression ||
+                            this.wtvrsvc_config.config.force_compression_type
                         ) {
                             var is_bf0app =
                                 ssid_session.get("wtv-client-rom-type") == "bf0app";
@@ -63,9 +63,9 @@ class WTVMime {
                     }
 
                     // mostly for debugging
-                    if (this.minisrv_config.config.force_compression_type == "lzpf")
+                    if (this.wtvrsvc_config.config.force_compression_type == "lzpf")
                         compression_type = 1;
-                    if (this.minisrv_config.config.force_compression_type == "gzip")
+                    if (this.wtvrsvc_config.config.force_compression_type == "gzip")
                         compression_type = 2;
 
                     // do not compress if already encoded

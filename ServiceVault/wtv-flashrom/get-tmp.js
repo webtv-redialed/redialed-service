@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 /* 	a lot of assumptions are being made about how this works. poo.
 	this serves as a way for braindead boxes to repair themselves. box will request a checksum for the appropriate ROMFS container, and we need to be responsible for providing it.
 	this is most useful for bf0app 2.x clients which have a tendency to become braindead for various reasons, e.g. hitting reset button during error dialog lag */

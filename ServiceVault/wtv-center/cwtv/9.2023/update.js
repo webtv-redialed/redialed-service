@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Connection: Keep-Alive
@@ -97,7 +97,7 @@ We've switched around some of our news providers, and have decided to switch the
 </p><p>
 We've also made a few more technical changes behind the scenes, but you shouldn't really notice them.
 </p><p>
-Have any questions or concerns? You can send me Mail at <a href="mailto:JarHead@WebTV">JarHead@WebTV</a> and I'll try to respond as best I can.
+Have any questions or concerns? You can send me Mail at <a href="mailto:JarHead@webtv.zone">JarHead@webtv.zone</a> and I'll try to respond as best I can.
 </p><p>
 </p></font><p><font size="4">
 Have fun!

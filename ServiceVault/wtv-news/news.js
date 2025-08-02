@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 function linkify(inputText) {
   var replacedText, replacePattern1, replacePattern2, replacePattern3;
@@ -25,11 +25,11 @@ function linkify(inputText) {
     return replacedText;
 }
 
-const wtvnews = new WTVNews(minisrv_config, service_name);
-var service_config = minisrv_config.services[service_name];
+const wtvnews = new WTVNews(wtvrsvc_config, service_name);
+var service_config = wtvrsvc_config.services[service_name];
 if (service_config.local_nntp_port && wtvnewsserver) {
     var tls_path = this.wtvshared.getAbsolutePath(
-        this.minisrv_config.config.ServiceDeps + "/wtv-news"
+        this.wtvrsvc_config.config.ServiceDeps + "/wtv-news"
     );
     var tls_options = {
         ca: this.fs.readFileSync(tls_path + "/localserver_ca.pem"),
@@ -155,7 +155,7 @@ top.location="news:${request_headers.query.group}";
 <table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
 <tr>
 <td align=right>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${wtvrsvc_config.config.service_logo}" width=87 height=67>
 </table>
 <td abswidth=5>
 <tr>
@@ -508,7 +508,7 @@ ${
 <td abswidth=6>
 <img src="wtv-home:/ROMCache/Spacer.gif" width=1>
 <td align=center>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${wtvrsvc_config.config.service_logo}" width=87 height=67>
 </table>
 <td abswidth=5>
 <tr>
@@ -809,7 +809,7 @@ ${linkify(wtvshared.sanitizeSignature(wtvshared.htmlEntitize(message_body, true)
                         .catch((e) => {
                             // no such article
                             var post_unavailable_file = this.wtvshared.getAbsolutePath(
-                                this.minisrv_config.config.ServiceDeps +
+                                this.wtvrsvc_config.config.ServiceDeps +
                                 "/wtv-news/post-unavailable.html"
                             );
                             console.log(e);
@@ -820,8 +820,8 @@ ${linkify(wtvshared.sanitizeSignature(wtvshared.htmlEntitize(message_body, true)
                                     .toString("ascii")
                                     .replace("${group}", group)
                                     .replace(
-                                        "${minisrv_config.config.service_logo}",
-                                        minisrv_config.config.service_logo
+                                        "${wtvrsvc_config.config.service_logo}",
+                                        wtvrsvc_config.config.service_logo
                                     )
                                     .replace(
                                         "${message_colors.bgcolor}",
@@ -872,7 +872,7 @@ Content-type: text/html`;
 <table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
 <tr>
 <td align=right>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${wtvrsvc_config.config.service_logo}" width=87 height=67>
 </table>
 <td abswidth=5>
 <tr>

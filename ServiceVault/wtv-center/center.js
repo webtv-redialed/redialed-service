@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 const {
 	getByStateCity,
@@ -17,7 +17,7 @@ headers = `200 OK
 Connection: Keep-Alive
 Content-Type: text/html`;
 
-var wtvc = new WTVCache(minisrv_config);
+var wtvc = new WTVCache(wtvrsvc_config);
 
 function titleCase(str) {
 	// ZCS returns all uppercase, so we manually make the first character of each word uppercase

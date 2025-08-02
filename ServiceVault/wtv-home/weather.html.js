@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Connection: Keep-Alive
@@ -48,7 +48,7 @@ async function loadCurrentData() {
             const response = await fetch(
                 "https://api.weather.com/v3/wx/observations/current?postalKey=" +
                 (accounts.subscriber.subscriber_zip_code || "98052") +
-                ":US&units=e&language=en-US&format=json&apiKey=" + minisrv_config.config.weatherApiKey
+                ":US&units=e&language=en-US&format=json&apiKey=" + wtvrsvc_config.config.weatherApiKey
             );
             const weather = await response.json();
 

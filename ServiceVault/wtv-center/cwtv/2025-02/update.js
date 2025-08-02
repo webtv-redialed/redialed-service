@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Connection: Keep-Alive
@@ -96,9 +96,9 @@ We've also lowered the minimum length for Messenger passwords to 6 characters, r
 </p><br><p>
 <b>Known Issue</b>: We are aware of the issues with the ProtoWeb proxy, and we've believed to have narrowed it down to a DNS-related issue. Hopefully a fix will hopefully be coming soon. In the meantime, expect the ProtoWeb proxy's functionality to be hit or miss.
 </p><br><p>
-The next Club WebTV issue will feature community submitted web sites and questions. We didn't get enough for them to be featured this time around. If you wish to submit a question or a Page Builder web site to show off, send a message to <a href="mailto:ClubWebTV@WebTV">ClubWebTV@WebTV</a>.
+The next Club WebTV issue will feature community submitted web sites and questions. We didn't get enough for them to be featured this time around. If you wish to submit a question or a Page Builder web site to show off, send a message to <a href="mailto:ClubWebTV@webtv.zone">ClubWebTV@webtv.zone</a>.
 </p><p>
-Have any further questions? Need help? Just want to say hi and pester me? You can shoot me a message at <a href="mailto:hiden64@WebTV">hiden64@WebTV</a>, and I'll try and respond to every message.
+Have any further questions? Need help? Just want to say hi and pester me? You can shoot me a message at <a href="mailto:hiden64@webtv.zone">hiden64@webtv.zone</a>, and I'll try and respond to every message.
 </p><p>
 </p></font><p><font size="4">
 Now, go and surf that darn web!

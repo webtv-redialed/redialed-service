@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Content-type: text/html`;
@@ -26,7 +26,7 @@ bgcolor=00292f
 <spacer type=vertical height=7><br>
 <spacer type=horizontal width=7>
 <a href='wtv-home:/home'>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${wtvrsvc_config.config.service_logo}" width=87 height=67>
 </a>
 <td width=453 valign=top>
 <spacer type=vertical height=54><br>
@@ -54,11 +54,11 @@ Welcome to Mail&nbsp;
 <td valign=top>
 In Mail, you can exchange typed messages&#151;called
 <i>e-mail</i>&#151;with anyone who is on ${
-    minisrv_config.config.service_name
+    wtvrsvc_config.config.service_name
 }. This is your e-mail address:
 <blockquote>
 <b>${session_data.getSessionData("subscriber_username")}@${
-    minisrv_config.config.service_name
+    wtvrsvc_config.config.service_name
 }</b>
 </blockquote>
 Choose <b>Begin</b> to start using Mail. <!-- Or to learn more,

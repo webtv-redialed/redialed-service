@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 const authorizedPOSTers = wtvshared.getDynamicConfig(`authorizedPOSTers`);
 const file = request_headers.query.file
