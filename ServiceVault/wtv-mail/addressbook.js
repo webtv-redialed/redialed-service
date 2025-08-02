@@ -9,6 +9,20 @@ if (address_book == null) {
 	address_book = [];
 }
 
+// stupid hack because address book emails are stored differently
+// TODO: not that
+var migrated = false;
+address_book.forEach(user => {
+	if (user.address.split("@")[1] === "WebTV") {
+		user.address = user.address.split("@")[0] + "@webtv.zone";
+		migrated = true;
+	}
+});
+
+if (migrated) {
+	session_data.setSessionData("address_book", address_book);
+}
+
 if (!camefrom && !action) {
 	headers = `200 OK`
 	data = `<html>
