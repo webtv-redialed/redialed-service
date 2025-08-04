@@ -50,10 +50,10 @@ hspace=0 vspace=0
 <table cellspacing=0 cellpadding=0>
 <tr>
 <td valign=center absheight=80>
-<shadow><blackface><font color="e7ce4a" font size="+1">
-${session_data.hasCap("client-has-tuner") ? "Settings" : "Setup"}
+<shadow><font color="e7ce4a" font size="+1"><blackface>
+${session_data.hasCap("client-has-tuner") ? "Settings" : "Setup"}</blackface>
 for ${session_data.getSessionData("subscriber_username") || "You"}
-</font><blackface><shadow>
+</font><shadow>
 </table>
 <tr>
 <TD>

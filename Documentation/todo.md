@@ -6,6 +6,7 @@
 
 ### Top Priority
 - Fix the ProtoWeb proxy
+- Make cSetup the Viewer startup page OOTB
 - Implement headlines/teasers for the Money center
 - Do all the page builder styles
 - Scrapbook
