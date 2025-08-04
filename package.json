@@ -2,7 +2,7 @@
   "name": "redialed-service",
   "description": "WebTV Redialed service. Based on zefie_wtvp_minisrv.",
   "main": "app.js",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "homepage": "https://github.com/webtv-redialed/redialed-service",
   "license": "GPL3",
   "scripts": {

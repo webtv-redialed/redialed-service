@@ -110,6 +110,7 @@
       "port": 1605,
       "local_nntp_port": 57319,
       "local_nntp_uses_tls": true,
+      "local_nntp_requires_auth": true,
       "modules": [
         "WTVNews"
       ],
