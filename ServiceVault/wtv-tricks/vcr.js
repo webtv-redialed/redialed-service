@@ -79,8 +79,8 @@ Program
 </table>
 
 <td AW=352 AH=256 BC=161d2d>
-<a selected href="client:showtvfullscreen?usevcr" nextleft="Program">
-<tv usevcr W=352 H=256 nosignalmessage=long>
+<a selected href="client:showtvfullscreen?usealtconfig" nextleft="Program">
+<tv usealtconfig W=352 H=256 nosignalmessage=long>
 </a>
 <td AW=10 AH=256>
 <img src=file://ROM/tvimages/VideoBorderEdge_Right.gif W=10 H=256>
@@ -109,63 +109,6 @@ Program
 </table>
 </table>
 <tr><td>
-<table CS=0 CP=0 !border>
-<tr><td H=20>
-<tr>
-<td AL=middle>
-<table CS=0 CP=0 !border>
-<tr><td AL=middle href=client:vcrcontroller?key=record>
-<img src=file://ROM/tvimages/vcr/Button_Record.gif W=42 H=42>
-<tr><td H=5>
-<tr><td AL=middle>
-<img src=file://ROM/tvimages/vcr/Label_Record.gif W=48 H=17>
-</table>
-<td W=17>
-<td AL=middle>
-<table CS=0 CP=0 !border>
-<tr><td AL=middle href=client:vcrcontroller?key=pause>
-<img src=file://ROM/tvimages/vcr/Button_Pause.gif W=42 H=42>
-<tr><td H=5>
-<tr><td AL=middle>
-<img src=file://ROM/tvimages/vcr/Label_Pause.gif W=48 H=17>
-</table>
-<td W=17>
-<td AL=middle>
-<table CS=0 CP=0 !border>
-<tr><td AL=middle href=client:vcrcontroller?key=play>
-<img src=file://ROM/tvimages/vcr/Button_Play.gif W=42 H=42>
-<tr><td H=5>
-<tr><td AL=middle>
-<img src=file://ROM/tvimages/vcr/Label_Play.gif W=48 H=17>
-</table>
-<td W=17>
-<td AL=middle>
-<table CS=0 CP=0 !border>
-<tr><td AL=middle href=client:vcrcontroller?key=stop>
-<img src=file://ROM/tvimages/vcr/Button_Stop.gif W=42 H=42>
-<tr><td H=5>
-<tr><td AL=middle>
-<img src=file://ROM/tvimages/vcr/Label_Stop.gif W=48 H=17>
-</table>
-<td W=17>
-<td AL=middle>
-<table CS=0 CP=0 !border>
-<tr><td AL=middle href=client:vcrcontroller?key=rewind>
-<img src=file://ROM/tvimages/vcr/Button_Rewind.gif W=42 H=42>
-<tr><td H=5>
-<tr><td AL=middle>
-<img src=file://ROM/tvimages/vcr/Label_Rewind.gif W=48 H=17>
-</table>
-<td W=17>
-<td AL=middle>
-<table CS=0 CP=0 !border>
-<tr><td AL=middle href=client:vcrcontroller?key=fastforward>
-<img src=file://ROM/tvimages/vcr/Button_FastForward.gif W=42 H=42>
-<tr><td H=5>
-<tr><td AL=middle>
-<img src=file://ROM/tvimages/vcr/Label_FastForward.gif W=48 H=17>
-</table>
-</table>
 
 </table>
 </table>
