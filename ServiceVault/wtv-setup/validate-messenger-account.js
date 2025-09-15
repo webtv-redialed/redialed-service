@@ -38,7 +38,7 @@ if (errpage) {
     session_data.setSessionData("messenger_password", encryptedpass);
     session_data.setSessionData("messenger_email", request_headers.query.email);
     session_data.setSessionData("messenger_domain", request_headers.query.domain);
-    session_data.setSessionData("messenger_server", request_headers.query.server);
+    //session_data.setSessionData("messenger_server", request_headers.query.server);
     session_data.saveSessionData;
 
     headers = `302 Moved temporarily
@@ -46,6 +46,6 @@ Location: wtv-setup:/messenger-enable-redir
 wtv-domain: ${session_data.getSessionData("messenger_domain")}
 passport-domain: ${session_data.getSessionData("messenger_domain")}
 wtv-user-name: ${session_data.getSessionData("messenger_email")}
-wtv-messenger-server: ${session_data.getSessionData("messenger_server")}
+wtv-messenger-server: ms.msgrsvcs.ctsrv.xyz
 wtv-messenger-enable: 0`;
 }

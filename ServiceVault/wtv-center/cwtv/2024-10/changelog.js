@@ -94,7 +94,7 @@ cellspacing=0 cellpadding=0>
 <P>
 Here's a list of all features/fixes added since the last Club WebTV issue.
 <p>
-Added the ability to change which Messenger server you wish to connect to. Currently, only Escargot and CrossTalk are available as they are the only known servers that support WebTV-specific features.
+Added the ability to change which Messenger server you wish to connect to. Currently, CrossTalk is available as they are the only known servers that support WebTV-specific features.
 <p>
 Dreamcast clients now use the 1999 Web Home page, same as every other client.
 <p>

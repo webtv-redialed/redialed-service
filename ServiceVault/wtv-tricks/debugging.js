@@ -77,7 +77,7 @@ VALUE="${session_data.getSessionData(
 <td>${wtvrsvc_config.config.enable_lzpf_compression}</td>
 </tr>
 <tr>
-<td>Current user's Messenger server</td>
+<td>Messenger server</td>
 <td>${session_data.getSessionData("messenger_server")}</td>
 </tr>
 </table>

@@ -30,7 +30,7 @@ Content-Type: text/plain`;
         request_is_async = true; // Make us async
 		// get auth URL from PPRDR (should always be the same but accuracy or some shit)
         const request = https.get(
-            `https://${session_data.getSessionData("messenger_server")}/rdr/pprdr.asp`,
+            `https://ctas.login.ugnet.xyz/rdr/pprdr.asp`,
             (response) => {
                 let req_data = "";
                 response.on("data", (chunk) => {

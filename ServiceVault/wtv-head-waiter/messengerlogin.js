@@ -52,7 +52,7 @@ if (request_headers.request.split("?")[1].substring(0, 3) != "ct=") {
     request_is_async = true; // Make us async
 
     async function auth() {
-        var response = await fetch(`https://${session_data.getSessionData("messenger_server")}/rdr/pprdr.asp`);
+        var response = await fetch(`https://ctas.login.ugnet.xyz/rdr/pprdr.asp`);
         var passporturls = response.headers
             .get("passporturls")
             .split("DALogin=")[1];
