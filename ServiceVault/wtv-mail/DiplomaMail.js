@@ -57,9 +57,7 @@ In Mail, you can exchange typed messages&#151;called
     wtvrsvc_config.config.service_name
 }. This is your e-mail address:
 <blockquote>
-<b>${session_data.getSessionData("subscriber_username")}@${
-    wtvrsvc_config.config.service_name
-}</b>
+<b>${session_data.getSessionData("subscriber_username")}@webtv.zone</b>
 </blockquote>
 Choose <b>Begin</b> to start using Mail. <!-- Or to learn more,
 choose this link:
