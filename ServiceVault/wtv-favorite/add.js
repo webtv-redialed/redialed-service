@@ -120,6 +120,7 @@ async function saveFavorite(favstore, title, folder, imagetype, favurl) {
             wtvrsvc_config.services[service_name].max_favorites_per_folder
         ) {
             headers = `400 You can only have ${wtvrsvc_config.services[service_name].max_favorites_per_folder} favorites in a folder. Discard some favorites or choose a different folder, then try again.`;
+            sendToClient(socket, headers);
         } else {
             var createresult = favstore.createFavorite(
                 title,
