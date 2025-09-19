@@ -16,7 +16,7 @@ var logos = {
 
 var disksets = {
     0: null,
-    1: "cSetup.zip"
+    1: "messengerProxy.zip"
 }
 
 var viewer_stock_md5s = {
