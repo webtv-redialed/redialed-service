@@ -724,12 +724,15 @@ class WTVClientSessionData {
         else return null;
     }
 
-    setSessionData(key, value) {
+    setSessionData(key, value, ignoreRegisteredCheck = false) {
         if (key === null) throw "ClientSessionData.set(): invalid key provided";
         if (typeof this.session_store === "undefined")
             this.session_store = new Array();
         this.session_store[key] = value;
-        this.SaveIfRegistered();
+        if (!ignoreRegisteredCheck)
+            this.SaveIfRegistered();
+        else
+            this.saveSessionData(true); // we're in the process of registering, so save regardless
     }
 
     deleteSessionData(key) {

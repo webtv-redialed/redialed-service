@@ -34,27 +34,31 @@ if (canRegister == true) {
         birthdaydata = {month: month, day: day};
         session_data.setSessionData(
             "subscriber_first_name",
-            request_headers.query.subscriber_first_name
+            request_headers.query.subscriber_first_name,
+            true
         );
         session_data.setSessionData(
             "subscriber_last_name",
-            request_headers.query.subscriber_last_name
+            request_headers.query.subscriber_last_name,
+            true
         );
         session_data.setSessionData(
             "subscriber_username",
-            request_headers.query.subscriber_username
+            request_headers.query.subscriber_username,
+            true
         );
         session_data.setSessionData(
             "subscriber_name",
             request_headers.query.subscriber_first_name +
             " " +
-            request_headers.query.subscriber_last_name
+            request_headers.query.subscriber_last_name,
+            true
         );
-        session_data.setSessionData("subscriber_birthday", birthdaydata);
-        session_data.setSessionData("subscriber_userid", 0);
+        session_data.setSessionData("subscriber_birthday", birthdaydata, true);
+        session_data.setSessionData("subscriber_userid", 0, true);
 		// store signup IP to assist with bans
-		session_data.setSessionData("signup_ip", socket.remoteAddress);
-        session_data.setSessionData("registered", true);
+		session_data.setSessionData("signup_ip", socket.remoteAddress, true);
+        session_data.setSessionData("registered", true, true);
         var mailstore_exists = session_data.mailstore.mailstoreExists();
         var mailbox_exists = false;
         if (!mailstore_exists)
