@@ -8,7 +8,7 @@
         "url": "https://SKCro.github.io/WebTV-HD/wtv.html"
     },
 	{
-        "img": "wtv-home:/shared/ads/smallmicrowave/basement.gif",
+        "img": "wtv-home:/shared/ads/ultra0/basement.gif",
         "url": "http://ultra0.xyz"
     },
 	{
@@ -22,5 +22,9 @@
     {
         "img": "wtv-home:/shared/ads/cinnapoodle/dreamscape.gif",
         "url": "http://cinnapoodle.github.io/chronospace/wtv/index.html"
-    }   
+    },
+    {
+        "img": "wtv-home:/shared/ads/cobb/cobb.jpg",
+        "url": "http://cobb.club"
+    }
 ]
