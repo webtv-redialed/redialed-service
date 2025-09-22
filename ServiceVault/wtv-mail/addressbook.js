@@ -398,7 +398,7 @@ label="View saved messages">
 <TR><TD COLSPAN=3 HEIGHT=25 VALIGN=TOP>
 <TABLE CELLSPACING=0 CELLPADDING=0>
 <TD WIDTH=400>Your address is ${session_data.getSessionData("messenger_email") || "unlinked"
-				}@${session_data.getSessionData("messenger_domain") || "escargot.chat"}
+				}@${session_data.getSessionData("messenger_domain")}
 <TD ALIGN=RIGHT>
 </TABLE>
 </TABLE>

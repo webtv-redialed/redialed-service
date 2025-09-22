@@ -2,7 +2,7 @@
   "name": "redialed-service",
   "description": "WebTV Redialed service. Based on zefie_wtvp_minisrv.",
   "main": "app.js",
-  "version": "0.10.2",
+  "version": "0.10.3",
   "homepage": "https://github.com/webtv-redialed/redialed-service",
   "license": "GPL3",
   "scripts": {
@@ -42,7 +42,7 @@
     "proxy-agent": "^6.3.1",
     "rss-parser": "^3.13.0",
     "sanitize-html": "^2.11.0",
-    "strftime": "^0.10.2",
+    "strftime": "^0.10.3",
     "uuid": "^9.0.0",
     "zcs": "^1.0.2"
   }

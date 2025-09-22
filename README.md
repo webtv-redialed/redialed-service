@@ -16,3 +16,6 @@ Please make sure of the following:
 - Guest users are *not* enabled
 - Registration is open on public services
 - Appropriate API keys are functional for things like time zone determination, and sensitive passwords such as the Tricks password should not be left as their defaults
+
+## For developers
+If you'd like to contribute something but have no idea where to start, check [our to-do list](Documentation/TODO.md). We would especially appreciate if you contributed something that's marked as "top priority".

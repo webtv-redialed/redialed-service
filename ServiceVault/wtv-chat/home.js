@@ -135,7 +135,7 @@ Chat
 <tr>
 <td width=15>
 <td width=120 valign=top>
-<table cellspacing=0 cellpadding=0 href=wtv-chat:/MakeChatPage?host=irc.libera.chat&port=6667 selected>
+<table cellspacing=0 cellpadding=0 href=wtv-chat:/MakeChatPage?host=irc.classicconnect.net&port=6677 selected>
 <tr>
 <td>
 <table cellspacing=0 cellpadding=0>
@@ -171,7 +171,7 @@ happening right now.
 <td height=20>
 <tr>
 <td>
-<table cellspacing=0 cellpadding=0 href="wtv-chat:/MakeChatPage?host=irc.libera.chat&port=6667&channel=WebTV">
+<table cellspacing=0 cellpadding=0 href="wtv-chat:/MakeChatPage?host=irc.classicconnect.net&port=6677&channel=webtv">
 <tr>
 <td width=13>
 <td valign=top>
@@ -204,25 +204,6 @@ users and learn about chatting on the Internet.</font>
 <tr>
 <td maxlines=5>
 <font size=-2>A channel for users of the ProtoWeb service.</font>
-</table>
-</table>
-<tr>
-<td height=20>
-<tr>
-<td>
-<table cellspacing=0 cellpadding=0 href="wtv-chat:/MakeChatPage?host=irc.libera.chat&port=6667&channel=Libera">
-<tr>
-<td width=13>
-<td valign=top>
-<table cellspacing=0 cellpadding=0>
-<tr>
-<td maxlines=1>
-<font size=-1 color=189CD6><b>Libera</b></font>
-</table>
-<table cellspacing=0 cellpadding=0>
-<tr>
-<td maxlines=5>
-<font size=-2>Official Libera IRC Chat support.</font>
 </table>
 </table>
 <tr>
