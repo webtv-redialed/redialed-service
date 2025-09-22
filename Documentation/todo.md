@@ -6,13 +6,13 @@
 
 ### Top Priority
 - Fix the ProtoWeb proxy
-- Make cSetup the Viewer startup page OOTB
 - Implement headlines/teasers for the Money center
 - Do all the page builder styles
 - Scrapbook
 - Fix the "Too much data in POST request" error that sometimes happens when sending emails/posting to Discuss. Appears to be related to encryption, so that's going to be *fun*
 - Fix the issue on Chat where the channel list isn't populated until a reload
 - Fix Page Builder bugs
+- Fix favorites bugs (#41)
 
 ### Low Priority
 - Finish wtv-guide templating then work a data entry job
@@ -46,3 +46,4 @@
 - Figure out why MessageWatch doesn't work
 - Fix the hellish nightmare known as the Weather teasers so they look like the original
 - Page Builder is a fucking nightmare i hate it make it stop i am going to lose it why is it this way i am in pain i can't take it
+- Make cSetup the Viewer startup page OOTB
