@@ -423,58 +423,60 @@ class WTVMail {
     }
 
     listMessages(mailboxid, limit, reverse_sort = false, offset = 0) {
-        if (this.createMailbox(mailboxid)) {
-            var mailbox_path = this.getMailboxStoreDir(mailboxid);
-            var self = this;
-            var files = this.fs
-                .readdirSync(mailbox_path)
-                .map(function (v) {
-                    var message_data_raw = null;
-                    var message_date = null;
-                    var message_path = mailbox_path + self.path.sep + v;
-                    if (self.fs.existsSync(message_path))
-                        message_data_raw = self.fs.readFileSync(message_path);
-                    if (message_data_raw) {
-                        var message_data = JSON.parse(message_data_raw);
-                        if (message_data) message_date = message_data.date;
-                    }
-                    var message_date_ret = message_date
-                        ? message_date
-                        : self.fs
-                            .statSync(mailbox_path + self.path.sep + v)
-                            .mtime.getTime();
-                    self.fs.statSync(mailbox_path + self.path.sep + v).mtime.getTime();
-                    return {
-                        name: v,
-                        time: message_date_ret,
-                    };
-                })
-                .sort(function (a, b) {
-                    if (!reverse_sort) return b.time - a.time;
-                    else return a.time - b.time;
-                })
-                .map(function (v) {
-                    if (
-                        v.name.substring(v.name.length - self.msgFileExt.length) ===
-                        self.msgFileExt
-                    )
-                        return v.name.substring(0, v.name.length - 5);
-                });
+        if (!this.mailboxExists(mailboxid))
+            return false; // mailbox doesn't exist, just say we don't have any messages
 
-            if (files.length == 0) return false; // no messages
-            else {
-                // todo filter previous results when offset
-                var messagelist_out = new Array();
-                Object.keys(files).forEach(function (k) {
-                    var message = self.getMessage(mailboxid, files[k]);
-                    if (message) messagelist_out.push(mailboxid, message);
-                    else console.error(" # MailErr: reading message ID: ", files[k]);
-                });
-                return messagelist_out.filter(function (n) {
-                    return n;
-                });
-            }
+        var mailbox_path = this.getMailboxStoreDir(mailboxid);
+        var self = this;
+        var files = this.fs
+            .readdirSync(mailbox_path)
+            .map(function (v) {
+                var message_data_raw = null;
+                var message_date = null;
+                var message_path = mailbox_path + self.path.sep + v;
+                if (self.fs.existsSync(message_path))
+                    message_data_raw = self.fs.readFileSync(message_path);
+                if (message_data_raw) {
+                    var message_data = JSON.parse(message_data_raw);
+                    if (message_data) message_date = message_data.date;
+                }
+                var message_date_ret = message_date
+                    ? message_date
+                    : self.fs
+                        .statSync(mailbox_path + self.path.sep + v)
+                        .mtime.getTime();
+                self.fs.statSync(mailbox_path + self.path.sep + v).mtime.getTime();
+                return {
+                    name: v,
+                    time: message_date_ret,
+                };
+            })
+            .sort(function (a, b) {
+                if (!reverse_sort) return b.time - a.time;
+                else return a.time - b.time;
+            })
+            .map(function (v) {
+                if (
+                    v.name.substring(v.name.length - self.msgFileExt.length) ===
+                    self.msgFileExt
+                )
+                    return v.name.substring(0, v.name.length - 5);
+            });
+
+        if (files.length == 0) return false; // no messages
+        else {
+            // todo filter previous results when offset
+            var messagelist_out = new Array();
+            Object.keys(files).forEach(function (k) {
+                var message = self.getMessage(mailboxid, files[k]);
+                if (message) messagelist_out.push(mailboxid, message);
+                else console.error(" # MailErr: reading message ID: ", files[k]);
+            });
+            return messagelist_out.filter(function (n) {
+                return n;
+            });
         }
+
         return null; // error
     }
 
