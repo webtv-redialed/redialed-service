@@ -99,6 +99,47 @@ if (!intro_seen && !request_headers.query.intro_seen) {
                 }
             }
 
+                        // migrate existing mail from service name based addresses to domain name based addresses (so for prod, @WebTV addresses to @webtv.zone addresses)
+            // that way shit doesn't explode
+            // this code pisses me off so much
+		    if (!this.didAddressMigration) {
+			    const oldShit = this.wtvrsvc_config.config.service_name;
+			    const newShit = this.wtvrsvc_config.config.domain_name;
+
+			    session_data.mailstore.mailboxes.forEach((mailboxName) => {
+				    const mailboxID = session_data.mailstore.getMailboxByName(mailboxName);
+				    if (mailboxID === false) return;
+				    const messages = session_data.mailstore.listMessages(mailboxID, 1000, false);
+				    if (!messages) return;
+
+				    messages.forEach((msg) => {
+					    if (!msg || (!msg.to_addr && !msg.from_addr)) return;
+
+					    let updated = false;
+					    const replaceDomain = (addr) => {
+						    if (!addr) return addr;
+						    const regex = new RegExp(`@${oldShit}$`, 'i');
+						    if (regex.test(addr)) {
+							    updated = true;
+							    return addr.replace(regex, `@${newShit}`);
+						    }
+						    return addr;
+					    };
+
+					    msg.to_addr = msg.to_addr
+						    ? msg.to_addr.split(', ').map(replaceDomain).join(', ')
+						    : msg.to_addr;
+					    msg.from_addr = replaceDomain(msg.from_addr);
+
+					    if (updated) {
+						    session_data.mailstore.updateMessage(msg);
+					    }
+				    });
+			    });
+
+			    this.didAddressMigration = true;
+	        }
+        
             var username = session_data.getSessionData("subscriber_username");
             var notImplementedAlert = new clientShowAlert({
                 image: wtvrsvc_config.config.service_logo,

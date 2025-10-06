@@ -46,48 +46,7 @@ class WTVMail {
             vlink: "#189CD6",
             cursor: "#cc9933",
         };
-
-        // migrate existing mail from service name based addresses to domain name based addresses (so for prod, @WebTV addresses to @webtv.zone addresses)
-        // that way shit doesn't explode
-        // this code pisses me off so much
-		if (!this.didAddressMigration) {
-			const oldShit = this.wtvrsvc_config.config.service_name;
-			const newShit = this.wtvrsvc_config.config.domain_name;
-
-			this.mailboxes.forEach((mailboxName) => {
-				const mailboxID = this.getMailboxByName(mailboxName);
-				if (mailboxID === false) return;
-				const messages = this.listMessages(mailboxID, 1000, false);
-				if (!messages) return;
-
-				messages.forEach((msg) => {
-					if (!msg || (!msg.to_addr && !msg.from_addr)) return;
-
-					let updated = false;
-					const replaceDomain = (addr) => {
-						if (!addr) return addr;
-						const regex = new RegExp(`@${oldShit}$`, 'i');
-						if (regex.test(addr)) {
-							updated = true;
-							return addr.replace(regex, `@${newShit}`);
-						}
-						return addr;
-					};
-
-					msg.to_addr = msg.to_addr
-						? msg.to_addr.split(', ').map(replaceDomain).join(', ')
-						: msg.to_addr;
-					msg.from_addr = replaceDomain(msg.from_addr);
-
-					if (updated) {
-						this.updateMessage(msg);
-					}
-				});
-			});
-
-			this.didAddressMigration = true;
-		}
-	}
+    }
 
     checkMailIntroSeen() {
         return this.wtvclient.getSessionData("subscriber_mail_intro_seen")
