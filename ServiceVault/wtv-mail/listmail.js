@@ -99,7 +99,7 @@ if (!intro_seen && !request_headers.query.intro_seen) {
                 }
             }
 
-                        // migrate existing mail from service name based addresses to domain name based addresses (so for prod, @WebTV addresses to @webtv.zone addresses)
+            // migrate existing mail from service name based addresses to domain name based addresses (so for prod, @WebTV addresses to @webtv.zone addresses)
             // that way shit doesn't explode
             // this code pisses me off so much
 		    if (!this.didAddressMigration) {
