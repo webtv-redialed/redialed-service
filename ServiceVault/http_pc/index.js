@@ -7,13 +7,13 @@ data = `<html><head>
 <meta http-equiv="Content-Language" content="en-us">
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 <meta name="GENERATOR" content="Microsoft FrontPage 6.0">
-<meta name="DESCRIPTION" content="WebTV Redialed viewer generator">
+<meta name="DESCRIPTION" content="WebTV Remix viewer generator">
 
 <!-- ===============Tells Servers to Load Fresh Page=================== -->
 
 
 
-<title>WebTV Redialed: Viewer Generator</title>
+<title>WebTV Remix: Viewer Generator</title>
 <script>
 function generateSSID() {
     var ssidForm = document.getElementById('client_ssid');

@@ -119,7 +119,7 @@ hspace="0" vspace="0" fontsize="large" noscroll>
 				case "redialed":
 					document.connect.machine.value="31.97.129.116"
 					document.connect.port.value="1615"
-					document.message.msg.value='Continuation of the WebTV service that keeps the vibe of the original. Ran by HIDEN.'
+					document.message.msg.value='Continuation of the WebTV service that keeps the vibe of the original. Ran by coltonsr77.'
 					break;
 				case "other":
 					document.message.msg.value="Connect to another server that isn't listed."
