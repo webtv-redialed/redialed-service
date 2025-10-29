@@ -27,7 +27,7 @@
     "debug": "^4.3.4",
     "easy-crc": "1.1.0",
     "endianness": "^8.0.2",
-    "express": "^4.18.2",
+    "express": "^5.1.0",
     "fetch": "^1.1.0",
     "follow-redirects": "^1.15.5",
     "html-entities": "^2.4.0",
