@@ -24,7 +24,7 @@
     "atob": "^2.1.2",
     "btoa": "^1.2.1",
     "crypto-js": "^4.2.0",
-    "debug": "^4.3.4",
+    "debug": "^4.4.3",
     "easy-crc": "1.1.0",
     "endianness": "^8.0.2",
     "express": "^4.18.2",
