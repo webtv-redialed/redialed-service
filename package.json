@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@onereach/time-interpreter": "^1.0.27",
-    "@types/node": "^24.5.2",
+    "@types/node": "^24.9.2",
     "adm-zip": "^0.5.9",
     "atob": "^2.1.2",
     "btoa": "^1.2.1",
