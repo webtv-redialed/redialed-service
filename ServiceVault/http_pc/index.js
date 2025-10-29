@@ -13,7 +13,7 @@ data = `<html><head>
 
 
 
-<title>WebTV Redialed: Viewer Generator</title>
+<title>WebTV Remix: Viewer Generator</title>
 <script>
 function generateSSID() {
     var ssidForm = document.getElementById('client_ssid');
