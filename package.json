@@ -31,7 +31,7 @@
     "fetch": "^1.1.0",
     "follow-redirects": "^1.15.5",
     "html-entities": "^2.4.0",
-    "iconv-lite": "^0.6.3",
+    "iconv-lite": "^0.7.0",
     "ip": "^2.0.1",
     "mime-types": "^3.0.1",
     "newsie": "^1.2.1",
