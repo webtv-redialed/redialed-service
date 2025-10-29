@@ -1,9 +1,9 @@
 {
-  "name": "redialed-service",
-  "description": "WebTV Redialed service. Based on zefie_wtvp_minisrv.",
+  "name": "remix-service",
+  "description": "WebTV Remix service. Based on zefie_wtvp_minisrv.",
   "main": "app.js",
   "version": "0.10.4",
-  "homepage": "https://github.com/webtv-redialed/redialed-service",
+  "homepage": "https://github.com/DevTools77/redialed-service-fork",
   "license": "GPL3",
   "scripts": {
     "start": "node app.js",
@@ -11,39 +11,39 @@
     "test": "node test.js"
   },
   "bugs": {
-    "url": "https://github.com/webtv-redialed/redialed-service/issues"
+    "url": "https://github.com/DevTools77/redialed-service-fork/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/webtv-redialed/redialed-service.git"
+    "url": "https://github.com/DevTools77/redialed-service-fork.git"
   },
   "dependencies": {
     "@onereach/time-interpreter": "^1.0.27",
-    "@types/node": "^24.9.2",
+    "@types/node": "^24.5.2",
     "adm-zip": "^0.5.9",
     "atob": "^2.1.2",
     "btoa": "^1.2.1",
     "crypto-js": "^4.2.0",
-    "debug": "^4.4.3",
+    "debug": "^4.3.4",
     "easy-crc": "1.1.0",
     "endianness": "^8.0.2",
-    "express": "^5.1.0",
+    "express": "^4.18.2",
     "fetch": "^1.1.0",
-    "follow-redirects": "^1.15.11",
+    "follow-redirects": "^1.15.5",
     "html-entities": "^2.4.0",
-    "iconv-lite": "^0.7.0",
-    "ip": "^2.0.1",
-    "mime-types": "^3.0.1",
+    "iconv-lite": "^0.6.3",
+    "ip": "^1.1.9",
+    "mime-types": "^2.1.35",
     "newsie": "^1.2.1",
     "nntp-server-zefie": "^3.1.0",
-    "node-fetch": "^3.3.2",
+    "node-fetch": "^2.6.9",
     "nunjucks": "^3.2.4",
     "process": "^0.11.10",
     "proxy-agent": "^6.3.1",
     "rss-parser": "^3.13.0",
     "sanitize-html": "^2.11.0",
     "strftime": "^0.10.3",
-    "uuid": "^13.0.0",
-    "zcs": "^2.8.4"
+    "uuid": "^9.0.0",
+    "zcs": "^1.0.2"
   }
 }
