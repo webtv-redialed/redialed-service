@@ -99,7 +99,7 @@ ENCTYPE="x-www-form-encoded" METHOD="POST">
 </a>
 <td valign=middle align=left>
 <font size="+1">
-${canRegister ? `To begin, find the arrow buttons on your remote control.` : `You have connected to the WebTV Redialed service, which is not yet public.`}
+${canRegister ? `To begin, find the arrow buttons on your remote control.` : `You have connected to the WebTV Remix service, which is not yet public.`}
 <tr>
 <td height=20>
 <tr>	<td colspan=2 valign=middle align=center>
@@ -107,7 +107,7 @@ ${canRegister ? `To begin, find the arrow buttons on your remote control.` : `Yo
 <td colspan=2 valign=middle align=left>
 <font size="+1">
 ${canRegister ? `Use the arrow buttons to move this yellow box on the screen. Try
-moving this yellow box down to <b>Continue</b>.` : `For more information, you can visit http://webtv.zone.`}
+moving this yellow box down to <b>Continue</b>.` : `For more information, you can visit http://webtv.pages.dev.`}
 <tr>
 <td height=20>
 <tr>
@@ -115,7 +115,7 @@ moving this yellow box down to <b>Continue</b>.` : `For more information, you ca
 <img src="images/${brand}/CenterButton.gif" align=absmiddle>
 <td colspan=3 valign=middle align=left>
 <font size="+1">
-${canRegister ? `Once you've moved the yellow box to <b>Continue</b>, press the ${request_headers.query.brand == "SegaFiji" ? `"A" (Go)` : `center`} <img src="images/${brand}/CenterButton.gif" align=absmiddle> button.` : `You can also join our Discord at https://discord.gg/qke279EUa8.`}
+${canRegister ? `Once you've moved the yellow box to <b>Continue</b>, press the ${request_headers.query.brand == "SegaFiji" ? `"A" (Go)` : `center`} <img src="images/${brand}/CenterButton.gif" align=absmiddle> button.` : `You can also join our Discord at https://discord.gg/(NOT OUT YET).`}
 </font>
 </table>
 <tr>
