@@ -3,7 +3,7 @@ var classPath = __dirname + "/includes/";
 const {WTVShared, clientShowAlert} = require(classPath + "WTVShared.js");
 const wtvshared = new WTVShared(); // creates wtvrsvc_config
 classPath = wtvshared.getAbsolutePath(classPath, __dirname);
-
+const fetch = require("node-fetch");
 const fs = require("fs");
 const nunjucks = require('nunjucks');
 const path = require("path");
@@ -287,6 +287,7 @@ var runScriptInVM = function (
         socket: null,
         headers: null,
         data: null,
+        fetch: fetch,
         request_is_async: false,
         wtvrsvc_version_string: z_title,
         getServiceString: getServiceString,

@@ -123,7 +123,9 @@ if (session_data.user_id == 0) {
 <spacer type=block width=1 height=5><BR>
 <font color=36d5ff>&#128;</font><spacer type=block width=6 height=1>
 <a href="wtv-setup:/phone">Dialing</a><BR>
-<spacer type=block width=1 height=5><BR>`;
+<spacer type=block width=1 height=5><BR>
+<font color=36d5ff>&#128;</font><spacer type=block width=6 height=1>
+<a href="wtv-music:/MusicCache/setcustom">Custom BGM</a><BR>`;
 }
 data += `
 
@@ -167,7 +169,9 @@ if (session_data.user_id == 0) {
 <spacer type=block width=2 height=6><font size="2"><br>
 Add, change, or remove users<BR>
 <spacer type=block width=2 height=6><font size="2"><br>
-Connecting to WebTV<BR>`;
+Connecting to WebTV<BR>
+<spacer type=block width=2 height=6><font size="2"><br>
+Set custom background music<BR>`;
 }
 data += `
 

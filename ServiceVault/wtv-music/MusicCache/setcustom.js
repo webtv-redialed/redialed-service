@@ -1,10 +1,11 @@
 var wtvrsvc_service_file = true;
 //tails1154 was also here too WOOOOOOOOO
 headers = `200 OK
+wtv-expire-all: wtv-music
 Content-Type: text/html`;
 if (request_headers.query.midi) {
 	headers = `300 Moved
-Location: wtv-setup:/set-bg`;
+Location: wtv-setup:/setup`;
 	session_data.setSessionData("subscriber_custombgmusic", request_headers.query.midi);
 }
 data = `
@@ -28,7 +29,7 @@ data = `
 <form action="setcustom">
 <h1>Set custom background music</h1>
 <p>Put a MIDI file url here and WebTV will use it for your "Custom" Music.</p>
-<input type="text" id="midi" placeholder="Midi URL" value="${session_data.getSessionData("subscriber_custombgmusic")}">
+<input name="midi" type="text" id="midi" placeholder="Midi URL" value="${session_data.getSessionData("subscriber_custombgmusic")}">
 <!-- End Main Content Area - Begin Footer -->
 </td></tr><tr><td height=1>
 <table width=100% cellspacing=0 cellpadding=0>

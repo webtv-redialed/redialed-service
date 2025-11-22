@@ -1,6 +1,5 @@
 class WTVBGMusic {
-    wtvrsvc_config = null;
-    session_data = null;
+    wtvrsvc_config = true;
     wtvshared = null;
     categories = [
         "Ambient",
@@ -21,9 +20,9 @@ class WTVBGMusic {
         "zefie's Choice",
     ];
     musiclist_classic = {
-        67: {
+        199: {
             title: "Custom",
-            url: "wtv-music:/MusicCache/custom.js"
+            url: "wtv-music:/MusicCache/custom.mid",
         },
         100: {
             title: "Dream Anime",
@@ -987,9 +986,9 @@ class WTVBGMusic {
             title: "Shibuya-ku",
             url: "wtv-music:/MusicCache/headspace/RMF/ambient/shibuya-ku.rmf",
         },
-        67: {
+        199: {
             title: "Custom",
-            url: "wtv-music:/MusicCache/custom.js"
+            url: "wtv-music:/MusicCache/custom.mid",
         }
     };
 
@@ -1095,13 +1094,13 @@ class WTVBGMusic {
                     "1102",
                     "1103",
                     "1104",
-                    "67",
+                    "199",
                 ];
             } else {
                 // classic
                 music_obj.enableCategories = ["1", "2", "8", "15", "16"];
                 music_obj.enableSongs = [
-                    "67",
+                    "199",
                     "100",
                     "101",
                     "102",
