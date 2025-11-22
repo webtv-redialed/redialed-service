@@ -54,7 +54,8 @@
       "401": "Authorization Required.",
       "403": "The publisher of that page has not authorized you to view it.",
       "404": "The service could not find the requested page.",
-      "500": "${service_name} ran into a technical problem. Please try again."
+      "500": "${service_name} ran into a technical problem. Please try again.",
+      "67": "You don't have a custom background song."
     },
     "lockdownWhitelist": [
       "wtv-1800:/preregister",

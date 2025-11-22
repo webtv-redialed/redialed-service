@@ -21,6 +21,10 @@ class WTVBGMusic {
         "zefie's Choice",
     ];
     musiclist_classic = {
+        67: {
+            title: "Custom",
+            url: "wtv-music:/MusicCache/custom.js"
+        },
         100: {
             title: "Dream Anime",
             url: "wtv-music:/music/ambient/trance/dreamanime.mid",
@@ -983,6 +987,10 @@ class WTVBGMusic {
             title: "Shibuya-ku",
             url: "wtv-music:/MusicCache/headspace/RMF/ambient/shibuya-ku.rmf",
         },
+        67: {
+            title: "Custom",
+            url: "wtv-music:/MusicCache/custom.js"
+        }
     };
 
     constructor(wtvrsvc_config, session_data) {
@@ -1087,11 +1095,13 @@ class WTVBGMusic {
                     "1102",
                     "1103",
                     "1104",
+                    "67",
                 ];
             } else {
                 // classic
                 music_obj.enableCategories = ["1", "2", "8", "15", "16"];
                 music_obj.enableSongs = [
+                    "67",
                     "100",
                     "101",
                     "102",
