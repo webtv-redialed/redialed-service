@@ -26,5 +26,9 @@
     {
         "img": "wtv-home:/shared/ads/cobb/cobb.jpg",
         "url": "http://cobb.club"
+    },
+    {
+        "img": "wtv-home:/shared/ads/para/para.gif",
+        "url": "http://para.v0id.nl"
     }
 ]
