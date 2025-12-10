@@ -46,6 +46,6 @@ Location: wtv-setup:/messenger-enable-redir
 wtv-domain: ${session_data.getSessionData("messenger_domain")}
 passport-domain: ${session_data.getSessionData("messenger_domain")}
 wtv-user-name: ${session_data.getSessionData("messenger_email")}
-wtv-messenger-server: ms.msgrsvcs.ctsrv.xyz
+wtv-messenger-server: ms.msgrsvcs.ctsrv.gay
 wtv-messenger-enable: 0`;
 }

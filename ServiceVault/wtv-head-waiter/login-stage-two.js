@@ -181,7 +181,7 @@ wtv-login-timeout: 7200
                 headers += `wtv-messenger-authorized: ${messenger_authorized}
 wtv-messenger-enable: ${messenger_enabled}
 wtv-messenger-login-url: wtv-passport:/messengerlogin
-wtv-messenger-server: ms.msgrsvcs.ctsrv.xyz
+wtv-messenger-server: ms.msgrsvcs.ctsrv.gay
 wtv-messenger-connect-timeout: 480
 wtv-messenger-retry-interval: 40
 wtv-messenger-passportd-timeout: 480
