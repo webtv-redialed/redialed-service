@@ -5,7 +5,6 @@
 - Switch to Nunjucks for templating for the entire service
 
 ### Top Priority
-- Fix the ProtoWeb proxy
 - Implement headlines/teasers for the Money center
 - Do all the page builder styles
 - Scrapbook
@@ -47,3 +46,4 @@
 - Fix the hellish nightmare known as the Weather teasers so they look like the original
 - Page Builder is a fucking nightmare i hate it make it stop i am going to lose it why is it this way i am in pain i can't take it
 - Make cSetup the Viewer startup page OOTB
+- Fix the ProtoWeb proxy (it was an issue on their end)
