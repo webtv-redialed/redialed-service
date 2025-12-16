@@ -1384,7 +1384,7 @@ async function doGopherProxy(socket, request_headers) {
 
     const rawUrl = request_headers.request.split(' ')[1];
     const [pathPart, queryPart] = rawUrl.split('?');
-    var request_url_split = pathPart.split('/');
+    var request_url_split = rawUrl.split('/');
 
     let queryParams = {};
     if (queryPart) {
