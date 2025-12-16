@@ -310,6 +310,10 @@
       "external_proxy_is_http1": true,
       "flags": "0x00000001"
     },
+    "gopher": {
+      "port": 1651,
+      "connections": 3
+    },
     "pc_services": {
       "port": 1337,
       "pc_services": true,

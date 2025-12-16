@@ -1003,6 +1003,7 @@ async function processURL(socket, request_headers, pc_services = false) {
         if (
             shortURL.indexOf("http") !== 0 &&
             shortURL.indexOf("ftp") !== 0 &&
+            shortURL.indexOf("gopher") !== 0 &&
             shortURL.indexOf(":") > 0 &&
             shortURL.indexOf(":/") === -1
         ) {
@@ -1199,6 +1200,8 @@ wtvr-no-mail-count: true`;
             await doHTTPProxy(socket, request_headers, surfwatch);
         } else if (shortURL.indexOf("proto://") >= 0) {
             await doProtoWebProxy(socket, request_headers);
+        } else if (shortURL.indexOf("gopher://") >= 0) {
+            await doGopherProxy(socket, request_headers);
         } else if (shortURL.indexOf("file://") >= 0) {
             shortURL = shortURL
                 .replace("file://", "")
@@ -1246,7 +1249,251 @@ wtvr-no-mail-count: true`;
         }
     }
 }
+// sorry
+function gopher2HTML(gopherData, itemType) {
 
+    // im'a be fr with you i don't fully understand this but it does work
+    function looksLikeMenu(gopherData) {
+        const lines = gopherData.split(/\r?\n/);
+
+        let checked = 0;
+        let menuLines = 0;
+
+        for (const line of lines) {
+            if (!line || line === ".") continue;
+
+            checked++;
+            const type = line[0];
+            const rest = line.slice(1);
+
+            if (
+                rest.includes("\t") &&
+                rest.split("\t").length >= 3 &&
+                /^[0-9A-Za-z+gIihs]$/.test(type)
+            ) {
+                menuLines++;
+            }
+
+            if (checked >= 5) break;
+        }
+
+        return menuLines >= 2;
+    }
+
+    // currently looking at textfile, don't process into HTML
+    if (!looksLikeMenu(gopherData)) {
+        return `<pre>${gopherData}</pre>`;
+    }
+
+    // okay, we're not a textfile, now do the menu shit
+    let pageTitle = "Gopher Menu"
+    const lines = gopherData.split("\r\n");
+
+    let html = "";
+
+    for (const line of lines) {
+        if (!line || line === ".") continue;
+
+        const type = line[0];
+        const parts = line.slice(1).split("\t");
+
+        const text = parts[0] || "";
+        const selector = parts[1];
+        const host = parts[2];
+        const port = parts[3] || 70;
+        var url = `gopher://${host}:${port}${selector}`;
+
+        // determine page title from first line
+        const firstline = line[0].slice(1).trim();
+
+        if (line[0] === "i" && firstline.length > 0) {
+            pageTitle = line.slice(1).trim();
+            html = `<title>${pageTitle}</title><pre>\n`;
+        } else if (pageTitle === "Gopher Menu") {
+            for (const line of lines) {
+                if (!line || line === ".") continue;
+
+                const type = line[0];
+                const parts = line.slice(1).split("\t");
+                const text = parts[0]?.trim();
+
+                if (text && text.length > 0) {
+                    pageTitle = text;
+                    html = `<title>${pageTitle}</title><pre>\n`;
+                    break;
+                }
+            }
+        }
+
+        switch (type) {
+            case "i": // informational / "just text"
+                html += `${text}\n`;
+            break;
+
+            case "0": // text file
+            case "1": // directory
+                html += `<a href="${url}">${text}</a>\n`;
+                break;
+            case "3": // error, otherwise just plain text
+                html += `${text}<br>\n`;
+            case "h": // HTML link
+                if (selector?.startsWith("URL:")) {
+                const httpUrl = selector.slice(4);
+                html += `<a href="${httpUrl}">${text}</a>\n`;
+                }
+                break;
+            
+            case "7": // search
+                html += `<form action="${url}" method="get">
+<label for="search">${text}</label>
+<input type="search" name="q" required>
+</form>`;
+                break;
+            case "g":
+            case "I":
+            case "p":
+                url = `gopher://${host}:${port}${selector}?type=${type}`;
+                html += `<a href="${url}">${text}</a>\n`;
+                break;
+
+            default:
+                html += `${text} (unsupported type ${type})\n`;
+    }
+  }
+
+  html += "</pre>";
+  return html;
+}
+async function doGopherProxy(socket, request_headers) {
+    if (wtvrsvc_config.config.debug_flags.show_headers) {
+        console.log("Gopher: Client Request on socket ID",
+            socket.id,
+            await wtvshared.decodePostData(
+                wtvshared.filterRequestLog(wtvshared.filterSSID(request_headers))
+            ));
+    }
+
+    // crlf for sending at the end of a request
+    const crlf = "0D0A"
+    const crlf_bytes = Buffer.from(crlf, 'hex');
+    // chunk stuff for gopher-to-html conversion
+    let chunks = [];
+
+    var request_data = new Array();
+    request_data.method = request_headers.request.split(' ')[0];
+
+    const rawUrl = request_headers.request.split(' ')[1];
+    const [pathPart, queryPart] = rawUrl.split('?');
+    var request_url_split = pathPart.split('/');
+
+    let queryParams = {};
+    if (queryPart) {
+        for (const kv of queryPart.split('&')) {
+            const [k, v] = kv.split('=');
+            queryParams[k] = decodeURIComponent(v || "");
+        }
+    }
+
+    request_data.host = request_url_split[2];
+    if (request_data.host.indexOf(':') > 0) {
+        request_data.port = request_data.host.split(':')[1];
+        request_data.host = request_data.host.split(':')[0];
+    } else {
+        request_data.port = 70;
+    }
+
+    for (var i = 0; i < 3; i++) request_url_split.shift();
+    request_data.path = "/" + request_url_split.join('/');
+    // vars for determining if a link is an image
+    const imageTypes = ["g", "I", "p"];
+    let requestType = null;
+    if (queryParams.type && imageTypes.includes(queryParams.type)) {
+        requestType = queryParams.type;
+    }
+    const isImageDownload = !!requestType;
+
+    const client = new net.Socket();
+
+    // make the initial request to the server
+    client.connect(request_data.port, request_data.host, () => {
+        let gopherRequest = "";
+
+        // if user requested path
+        if (request_data.path.length >= 2) {
+            gopherRequest = request_data.path;
+        }
+
+        // if user requested type 7 (search)
+        if (queryParams.q) {
+            gopherRequest += "\t" + queryParams.q;
+        }
+
+        client.write(gopherRequest + crlf_bytes);
+    });
+
+    // "holy shit we got data guys"
+    client.on("data", chunk => {
+        chunks.push(chunk);
+    });
+
+    // datastream end, time to process it
+    client.on("end", () => {
+        const gopherData = Buffer.concat(chunks).toString("utf-8");
+        request_data.itemType = null;
+
+        if (request_data.path.length >= 2 && request_data.path[1] === '/') {
+            request_data.itemType = request_data.path[0];
+        }
+        // are we downloading an image?
+        if (isImageDownload) {
+            const imageData = Buffer.concat(chunks);
+            let mimetype = "application/octet-stream";
+            switch(requestType) {
+                // gif
+                case "g": mimetype = "image/gif"; break;
+                // png
+                case "p": mimetype = "image/png"; break;
+                // "image"
+                case "I":
+                    // heuristics check babeyyyy
+                    if (request_data.path.toLowerCase().endsWith(".jpg") || request_data.path.toLowerCase().endsWith(".jpeg")) {
+                        mimetype = "image/jpeg";
+                    } else if (request_data.path.toLowerCase().endsWith(".png")) {
+                        mimetype = "image/png";
+                    } else if (request_data.path.toLowerCase().endsWith(".gif")) {
+                        mimetype = "image/gif";
+                    } else {
+                        mimetype = "application/octet-stream";
+                }
+            break;
+            }
+
+            const headers = {
+                "Response": "200 OK",
+                "Content-Type": mimetype
+            }
+
+            sendToClient(socket, headers, imageData);
+            return;
+        } else {
+            // convert gophermap to html
+            const htmlData = gopher2HTML(gopherData, request_data.itemType);
+            // since gopher doesn't exactly have "headers" and by this point we're probably already fine to just say it's okay, we're just sending back the bare minimum to prevent screaming
+            const headers = {
+                "Response": "200 OK",
+                "Content-Type": "text/html"
+            }
+            sendToClient(socket, headers, htmlData);
+        }
+    });
+
+    // blew up?
+    // todo: figure out what error actually looks like and if appropriate to send to client (or just "Connection failed" or smth)
+    client.on('error', (err) => {
+        console.error('Gopher error: ' + err);
+    });
+
+}
 async function doHTTPProxy(socket, request_headers, surfwatch) {
     var request_type = (request_headers.request_url.substring(0, 5) == "https") ? "https" : "http";
     if (wtvrsvc_config.config.debug_flags.show_headers) console.log(request_type.toUpperCase() + " Proxy: Client Request Headers on socket ID", socket.id, (await wtvshared.filterSSID(request_headers)));
