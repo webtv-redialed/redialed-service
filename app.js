@@ -1384,7 +1384,7 @@ async function doGopherProxy(socket, request_headers) {
 
     const rawUrl = request_headers.request.split(' ')[1];
     const [pathPart, queryPart] = rawUrl.split('?');
-    var request_url_split = rawUrl.split('/');
+    var request_url_split = pathPart.split('/');
 
     let queryParams = {};
     if (queryPart) {
@@ -1420,7 +1420,7 @@ async function doGopherProxy(socket, request_headers) {
 
         // if user requested path
         if (request_data.path.length >= 2) {
-            gopherRequest = request_data.path;
+            gopherRequest = "/" + request_url_split;
         }
 
         // if user requested type 7 (search)
