@@ -1425,7 +1425,8 @@ async function doGopherProxy(socket, request_headers) {
 
         // if user requested type 7 (search)
         if (queryParams.q) {
-            gopherRequest += "\t" + queryParams.q;
+            const query = queryParams.q.replace(/\+/g, ' ');
+            gopherRequest += "\t" + query;
         }
 
         client.write(gopherRequest + crlf_bytes);
@@ -1492,7 +1493,6 @@ async function doGopherProxy(socket, request_headers) {
     client.on('error', (err) => {
         console.error('Gopher error: ' + err);
     });
-
 }
 async function doHTTPProxy(socket, request_headers, surfwatch) {
     var request_type = (request_headers.request_url.substring(0, 5) == "https") ? "https" : "http";
