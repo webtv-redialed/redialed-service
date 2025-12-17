@@ -1420,7 +1420,7 @@ async function doGopherProxy(socket, request_headers) {
 
         // if user requested path
         if (request_data.path.length >= 2) {
-            gopherRequest = "/" + request_url_split;
+            gopherRequest = request_data.path;
         }
 
         // if user requested type 7 (search)
