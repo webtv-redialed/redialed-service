@@ -13,7 +13,6 @@ This service is not designed to be ran anywhere except on the main Redialed serv
 
 Please make sure of the following:
 - Service IP is correct and the service can be accessed from it
-- Guest users are *not* enabled
 - Registration is open on public services
 - Appropriate API keys are functional for things like time zone determination, and sensitive passwords such as the Tricks password should not be left as their defaults
 
