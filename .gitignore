@@ -10,6 +10,9 @@ ServiceTellyPost/tellyscript_*
 ServiceDiskPost/file_*
 SessionStore/
 
+# V8 memory snapshots
+Heap.*
+
 # Large files not pertaining to the service code, includes Page Builder and Flashrom
 UserServiceVault/*-*
 UserServiceVault/*_*

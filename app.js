@@ -29,6 +29,9 @@ const express = require("express");
 const strftime = require("strftime");
 var wtvnewsserver = null;
 const surfwatchBlacklist = fs.readFileSync('./ServiceDeps/proxy/surfwatch.txt');
+const v8 = require("v8");
+
+v8.writeHeapSnapshot(); 
 
 process
     .on("SIGTERM", shutdown("SIGTERM"))
