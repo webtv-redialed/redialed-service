@@ -481,7 +481,7 @@ Content-type: text/html`;
 <head>
 <display poweroffalert >
 <script language=javascript>
-function Submit() {	window.open("client:showsplash?message=Sending%20Message&animation=file://ROM/Animations/mail.ani&action=client:submitform%3Fname%3Dsendform%26submitname%3Dsendoff%26submitvalue%3DSend");
+function Submit() {	window.open("client:showsplash?message=${newsgroup ? "Posting" : "Sending"}%20Message&animation=file://ROM/Animations/mail.ani&action=client:submitform%3Fname%3Dsendform%26submitname%3Dsendoff%26submitvalue%3DSend");
 }
 function ErasingMedia(victim) {	var myURL;
 myURL = "client:submitform?name=sendform&submitvalue=false" + "&submitname=" + victim;

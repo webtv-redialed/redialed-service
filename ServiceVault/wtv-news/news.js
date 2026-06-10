@@ -374,7 +374,7 @@ ${
 <font size="-1" color=544f53><b>
 ${
                                                     message.headers.FROM.indexOf(" ") > 0
-                                                        ? message.headers.FROM.split(" ")[0]
+                                                        ? message.headers.FROM.split("(")[1].slice(0, -1)
                                                         : message.headers.FROM
                                                 }, ${date}
 </table>
