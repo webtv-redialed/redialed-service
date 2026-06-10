@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 var pagename = session_data.pagestore.createPage(
     request_headers.query.styleName.replace(" ", "_")

@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 var userSession = null;
 
 session_data.loadSessionData();
@@ -33,7 +33,7 @@ Content-Type: text/html`;
     if (session_data.user_id == request_headers.query.user_id)
         userSession = session_data;
     else {
-        userSession = new WTVClientSessionData(wtvrsvc_config, socket.ssid);
+        userSession = new WTVClientSessionData(minisrv_config, socket.ssid);
         userSession.user_id = user_id;
     }
 
@@ -62,22 +62,22 @@ Location: ${request_headers.query.return_to}`;
                         : "wtv-setup:/accounts";
         } else if (
             request_headers.query.password.length <
-            wtvrsvc_config.config.passwords.min_length
+            minisrv_config.config.passwords.min_length
         )
             errpage = wtvshared.doErrorPage(
                 400,
                 "Your password must contain at least " +
-                wtvrsvc_config.config.passwords.min_length +
+                minisrv_config.config.passwords.min_length +
                 " characters."
             );
         else if (
             request_headers.query.password.length >
-            wtvrsvc_config.config.passwords.max_length
+            minisrv_config.config.passwords.max_length
         )
             errpage = wtvshared.doErrorPage(
                 400,
                 "Your password must contain no more than than " +
-                wtvrsvc_config.config.passwords.max_length +
+                minisrv_config.config.passwords.max_length +
                 " characters."
             );
         else if (

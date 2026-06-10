@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 headers = `400 test error
 Connection: Keep-Alive

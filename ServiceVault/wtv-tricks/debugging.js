@@ -1,6 +1,6 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 var accounts = session_data.listPrimaryAccountUsers();
-var wtvt = new WTVTricks(wtvrsvc_config);
+var wtvt = new WTVTricks(minisrv_config);
 const os = require('node:os');
 
 headers = `200 OK
@@ -74,7 +74,7 @@ VALUE="${session_data.getSessionData(
 <th colspan=2>Service configuration</th>
 <tr>
 <td>LZPF compression</td>
-<td>${wtvrsvc_config.config.enable_lzpf_compression}</td>
+<td>${minisrv_config.config.enable_lzpf_compression}</td>
 </tr>
 <tr>
 <td>Messenger server</td>

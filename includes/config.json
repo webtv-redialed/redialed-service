@@ -318,7 +318,7 @@
     "pc_services": {
       "port": 1337,
       "pc_services": true,
-      "hide_wtvrsvc_version": true,
+      "hide_minisrv_version": true,
       "disabled": false,
       "servicevault_dir": "http_pc",
       "drop_connection_on_wrong_port": true,

@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 // Allow URL access outside our trusted server
 

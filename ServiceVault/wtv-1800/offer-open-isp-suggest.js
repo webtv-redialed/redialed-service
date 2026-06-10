@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 var gourl = "wtv-1800:/finish-prereg?";
 if (request_headers.query.relogin) gourl += "relogin=true";

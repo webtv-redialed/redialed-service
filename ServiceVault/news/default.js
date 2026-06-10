@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 var group = request_headers.request_url;
 group = group.substring(group.indexOf(":") + 1);

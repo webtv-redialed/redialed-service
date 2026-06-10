@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 const {
     getByStateCity,
@@ -10,7 +10,7 @@ const {
 } = require("zcs");
 
 var accounts = session_data.listPrimaryAccountUsers();
-var wtvcache = new WTVCache(wtvrsvc_config);
+var wtvcache = new WTVCache(minisrv_config);
 
 headers = `200 OK
 Connection: Keep-Alive

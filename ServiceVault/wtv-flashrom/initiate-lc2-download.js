@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 if (request_headers.query.path) {
     var url = service_name + ":/get-lc2-page?path=" + request_headers.query.path;
@@ -6,9 +6,9 @@ if (request_headers.query.path) {
     if (romtype == "bf0app") {
         url =
             "client:updateflash?ipaddr=" +
-            wtvrsvc_config.services[service_name].host +
+            minisrv_config.services[service_name].host +
             "&port=" +
-            wtvrsvc_config.services[service_name].port +
+            minisrv_config.services[service_name].port +
             "&path=" +
             escape(service_name + ":/" + request_headers.query.path);
         if (request_headers.query.numparts)

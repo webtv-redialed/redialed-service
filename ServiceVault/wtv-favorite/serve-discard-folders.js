@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 var folder_array = session_data.favstore.getFolders();
 var totalfavorites = folder_array.length;

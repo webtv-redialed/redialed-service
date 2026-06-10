@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 var camefrom = request_headers.query.camefrom;
 var action = request_headers.query.action;
 

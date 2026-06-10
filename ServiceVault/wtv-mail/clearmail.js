@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 var mailstore_exists = false;
 
@@ -56,7 +56,7 @@ if (!intro_seen && !request_headers.query.intro_seen) {
                 session_data.mailstore.countUnreadMessages(mailbox);
         
             var notImplementedAlert = new clientShowAlert({
-                image: wtvrsvc_config.config.service_logo,
+                image: minisrv_config.config.service_logo,
                 message: "This feature is not available.",
                 buttonlabel1: "Okay",
                 buttonaction1: "client:donothing",

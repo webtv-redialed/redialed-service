@@ -4,7 +4,7 @@ class WTVFavorites {
     uuid = require("uuid");
 
     ssid = null;
-    wtvrsvc_config = [];
+    minisrv_config = [];
     wtvshared = null;
     wtvmime = null;
     wtvclient = null;
@@ -14,15 +14,15 @@ class WTVFavorites {
     folderArr = [];
     messageArr = [];
 
-    constructor(wtvrsvc_config, wtvclient) {
-        if (!wtvrsvc_config) throw "wtvrsvc_config required";
+    constructor(minisrv_config, wtvclient) {
+        if (!minisrv_config) throw "minisrv_config required";
         if (!wtvclient) throw "WTVClientSessionData required";
         var WTVShared = require("./WTVShared.js")["WTVShared"];
         var WTVMime = require("./WTVMime.js");
         this.WTVClientSessionData = require("./WTVClientSessionData.js");
-        this.wtvrsvc_config = wtvrsvc_config;
-        this.wtvshared = new WTVShared(wtvrsvc_config);
-        this.wtvmime = new WTVMime(wtvrsvc_config);
+        this.minisrv_config = minisrv_config;
+        this.wtvshared = new WTVShared(minisrv_config);
+        this.wtvmime = new WTVMime(minisrv_config);
         this.wtvclient = wtvclient;
         this.ssid = wtvclient.ssid;
         this.folderArr = this.folderArr;
@@ -84,7 +84,7 @@ class WTVFavorites {
     createTemplateFolder(folder) {
         // create emply folder
         this.createFolder(folder);
-        var folder_templates = this.wtvrsvc_config.favorites.folder_templates;
+        var folder_templates = this.minisrv_config.favorites.folder_templates;
         // populate it if a template exists
         var self = this;
         if (folder_templates[folder]) {

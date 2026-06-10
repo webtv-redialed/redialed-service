@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 const months = [
     "January",
@@ -53,7 +53,7 @@ if (!request_headers.query.registering) {
     headers = errpage[0];
     data = errpage[1];
 } else {
-    var wtvr = new WTVRegister(wtvrsvc_config, SessionStore);
+    var wtvr = new WTVRegister(minisrv_config, SessionStore);
     var errpage = null;
     const nonoWords = wtvshared.getDynamicConfig(`nonoWords`);
     const reservedWords = wtvshared.getDynamicConfig(`reservedWords`);

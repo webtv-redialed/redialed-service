@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 var gourl = null;
 const fetch = require("node-fetch");
 const timeInterpreter = require("@onereach/time-interpreter");
@@ -10,7 +10,7 @@ request_is_async = true; // Make us async
 async function getTimezone() {
     // proper error handling is for bitches
     try {
-        const response = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=${wtvrsvc_config.config.geolocationApiKey}&ip=${socket.remoteAddress}&fields=time_zone`);
+        const response = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=${minisrv_config.config.geolocationApiKey}&ip=${socket.remoteAddress}&fields=time_zone`);
         const locdata = await response.json();
         if (locdata.time_zone) {
             return locdata.time_zone.offset_with_dst;
@@ -66,7 +66,7 @@ Content-type: text/html`;
         data = "";
     } else {
         if (session_data.lockdown) {
-            home_url = wtvrsvc_config.config.unauthorized_url;
+            home_url = minisrv_config.config.unauthorized_url;
         } else if (!session_data.getSessionData("registered")) {
             var errpage = wtvshared.doErrorPage(400);
             headers = errpage[0];
@@ -235,7 +235,7 @@ wtv-inactive-timeout: 0
                   headers += `wtv-bypass-proxy: true
           user-id: 0
           wtv-human-name: Unauthorized User
-          wtv-domain: ${wtvrsvc_config.config.domain_name}
+          wtv-domain: ${minisrv_config.config.domain_name}
           wtv-input-timeout: 30
           wtv-connection-timeout: 60
           wtv-fader-timeout: 60

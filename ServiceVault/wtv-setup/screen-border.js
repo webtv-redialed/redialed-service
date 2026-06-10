@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 var shade = session_data.getSessionData("screen-border-shade");
 

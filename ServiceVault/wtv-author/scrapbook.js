@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 //var files = session_data.pagestore.listScrapbook();
 //var dir = session_data.pagestore.scrapbookDir()

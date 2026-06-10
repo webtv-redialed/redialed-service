@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 var docName = request_headers.query.docName;
 var numOfBlocks = request_headers.query.blockNum;

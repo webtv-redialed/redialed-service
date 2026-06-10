@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 if (request_headers.query.machine && request_headers.query.port) {
 	headers = `200 OK
@@ -49,7 +49,7 @@ hspace="0" vspace="0" fontsize="large" noscroll>
 <table cellspacing="0" cellpadding="0" cellborder="0">
   <tr>
     <td width="104" height="80" valign="top" align="left"><spacer type="block" WIDTH="11" HEIGHT="11"><br>
-<spacer type="block" WIDTH="10" HEIGHT="1">    <a href="wtv-home:/home"><img src="${wtvrsvc_config.config.service_logo}" width="87"
+<spacer type="block" WIDTH="10" HEIGHT="1">    <a href="wtv-home:/home"><img src="${minisrv_config.config.service_logo}" width="87"
     height="67"></a>       
       </td>
     <td width="456" height="80" valign="middle" align="center">
@@ -71,7 +71,7 @@ hspace="0" vspace="0" fontsize="large" noscroll>
 	  function doConnect() {
 	    if (document.connect.preset.value == "noneofem") {
             	alert("Please choose a WebTV server to connect to.")
-		} else if (document.connect.machine.value == "${wtvrsvc_config.services['wtv-1800'].host}" && document.connect.port.value == "${wtvrsvc_config.services['wtv-1800'].port}") {
+		} else if (document.connect.machine.value == "${minisrv_config.services['wtv-1800'].host}" && document.connect.port.value == "${minisrv_config.services['wtv-1800'].port}") {
 				alert("Mate, you're already here.");
 		} else {
 			document.connect.submit();

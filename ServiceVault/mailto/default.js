@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 var mailto = request_headers.request_url;
 mailto = mailto.substring(mailto.indexOf(":") + 1);

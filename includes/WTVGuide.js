@@ -1,17 +1,17 @@
 class WTVGuide {
-    wtvrsvc_config = null;
+    minisrv_config = null;
     session_data = null;
     wtvshared = null;
     runScriptInVM = null;
     fs = require("fs");
 
-    constructor(wtvrsvc_config, session_data, socket, runScriptInVM) {
-        if (!wtvrsvc_config) throw "wtvrsvc_config required";
+    constructor(minisrv_config, session_data, socket, runScriptInVM) {
+        if (!minisrv_config) throw "minisrv_config required";
         if (!session_data) throw "WTVClientSessionData required";
         const WTVShared = require("./WTVShared.js")["WTVShared"];
-        this.wtvrsvc_config = wtvrsvc_config;
+        this.minisrv_config = minisrv_config;
         this.session_data = session_data;
-        this.wtvshared = new WTVShared(wtvrsvc_config);
+        this.wtvshared = new WTVShared(minisrv_config);
         this.runScriptInVM = runScriptInVM;
     }
 
@@ -136,7 +136,7 @@ class WTVGuide {
                                 definition = definition.replace(/\<webhome\>/g, homename);
                             }
                             template_args = {
-                                wtvrsvc_config: this.wtvrsvc_config,
+                                minisrv_config: this.minisrv_config,
                                 word: word,
                                 definition: definition,
                             };
@@ -161,7 +161,7 @@ class WTVGuide {
                         });
 
                         template_args = {
-                            wtvrsvc_config: this.wtvrsvc_config,
+                            minisrv_config: this.minisrv_config,
                             letter: subtopic.toUpperCase(),
                             words: worddb,
                         };
@@ -191,7 +191,7 @@ class WTVGuide {
                             letters.push(k);
                         });
                         template_args = {
-                            wtvrsvc_config: this.wtvrsvc_config,
+                            minisrv_config: this.minisrv_config,
                             letters: letters,
                         };
                 }

@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 var mailstore_exists = false;
 
@@ -27,8 +27,8 @@ if (!intro_seen && !request_headers.query.intro_seen) {
     if (mailstore_exists) {
         // mailstore exists
 
-        var default_limit = wtvrsvc_config.services[service_name].messages_per_page
-            ? wtvrsvc_config.services[service_name].messages_per_page
+        var default_limit = minisrv_config.services[service_name].messages_per_page
+            ? minisrv_config.services[service_name].messages_per_page
             : 25; // user config or 25
         var mailbox = request_headers.query.mailbox
             ? parseInt(request_headers.query.mailbox)
@@ -103,8 +103,8 @@ if (!intro_seen && !request_headers.query.intro_seen) {
             // that way shit doesn't explode
             // this code pisses me off so much
 		    if (!this.didAddressMigration) {
-			    const oldShit = this.wtvrsvc_config.config.service_name;
-			    const newShit = this.wtvrsvc_config.config.domain_name;
+			    const oldShit = this.minisrv_config.config.service_name;
+			    const newShit = this.minisrv_config.config.domain_name;
 
 			    session_data.mailstore.mailboxes.forEach((mailboxName) => {
 				    const mailboxID = session_data.mailstore.getMailboxByName(mailboxName);
@@ -142,7 +142,7 @@ if (!intro_seen && !request_headers.query.intro_seen) {
         
             var username = session_data.getSessionData("subscriber_username");
             var notImplementedAlert = new clientShowAlert({
-                image: wtvrsvc_config.config.service_logo,
+                image: minisrv_config.config.service_logo,
                 message: "This feature is not available.",
                 buttonlabel1: "Okay",
                 buttonaction1: "client:donothing",

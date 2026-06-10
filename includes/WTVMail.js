@@ -7,7 +7,7 @@ class WTVMail {
     inbox_store = null;
     sent_store = null;
     saved_store = null;
-    wtvrsvc_config = [];
+    minisrv_config = [];
     wtvshared = null;
     wtvmime = null;
     wtvclient = null;
@@ -19,14 +19,14 @@ class WTVMail {
     defaultColors = {};
     sendmailDefaultBGColor = "#242424";
 
-    constructor(wtvrsvc_config, wtvclient) {
-        if (!wtvrsvc_config) throw "wtvrsvc_config required";
+    constructor(minisrv_config, wtvclient) {
+        if (!minisrv_config) throw "minisrv_config required";
         var WTVShared = require("./WTVShared.js")["WTVShared"];
         var WTVMime = require("./WTVMime.js");
         this.WTVClientSessionData = require("./WTVClientSessionData.js");
-        this.wtvrsvc_config = wtvrsvc_config;
-        this.wtvshared = new WTVShared(wtvrsvc_config);
-        this.wtvmime = new WTVMime(wtvrsvc_config);
+        this.minisrv_config = minisrv_config;
+        this.wtvshared = new WTVShared(minisrv_config);
+        this.wtvmime = new WTVMime(minisrv_config);
         this.wtvclient = wtvclient;
         this.ssid = this.wtvclient.ssid;
         this.unread_mail = this.wtvclient.getSessionData("subscriber_unread_mail")
@@ -257,10 +257,10 @@ class WTVMail {
         var to_addr =
             this.wtvclient.getSessionData("subscriber_username") +
             "@" +
-            this.wtvrsvc_config.config.domain_name;
+            this.minisrv_config.config.domain_name;
         var to_name = this.wtvclient.getSessionData("subscriber_name");
         var available_tags = {
-            ...this.wtvrsvc_config.config,
+            ...this.minisrv_config.config,
             user_address: to_addr,
             user_name: to_name,
         };
@@ -472,7 +472,7 @@ class WTVMail {
 
     checkUserExists(username, directory = null) {
         // returns the user's ssid, and user_id and userid in an array if true, false if not
-        var search_dir = this.wtvrsvc_config.config.SessionStore + '/accounts';
+        var search_dir = this.minisrv_config.config.SessionStore + '/accounts';
         var return_val = false;
         var self = this;
         if (directory) search_dir = directory;
@@ -500,7 +500,7 @@ class WTVMail {
                 ) {
                     return_val = search_dir
                         .replace(
-                            this.wtvrsvc_config.config.SessionStore +
+                            this.minisrv_config.config.SessionStore +
                             self.path.sep +
                             "accounts" +
                             self.path.sep,
@@ -521,11 +521,11 @@ class WTVMail {
         var user_data = this.checkUserExists(username);
         if (user_data) {
             var user_wtvsession = new this.WTVClientSessionData(
-                this.wtvrsvc_config,
+                this.minisrv_config,
                 user_data[0]
             );
             user_wtvsession.user_id = user_data[1];
-            var user_mailstore = new WTVMail(this.wtvrsvc_config, user_wtvsession);
+            var user_mailstore = new WTVMail(this.minisrv_config, user_wtvsession);
             return user_mailstore;
         }
         return false;
@@ -567,7 +567,7 @@ class WTVMail {
 
 		for (let i = 0; i < recipients.length; i++) {
 			var addr = recipients[i].split("@")[0];
-			recipients[i] = addr + "@" + this.wtvrsvc_config.config.domain_name;
+			recipients[i] = addr + "@" + this.minisrv_config.config.domain_name;
 			usernames.push(addr)
 		}
 

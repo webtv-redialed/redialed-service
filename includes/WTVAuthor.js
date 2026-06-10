@@ -5,7 +5,7 @@ class WTVAuthor {
     atob = require("atob");
 
     ssid = null;
-    wtvrsvc_config = [];
+    minisrv_config = [];
     wtvshared = null;
     wtvclient = null;
     pageFileExt = ".page";
@@ -32,14 +32,14 @@ class WTVAuthor {
     afterblock1 = null;
     debug = require("debug")("WTVAuthor");
 
-    constructor(wtvrsvc_config, wtvclient) {
-        if (!wtvrsvc_config) throw "wtvrsvc_config required";
+    constructor(minisrv_config, wtvclient) {
+        if (!minisrv_config) throw "minisrv_config required";
         if (!wtvclient) throw "WTVClientSessionData required";
         var WTVShared = require("./WTVShared.js")["WTVShared"];
         var WTVMime = require("./WTVMime.js");
-        this.wtvrsvc_config = wtvrsvc_config;
-        this.wtvshared = new WTVShared(wtvrsvc_config);
-        this.wtvmime = new WTVMime(wtvrsvc_config);
+        this.minisrv_config = minisrv_config;
+        this.wtvshared = new WTVShared(minisrv_config);
+        this.wtvmime = new WTVMime(minisrv_config);
         this.wtvclient = wtvclient;
         this.ssid = wtvclient.ssid;
         this.pageArr = this.pageArr;
@@ -800,24 +800,24 @@ ${thisblock.title}
     }
 
     getPublishDomain() {
-        if (this.wtvrsvc_config.services["wtv-author"].public_domain) {
-            return this.wtvrsvc_config.services["wtv-author"].public_domain;
+        if (this.minisrv_config.services["wtv-author"].public_domain) {
+            return this.minisrv_config.services["wtv-author"].public_domain;
         } else {
             if (
-                this.wtvrsvc_config.services["wtv-author"].publish_mode == "service"
+                this.minisrv_config.services["wtv-author"].publish_mode == "service"
             ) {
                 var target_service =
-                    this.wtvrsvc_config.services[
-                        this.wtvrsvc_config.services["wtv-author"].publish_dest
+                    this.minisrv_config.services[
+                        this.minisrv_config.services["wtv-author"].publish_dest
                         ];
                 if (target_service) {
                     return target_service.host + ":" + target_service.port;
                 }
             } else {
                 return (
-                    this.wtvrsvc_config.services["wtv-author"].host +
+                    this.minisrv_config.services["wtv-author"].host +
                     ":" +
-                    this.wtvrsvc_config.services["wtv-author"].port
+                    this.minisrv_config.services["wtv-author"].port
                 );
             }
         }
@@ -825,10 +825,10 @@ ${thisblock.title}
 
     getPublishDir() {
         var destDir = false;
-        if (this.wtvrsvc_config.services["wtv-author"].publish_mode == "service") {
+        if (this.minisrv_config.services["wtv-author"].publish_mode == "service") {
             var target_service =
-                this.wtvrsvc_config.services[
-                    this.wtvrsvc_config.services["wtv-author"].publish_dest
+                this.minisrv_config.services[
+                    this.minisrv_config.services["wtv-author"].publish_dest
                     ];
             if (target_service) {
                 if (!target_service.pc_services) {
@@ -839,7 +839,7 @@ ${thisblock.title}
                 }
                 if (!target_service.servicevault_dir) {
                     target_service.servicevault_dir =
-                        this.wtvrsvc_config.services["wtv-author"].publish_dest;
+                        this.minisrv_config.services["wtv-author"].publish_dest;
                 }
                 if (target_service.service_vaults) {
                     destDir =
@@ -849,16 +849,16 @@ ${thisblock.title}
                         this.path.sep;
                 } else {
                     destDir =
-                        wtvrsvc_config.config.ServiceVaults[0] +
+                        minisrv_config.config.ServiceVaults[0] +
                         this.path.sep +
                         target_service.servicevault_dir +
                         this.path.sep;
                 }
             }
         } else if (
-            this.wtvrsvc_config.services["wtv-author"].publish_mode == "directory"
+            this.minisrv_config.services["wtv-author"].publish_mode == "directory"
         ) {
-            destDir = this.wtvrsvc_config.services["wtv-author"].publish_dest;
+            destDir = this.minisrv_config.services["wtv-author"].publish_dest;
         } else {
             console.error("Invalid service configuration: invalid publish_mode.");
             return false;

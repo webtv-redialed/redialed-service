@@ -1,11 +1,11 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 var date = new Date();
 var month = parseInt(date.getMonth()) + 1;
 var day = date.getDate();
 var today = month + "/" + day;
 var notAllowedMessage = "client:showalert?message=You%20are%20not%20allowed%20to%20access%20this%20area.";
-var wtvt = new WTVTricks(wtvrsvc_config);
+var wtvt = new WTVTricks(minisrv_config);
 
 const messages = [
     "And they said evolution's a myth",

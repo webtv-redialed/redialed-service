@@ -1,7 +1,7 @@
 "use strict";
 var classPath = __dirname + "/includes/";
 const {WTVShared, clientShowAlert} = require(classPath + "WTVShared.js");
-const wtvshared = new WTVShared(); // creates wtvrsvc_config
+const wtvshared = new WTVShared(); // creates minisrv_config
 classPath = wtvshared.getAbsolutePath(classPath, __dirname);
 
 const fs = require("fs");
@@ -24,14 +24,11 @@ const WTVClientSessionData = require(classPath + "/WTVClientSessionData.js");
 const WTVMime = require(classPath + "/WTVMime.js");
 const WTVFlashrom = require(classPath + "/WTVFlashrom.js");
 const vm = require("vm");
-const debug = require("debug")("wtvrsvc_main");
+const debug = require("debug")("minisrv_main");
 const express = require("express");
 const strftime = require("strftime");
 var wtvnewsserver = null;
 const surfwatchBlacklist = fs.readFileSync('./ServiceDeps/proxy/surfwatch.txt');
-const v8 = require("v8");
-
-v8.writeHeapSnapshot(); 
 
 process
     .on("SIGTERM", shutdown("SIGTERM"))
@@ -50,18 +47,18 @@ function shutdown(signal = "SIGTERM") {
 
 function findServiceByPort(port) {
     var service_name = null;
-    Object.keys(wtvrsvc_config.services).forEach(function (k) {
+    Object.keys(minisrv_config.services).forEach(function (k) {
         if (service_name) return;
-        if (wtvrsvc_config.services[k].port) {
-            if (port === parseInt(wtvrsvc_config.services[k].port)) service_name = k;
+        if (minisrv_config.services[k].port) {
+            if (port === parseInt(minisrv_config.services[k].port)) service_name = k;
         }
     });
     return service_name;
 }
 
 function getPortByService(service) {
-    if (wtvrsvc_config.services[service])
-        return wtvrsvc_config.services[service].port;
+    if (minisrv_config.services[service])
+        return minisrv_config.services[service].port;
     else return null;
 }
 
@@ -70,13 +67,13 @@ function getSocketDestinationPort(socket) {
 }
 
 function verifyServicePort(service_name, socket) {
-    if (!wtvrsvc_config.config.enable_port_isolation) return service_name;
+    if (!minisrv_config.config.enable_port_isolation) return service_name;
     if (socket._server._connectionKey) {
         var socketPort = getSocketDestinationPort(socket);
-        if (wtvrsvc_config.services[service_name]) {
-            if (wtvrsvc_config.services[service_name].port === socketPort) {
-                if (wtvrsvc_config.services[service_name].servicevault_dir)
-                    return wtvrsvc_config.services[service_name].servicevault_dir;
+        if (minisrv_config.services[service_name]) {
+            if (minisrv_config.services[service_name].port === socketPort) {
+                if (minisrv_config.services[service_name].servicevault_dir)
+                    return minisrv_config.services[service_name].servicevault_dir;
                 else return service_name;
             }
         }
@@ -86,9 +83,9 @@ function verifyServicePort(service_name, socket) {
 
 function getServiceByVaultDir(vault_dir) {
     var res = false;
-    Object.keys(wtvrsvc_config.services).forEach((k) => {
-        if (wtvrsvc_config.services[k].servicevault_dir) {
-            if (wtvrsvc_config.services[k].servicevault_dir === vault_dir) {
+    Object.keys(minisrv_config.services).forEach((k) => {
+        if (minisrv_config.services[k].servicevault_dir) {
+            if (minisrv_config.services[k].servicevault_dir === vault_dir) {
                 res = k;
                 return false;
             }
@@ -114,7 +111,7 @@ function configureService(service_name, service_obj, initial = false) {
         else ports.push(service_obj.port);
     }
 
-    // wtvrsvc_config service toString
+    // minisrv_config service toString
     service_obj.toString = function (overrides) {
         var self = Object.assign({}, this);
         if (overrides != null) {
@@ -146,7 +143,7 @@ function configureService(service_name, service_obj, initial = false) {
         }
         return outstr;
     };
-    wtvrsvc_config.services[service_name] = service_obj;
+    minisrv_config.services[service_name] = service_obj;
     return true;
 }
 
@@ -187,30 +184,30 @@ function getServiceString(service, overrides = {}) {
     // used externally by service scripts
     if (service === "all") {
         var out = "";
-        Object.keys(wtvrsvc_config.services).forEach(function (k) {
+        Object.keys(minisrv_config.services).forEach(function (k) {
             if (overrides.exceptions) {
                 Object.keys(overrides.exceptions).forEach(function (j) {
                     if (k !== overrides.exceptions[j])
-                        out += wtvrsvc_config.services[k].toString(overrides) + "\n";
+                        out += minisrv_config.services[k].toString(overrides) + "\n";
                 });
             } else {
-                out += wtvrsvc_config.services[k].toString(overrides) + "\n";
+                out += minisrv_config.services[k].toString(overrides) + "\n";
             }
         });
         return out;
     } else {
-        if (!wtvrsvc_config.services[service]) {
+        if (!minisrv_config.services[service]) {
             throw (
                 "SERVICE ERROR: Attempted to provision unconfigured service: " + service
             );
         } else {
-            return wtvrsvc_config.services[service].toString(overrides);
+            return minisrv_config.services[service].toString(overrides);
         }
     }
 }
 
 async function sendRawFile(socket, path) {
-    if (!wtvrsvc_config.config.debug_flags.quiet)
+    if (!minisrv_config.config.debug_flags.quiet)
         console.log(
             " * Found " +
             path +
@@ -238,7 +235,7 @@ var runScriptInVM = function (
     // Here we define the ServiceVault Script Context Object
     // The ServiceVault scripts will only be allowed to access the following fcnutions/variables.
     // Furthermore, only modifications to variables in `updateFromVM` will be saved.
-    // Example: an attempt to change "wtvrsvc_config" from a ServiceVault script would be discarded
+    // Example: an attempt to change "minisrv_config" from a ServiceVault script would be discarded
 
     // try to build a name for the script's debug() calls
     if (!debug_name) {
@@ -286,12 +283,12 @@ var runScriptInVM = function (
 
         // Our variables and functions
         debug: require("debug")(debug_name ? debug_name : "service_script"),
-        wtvrsvc_config: wtvrsvc_config,
+        minisrv_config: minisrv_config,
         socket: null,
         headers: null,
         data: null,
         request_is_async: false,
-        wtvrsvc_version_string: z_title,
+        minisrv_version_string: z_title,
         getServiceString: getServiceString,
         sendToClient: sendToClient,
         ServiceDeps: ServiceDeps,
@@ -309,9 +306,9 @@ var runScriptInVM = function (
 
     // per service overrides
     var modules_loaded = [];
-    if (wtvrsvc_config.services[contextObj.service_name]) {
-        if (wtvrsvc_config.services[contextObj.service_name].modules) {
-            var vm_modules = wtvrsvc_config.services[contextObj.service_name].modules;
+    if (minisrv_config.services[contextObj.service_name]) {
+        if (minisrv_config.services[contextObj.service_name].modules) {
+            var vm_modules = minisrv_config.services[contextObj.service_name].modules;
             Object.keys(vm_modules).forEach(function (k) {
                 var module_file = classPath + path.sep + vm_modules[k] + ".js";
                 try {
@@ -334,7 +331,7 @@ var runScriptInVM = function (
     switch (contextObj.service_name) {
         //case "wtv-guide":
         // wtv-guide is a special case due to needing this function
-        //    contextObj.wtvguide = new contextObj["WTVGuide"](wtvrsvc_config, ssid_sessions[contextObj.socket.ssid], contextObj.socket, runScriptInVM);
+        //    contextObj.wtvguide = new contextObj["WTVGuide"](minisrv_config, ssid_sessions[contextObj.socket.ssid], contextObj.socket, runScriptInVM);
         //    break;
 
         case "wtv-1800":
@@ -422,18 +419,18 @@ async function processPath(
 
     if (pc_services) {
         var pc_service_name = getServiceByVaultDir(service_name);
-        if (wtvrsvc_config.services[pc_service_name].service_vaults) {
-            vaults_to_scan = wtvrsvc_config.services[pc_service_name].service_vaults;
+        if (minisrv_config.services[pc_service_name].service_vaults) {
+            vaults_to_scan = minisrv_config.services[pc_service_name].service_vaults;
         }
     } else {
         updateFromVM.push([`ssid_sessions['${socket.ssid}']`, "session_data"]); // user-specific session data from unprivileged scripts
     }
 
     var privileged = false;
-    if (wtvrsvc_config.services[service_name])
-        privileged = !!wtvrsvc_config.services[service_name].privileged;
+    if (minisrv_config.services[service_name])
+        privileged = !!minisrv_config.services[service_name].privileged;
     else if (pc_services)
-        privileged = !!wtvrsvc_config.services["pc_services"].privileged;
+        privileged = !!minisrv_config.services["pc_services"].privileged;
 
     if (privileged) {
         updateFromVM.push(["ssid_sessions", "ssid_sessions"]); // global ssid_sessions object for privileged service scripts, such as wtv-setup, wtv-head-waiter, etc
@@ -444,9 +441,9 @@ async function processPath(
         vaults_to_scan.forEach(function (service_vault_dir) {
             if (service_vault_found) return;
             if (!usingSharedROMCache) {
-                if (wtvrsvc_config.config.SharedROMCache && shared_romcache) {
+                if (minisrv_config.config.SharedROMCache && shared_romcache) {
                     if (
-                        shared_romcache.indexOf(wtvrsvc_config.config.SharedROMCache) !== -1
+                        shared_romcache.indexOf(minisrv_config.config.SharedROMCache) !== -1
                     ) {
                         var service_path_presplit = shared_romcache.split(path.sep);
                         service_path_presplit.splice(
@@ -461,7 +458,7 @@ async function processPath(
                         );
                         if (fs.existsSync(service_vault_file_path_romcache)) {
                             service_path = service_path.replace(
-                                wtvshared.fixPathSlashes(wtvrsvc_config.config.SharedROMCache),
+                                wtvshared.fixPathSlashes(minisrv_config.config.SharedROMCache),
                                 "ROMCache"
                             );
                             service_vault_file_path = service_vault_file_path_romcache;
@@ -489,17 +486,17 @@ async function processPath(
                 var service_path_split = service_path.split("/");
                 var service_path_request_file =
                     service_path_split[service_path_split.length - 1];
-                if (wtvrsvc_config.config.catchall_file_name) {
-                    var wtvrsvc_catchall;
-                    if (wtvrsvc_config.services[service_name])
-                        wtvrsvc_catchall =
-                            wtvrsvc_config.services[service_name].catchall_file_name ||
-                            wtvrsvc_config.config.catchall_file_name ||
+                if (minisrv_config.config.catchall_file_name) {
+                    var minisrv_catchall;
+                    if (minisrv_config.services[service_name])
+                        minisrv_catchall =
+                            minisrv_config.services[service_name].catchall_file_name ||
+                            minisrv_config.config.catchall_file_name ||
                             null;
                     else
-                        wtvrsvc_catchall = wtvrsvc_config.config.catchall_file_name || null;
-                    if (wtvrsvc_catchall) {
-                        if (service_path_request_file === wtvrsvc_catchall) {
+                        minisrv_catchall = minisrv_config.config.catchall_file_name || null;
+                    if (minisrv_catchall) {
+                        if (service_path_request_file === minisrv_catchall) {
                             request_is_async = true;
                             var errpage = wtvshared.doErrorPage(401);
                             sendToClient(socket, errpage[0], errpage[1]);
@@ -509,7 +506,7 @@ async function processPath(
                 }
                 var is_dir = false;
                 var file_exists = false;
-                wtvrsvc_catchall = null;
+                minisrv_catchall = null;
                 service_path_split = null;
                 service_path_request_file = null;
                 if (fs.existsSync(service_vault_file_path)) {
@@ -524,15 +521,15 @@ async function processPath(
                 }
 
                 if (file_exists && pc_services && is_dir) {
-                    if (wtvrsvc_config.config.pc_services) {
-                        if (wtvrsvc_config.config.pc_services.default_pages) {
+                    if (minisrv_config.config.pc_services) {
+                        if (minisrv_config.config.pc_services.default_pages) {
                             Object.keys(
-                                wtvrsvc_config.config.pc_services.default_pages
+                                minisrv_config.config.pc_services.default_pages
                             ).forEach((k) => {
                                 var test_file =
                                     service_vault_file_path +
                                     path.sep +
-                                    wtvrsvc_config.config.pc_services.default_pages[k];
+                                    minisrv_config.config.pc_services.default_pages[k];
                                 if (fs.existsSync(test_file)) {
                                     service_vault_file_path = test_file;
                                     return false;
@@ -578,10 +575,10 @@ async function processPath(
                         if (!ssid_sessions[socket.ssid].data_store.WTVFlashrom) {
                             ssid_sessions[socket.ssid].data_store.WTVFlashrom =
                                 new WTVFlashrom(
-                                    wtvrsvc_config,
+                                    minisrv_config,
                                     vaults_to_scan,
                                     service_name,
-                                    wtvrsvc_config.services[service_name].use_zefie_server,
+                                    minisrv_config.services[service_name].use_zefie_server,
                                     bf0app_update
                                 );
                         }
@@ -609,7 +606,7 @@ async function processPath(
                                 0,
                                 function (status, line) {
                                     if (!status) {
-                                        if (line.match(/wtvrsvc_service_file.*true/i)) {
+                                        if (line.match(/minisrv_service_file.*true/i)) {
                                             var errpage = wtvshared.doErrorPage(403);
                                             sendToClient(socket, errpage[0], errpage[1]);
                                         } else {
@@ -632,7 +629,7 @@ async function processPath(
                                 0,
                                 function (status, line) {
                                     if (!status) {
-                                        if (line.match(/^#!wtvrsvc/i)) {
+                                        if (line.match(/^#!minisrv/i)) {
                                             var errpage = wtvshared.doErrorPage(403);
                                             sendToClient(socket, errpage[0], errpage[1]);
                                         } else {
@@ -653,7 +650,7 @@ async function processPath(
                     // raw text format, entire payload expected (headers and content)
                     service_vault_found = true;
                     request_is_async = true;
-                    if (!wtvrsvc_config.config.debug_flags.quiet)
+                    if (!minisrv_config.config.debug_flags.quiet)
                         console.log(
                             " * Found " +
                             service_vault_file_path +
@@ -695,7 +692,7 @@ async function processPath(
                     // In Asynchronous mode, you are expected to call sendToClient(socket,headers,data) by the end of your script
                     // `socket` is already defined and should be passed-through.
                     service_vault_found = true;
-                    if (!wtvrsvc_config.config.debug_flags.quiet)
+                    if (!minisrv_config.config.debug_flags.quiet)
                         console.log(
                             " * Found " +
                             service_vault_file_path +
@@ -732,12 +729,12 @@ async function processPath(
                         }
                     });
 
-                    if (request_is_async && !wtvrsvc_config.config.debug_flags.quiet)
+                    if (request_is_async && !minisrv_config.config.debug_flags.quiet)
                         console.log(" * Script requested Asynchronous mode");
                 } else if (fs.existsSync(service_vault_file_path + ".html")) {
                     // Standard HTML with no headers, WTV Style
                     service_vault_found = true;
-                    if (!wtvrsvc_config.config.debug_flags.quiet)
+                    if (!minisrv_config.config.debug_flags.quiet)
                         console.log(
                             " * Found " +
                             service_vault_file_path +
@@ -758,17 +755,17 @@ async function processPath(
                     );
                 } else {
                     // look for a catchallin the current path and all parent paths up until the service root
-                    if (wtvrsvc_config.config.catchall_file_name) {
-                        var wtvrsvc_catchall_file_name;
-                        if (wtvrsvc_config.services[service_name])
-                            wtvrsvc_catchall_file_name =
-                                wtvrsvc_config.services[service_name].catchall_file_name ||
-                                wtvrsvc_config.config.catchall_file_name ||
+                    if (minisrv_config.config.catchall_file_name) {
+                        var minisrv_catchall_file_name;
+                        if (minisrv_config.services[service_name])
+                            minisrv_catchall_file_name =
+                                minisrv_config.services[service_name].catchall_file_name ||
+                                minisrv_config.config.catchall_file_name ||
                                 null;
                         else
-                            wtvrsvc_catchall_file_name =
-                                wtvrsvc_config.config.catchall_file_name || null;
-                        if (wtvrsvc_catchall_file_name) {
+                            minisrv_catchall_file_name =
+                                minisrv_config.config.catchall_file_name || null;
+                        if (minisrv_catchall_file_name) {
                             var service_check_dir = service_vault_file_path.split(path.sep);
                             service_check_dir.pop(); // pop filename
 
@@ -779,10 +776,10 @@ async function processPath(
                                 var catchall_file =
                                     service_check_dir.join(path.sep) +
                                     path.sep +
-                                    wtvrsvc_catchall_file_name;
+                                    minisrv_catchall_file_name;
                                 if (fs.existsSync(catchall_file)) {
                                     service_vault_found = true;
-                                    if (!wtvrsvc_config.config.debug_flags.quiet)
+                                    if (!minisrv_config.config.debug_flags.quiet)
                                         console.log(
                                             " * Found catchall at " +
                                             catchall_file +
@@ -812,7 +809,7 @@ async function processPath(
 
                                     if (
                                         request_is_async &&
-                                        !wtvrsvc_config.config.debug_flags.quiet
+                                        !minisrv_config.config.debug_flags.quiet
                                     )
                                         console.log(" * Script requested Asynchronous mode");
                                     break;
@@ -831,7 +828,7 @@ async function processPath(
         headers = errpage[0];
         data = errpage[1];
         if (pc_services) {
-            if (wtvrsvc_config.services.pc_services.show_verbose_errors)
+            if (minisrv_config.services.pc_services.show_verbose_errors)
                 data += "<br><br>The interpreter said:<br><pre>" + e.stack + "</pre>";
         }
         console.error(" * Scripting error:", e);
@@ -893,9 +890,9 @@ async function processURL(socket, request_headers, pc_services = false) {
             }
             if (request_headers.request_url.indexOf("?") >= 0) {
                 shortURL = request_headers.request_url.split("?")[0];
-                if (wtvrsvc_config.services[service_name])
+                if (minisrv_config.services[service_name])
                     enable_multi_query =
-                        wtvrsvc_config.services[service_name].enable_multi_query || false;
+                        minisrv_config.services[service_name].enable_multi_query || false;
                 var qraw = request_headers.request_url.split("?")[1];
                 if (qraw.length > 0) {
                     qraw = qraw.split("&");
@@ -1027,7 +1024,7 @@ async function processURL(socket, request_headers, pc_services = false) {
             if (!ssid_sessions[socket.ssid].isAuthorized(shortURL)) {
                 // lockdown mode and URL not authorized
                 headers = "300 Unauthorized\n";
-                headers += "Location: " + wtvrsvc_config.config.unauthorized_url + "\n";
+                headers += "Location: " + minisrv_config.config.unauthorized_url + "\n";
                 headers += "wtvrno-mail-count: true\n";
                 data = "";
                 await sendToClient(socket, headers, data);
@@ -1073,7 +1070,7 @@ async function processURL(socket, request_headers, pc_services = false) {
             ) {
                 // lockdown mode and URL not authorized
                 headers = `300 Unauthorized
-Location: ${wtvrsvc_config.config.unauthorized_url}
+Location: ${minisrv_config.config.unauthorized_url}
 wtvr-no-mail-count: true`;
                 data = "";
                 await sendToClient(socket, headers, data);
@@ -1147,7 +1144,7 @@ wtvr-no-mail-count: true`;
                         getSocketDestinationPort(socket) === getPortByService("wtv-star")
                     ) {
                         // is wtv-star
-                        if (wtvrsvc_config.config.debug_flags.debug)
+                        if (minisrv_config.config.debug_flags.debug)
                             console.log(
                                 " * client requested",
                                 shortURL,
@@ -1171,15 +1168,15 @@ wtvr-no-mail-count: true`;
             var shared_romcache = null;
             if (
                 shortURL.indexOf(":/ROMCache/") !== -1 &&
-                wtvrsvc_config.config.enable_shared_romcache
+                minisrv_config.config.enable_shared_romcache
             ) {
                 shared_romcache = wtvshared.fixPathSlashes(
-                    wtvrsvc_config.config.SharedROMCache +
+                    minisrv_config.config.SharedROMCache +
                     path.sep +
                     shortURL.split(":/")[1]
                 );
             }
-            if (wtvrsvc_config.config.debug_flags.show_headers)
+            if (minisrv_config.config.debug_flags.show_headers)
                 console.log(
                     " * Incoming headers on socket ID",
                     socket.id,
@@ -1368,7 +1365,7 @@ function gopher2HTML(gopherData, itemType) {
   return html;
 }
 async function doGopherProxy(socket, request_headers) {
-    if (wtvrsvc_config.config.debug_flags.show_headers) {
+    if (minisrv_config.config.debug_flags.show_headers) {
         console.log("Gopher: Client Request on socket ID",
             socket.id,
             await wtvshared.decodePostData(
@@ -1499,7 +1496,7 @@ async function doGopherProxy(socket, request_headers) {
 }
 async function doHTTPProxy(socket, request_headers, surfwatch) {
     var request_type = (request_headers.request_url.substring(0, 5) == "https") ? "https" : "http";
-    if (wtvrsvc_config.config.debug_flags.show_headers) console.log(request_type.toUpperCase() + " Proxy: Client Request Headers on socket ID", socket.id, (await wtvshared.filterSSID(request_headers)));
+    if (minisrv_config.config.debug_flags.show_headers) console.log(request_type.toUpperCase() + " Proxy: Client Request Headers on socket ID", socket.id, (await wtvshared.filterSSID(request_headers)));
     switch (request_type) {
         case "https":
             var proxy_agent = https;
@@ -1540,14 +1537,14 @@ async function doHTTPProxy(socket, request_headers, surfwatch) {
             if (request_headers["Content-length"]) options.headers["Content-length"] = request_headers["Content-length"];
         }
 
-        if (wtvrsvc_config.services[request_type].use_external_proxy && wtvrsvc_config.services[request_type].external_proxy_port) {
-            if (wtvrsvc_config.services[request_type].external_proxy_is_socks) {
+        if (minisrv_config.services[request_type].use_external_proxy && minisrv_config.services[request_type].external_proxy_port) {
+            if (minisrv_config.services[request_type].external_proxy_is_socks) {
                 var ProxyAgent = require('proxy-agent');
-                options.agent = new ProxyAgent("socks://" + (wtvrsvc_config.services[request_type].external_proxy_host || "127.0.0.1") + ":" + wtvrsvc_config.services[request_type].external_proxy_port);
+                options.agent = new ProxyAgent("socks://" + (minisrv_config.services[request_type].external_proxy_host || "127.0.0.1") + ":" + minisrv_config.services[request_type].external_proxy_port);
             } else {
                 var proxy_agent = http;
-                options.host = wtvrsvc_config.services[request_type].external_proxy_host;
-                options.port = wtvrsvc_config.services[request_type].external_proxy_port;
+                options.host = minisrv_config.services[request_type].external_proxy_host;
+                options.port = minisrv_config.services[request_type].external_proxy_port;
                 options.path = request_headers.request.split(' ')[1];
                 options.headers.Host = request_data.host + ":" + request_data.port;
             }
@@ -1659,7 +1656,7 @@ wtv-encrypted: true`
 }
 
 async function doProtoWebProxy(socket, request_headers) {
-    if (wtvrsvc_config.config.debug_flags.show_headers) {
+    if (minisrv_config.config.debug_flags.show_headers) {
         "ProtoWeb Proxy: Client Request Headers on socket ID",
             socket.id,
             await wtvshared.decodePostData(
@@ -1790,12 +1787,12 @@ async function doProtoWebProxy(socket, request_headers) {
 
                     // if a wtv-explaination is defined for an error code (except 200), define the header here to
                     // show the 'Explain' button on the client error ShowAlert
-                    if (wtvrsvc_config.services["http"]["wtv-explanation"]) {
+                    if (minisrv_config.services["http"]["wtv-explanation"]) {
                         if (
-                            wtvrsvc_config.services["http"]["wtv-explanation"][res.statusCode]
+                            minisrv_config.services["http"]["wtv-explanation"][res.statusCode]
                         ) {
                             headers["wtv-explanation-url"] =
-                                wtvrsvc_config.services["http"]["wtv-explanation"][
+                                minisrv_config.services["http"]["wtv-explanation"][
                                     res.statusCode
                                     ];
                         }
@@ -2098,7 +2095,7 @@ async function sendToClient(socket, headers_obj, data) {
             100
         ).toFixed(1);
         if (uncompressed_content_length !== compressed_content_length)
-            if (wtvrsvc_config.config.debug_flags.debug)
+            if (minisrv_config.config.debug_flags.debug)
                 console.log(
                     " # Compression stats: Orig Size:",
                     uncompressed_content_length,
@@ -2124,7 +2121,7 @@ async function sendToClient(socket, headers_obj, data) {
                 headers_obj
             );
             if (content_length > 0 && socket_sessions[socket.id].wtvsec) {
-                if (!wtvrsvc_config.config.debug_flags.quiet)
+                if (!minisrv_config.config.debug_flags.quiet)
                     console.log(" * Encrypting response to client ...");
                 data = socket_sessions[socket.id].wtvsec.Encrypt(1, data);
             }
@@ -2177,7 +2174,7 @@ async function sendToClient(socket, headers_obj, data) {
         var end_of_line = "\n";
 
         // header object to string
-        if (wtvrsvc_config.config.debug_flags.show_headers)
+        if (minisrv_config.config.debug_flags.show_headers)
             console.log(
                 " * Outgoing headers on socket ID",
                 socket.id,
@@ -2213,13 +2210,13 @@ async function sendToClient(socket, headers_obj, data) {
         socket.res.writeHead(resCode, headers_obj);
         socket.res.end(data);
         var log_obj = Object.assign({}, socket.res.getHeaders());
-        if (wtvrsvc_config.config.debug_flags.show_headers)
+        if (minisrv_config.config.debug_flags.show_headers)
             console.log(
                 " * Outgoing PC headers on " + socket.service_name + " socket ID",
                 socket.id,
                 log_obj
             );
-        if (wtvrsvc_config.config.debug_flags.quiet)
+        if (minisrv_config.config.debug_flags.quiet)
             console.log(
                 " * Sent response " +
                 headers_obj.Response +
@@ -2235,12 +2232,12 @@ async function sendToClient(socket, headers_obj, data) {
             toClient = headers + end_of_line + data;
             await sendToSocket(socket, Buffer.from(toClient));
         } else if (typeof data == "object") {
-            if (wtvrsvc_config.config.debug_flags.quiet)
+            if (minisrv_config.config.debug_flags.quiet)
                 var verbosity_mod =
                     headers_obj["wtv-encrypted"] === "true" ? " encrypted response" : "";
             if (socket_sessions[socket.id].secure_headers === true) {
                 // encrypt headers
-                if (wtvrsvc_config.config.debug_flags.quiet)
+                if (minisrv_config.config.debug_flags.quiet)
                     verbosity_mod += " with encrypted headers";
                 var enc_headers = socket_sessions[socket.id].wtvsec.Encrypt(
                     1,
@@ -2258,7 +2255,7 @@ async function sendToClient(socket, headers_obj, data) {
                     )
                 );
             }
-            if (wtvrsvc_config.config.debug_flags.quiet)
+            if (minisrv_config.config.debug_flags.quiet)
                 console.log(
                     " * Sent" +
                     verbosity_mod +
@@ -2326,7 +2323,7 @@ async function sendToSocket(socket, data) {
             delete socket_sessions[socket.id].post_data_length;
         if (socket_sessions[socket.id].post_data_percents_shown)
             delete socket_sessions[socket.id].post_data_percents_shown;
-        socket.setTimeout(wtvrsvc_config.config.socket_timeout * 1000);
+        socket.setTimeout(minisrv_config.config.socket_timeout * 1000);
         if (socket_sessions[socket.id].close_me) socket.end();
         if (socket_sessions[socket.id].destroy_me) socket.destroy();
     }
@@ -2400,8 +2397,8 @@ async function processRequest(
                     // its not a POST and it failed the isUnencryptedString test, so we think this is an encrypted blob
                     if (socket_sessions[socket.id].secure !== true) {
                         // first time so reroll sessions
-                        //                        if (wtvrsvc_config.config.debug_flags.debug) console.log(" # [ UNEXPECTED BINARY BLOCK ] First sign of encryption, re-creating RC4 sessions for socket id", socket.id);
-                        socket_sessions[socket.id].wtvsec = new WTVSec(wtvrsvc_config);
+                        //                        if (minisrv_config.config.debug_flags.debug) console.log(" # [ UNEXPECTED BINARY BLOCK ] First sign of encryption, re-creating RC4 sessions for socket id", socket.id);
+                        socket_sessions[socket.id].wtvsec = new WTVSec(minisrv_config);
                         socket_sessions[socket.id].wtvsec.IssueChallenge();
                         socket_sessions[socket.id].wtvsec.SecureOn();
                         socket_sessions[socket.id].secure = true;
@@ -2457,7 +2454,7 @@ async function processRequest(
                 if (socket.ssid != null) {
                     if (!ssid_sessions[socket.ssid]) {
                         ssid_sessions[socket.ssid] = new WTVClientSessionData(
-                            wtvrsvc_config,
+                            minisrv_config,
                             socket.ssid
                         );
                         ssid_sessions[socket.ssid].SaveIfRegistered();
@@ -2482,7 +2479,7 @@ async function processRequest(
             if (headers["wtv-capability-flags"] != null) {
                 if (!ssid_sessions[socket.ssid]) {
                     ssid_sessions[socket.ssid] = new WTVClientSessionData(
-                        wtvrsvc_config,
+                        minisrv_config,
                         socket.ssid
                     );
                     ssid_sessions[socket.ssid].SaveIfRegistered();
@@ -2510,7 +2507,7 @@ async function processRequest(
                 if (headers["wtv-ticket"]) {
                     if (!ssid_sessions[socket.ssid].data_store.wtvsec_login) {
                         ssid_sessions[socket.ssid].data_store.wtvsec_login = new WTVSec(
-                            wtvrsvc_config
+                            minisrv_config
                         );
                         ssid_sessions[socket.ssid].data_store.wtvsec_login.IssueChallenge();
                         if (headers["wtv-incarnation"])
@@ -2550,7 +2547,7 @@ async function processRequest(
                                 !ssid_sessions[socket.ssid].data_store.wtvsec_login
                                     .update_ticket
                             ) {
-                                if (wtvrsvc_config.config.debug_flags.debug)
+                                if (minisrv_config.config.debug_flags.debug)
                                     console.log(" # New ticket from client");
                                 ssid_sessions[socket.ssid].data_store.wtvsec_login.ticket_b64 =
                                     headers["wtv-ticket"];
@@ -2592,15 +2589,15 @@ async function processRequest(
                 !skipSecure
             ) {
                 if (!socket_sessions[socket.id].wtvsec) {
-                    if (!wtvrsvc_config.config.debug_flags.quiet)
+                    if (!minisrv_config.config.debug_flags.quiet)
                         console.log(" * Starting new WTVSec instance on socket", socket.id);
                     if (ssid_sessions[socket.ssid].get("wtv-incarnation")) {
                         socket_sessions[socket.id].wtvsec = new WTVSec(
-                            wtvrsvc_config,
+                            minisrv_config,
                             ssid_sessions[socket.ssid].get("wtv-incarnation")
                         );
                     } else {
-                        socket_sessions[socket.id].wtvsec = new WTVSec(wtvrsvc_config);
+                        socket_sessions[socket.id].wtvsec = new WTVSec(minisrv_config);
                     }
                     socket_sessions[socket.id].wtvsec.DecodeTicket(headers["wtv-ticket"]);
                     socket_sessions[socket.id].wtvsec.ticket_b64 = headers["wtv-ticket"];
@@ -2608,7 +2605,7 @@ async function processRequest(
                 }
                 if (socket_sessions[socket.id].secure !== true) {
                     // first time so reroll sessions
-                    if (wtvrsvc_config.config.debug_flags.debug)
+                    if (minisrv_config.config.debug_flags.debug)
                         console.log(" # [ SECURE ON BLOCK (" + socket.id + ") ]");
                     socket_sessions[socket.id].secure = true;
                 }
@@ -2669,9 +2666,9 @@ async function processRequest(
                         if (!secure_headers) return;
 
                         delete socket_sessions[socket.id].secure_buffer;
-                        if (wtvrsvc_config.config.debug_flags.debug)
+                        if (minisrv_config.config.debug_flags.debug)
                             console.log(" # Encrypted Request (SECURE ON)", "on", socket.id);
-                        if (wtvrsvc_config.config.debug_flags.show_headers)
+                        if (minisrv_config.config.debug_flags.show_headers)
                             console.log(secure_headers);
                         if (!secure_headers.request) {
                             socket_sessions[socket.id].secure = false;
@@ -2714,7 +2711,7 @@ async function processRequest(
             ) {
                 if (headers["request"].substring(0, 4) === "POST") {
                     socket.setTimeout(
-                        wtvrsvc_config.config.post_data_socket_timeout * 1000
+                        minisrv_config.config.post_data_socket_timeout * 1000
                     );
                     if (typeof socket_sessions[socket.id].post_data == "undefined") {
                         if (socket_sessions[socket.id].post_data_percents_shown)
@@ -2847,7 +2844,7 @@ async function processRequest(
                     if (socket_sessions[socket.id].secure === true)
                         post_string = "Encrypted " + post_string;
 
-                    if (wtvrsvc_config.config.post_debug) {
+                    if (minisrv_config.config.post_debug) {
                         // `post_debug` logging of every chunk
                         console.log(
                             " * ",
@@ -2868,9 +2865,9 @@ async function processRequest(
                             socket_sessions[socket.id].post_data.length,
                             socket_sessions[socket.id].post_data_length * 2
                         );
-                        if (wtvrsvc_config.config.post_percentages) {
+                        if (minisrv_config.config.post_percentages) {
                             if (
-                                wtvrsvc_config.config.post_percentages.includes(postPercent)
+                                minisrv_config.config.post_percentages.includes(postPercent)
                             ) {
                                 if (!socket_sessions[socket.id].post_data_percents_shown)
                                     socket_sessions[socket.id].post_data_percents_shown = [];
@@ -2906,12 +2903,12 @@ async function processRequest(
                     // got all expected data
                     if (socket_sessions[socket.id].expecting_post_data)
                         delete socket_sessions[socket.id].expecting_post_data;
-                    socket.setTimeout(wtvrsvc_config.config.socket_timeout * 1000);
+                    socket.setTimeout(minisrv_config.config.socket_timeout * 1000);
                     headers.post_data = CryptoJS.enc.Hex.parse(
                         socket_sessions[socket.id].post_data
                     );
                     if (socket_sessions[socket.id].secure === true) {
-                        if (wtvrsvc_config.config.debug_flags.debug)
+                        if (minisrv_config.config.debug_flags.debug)
                             console.log(
                                 " # Encrypted POST Content (SECURE ON)",
                                 "on",
@@ -2921,7 +2918,7 @@ async function processRequest(
                                 "bytes ]"
                             );
                     } else {
-                        if (wtvrsvc_config.config.debug_flags.debug)
+                        if (minisrv_config.config.debug_flags.debug)
                             console.log(" # Unencrypted POST Content", "on", socket.id);
                     }
                     delete socket_sessions[socket.id].headers;
@@ -2934,7 +2931,7 @@ async function processRequest(
                 ) {
                     if (socket_sessions[socket.id].expecting_post_data)
                         delete socket_sessions[socket.id].expecting_post_data;
-                    socket.setTimeout(wtvrsvc_config.config.socket_timeout * 1000);
+                    socket.setTimeout(minisrv_config.config.socket_timeout * 1000);
                     // got too much data ? ... should not ever reach this code
                     var errpage = wtvshared.doErrorPage(
                         400,
@@ -2951,7 +2948,7 @@ async function processRequest(
             } else if (!skipSecure) {
                 if (!encryptedRequest) {
                     if (socket_sessions[socket.id].secure !== true) {
-                        socket_sessions[socket.id].wtvsec = new WTVSec(wtvrsvc_config);
+                        socket_sessions[socket.id].wtvsec = new WTVSec(minisrv_config);
                         socket_sessions[socket.id].wtvsec.IssueChallenge();
                         socket_sessions[socket.id].wtvsec.SecureOn();
                         socket_sessions[socket.id].secure = true;
@@ -3046,7 +3043,7 @@ async function processRequest(
 async function cleanupSocket(socket) {
     try {
         if (socket_sessions[socket.id]) {
-            if (!wtvrsvc_config.config.debug_flags.quiet)
+            if (!minisrv_config.config.debug_flags.quiet)
                 console.log(" * Cleaning up disconnected socket", socket.id);
             delete socket_sessions[socket.id];
         }
@@ -3062,7 +3059,7 @@ async function cleanupSocket(socket) {
 
                 // set timer to destroy entirety of session data if client does not return in X time
                 // HALEN: this feature actually sucks quite a lot, so it's a config variable now
-                var timeout = wtvrsvc_config.config.sessionClearTimeout; // timeout is in milliseconds, default 180000 (3 min) .. be sure to allow time for dialup reconnections
+                var timeout = minisrv_config.config.sessionClearTimeout; // timeout is in milliseconds, default 180000 (3 min) .. be sure to allow time for dialup reconnections
 
                 // clear any existing timeout check
                 if (ssid_sessions[socket.ssid].data_store.socket_check)
@@ -3072,7 +3069,7 @@ async function cleanupSocket(socket) {
                 ssid_sessions[socket.ssid].data_store.socket_check = setTimeout(
                     function (ssid) {
                         if (ssid_sessions[ssid].currentConnections() === 0) {
-                            if (!wtvrsvc_config.config.debug_flags.quiet)
+                            if (!minisrv_config.config.debug_flags.quiet)
                                 console.log(
                                     " * WebTV SSID",
                                     wtvshared.filterSSID(ssid),
@@ -3112,9 +3109,9 @@ async function handleSocket(socket) {
     );
     socket.ssid = null;
     socket_sessions[socket.id] = [];
-    socket.wtvrsvc_pc_mode = false;
+    socket.minisrv_pc_mode = false;
     socket.setEncoding("hex"); //set data encoding (Text: 'ascii', 'utf8' ~ Binary: 'hex', 'base64' (do not trust 'binary' encoding))
-    socket.setTimeout(wtvrsvc_config.config.socket_timeout * 1000);
+    socket.setTimeout(minisrv_config.config.socket_timeout * 1000);
     socket.on("data", function (data_hex) {
         if (socket_sessions[socket.id]) {
             if (
@@ -3163,46 +3160,46 @@ async function handleSocket(socket) {
     });
 }
 
-var wtvrsvc_config = null;
+var minisrv_config = null;
 
 function reloadConfig() {
-    var temp = {version: wtvrsvc_config.version};
+    var temp = {version: minisrv_config.version};
 
-    wtvrsvc_config = wtvshared.readMiniSrvConfig(true, false, true); // snatches wtvrsvc_config
-    wtvrsvc_config.version = temp.version;
-    if (wtvrsvc_config.config.service_logo.indexOf(":") === -1)
-        wtvrsvc_config.config.service_logo =
-            "wtv-star:/ROMCache/" + wtvrsvc_config.config.service_logo;
-    if (wtvrsvc_config.config.service_splash_logo.indexOf(":") === -1)
-        wtvrsvc_config.config.service_splash_logo =
-            "wtv-star:/ROMCache/" + wtvrsvc_config.config.service_splash_logo;
-    Object.keys(wtvrsvc_config.services).forEach((k) => {
-        configureService(k, wtvrsvc_config.services[k]);
+    minisrv_config = wtvshared.readMiniSrvConfig(true, false, true); // snatches minisrv_config
+    minisrv_config.version = temp.version;
+    if (minisrv_config.config.service_logo.indexOf(":") === -1)
+        minisrv_config.config.service_logo =
+            "wtv-star:/ROMCache/" + minisrv_config.config.service_logo;
+    if (minisrv_config.config.service_splash_logo.indexOf(":") === -1)
+        minisrv_config.config.service_splash_logo =
+            "wtv-star:/ROMCache/" + minisrv_config.config.service_splash_logo;
+    Object.keys(minisrv_config.services).forEach((k) => {
+        configureService(k, minisrv_config.services[k]);
     });
 
-    return wtvrsvc_config;
+    return minisrv_config;
 }
 
 // SERVER START
-wtvrsvc_config = wtvshared.getWTVRSvcConfig(); // snatches wtvrsvc_config
+minisrv_config = wtvshared.getminisrvConfig(); // snatches minisrv_config
 
-const debugmode = wtvrsvc_config.config.serviceType == 'Debug';
+const debugmode = minisrv_config.config.serviceType == 'Debug';
 const { version } = require('./package.json');
 const z_title = `WebTV Redialed v${version}${debugmode ? ' (Debug)' : ''}`;
 console.log(`**** Welcome to ${z_title} ****`);
 
-wtvrsvc_config = wtvshared.getWTVRSvcConfig(); // snatches wtvrsvc_config
-const wtvmime = new WTVMime(wtvrsvc_config);
+minisrv_config = wtvshared.getminisrvConfig(); // snatches minisrv_config
+const wtvmime = new WTVMime(minisrv_config);
 
-if (!wtvrsvc_config) {
+if (!minisrv_config) {
     throw "An error has occured while reading the configuration files.";
 }
 
 var service_vaults = [];
-if (wtvrsvc_config.config.ServiceVaults) {
-    Object.keys(wtvrsvc_config.config.ServiceVaults).forEach(function (k) {
+if (minisrv_config.config.ServiceVaults) {
+    Object.keys(minisrv_config.config.ServiceVaults).forEach(function (k) {
         var service_vault = wtvshared.returnAbsolutePath(
-            wtvrsvc_config.config.ServiceVaults[k]
+            minisrv_config.config.ServiceVaults[k]
         );
         service_vaults.push(service_vault);
         console.log(
@@ -3216,8 +3213,8 @@ if (wtvrsvc_config.config.ServiceVaults) {
     throw "ERROR: No Service Vaults defined!";
 }
 
-if (wtvrsvc_config.config.SessionStore) {
-    var SessionStore = wtvshared.returnAbsolutePath(wtvrsvc_config.config.SessionStore);
+if (minisrv_config.config.SessionStore) {
+    var SessionStore = wtvshared.returnAbsolutePath(minisrv_config.config.SessionStore);
     console.log(" * Configured Session Storage at", SessionStore);
     if (!fs.existsSync(SessionStore)) {
         fs.mkdirSync(SessionStore, { recursive: true });
@@ -3227,49 +3224,49 @@ if (wtvrsvc_config.config.SessionStore) {
     throw "ERROR: No Session Storage Directory (SessionStore) defined!";
 }
 
-if (wtvrsvc_config.config.ServiceDeps) {
+if (minisrv_config.config.ServiceDeps) {
     var ServiceDeps = wtvshared.returnAbsolutePath(
-        wtvrsvc_config.config.ServiceDeps
+        minisrv_config.config.ServiceDeps
     );
     console.log(" * Configured Service Dependancies at", ServiceDeps);
 } else {
     throw "ERROR: No Service Dependancies Directory (SessionDeps) defined!";
 }
 
-var service_ip = wtvrsvc_config.config.service_ip;
-Object.keys(wtvrsvc_config.services).forEach(function (k) {
-    if (configureService(k, wtvrsvc_config.services[k], true)) {
+var service_ip = minisrv_config.config.service_ip;
+Object.keys(minisrv_config.services).forEach(function (k) {
+    if (configureService(k, minisrv_config.services[k], true)) {
         console.log(
             " * Configured Service:",
             k,
             "on Port",
-            wtvrsvc_config.services[k].port,
+            minisrv_config.services[k].port,
             "- Service Host:",
-            wtvrsvc_config.services[k].host,
+            minisrv_config.services[k].host,
             "- Bind Port:",
-            !wtvrsvc_config.services[k].nobind,
+            !minisrv_config.services[k].nobind,
             "- PC Services Mode:",
-            !!wtvrsvc_config.services[k].pc_services
+            !!minisrv_config.services[k].pc_services
         );
 
-        if (wtvrsvc_config.services[k].local_nntp_port) {
+        if (minisrv_config.services[k].local_nntp_port) {
             if (!wtvnewsserver) {
                 const WTVNewsServer = require(classPath + "/WTVNewsServer.js");
                 var local_nntp_using_auth = false;
-                if (wtvrsvc_config.services[k].local_nntp_requires_auth) {
+                if (minisrv_config.services[k].local_nntp_requires_auth) {
                     local_nntp_using_auth = true;
-                    if (wtvrsvc_config.services[k].local_auth) {
+                    if (minisrv_config.services[k].local_auth) {
                         // auth required, and info defined in config
                         wtvnewsserver = new WTVNewsServer(
-                            wtvrsvc_config,
-                            wtvrsvc_config.services[k].local_nntp_port,
+                            minisrv_config,
+                            minisrv_config.services[k].local_nntp_port,
                             true,
-                            wtvrsvc_config.services[k].local_auth.username,
-                            wtvrsvc_config.services[k].local_auth.password
+                            minisrv_config.services[k].local_auth.username,
+                            minisrv_config.services[k].local_auth.password
                         );
                         console.log(
                             " * Configured Service: Local NNTP",
-                            "on 127.0.0.1:" + wtvrsvc_config.services[k].local_nntp_port,
+                            "on 127.0.0.1:" + minisrv_config.services[k].local_nntp_port,
                             "(TLS) - Auth required:",
                             local_nntp_using_auth,
                             "- Auth: As Configured"
@@ -3277,13 +3274,13 @@ Object.keys(wtvrsvc_config.services).forEach(function (k) {
                     } else {
                         // auth required, but randomly generated
                         wtvnewsserver = new WTVNewsServer(
-                            wtvrsvc_config,
-                            wtvrsvc_config.services[k].local_nntp_port,
+                            minisrv_config,
+                            minisrv_config.services[k].local_nntp_port,
                             true
                         );
                         console.log(
                             " * Configured Service: Local NNTP",
-                            "on 127.0.0.1:" + wtvrsvc_config.services[k].local_nntp_port,
+                            "on 127.0.0.1:" + minisrv_config.services[k].local_nntp_port,
                             "(TLS) - Auth required:",
                             local_nntp_using_auth,
                             "- Auth (randgen): User:",
@@ -3295,23 +3292,23 @@ Object.keys(wtvrsvc_config.services).forEach(function (k) {
                 } else {
                     // no auth required on local server
                     wtvnewsserver = new WTVNewsServer(
-                        wtvrsvc_config,
-                        wtvrsvc_config.services[k].local_nntp_port
+                        minisrv_config,
+                        minisrv_config.services[k].local_nntp_port
                     );
                     console.log(
                         " * Configured Service: Local NNTP",
-                        "on 127.0.0.1:" + wtvrsvc_config.services[k].local_nntp_port,
+                        "on 127.0.0.1:" + minisrv_config.services[k].local_nntp_port,
                         "(TLS) - Auth required:",
                         local_nntp_using_auth,
                         "- Auth: None"
                     );
                 }
-                if (wtvrsvc_config.services[k].featuredGroups) {
-                    Object.keys(wtvrsvc_config.services[k].featuredGroups).forEach(
+                if (minisrv_config.services[k].featuredGroups) {
+                    Object.keys(minisrv_config.services[k].featuredGroups).forEach(
                         (j) => {
                             wtvnewsserver.createGroup(
-                                wtvrsvc_config.services[k].featuredGroups[j].group,
-                                wtvrsvc_config.services[k].featuredGroups[j].description || null
+                                minisrv_config.services[k].featuredGroups[j].group,
+                                minisrv_config.services[k].featuredGroups[j].description || null
                             );
                         }
                     );
@@ -3320,25 +3317,25 @@ Object.keys(wtvrsvc_config.services).forEach(function (k) {
         }
     }
 });
-if (wtvrsvc_config.config.hide_ssid_in_logs)
+if (minisrv_config.config.hide_ssid_in_logs)
     console.log(" * Masking SSIDs in console logs for security");
 else console.log(" * Full SSIDs will be shown in console logs");
 
-if (wtvrsvc_config.config.filter_passwords_in_logs)
+if (minisrv_config.config.filter_passwords_in_logs)
     console.log(" * Will attempt to filter passwords in browser queries");
 else console.log(" * Passwords in browser queries will not be filtered");
 
-if (wtvrsvc_config.config.service_logo.indexOf(":") === -1)
-    wtvrsvc_config.config.service_logo =
-        "wtv-star:/ROMCache/" + wtvrsvc_config.config.service_logo;
-if (wtvrsvc_config.config.service_splash_logo.indexOf(":") === -1)
-    wtvrsvc_config.config.service_splash_logo =
-        "wtv-star:/ROMCache/" + wtvrsvc_config.config.service_splash_logo;
+if (minisrv_config.config.service_logo.indexOf(":") === -1)
+    minisrv_config.config.service_logo =
+        "wtv-star:/ROMCache/" + minisrv_config.config.service_logo;
+if (minisrv_config.config.service_splash_logo.indexOf(":") === -1)
+    minisrv_config.config.service_splash_logo =
+        "wtv-star:/ROMCache/" + minisrv_config.config.service_splash_logo;
 
-wtvrsvc_config.version = require("./package.json").version;
-if (wtvrsvc_config.config.error_log_file) {
+minisrv_config.version = require("./package.json").version;
+if (minisrv_config.config.error_log_file) {
     var error_log_stream = fs.createWriteStream(
-        wtvshared.returnAbsolutePath(wtvrsvc_config.config.error_log_file),
+        wtvshared.returnAbsolutePath(minisrv_config.config.error_log_file),
         {flags: "a"}
     );
     var process_stderr = process.stderr.write;
@@ -3351,17 +3348,17 @@ if (wtvrsvc_config.config.error_log_file) {
 }
 
 // sanity
-if (wtvrsvc_config.config.user_accounts.max_users_per_account < 1) {
+if (minisrv_config.config.user_accounts.max_users_per_account < 1) {
     console.log(
         " * WARNING: user_accounts.max_users_per_account should be at least 1, we have set it to 1."
     );
-    wtvrsvc_config.config.user_accounts.max_users_per_account = 1;
+    minisrv_config.config.user_accounts.max_users_per_account = 1;
 }
-if (wtvrsvc_config.config.user_accounts.max_users_per_account > 99) {
+if (minisrv_config.config.user_accounts.max_users_per_account > 99) {
     console.log(
         " * WARNING: user_accounts.max_users_per_account should be less than 99, we have set it to 99."
     );
-    wtvrsvc_config.config.user_accounts.max_users_per_account = 99;
+    minisrv_config.config.user_accounts.max_users_per_account = 99;
 }
 
 process.on("uncaughtException", function (err) {
@@ -3375,11 +3372,11 @@ pc_ports.sort();
 
 // de-duplicate ports in case user configured multiple services on same port
 const bind_ports = [...new Set(ports)];
-if (!wtvrsvc_config.config.bind_ip) wtvrsvc_config.config.bind_ip = "0.0.0.0";
+if (!minisrv_config.config.bind_ip) minisrv_config.config.bind_ip = "0.0.0.0";
 bind_ports.every(function (v) {
     try {
         var server = net.createServer(handleSocket);
-        server.listen(v, wtvrsvc_config.config.bind_ip);
+        server.listen(v, minisrv_config.config.bind_ip);
         initstring += v + ", ";
         return true;
     } catch (e) {
@@ -3387,7 +3384,7 @@ bind_ports.every(function (v) {
             ("Could not bind to port",
                 v,
                 "on",
-                wtvrsvc_config.config.bind_ip,
+                minisrv_config.config.bind_ip,
                 e.toString())
         );
     }
@@ -3396,11 +3393,11 @@ bind_ports.every(function (v) {
 // PC Services via express
 // de-duplicate ports in case user configured multiple services on same port
 const pc_bind_ports = [...new Set(pc_ports)];
-if (!wtvrsvc_config.config.bind_ip) wtvrsvc_config.config.bind_ip = "0.0.0.0";
+if (!minisrv_config.config.bind_ip) minisrv_config.config.bind_ip = "0.0.0.0";
 pc_bind_ports.every(function (v) {
     try {
         var server = express();
-        server.listen(v, wtvrsvc_config.config.bind_ip);
+        server.listen(v, minisrv_config.config.bind_ip);
         initstring_pc += v + ", ";
         server.get("*", (req, res) => {
             var request_headers = {};
@@ -3422,7 +3419,7 @@ pc_bind_ports.every(function (v) {
                 request_headers[k] = req.headers[k];
             });
             request_headers.query = req.query;
-            if (wtvrsvc_config.config.debug_flags.show_headers)
+            if (minisrv_config.config.debug_flags.show_headers)
                 console.log(
                     " * Incoming PC Headers on",
                     service_name,
@@ -3431,7 +3428,7 @@ pc_bind_ports.every(function (v) {
                     wtvshared.filterRequestLog(request_headers)
                 );
             request_headers.service_name = service_name;
-            req.socket.wtvrsvc_pc_mode = true;
+            req.socket.minisrv_pc_mode = true;
             req.socket.res = res;
             req.socket.service_name = service_name;
             processURL(req.socket, request_headers, true);
@@ -3442,7 +3439,7 @@ pc_bind_ports.every(function (v) {
             ("Could not bind to port",
                 v,
                 "on",
-                wtvrsvc_config.config.bind_ip,
+                minisrv_config.config.bind_ip,
                 e.toString())
         );
     }
@@ -3458,8 +3455,8 @@ if (initstring_pc.length > 0)
     console.log(" * Started HTTP Server on port(s) " + initstring_pc + "...");
 
 var listening_ip_string =
-    wtvrsvc_config.config.bind_ip !== "0.0.0.0"
-        ? "IP: " + wtvrsvc_config.config.bind_ip
+    minisrv_config.config.bind_ip !== "0.0.0.0"
+        ? "IP: " + minisrv_config.config.bind_ip
         : "all interfaces";
 console.log(
     " * Listening on",

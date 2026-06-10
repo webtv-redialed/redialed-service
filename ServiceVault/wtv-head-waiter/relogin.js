@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 session_data.setUserLoggedIn(false);
 
 var gourl = "wtv-1800:/preregister?";

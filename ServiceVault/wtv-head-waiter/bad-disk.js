@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 // remove restrictions once this page is shown, since the user will be 'trapped' anyway
 session_data.disableLockdown();

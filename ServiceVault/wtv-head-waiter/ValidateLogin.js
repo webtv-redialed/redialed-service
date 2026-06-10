@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 var challenge_response,
     challenge_header = "";
@@ -56,12 +56,12 @@ wtv-visit: client:hangupphone`;
                         " * wtv-challenge-response FAILED for " +
                         wtvshared.filterSSID(socket.ssid)
                     );
-                    if (wtvrsvc_config.config.debug_flags.debug)
+                    if (minisrv_config.config.debug_flags.debug)
                         console.log(
                             "Response Expected:",
                             challenge_response.toString(CryptoJS.enc.Base64)
                         );
-                    if (wtvrsvc_config.config.debug_flags.debug)
+                    if (minisrv_config.config.debug_flags.debug)
                         console.log("Response Received:", client_challenge_response);
                     gourl = "wtv-head-waiter:/login?reissue_challenge=true";
                 }
@@ -112,7 +112,7 @@ wtvr-no-mail-count: true
             gourl = "wtv-flashrom:/ready-to-update";
         // having to restart the server to enable maintenance mode isn't ideal
         // instead we should probably make a script that interfaces with the server to enable it (like with CrossTalk)
-        } else if (wtvrsvc_config.config.maintenance_mode && wantsMessageWatch && wtvrsvc_config.config.serviceType == "Production") { // Make sure datadownload & messagewatch can still function
+        } else if (minisrv_config.config.maintenance_mode && wantsMessageWatch && minisrv_config.config.serviceType == "Production") { // Make sure datadownload & messagewatch can still function
             gourl = `wtv-star:/star?maintenance=true`;
         } 
         else if (

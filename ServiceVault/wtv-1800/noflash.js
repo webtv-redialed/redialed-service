@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 if (socket.ssid != null && !session_data.get("wtvsec_login")) {
     var wtvsec_login = session_data.createWTVSecSession();

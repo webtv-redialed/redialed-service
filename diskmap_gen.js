@@ -3,8 +3,8 @@ const fs = require("fs");
 const path = require("path");
 var {WTVShared, clientShowAlert} = require("./includes/WTVShared.js");
 
-const wtvshared = new WTVShared(); // creates wtvrsvc_config
-var wtvrsvc_config = wtvshared.getWTVRSvcConfig(); // snatches wtvrsvc_config
+const wtvshared = new WTVShared(); // creates minisrv_config
+var minisrv_config = wtvshared.getminisrvConfig(); // snatches minisrv_config
 
 // primitive recursive diskmap generator, usage:
 // node diskmap_gen.js path_in_servicevault diskmap_name wtvdest [service_name]
@@ -47,18 +47,18 @@ else service_name = "wtv-disk";
 
 var service_vault = null;
 var service_vault_dir = null;
-if (wtvrsvc_config.config.ServiceVaults) {
-    Object.keys(wtvrsvc_config.config.ServiceVaults).forEach(function (k) {
+if (minisrv_config.config.ServiceVaults) {
+    Object.keys(minisrv_config.config.ServiceVaults).forEach(function (k) {
         if (service_vault_dir) return;
         var test = wtvshared.makeSafePath(
-            wtvshared.returnAbsolutePath(wtvrsvc_config.config.ServiceVaults[k]),
+            wtvshared.returnAbsolutePath(minisrv_config.config.ServiceVaults[k]),
             service_name + path.sep + service_vault_subdir
         );
         console.log(" * Looking for", test);
         if (fs.existsSync(test)) {
             console.log(" * Found", test);
             service_vault = wtvshared.makeSafePath(
-                wtvshared.returnAbsolutePath(wtvrsvc_config.config.ServiceVaults[k]),
+                wtvshared.returnAbsolutePath(minisrv_config.config.ServiceVaults[k]),
                 service_name
             );
             service_vault_dir = test;

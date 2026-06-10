@@ -1,4 +1,4 @@
-var wtvrsvc_service_file = true;
+var minisrv_service_file = true;
 
 const WTVFlashrom = require(classPath + "/WTVFlashrom.js");
 request_is_async = true;
@@ -18,10 +18,10 @@ if ((romtype == "bf0app" || !romtype) && (bootver == "105" || !bootver)) {
 if (request_headers.query.raw || bf0app_update) {
     if (!session_data.data_store.WTVFlashrom) {
         session_data.data_store.WTVFlashrom = new WTVFlashrom(
-            wtvrsvc_config,
+            minisrv_config,
             service_vaults,
             service_name,
-            wtvrsvc_config.services[service_name].use_zefie_server,
+            minisrv_config.services[service_name].use_zefie_server,
             bf0app_update
         );
     }
