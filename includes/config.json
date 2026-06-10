@@ -237,6 +237,7 @@
     "wtv-mail": {
       "port": 1608,
       "connections": 3,
+	  "enable_multi_query": true,
       "privileged": true,
       "modules": [
         "WTVNews"

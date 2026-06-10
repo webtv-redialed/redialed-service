@@ -231,8 +231,7 @@ label="View saved messages">
 <TR><TD COLSPAN=3 ABSHEIGHT=2 VALIGN=TOP ALIGN=LEFT BGCOLOR=515B84><IMG SRC="ROMCache/spacer.gif" WIDTH=1 HEIGHT=1>
 <TR><TD ABSWIDTH=6 >
 <TD ABSWIDTH=109 ABSHEIGHT=26 >
-	<!-- stop reading the HTML you jackass you know this doesn't work yet <TABLE href="wtv-mail:/listmail?mailbox_name=inbox&bulk_delete=true" CELLSPACING=0 CELLPADDING=0> -->
-	<TABLE href="client:showalert?message=This%20feature%20is%20not%20yet%20available." CELLSPACING=0 CELLPADDING=0>
+<TABLE href="wtv-mail:/clearmail?mailbox_name=inbox&bulk_delete=true" CELLSPACING=0 CELLPADDING=0>
 	<TR><TD ABSWIDTH=5>
 	<TD ABSWIDTH=130 VALIGN=MIDDLE ALIGN=LEFT>
 		<TABLE BGCOLOR=333B5A CELLSPACING=0 CELLPADDING=0>
