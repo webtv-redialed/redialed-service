@@ -37,5 +37,6 @@ if (!intro_seen && !request_headers.query.intro_seen) {
 
             headers = `302 Moved
 wtv-expire-all: wtv-mail:/listmail
+wtv-expire-all: wtv-mail:/clearmail
 Location: wtv-mail:/listmail`;
 
