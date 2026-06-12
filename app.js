@@ -420,7 +420,7 @@ async function processPath(
     if (pc_services) {
         var pc_service_name = getServiceByVaultDir(service_name);
         if (minisrv_config.services[pc_service_name].service_vaults) {
-            vaults_to_scan = minisrv_config.services[pc_service_name].service_vaults;
+            vaults_to_scan = vaults_to_scan.concat(minisrv_config.services[pc_service_name].service_vaults);
         }
     } else {
         updateFromVM.push([`ssid_sessions['${socket.ssid}']`, "session_data"]); // user-specific session data from unprivileged scripts
@@ -1167,7 +1167,7 @@ wtvr-no-mail-count: true`;
             );
             var shared_romcache = null;
             if (
-                shortURL.indexOf(":/ROMCache/") !== -1 &&
+                (shortURL.indexOf(":/ROMCache/") !== -1 || shortURL.indexOf("://ROMCache/") != -1) &&
                 minisrv_config.config.enable_shared_romcache
             ) {
                 shared_romcache = wtvshared.fixPathSlashes(
@@ -1220,6 +1220,9 @@ wtvr-no-mail-count: true`;
             );
         } else if (pc_services) {
             // if a directory, request index
+            if (shortURL.indexOf("/ROMCache/") == 0 && minisrv_config.config.enable_shared_romcache) {
+                shared_romcache = wtvshared.fixPathSlashes(minisrv_config.config.SharedROMCache + path.sep + shortURL.split('/')[1] + '/' + shortURL.split('/')[2]);
+            }
             if (shortURL.substring(shortURL.length - 1) === "/") shortURL += "index";
             var urlToPath = wtvshared.fixPathSlashes(
                 service_name + path.sep + shortURL

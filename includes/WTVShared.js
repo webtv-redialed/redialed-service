@@ -157,11 +157,23 @@ class WTVShared {
     }
 
     htmlEntitize(string, process_newline = false) {
-        string = this.html_entities.encode(string).replace(/&apos;/g, "'");
+        let entitized = string.replace(/[&<>"]/g, function (match) {
+            switch (match) {
+                case '&': return '&amp;';
+                case '<': return '&lt;';
+                case '>': return '&gt;';
+                case '"': return '&quot;';
+                case "'": return '&apos;';
+                // &apos; is not needed to be replaced since it is valid in HTML5 and XHTML
+                default: return match;
+            }
+        });
 
-        if (process_newline)
-            string = string.replace(/\n/gi, "<br>").replace(/\r/gi, "");
-        return string;
+        if (process_newline) {
+            entitized = entitized.replace(/\n/g, "<br>").replace(/\r/g, "");
+        }
+
+        return entitized;
     }
 
     sanitizeSignature(string) {
@@ -455,143 +467,115 @@ class WTVShared {
     }
 
     moveObjectElement(currentKey, afterKey, obj, caseInsensitive = false) {
-        var result = {};
+        let keys = Object.keys(obj);
+        let values = Object.values(obj)
+
         if (caseInsensitive) {
-            Object.keys(obj).forEach((k) => {
-                if (k.toLowerCase() == currentKey.toLowerCase()) {
-                    currentKey = k;
-                    return false;
-                }
-            });
+            const lowerCurrentKey = currentKey.toLowerCase();
+            const foundKey = keys.find(k => k.toLowerCase() === lowerCurrentKey);
+            currentKey = foundKey || currentKey;
         }
-        var val = obj[currentKey];
-        delete obj[currentKey];
-        var next = -1;
-        var i = 0;
-        if (typeof afterKey == "undefined" || afterKey == null) afterKey = "";
-        Object.keys(obj).forEach(function (k) {
-            var v = obj[k];
-            if ((afterKey == "" && i == 0) || next == 1) {
-                result[currentKey] = val;
-                next = 0;
-            }
-            if (
-                k == afterKey ||
-                (caseInsensitive && k.toLowerCase() == afterKey.toLowerCase())
-            ) {
-                next = 1;
-            }
-            result[k] = v;
-            ++i;
+        const afterKeyIndex = typeof afterKey === 'string' ?
+            keys.findIndex(k => caseInsensitive ? k.toLowerCase() === afterKey.toLowerCase() : k === afterKey)
+            : -1;
+
+        if (afterKeyIndex === -1) {
+            // If afterKey is not found or not defined, don't move the element
+            return obj;
+        }
+
+        const currentIndex = keys.indexOf(currentKey);
+        if (currentIndex === -1) {
+            // If currentKey is not found, don't move the element
+            return obj;
+        }
+
+        // Remove the current element from keys and values
+        const [currentKeyValue] = values.splice(currentIndex, 1);
+        keys.splice(currentIndex, 1);
+
+        // Insert the current element after the afterKey position
+        keys.splice(afterKeyIndex + 1, 0, currentKey);
+        values.splice(afterKeyIndex + 1, 0, currentKeyValue);
+
+        // Reconstruct the object with the new order
+        const result = {};
+        keys.forEach((key, index) => {
+            result[key] = values[index];
         });
-        if (next == 1) {
-            result[currentKey] = val;
-        }
-        if (next !== -1) return result;
-        else return obj;
+
+        return result;
     }
 
     readMiniSrvConfig(user_config = true, notices = true, reload_notice = false) {
-        if (notices || reload_notice)
-            console.log(" *** Reading global configuration...");
+        const log = (msg) => {
+            if (notices || reload_notice) console.log(msg);
+        };
+        const logError = (msg, e) => {
+            console.error(msg, e);
+            if (this.minisrv_config.config) {
+				if (this.minisrv_config.config.debug_flags && this.minisrv_config.config.debug_flags.debug) {
+					console.error(" * Notice: Using default configuration.");
+				}
+            }
+        };
+
+        log(" *** Reading global configuration...");
         try {
             var minisrv_config = this.parseJSON(
                 this.fs.readFileSync(this.getAbsolutePath("config.json", __dirname))
             );
         } catch (e) {
-            throw ("ERROR: Could not read config.json", e);
-        }
-
-        var integrateConfig = function (main, user) {
-            Object.keys(user).forEach(function (k) {
-                if (typeof user[k] == "object" && user[k] != null) {
-                    // new entry
-                    if (!main[k]) main[k] = new Array();
-                    // go down the rabbit hole
-                    main[k] = integrateConfig(main[k], user[k]);
-                } else {
-                    // update main config
-                    main[k] = user[k];
-                }
-            });
-            return main;
+            throw new Error("ERROR: Could not read config.json", e);
         };
 
         if (user_config) {
+            log(" *** Reading user configuration...");
             try {
-                if (notices || reload_notice)
-                    console.log(" *** Reading user configuration...");
-                var minisrv_user_config = this.getUserConfig();
-                if (!minisrv_user_config)
-                    throw "ERROR: Could not read user_config.json";
-                try {
-                    minisrv_config = integrateConfig(minisrv_config, minisrv_user_config);
-                } catch (e) {
-                    console.error("ERROR: Could not read user_config.json", e);
-                }
+                let minisrv_user_config = this.getUserConfig();
+                minisrv_config = this.integrateConfig(minisrv_config, minisrv_user_config);
             } catch (e) {
-                if (minisrv_config.config.debug_flags) {
-                    if (minisrv_config.config.debug_flags.debug)
-                        console.error(
-                            " * Notice: Could not find user configuration (user_config.json). Using default configuration."
-                        );
-                }
+                logError("ERROR: Could not integrate user_config.json", e);
+                this.process.exit(1);
             }
         }
 
-        // defaults
-        minisrv_config.config.debug_flags = [];
-        minisrv_config.config.debug_flags.debug = false;
-        minisrv_config.config.debug_flags.quiet = true; // will squash minisrv_config.config.debug_flags.debug even if its true
-        minisrv_config.config.debug_flags.show_headers = false;
+        // Set debug flags based on verbosity
+        const debugFlags = {
+            debug: false,
+            quiet: true, // will squash debug even if its true
+            show_headers: false
+        };
 
-        if (minisrv_config.config.verbosity) {
-            switch (minisrv_config.config.verbosity) {
-                case 0:
-                    minisrv_config.config.debug_flags.debug = false;
-                    minisrv_config.config.debug_flags.quiet = true;
-                    minisrv_config.config.debug_flags.show_headers = false;
-                    if (notices) console.log(" * Console Verbosity level 0 (quietest)");
-                    break;
-                case 1:
-                    minisrv_config.config.debug_flags.debug = false;
-                    minisrv_config.config.debug_flags.quiet = true;
-                    minisrv_config.config.debug_flags.show_headers = true;
-                    if (notices)
-                        console.log(" * Console Verbosity level 1 (headers shown)");
-                    break;
-                case 2:
-                    minisrv_config.config.debug_flags.debug = true;
-                    minisrv_config.config.debug_flags.quiet = true;
-                    minisrv_config.config.debug_flags.show_headers = false;
-                    if (notices)
-                        console.log(
-                            " * Console Verbosity level 2 (verbose without headers)"
-                        );
-                    break;
-                case 3:
-                    minisrv_config.config.debug_flags.debug = true;
-                    minisrv_config.config.debug_flags.quiet = true;
-                    minisrv_config.config.debug_flags.show_headers = true;
-                    if (notices)
-                        console.log(" * Console Verbosity level 3 (verbose with headers)");
-                    break;
-                default:
-                    minisrv_config.config.debug_flags.debug = true;
-                    minisrv_config.config.debug_flags.quiet = false;
-                    minisrv_config.config.debug_flags.show_headers = true;
-                    if (notices)
-                        console.log(" * Console Verbosity level 4 (debug verbosity)");
-                    break;
-            }
+        if (minisrv_config.config.verbosity >= 0 && minisrv_config.config.verbosity <= 3) {
+            debugFlags.quiet = minisrv_config.config.verbosity < 2;
+            debugFlags.show_headers = minisrv_config.config.verbosity % 2 === 1;
+            debugFlags.debug = minisrv_config.config.verbosity === 2 || minisrv_config.config.verbosity === 3;
+            log(` * Console Verbosity level ${minisrv_config.config.verbosity}`);
+        } else {
+            Object.assign(debugFlags, { debug: true, quiet: false, show_headers: true });
+            log(" * Console Verbosity level 4 (debug verbosity)");
         }
+        
 
-        if (notices || reload_notice)
-            console.log(" *** Configuration successfully read.");
+        minisrv_config.config.debug_flags = debugFlags;
+
+        log(" *** Configuration successfully read.");
         this.minisrv_config = minisrv_config;
         return this.minisrv_config;
     }
 
+    integrateConfig(main, user) {
+        for (const key in user) {
+            if (typeof user[key] === 'object' && user[key] !== null && !Array.isArray(user[key])) {
+                main[key] = this.integrateConfig(main[key] || {}, user[key]);
+            } else {
+                main[key] = user[key];
+            }
+        }
+        return main;
+    }
+    
     writeToUserConfig(config) {
         if (config) {
             try {
