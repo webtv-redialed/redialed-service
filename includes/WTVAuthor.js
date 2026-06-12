@@ -271,7 +271,7 @@ ${thisblock.title}
                     else block += "<td>";
 
                     block += `<CENTER>
-<IMG SRC="wtv-author:/${this.atob(thisblock.photo)}">
+<IMG SRC="wtv-author:/${this.btoa(thisblock.photo)}">
 </CENTER>
 </TD>
 </TR>
@@ -486,20 +486,20 @@ ${thisblock.title}
                     "/" +
                     pagedata.publishname +
                     "/" +
-                    this.atob(thisblock.photo).substr(
+                    this.btoa(thisblock.photo).substr(
                         0,
-                        this.atob(thisblock.photo).lastIndexOf("/")
+                        this.btoa(thisblock.photo).lastIndexOf("/")
                     ),
                     {recursive: true}
                 );
                 this.fs.copyFile(
-                    "ServiceVault/wtv-author/" + this.atob(thisblock.photo),
+                    "ServiceVault/wtv-author/" + this.btoa(thisblock.photo),
                     destDir +
                     this.wtvclient.session_store.subscriber_username +
                     "/" +
                     pagedata.publishname +
                     "/" +
-                    this.atob(thisblock.photo),
+                    this.btoa(thisblock.photo),
                     (err) => {
                         if (err) throw err;
                     }
@@ -516,7 +516,7 @@ ${thisblock.title}
 </TD>
 </TR>`;
                 block += `<TR><td><CENTER>
-<IMG SRC="${this.atob(thisblock.photo)}">
+<IMG SRC="${this.btoa(thisblock.photo)}">
 </CENTER>
 </TD>
 </TR>
@@ -1059,7 +1059,7 @@ vspace=0
 <td>
 <table>
 <tr><td colspan=2><font color=AEBFD1><B>
-<a href=http://community.webtv.zone/${this.wtvclient.session_store.subscriber_username}/${pagearray[pageid].publishname}/index.html>${pagearray[pageid].title}</a>
+<a href=http://${this.getPublishDomain()}/${this.wtvclient.session_store.subscriber_username}/${pagearray[pageid].publishname}/index.html>${pagearray[pageid].title}</a>
 </B></font>
 <tr>
 <td width=12>

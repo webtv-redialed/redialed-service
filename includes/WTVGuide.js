@@ -54,7 +54,7 @@ class WTVGuide {
                                     link_word_override = null;
                                 var original_start,
                                     end = 0;
-                                var start = definition.indexOf(search) + search.length;
+                                var start = start + search.length;
                                 original_start = start;
                                 // handle <word="whatever">
                                 if (definition.substr(start, 1) != ">") {

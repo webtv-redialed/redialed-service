@@ -6,6 +6,7 @@ const CryptoJS = require("crypto-js");
 class WTVShared {
     path = require("path");
     fs = require("fs");
+    readline = require('readline');
     v8 = require("v8");
     zlib = require("zlib");
     html_entities = require("html-entities"); // used externally by service scripts
@@ -73,93 +74,40 @@ class WTVShared {
     }
 
     parseJSON(json) {
-        if (!json) return null;
-        if (typeof json !== "string") json = json.toString();
+        if (typeof json !== 'string') json = json ? json.toString() : '';
+        let result = '';
+        let i = 0;
+        let isString = false;
+        let isEscape = false;
+        let isBlockComment = false;
+        let isLineComment = false;
 
-        // from https://github.com/getify/JSON.minify/blob/javascript/minify.json.js
-        var tokenizer = /"|(\/\*)|(\*\/)|(\/\/)|\n|\r/g,
-            in_string = false,
-            in_multiline_comment = false,
-            in_singleline_comment = false,
-            tmp,
-            tmp2,
-            new_str = [],
-            ns = 0,
-            from = 0,
-            lc,
-            rc,
-            prevFrom;
+        while (i < json.length) {
+            const char = json[i];
+            const nextChar = json[i + 1];
 
-        tokenizer.lastIndex = 0;
-
-        while ((tmp = tokenizer.exec(json))) {
-            lc = RegExp.leftContext;
-            rc = RegExp.rightContext;
-            if (!in_multiline_comment && !in_singleline_comment) {
-                tmp2 = lc.substring(from);
-                if (!in_string) {
-                    tmp2 = tmp2.replace(/(\n|\r|\s)+/g, "");
+            if (!isString && !isEscape && char === '/' && nextChar === '*') {
+                isBlockComment = true;
+                i++;
+            } else if (isBlockComment && char === '*' && nextChar === '/') {
+                isBlockComment = false;
+                i++;
+            } else if (!isString && !isEscape && char === '/' && nextChar === '/') {
+                isLineComment = true;
+                i++;
+            } else if (isLineComment && (char === '\n' || char === '\r')) {
+                isLineComment = false;
+            } else if (!isBlockComment && !isLineComment) {
+                if (char === '"' && !isEscape) {
+                    isString = !isString;
                 }
-                new_str[ns++] = tmp2;
+                isEscape = char === '\\' && !isEscape;
+                result += char;
             }
-            prevFrom = from;
-            from = tokenizer.lastIndex;
-
-            // found a " character, and we're not currently in
-            // a comment? check for previous `\` escaping immediately
-            // leftward adjacent to this match
-            if (tmp[0] == '"' && !in_multiline_comment && !in_singleline_comment) {
-                // perform look-behind escaping match, but
-                // limit left-context matching to only go back
-                // to the position of the last token match
-                //
-                // see: https://github.com/getify/JSON.minify/issues/64
-                tmp2 = lc.substring(prevFrom).match(/\\+$/);
-
-                // start of string with ", or unescaped " character found to end string?
-                if (!in_string || !tmp2 || tmp2[0].length % 2 == 0) {
-                    in_string = !in_string;
-                }
-                from--; // include " character in next catch
-                rc = json.substring(from);
-            } else if (
-                tmp[0] == "/*" &&
-                !in_string &&
-                !in_multiline_comment &&
-                !in_singleline_comment
-            ) {
-                in_multiline_comment = true;
-            } else if (
-                tmp[0] == "*/" &&
-                !in_string &&
-                in_multiline_comment &&
-                !in_singleline_comment
-            ) {
-                in_multiline_comment = false;
-            } else if (
-                tmp[0] == "//" &&
-                !in_string &&
-                !in_multiline_comment &&
-                !in_singleline_comment
-            ) {
-                in_singleline_comment = true;
-            } else if (
-                (tmp[0] == "\n" || tmp[0] == "\r") &&
-                !in_string &&
-                !in_multiline_comment &&
-                in_singleline_comment
-            ) {
-                in_singleline_comment = false;
-            } else if (
-                !in_multiline_comment &&
-                !in_singleline_comment &&
-                !/\n|\r|\s/.test(tmp[0])
-            ) {
-                new_str[ns++] = tmp[0];
-            }
+            i++;
         }
-        new_str[ns++] = rc;
-        return JSON.parse(new_str.join(""));
+
+        return JSON.parse(result);
     }
 
     isConfiguredService(service) {
@@ -197,9 +145,7 @@ class WTVShared {
     }
 
     parseBool(val) {
-        if (typeof val === "string") val = val.toLowerCase();
-
-        return val === true || val == "on" || val === "true" || val === 1;
+        return !!(val && /^(true|1|on|yes)$/i.test(val.toString().trim()));
     }
 
     getQueryString(query) {
