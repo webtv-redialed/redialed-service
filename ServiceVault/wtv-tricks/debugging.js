@@ -106,5 +106,5 @@ VALUE="${session_data.getSessionData(
 </table>
 </body> </html>`;
 } else {
-	data = wtvt.highTricksUnauthorized();
+	data = wtvt.tricksUnauthorized();
 }

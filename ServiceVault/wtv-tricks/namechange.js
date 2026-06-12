@@ -70,5 +70,5 @@ VALUE="${session_data.getSessionData(
 </SHADOW></FONT></FORM>
 </body> </html>`;
 } else {
-    data = wtvt.highTricksUnauthorized();
+    data = wtvt.tricksUnauthorized();
 }

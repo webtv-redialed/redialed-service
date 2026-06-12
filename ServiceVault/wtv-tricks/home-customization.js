@@ -1,5 +1,7 @@
 var minisrv_service_file = true;
 
+var wtvt = new WTVTricks(minisrv_config);
+
 headers = `200 OK
 Connection: Keep-Alive
 Content-Type: text/html`;
@@ -8,15 +10,15 @@ const splash = session_data.getSessionData('splash')
 const isPlus = session_data.hasCap('client-has-tv-experience')
 const supportsEtude = session_data.hasCap('client-supports-etude-service')
 
-
-data = nunjucks.render('ServiceDeps/templates/wtv-setup/setupGeneral.njk', { title: `${isPlus ? 'Web ' : ''}Home options`, body: `<td abswidth=20>
+if (request_headers.query.password == wtvt.getPasswordByType("low")) {
+    data = nunjucks.render('ServiceDeps/templates/wtv-setup/setupGeneral.njk', { title: `${isPlus ? 'Web ' : ''}Home options`, body: `<td abswidth=20>
 <tr><td>
 <td width=215 height=236 valign=top align=left>
 <p>Use these options to customize how your ${isPlus ? 'Web Home' : 'Home'} page looks and acts.${!supportsEtude ? `<br><br>
 <font size=-2>Your &boxname; receiver is currently running an older version of the software that does not support the new ${isPlus ? 'Web Home' : 'Home'} page.<br><br>${session_data.get('wtv-client-rom-type') == 'bf0app' ? 'Upgrades are not being offered for your &boxname; at this time.' : 'You may opt to upgrade your &boxname; the next time you log into WebTV.'}` : ''}
 <td width=20>
 <td width=198 valign=top align=left>
-<form action=wtv-setup:/validate-home-options><input type=hidden autosubmit=onleave>
+<form action=wtv-tricks:/validate-home-customization><input type=hidden autosubmit=onleave>
 <table cellspacing=0 cellpadding=0>
 <tr><td valign=middle>
 <input type=checkbox name=home value=1${!supportsEtude ? ' checked disabled><input type=hidden name=ignorehome value=1' : session_data.getSessionData('alt_home') == '1' ? ' checked' : ''}>
@@ -38,15 +40,15 @@ data = nunjucks.render('ServiceDeps/templates/wtv-setup/setupGeneral.njk', { tit
 <table cellspacing=0 cellpadding=0>
 <tr><td valign=top>
 <script>function preview(){switch(document.forms[0].splash.selectedIndex){
-case 0:location.href='client:showSplash?message=<font size%3D1>Let WebTV choose a splash logo.&action=client:doNothing&image=wtv-setup:/images/SplashPreviewAuto.gif'
+case 0:location.href='client:showSplash?message=<font size%3D1>Let WebTV choose a splash logo.&action=client:doNothing&image=wtv-tricks:/images/SplashPreviewAuto.gif'
 break
-case 1:location.href='client:showSplash?message=<font size%3D1>The default WebTV splash logo.&action=client:doNothing&image=wtv-setup:/images/SplashPreview.gif'
+case 1:location.href='client:showSplash?message=<font size%3D1>The default WebTV splash logo.&action=client:doNothing&image=wtv-tricks:/images/SplashPreview.gif'
 break
-case 2:location.href='client:showSplash?message=<font size%3D1>The MSN TV splash logo.&action=client:doNothing&image=wtv-setup:/images/SplashPreviewMSN.gif'
+case 2:location.href='client:showSplash?message=<font size%3D1>The MSN TV splash logo.&action=client:doNothing&image=wtv-tricks:/images/SplashPreviewMSN.gif'
 break
-case 3:location.href='client:showSplash?message=<font size%3D1>A Pride splash logo.&action=client:doNothing&image=wtv-setup:/images/SplashPreviewPride.gif'
+case 3:location.href='client:showSplash?message=<font size%3D1>A Pride splash logo.&action=client:doNothing&image=wtv-tricks:/images/SplashPreviewPride.gif'
 break
-case 4:location.href='client:showSplash?message=<font size%3D1>A darker Pride splash logo.&action=client:doNothing&image=wtv-setup:/images/SplashPreviewMulticolor.gif'
+case 4:location.href='client:showSplash?message=<font size%3D1>A darker Pride splash logo.&action=client:doNothing&image=wtv-tricks:/images/SplashPreviewMulticolor.gif'
 break
 default:return
 }}</script>
@@ -81,3 +83,6 @@ default:return
 <TD COLSPAN=2 VALIGN=top ALIGN=left>
 <TD VALIGN=top ALIGN=right>
 <font color="#E7CE4A" size=-1><shadow>`, hasTuner: session_data.hasCap('client-has-tuner'), isJapaneseClient: session_data.isJapaneseClient(), button: true});
+} else {
+	data = wtvt.tricksUnauthorized();
+}

@@ -1156,7 +1156,7 @@ width=95>
 </table>
 </table>
 <tr><td abswidth=256 absheight=190 valign=top>
-<a href=wtv-center:/cwtv/redirect insetselection><img src=/images/dynamic/ClubWTV_SKCro.gif width=256 height=190></a>
+<a href=wtv-center:/cwtv/redirect insetselection><img src=/images/dynamic/ClubWTV_Blue.gif width=256 height=190></a>
 <td abswidth=166 absheight=190 valign=top>
 <a href=${randad.url} insetselection><img src=${randad.img} width=166 height=190></a>
 <tr><td colspan=2>
