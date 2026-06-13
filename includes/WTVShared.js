@@ -157,6 +157,10 @@ class WTVShared {
     }
 
     htmlEntitize(string, process_newline = false) {
+		// no love for blank strings
+		if (!string) {
+			return "";
+		}
         let entitized = string.replace(/[&<>"]/g, function (match) {
             switch (match) {
                 case '&': return '&amp;';
