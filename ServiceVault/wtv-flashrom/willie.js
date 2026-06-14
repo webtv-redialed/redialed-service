@@ -5,6 +5,8 @@ Content-Type: text/html`;
 
 let romType = session_data.get("wtv-client-rom-type");
 let query = request_headers.query;
+
+const knownBuildTypes = ["external-nondebug", "external-nondebug-40bit", "internal-nondebug", "internal-debug", "weekly-nondebug"];
 const knownRomTypes = [
     { romType: "bf0app", romTypeShort: "bf0", romDir: "artemis-webtv-000", parts: 20 },
     { romType: "US-LC2-disk-0MB-8MB", romTypeShort: "LC2", romDir: "artemis-webtv2-000", parts: 56 },
@@ -57,10 +59,12 @@ Ask about our 10% employee discount!
 <a href="http://frogfind.com/read.php?a=http://en.wikipedia.org/wiki/Richard_Smalley">Richard Smalley</a>.)</font></center><font size="1"><font size="3">
 </font></font></li></body></html>`;
 } else {
-    // Logic for sifting through the array of builds, the order matters so don't change it under any circumstances
+    // Logic for sifting through the array of builds, the order matters so don't change it unless something is broken
     if (boxInfo) flashRoms = wtvshared.getDynamicConfig(`flashrom/${boxInfo.romDir}`);
     if (query.type) flashRoms = flashRoms.filter(o => o.type === query.type);
     if (query.reverseSort) flashRoms = flashRoms.reverse();
+    // Paginate the data so that bf0app and slow connections have a better time
+    if (query.page && query.limit) { flashRoms = flashRoms.slice((query.page - 1) * query.limit, query.page * query.limit); } else { flashRoms = flashRoms.slice(0, 25); }
 
     data = `<html>
 <display nosend skipback>
@@ -68,15 +72,15 @@ Ask about our 10% employee discount!
 <body bgcolor="#191919" text="#44cc55" link="36d5ff" vlink="36d5ff" fontsize="small">
 <center>
 <table gradcolor=e7ce4a gradangle=90 bgcolor=36d5ff cellspacing=0 width=100%>
-<td>
-<br><shadow><font color=white><h1>&nbsp;Bootleg Willie's</h1></shadow></font>
-</td>
-`;
+<tr><td>
+<br><font color=white><shadow><h1>&nbsp;Welcome to Bootleg Willie's!</h1></shadow></font>
+</td></tr>\n`;
     if (boxInfo) {     // show controls depending on whether or not the romtype was recognized
-        data += `<td align=right>
+        data += `<td>
 <form action="willie">
-<shadow><font color=white>
-&nbsp;Type:&nbsp;<input type="text" name="type" size="10" value="${query.type || ""}" nosubmit asciionly>
+<shadow><font color=white>&nbsp;Type:&nbsp;<select name="type"><option value="">any</option>`;
+        for (let i = 0; i < knownBuildTypes.length; i++) { data += `<option value="${knownBuildTypes[i]}"`; if (query.type == knownBuildTypes[i]) data += `selected`; data += `>${knownBuildTypes[i]}</option>`; }
+        data += `</select>
 &nbsp;Reverse sort&nbsp;<input type="checkbox" name="reverseSort"`; if (query.reverseSort) data += ` checked`; // Make sure to keep these options chosen when the newly served page loads
         data += `>
 </td>
@@ -90,14 +94,13 @@ Ask about our 10% employee discount!
     // this shit sucks, yo.
     if (boxInfo && boxInfo.warning) data += `<font color=red><b><p><u>WARNING: ${boxInfo.warning}.</font>`;
     data += `
-<font color=e7ce4a><p>${boxInfo ? `Showing ${flashRoms.length} builds for <b>${boxInfo.romType}</b>.` : `No builds are available for your WebTV receiver.`}
-<br>    
-<br>`;
-    nav = `<table width=100%>
-<td align=left><a href=>prev</a></td>
-<td align=right><a href=>next</a></td>
-</table>\n`;
-    // TODO: put nav here when i make it work
+<font color=e7ce4a><p>${boxInfo ? `Showing ${flashRoms.length} builds for <b>${boxInfo.romType}</b>.` : `No builds are available for your ${session_data.getBoxName()}.`}
+<br><br>
+<table width=100%>`;
+    if (parseInt(query.page) > 1) data += `<td align=left><a href=willie?type=${query.type || ""}&reverseSort=${query.reverseSort || ""}&page=${parseInt(query.page) - 1 || 2}&limit=${query.limit || 25}>prev</a></td>`;
+    // TODO: Better determine if we've arrived at the last page. LC2 can arrive at an empty last page with the limit at 25
+    if (flashRoms.length !== 0) { data += `<td align=right><a href=willie?type=${query.type || ""}&reverseSort=${query.reverseSort || ""}&page=${parseInt(query.page) + 1 || 2}&limit=${query.limit || 25}>next</a></td>`; }
+data += `</table>\n`;
     if (boxInfo) data += `<table border align=center cellspacing=1 cellpadding=0>
 <th>Num</th>
 <th>Type</th>
@@ -117,7 +120,7 @@ Ask about our 10% employee discount!
 <td>${details.parts}</td>
 <td>${details.size}</td>
 <td>${details.bString}</td>`;
-            if (index + 1 !== Object.keys(flashRoms).length) yeah += `\n`; //make sure we don't newline right before the end of the table
+            if (index + 1 !== Object.keys(flashRoms).length) yeah += `\n`; // make sure we don't newline right before the end of the table
         });
     }
 
