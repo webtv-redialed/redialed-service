@@ -1,4 +1,6 @@
 var minisrv_service_file = true;
+var wtvt = new WTVTricks(minisrv_config);
+
 var errpage;
 
 if (errpage) {
@@ -12,7 +14,7 @@ if (errpage) {
     headers = `302 Moved temporarily
 wtv-expire-all: wtv-home:/home
 wtv-expire-all: wtv-home:/splash
-wtv-expire-all: wtv-setup:/home
-Location: wtv-setup:/setup
+wtv-expire-all: wtv-tricks:/home-customization
+Location: wtv-tricks:/tricks-passwd?password=${wtvt.getPasswordByType("low")}
 `;
 }
