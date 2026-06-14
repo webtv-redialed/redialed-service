@@ -2446,19 +2446,19 @@ async function processRequest(
             if (!headers) return;
 
             if (headers["wtv-client-serial-number"] != null && socket.ssid == null) {
+                socket.ssid = wtvshared.makeSafeSSID(headers["wtv-client-serial-number"]);
                 if (minisrv_config.config.require_valid_ssid) {
                     if (!wtvshared.checkSSID(headers["wtv-client-serial-number"])) {
-                        // reject invalid SSIDs
-                        var errpage = wtvshared.doErrorPage(400);
-                        headers = errpage[0];
-                        data = errpage[1];
-                        sendToClient(socket, headers, data);
-                        return;
+                        if (socket.ssid.substring(0, 5) != "1SEGA" && socket.ssid.substring(0, 8) != "MSTVSIMU") {
+                            // reject invalid SSIDs, but let Dreamcast and MSTV Sim through for now
+                            var errpage = wtvshared.doErrorPage(400);
+                            headers = errpage[0];
+                            data = errpage[1];
+                            sendToClient(socket, headers, data);
+                            return;
+                        }
                     }
                 }
-                socket.ssid = wtvshared.makeSafeSSID(
-                    headers["wtv-client-serial-number"]
-                );
 				if (socket.ssid == "81a7b50070b002bf") {
 					// fuck you
 					console.log("bastard trying to fuck us over, kill his ass")
