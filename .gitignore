@@ -398,3 +398,4 @@ ServiceDeps/messengerSecret.key
 
 # visual studio code bullshit
 .vscode/
+start.bat
