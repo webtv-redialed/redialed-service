@@ -38,6 +38,8 @@
     "unauthorized_url": "wtv-1800:/unauthorized?",
     "enable_port_isolation": true,
     "domain_name": "webtv.zone",
+    "max_post_length": 20,
+    "require_valid_ssid": true,
     "user_accounts": {
       "max_users_per_account": 6,
       "min_username_length": 5,

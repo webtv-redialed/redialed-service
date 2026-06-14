@@ -429,6 +429,36 @@ class WTVShared {
     //    return (ssid_session.get("wtv-need-upgrade") || ssid_session.get("wtv-used-8675309")) ? true : false;
     //}
 
+    /**
+    * Calculates the CRC of an SSID, WNI Style
+    * @param {string} ssid
+    * @returns {string} CRC8 result as hex string
+    */
+    getSSIDCRC(ssid) {
+        let crc = 0;
+
+        for (let i = 0; i < 14; i += 2) {
+            let inbyte = parseInt(ssid.substring(i, i + 2), 16);
+            if (isNaN(inbyte)) return '00';
+
+            for (let ii = 0; ii < 8; ii++) {
+                let mix = (crc ^ inbyte) & 1;
+                crc >>= 1;
+                if (mix) crc ^= 0x8C;
+                inbyte >>= 1;
+            }
+        }
+
+        return crc.toString(16).padStart(2, '0');
+    }
+
+    // check if the SSID has a valid checksum
+    checkSSID(ssid) {
+        if (ssid.slice(-2) == this.getSSIDCRC(ssid))
+            return true;
+        return false;
+    }
+
     isOldBuild(ssid_session) {
         return ssid_session.get("wtv-need-upgrade") ||
             ssid_session.get("wtv-used-8675309") ||
