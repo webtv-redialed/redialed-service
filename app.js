@@ -2437,11 +2437,11 @@ async function processRequest(
                     }
                 }
             }
-			if (wtvshared.makeSafeSSID(headers["wtv-client-serial-number"]) == "81a7b50070b002bf") {
-				// fuck you
-				console.log("bastard trying to fuck us over, kill his ass")
-				socket_sessions[socket.id].destroy_me
-			}
+			//if (wtvshared.makeSafeSSID(headers["wtv-client-serial-number"]) == "81a7b50070b002bf") {
+			//	// fuck you
+			//	console.log("bastard trying to fuck us over, kill his ass")
+			//	socket_sessions[socket.id].destroy_me
+			//}
 		
             if (!headers) return;
 
@@ -2459,11 +2459,11 @@ async function processRequest(
                         }
                     }
                 }
-				if (socket.ssid == "81a7b50070b002bf") {
-					// fuck you
-					console.log("bastard trying to fuck us over, kill his ass")
-					socket_sessions[socket.id].destroy_me
-				}
+				//if (socket.ssid == "81a7b50070b002bf") {
+				//	// fuck you
+				//	console.log("bastard trying to fuck us over, kill his ass")
+				//	socket_sessions[socket.id].destroy_me
+				//}
                 if (socket.ssid != null) {
                     if (!ssid_sessions[socket.ssid]) {
                         ssid_sessions[socket.ssid] = new WTVClientSessionData(
