@@ -67,7 +67,7 @@ Choose a style name to see the songs for that style.
 </td></tr><tr>
 <td>
 </td><td width="198" valign="top" height="196" align="left">
-<form action="/validate-bg-song-category">
+<form action="/validate-bg-song-categories">
 <input type="hidden" autosubmit="onLeave">
 `;
 

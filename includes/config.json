@@ -12,6 +12,9 @@
     "ssid_block_list": [
       "81BannedUser1234"
     ],
+    "ip_block_list": [
+      "69.420.2112.1337"
+    ],
     "ServiceDeps": "ServiceDeps",
     "SessionStore": "SessionStore",
     "SharedROMCache": "SharedROMCache",

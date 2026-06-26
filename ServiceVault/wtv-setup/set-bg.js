@@ -66,7 +66,7 @@ Choose the songs that you'd like to include.
 </td></tr><tr>
 <td>
 </td><td width="198" valign="top" height="201" align="left">
-<form action="validate-bg-song-category">
+<form action="validate-bg-song-categories">
 <input type="hidden" name="category" value="${request_headers.query.category}">
 <input type="hidden" autosubmit="onLeave">
 `;
