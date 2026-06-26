@@ -57,7 +57,7 @@ hspace=0 vspace=0 fontsize="${session_data.isJapaneseClient() ? `medium` : `larg
 <shadow>
 <img src="ROMCache/Spacer.gif" width=1 height=4>
 <br>
-${canRegister ? `Using WebTV` : `Registratons closed`}
+${canRegister ? `Using WebTV` : `Registrations closed`}
 </shadow>
 </blackface>
 </font>
