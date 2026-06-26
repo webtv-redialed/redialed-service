@@ -83,7 +83,7 @@ if (canRegister == true) {
 data = `<html>
 <head>
 <title>
-${canRegister ? `You've finished signing up` : `I fuckin warned you`}
+${canRegister ? `You've finished signing up` : `Registrations closed`}
 </title>
 <display nooptions
 NoScroll
@@ -104,7 +104,7 @@ hspace=0 vspace=0 fontsize="${session_data.isJapaneseClient() ? `medium` : `larg
 <shadow>
 <img src="ROMCache/Spacer.gif" width=1 height=4>
 <br>
-${canRegister ? `You've finished signing up` : `I fuckin warned you`}
+${canRegister ? `You've finished signing up` : `Registrations closed`}
 </shadow>
 </blackface>
 </font>
@@ -123,8 +123,8 @@ ${canRegister ? `You've finished signing up` : `I fuckin warned you`}
 <td width=67 valign=top align=left>
 <td width=20 valign=top align=left>
 <td width=68 valign=top align=left>
-<td width=20 valign=top align=left>`
-if (canRegister) { //form these nuts in your mouth
+<td width=20 valign=top align=left>`;
+if (canRegister) { // form these nuts in your mouth
     data +=
         `<form action="FinishRegistration"
 ENCTYPE="x-www-form-encoded" METHOD="POST">
@@ -167,15 +167,7 @@ ENCTYPE="x-www-form-encoded" METHOD="POST">
 <INPUT TYPE="hidden" NAME="other-members-of-household" VALUE="">
 <INPUT TYPE="hidden" NAME="is-etv-upgrading" VALUE="">
 <INPUT TYPE="hidden" NAME="gift-amount" VALUE="">
-<input type=hidden name=whatnot>`
-} else {
-    data += `
-<form onsubmit=fuckYou()>
-<script>
-function fuckYou() {
-eval?.
-}
-</script>`
+<input type=hidden name=whatnot>`;
 }
 data +=
     `<tr>
@@ -193,13 +185,13 @@ data +=
 </a>
 <td valign=middle align=left>
 <font size="+1">
-${canRegister ? `Thank you for signing up for WebTV.` : `You think you're fuckin smart, huh?`}
+${canRegister ? `Thank you for signing up for WebTV.` : `Your <i>desperate</i> attempt to subvert security has been recorded.`}
 <tr>
 <td height=20>
 <tr>	<td colspan=2 valign=middle align=center>
 <td colspan=2 valign=middle align=left>
 <font size="+1">
-You'll now go to your own <b>${canRegister ? `home page` : `personal hell`}</b>.
+${canRegister ? `You'll now go to your own <b>home page</b>.` : `Registrations for this instance of the WebTV Redialed service are (still) closed.`}
 <tr>
 <td height=20>
 <tr>	<td colspan=2 valign=middle align=center>
@@ -208,7 +200,7 @@ You'll now go to your own <b>${canRegister ? `home page` : `personal hell`}</b>.
 ${canRegister ? `Your home page will appear on the 
 screen each time you connect to 
 WebTV. From the home page, you can 
-use e-mail and visit Web pages.` : `There is no escape.`}
+use e-mail and visit Web pages.` : ``}
 <tr>
 <td height=20>
 <tr>
@@ -238,19 +230,16 @@ use e-mail and visit Web pages.` : `There is no escape.`}
 <table cellspacing=0 cellpadding=0>
 <tr>
 <td width=300 valign=top align=left>
-<font size="-1"><i>To go on, press <b>Continue</b>
+<font size="-1"><i>To go on, ${canRegister ? `press <b>Continue</b>` : `complain to a server operator`}
 </i></font>
 <td width=10 valign=top>
 <td width=110 valign=top>
 <font size="-1" color="#E7CE4A">
 <shadow>
-<input type=submit Value=Continue name="Continue" borderimage="file://ROM/Borders/ButtonBorder2.bif" usestyle width=110>
+<input type=${canRegister ? "submit" : "hidden"} Value=Continue name="Continue" borderimage="file://ROM/Borders/ButtonBorder2.bif" usestyle width=110>
 </shadow>
-</font>`
-if (canRegister) {
-    data += `
-</form>`
-}
+</font>`;
+if (canRegister) data += `\n</form>`;
 data += `
 </tr>	</table>
 </shadow>

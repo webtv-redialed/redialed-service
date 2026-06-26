@@ -25,14 +25,14 @@ try {
         brand = "WebTV";
     }
 } catch (e) {
-    console.log("fuck");
+    console.log("! Brand ID code did a bad, should never reach here");
 }
 
 // Shame unauthorized users
 data = `<html>
 <head>
 <title>
-${canRegister ? `Using WebTV` : `Registrations Closed`}
+${canRegister ? `Using WebTV` : `Registrations closed`}
 </title>`;
 data += `
 <display nooptions
