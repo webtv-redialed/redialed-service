@@ -3,7 +3,7 @@ class WTVAuthor {
     path = require("path");
     uuid = require("uuid");
     atob = require("atob");
-
+    btoa = require("btoa");
     ssid = null;
     minisrv_config = [];
     wtvshared = null;
