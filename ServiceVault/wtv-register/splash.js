@@ -13,6 +13,9 @@ data = `<html><title>Splash</title>
 <body bgcolor=0 text=449944><bgsound src=file://ROM/Sounds/Splash.mid><display nooptions nostatus skipback switchtowebmode vspace=0 hspace=0>
 <table width=100% height=100% cellspacing=0 cellpadding=12 href=wtv-register:/register nohighlight nocursor selected><tr><td align=center valign=${debug ? 'bottom' : 'middle'}>`;
 //Table with splash image
+if (session_data.hasCap('client-supports-etude-service')) { // Be sure we only give the microsoft logo to the clients that have it in rom
+	data += `<img src="file://ROM/Images/MicrosoftName.gif"><img src="file://ROM/Images/MicrosoftR.gif"><br>`;
+}
 data += `<table cellspacing=0 cellpadding=0><tr><td align=center valign=middle><img src=${minisrv_config.config.service_splash_logo}></td></tr></table>`;
 if (session_data.hasCap('client-has-tuner')) { // determine gamer level
 	data += `<br><br><img src=ROMCache/plus.gif width=232 height=21>`;

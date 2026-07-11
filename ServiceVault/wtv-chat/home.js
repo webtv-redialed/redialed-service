@@ -191,6 +191,26 @@ users and learn about chatting on the Internet.</font>
 <td height=20>
 <tr>
 <td>
+<table cellspacing=0 cellpadding=0 href="wtv-chat:/MakeChatPage?host=irc.classicconnect.net&port=6677&channel=crosstalk">
+<tr>
+<td width=13>
+<td valign=top>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td maxlines=1>
+<font size=-1 color=189CD6><b>CrossTalk</b></font>
+</table>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td maxlines=4>
+<font size=-2>Find Messenger buddies, and talk
+to fellow users of the CrossTalk service.</font>
+</table>
+</table>
+<tr>
+<td height=20>
+<tr>
+<td>
 <table cellspacing=0 cellpadding=0 href="wtv-chat:/MakeChatPage?host=irc.libera.chat&port=6667&channel=Protoweb">
 <tr>
 <td width=13>

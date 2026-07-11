@@ -48,6 +48,9 @@ data += `
 <body bgcolor=0 text=449944><bgsound src='file://ROM/Sounds/Splash.mid'><display nostatus nooptions skipback switchtowebmode vspace=0 hspace=0>
 <table width=100% height=100% cellspacing=0 cellpadding=12 href=wtv-home:/home? nohighlight nocursor selected><tr><td align=center valign=${debug ? 'bottom' : 'middle'}>`;
 /* We can add a BG to this table to make special logos work without causing slow dialup users as much of a headache */
+if (splashImage != 'images/SplashLogo1MSN.gif' && session_data.hasCap('client-supports-etude-service')) { // Be sure we only give the microsoft logo to the clients that have it in rom
+	data += `<img src="file://ROM/Images/MicrosoftName.gif"><img src="file://ROM/Images/MicrosoftR.gif"><br>`;
+}
 data += `<table cellspacing=0 cellpadding=0><tr><td align=center valign=middle${splashBackground}><img src=${splashImage}></td></tr></table>`;
 if (splashImage != 'images/SplashLogo1MSN.gif' && session_data.hasCap('client-has-tuner')) { // determine gamer level
 	data += `<br><br><img src=ROMCache/plus.gif width=232 height=21>`;
