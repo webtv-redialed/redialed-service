@@ -64,7 +64,11 @@ Ask about our 10% employee discount!
     if (query.type) flashRoms = flashRoms.filter(o => o.type === query.type);
     if (query.reverseSort) flashRoms = flashRoms.reverse();
     // Paginate the data so that bf0app and slow connections have a better time
-    if (query.page && query.limit) { flashRoms = flashRoms.slice((query.page - 1) * query.limit, query.page * query.limit); } else { flashRoms = flashRoms.slice(0, 25); }
+    if (query.page && query.limit) { flashRoms = flashRoms.slice((query.page - 1) * query.limit, query.page * query.limit); }
+    else {
+        flashRoms = flashRoms.slice(0, 25);
+        query.page = 1;
+    }
 
     data = `<html>
 <display nosend skipback>
@@ -99,7 +103,7 @@ Ask about our 10% employee discount!
 <table width=100%>`;
     if (parseInt(query.page) > 1) data += `<td align=left><a href=willie?type=${query.type || ""}&reverseSort=${query.reverseSort || ""}&page=${parseInt(query.page) - 1 || 2}&limit=${query.limit || 25}>prev</a></td>`;
     if (parseInt(query.page) < Math.ceil(wtvshared.getDynamicConfig(`flashrom/${boxInfo.romDir}`).length / (parseInt(query.limit) || 25))) { data += `<td align=right><a href=willie?type=${query.type || ""}&reverseSort=${query.reverseSort || ""}&page=${parseInt(query.page) + 1 || 2}&limit=${query.limit || 25}>next</a></td>`; }
-data += `</table>\n`;
+    data += `</table>\n`;
     if (boxInfo) data += `<table border align=center cellspacing=1 cellpadding=0>
 <th>Num</th>
 <th>Type</th>
