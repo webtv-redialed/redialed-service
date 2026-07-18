@@ -98,8 +98,7 @@ Ask about our 10% employee discount!
 <br><br>
 <table width=100%>`;
     if (parseInt(query.page) > 1) data += `<td align=left><a href=willie?type=${query.type || ""}&reverseSort=${query.reverseSort || ""}&page=${parseInt(query.page) - 1 || 2}&limit=${query.limit || 25}>prev</a></td>`;
-    // TODO: Better determine if we've arrived at the last page. LC2 can arrive at an empty last page with the limit at 25
-    if (flashRoms.length !== 0) { data += `<td align=right><a href=willie?type=${query.type || ""}&reverseSort=${query.reverseSort || ""}&page=${parseInt(query.page) + 1 || 2}&limit=${query.limit || 25}>next</a></td>`; }
+    if (parseInt(query.page) < Math.ceil(wtvshared.getDynamicConfig(`flashrom/${boxInfo.romDir}`).length / (parseInt(query.limit) || 25))) { data += `<td align=right><a href=willie?type=${query.type || ""}&reverseSort=${query.reverseSort || ""}&page=${parseInt(query.page) + 1 || 2}&limit=${query.limit || 25}>next</a></td>`; }
 data += `</table>\n`;
     if (boxInfo) data += `<table border align=center cellspacing=1 cellpadding=0>
 <th>Num</th>

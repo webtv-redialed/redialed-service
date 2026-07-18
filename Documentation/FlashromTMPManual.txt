@@ -11,4 +11,5 @@ c50cc4fc
 dffaac1b
 e14577ac
 
-these are ones we had to manually pull and should be considered funny
+These are all of the bf0app TMP filesystems that were manually extracted by us from the final ROMs.
+If anyone has problems with them, this will explain it.
