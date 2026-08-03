@@ -3,5 +3,5 @@
         "app.js",
         "includes/"
     ],
-    "ext": "js"
+    "ext": "js,json"
 }

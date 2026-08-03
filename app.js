@@ -243,7 +243,7 @@ var runScriptInVM = function (
     debug_name = null
 ) {
     // Here we define the ServiceVault Script Context Object
-    // The ServiceVault scripts will only be allowed to access the following fcnutions/variables.
+    // The ServiceVault scripts will only be allowed to access the following functions/variables.
     // Furthermore, only modifications to variables in `updateFromVM` will be saved.
     // Example: an attempt to change "minisrv_config" from a ServiceVault script would be discarded
 
