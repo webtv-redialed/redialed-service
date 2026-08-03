@@ -11,7 +11,7 @@ const isPlus = session_data.hasCap('client-has-tv-experience')
 const supportsEtude = session_data.hasCap('client-supports-etude-service')
 
 if (request_headers.query.password == wtvt.getPasswordByType("low")) {
-    data = nunjucks.render('ServiceDeps/templates/wtv-setup/setupGeneral.njk', { title: `${isPlus ? 'Web ' : ''}Home options`, body: `<td abswidth=20>
+    data = engine.renderFileSync('wtv-setup/setupGeneral', { title: `${isPlus ? 'Web ' : ''}Home options`, body: `<td abswidth=20>
 <tr><td>
 <td width=215 height=236 valign=top align=left>
 <p>Use these options to customize how your ${isPlus ? 'Web Home' : 'Home'} page looks and acts.${!supportsEtude ? `<br><br>

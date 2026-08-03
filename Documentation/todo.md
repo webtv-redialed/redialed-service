@@ -2,7 +2,7 @@
 ### In Progress
 - General cleaning up (Fix broken links, pages, etc.)
 - Fix the issues with page builder (particularly #15 as it's the most severe arguably)
-- Switch to Nunjucks for templating for the entire service
+- Switch to LiquidJS for templating for the entire service
 
 ### Top Priority
 - Implement headlines/teasers for the Money center

@@ -9,7 +9,7 @@ Connection: Keep-Alive
 Expires: Wed, 09 Oct 1991 22:00:00 GMT
 Content-Type: text/html`;
 
-data = nunjucks.render('ServiceDeps/templates/wtv-setup/setupGeneral.njk', { title: `Keyboard ${session_data.hasCap("client-has-tuner") ? "settings" : "setup"}`, title2: "Keyboard", body: `<td abswidth=20>
+data = engine.renderFileSync('wtv-setup/setupGeneral', { title: `Keyboard ${session_data.hasCap("client-has-tuner") ? "settings" : "setup"}`, title2: "Keyboard", body: `<td abswidth=20>
 <TR>
 <td>
 <td WIDTH=198 HEIGHT=250 VALIGN=top ALIGN=left>

@@ -6,7 +6,7 @@ Expires: Wed, 09 Oct 1991 22:00:00 GMT
 wtv-expire-all: wtv-mail:
 Content-Type: text/html`;
 
-data = nunjucks.render('ServiceDeps/templates/wtv-setup/setupGeneral.njk', {
+data = engine.renderFileSync('wtv-setup/setupGeneral', {
     title: 'Mail settings',
     body: `
 <td abswidth=20>

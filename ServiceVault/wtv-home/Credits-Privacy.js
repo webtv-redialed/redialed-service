@@ -6,7 +6,7 @@ Content-Type: text/html`;
 
 
 
-data = nunjucks.render('ServiceDeps/templates/wtv-home/termsPrivacy.njk', { title: "WebTV Service Privacy Statement", body: `<CENTER><B>WebTV Service Privacy Statement</B></font><br>
+data = engine.renderFileSync('wtv-home/termsPrivacy', { title: "WebTV Service Privacy Statement", body: `<CENTER><B>WebTV Service Privacy Statement</B></font><br>
 <B><font size="-1">(Release date January 2, 2024)</B></CENTER></font>
 <td abswidth=20>
 <tr>

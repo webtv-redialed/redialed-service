@@ -25,7 +25,7 @@ try {
         brand = "WebTV";
     }
 } catch (e) {
-    console.log("! Brand ID code did a bad, should never reach here");
+    console.log(" # Brand ID code did a bad, should never reach here");
 }
 
 // Shame unauthorized users
