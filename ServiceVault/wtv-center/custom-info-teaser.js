@@ -148,7 +148,7 @@ switch (infoCenter) {
 		<td width=88>
 		<spacer type=block width=88 height=49>
 		<td width=263 valign=middle align=right>
-			<font size=-1 color=#313939><B>news provided by NYT</B></FONT>
+			<font size=-1 color=#313939><B>news provided by ${this.minisrv_config.services["wtv-center"].newsProviderShort}</B></FONT>
 		<td width=10>
 
 			</table>
@@ -408,7 +408,7 @@ switch (infoCenter) {
 							</table>
 					<tr>
 						<td align=right valign=middle height=43>
-							<font size=-1 color=#312931><b>news provided by NYT</b></font><br>
+							<font size=-1 color=#312931><b>news provided by ${this.minisrv_config.services["wtv-center"].newsProviderShort}</b></font><br>
 							<spacer type=vertical size=4>
 						<td width=10>
 
@@ -477,7 +477,7 @@ switch (infoCenter) {
 		<td width=88>
 		<spacer type=block width=88 height=49>
 		<td width=263 valign=middle align=right>
-			<font size=-1 color=#6B3118><B>news provided by NYT</B></FONT>
+			<font size=-1 color=#6B3118><B>news provided by ${this.minisrv_config.services["wtv-center"].newsProviderShort}</B></FONT>
 		<td width=10>
 
 			</table>

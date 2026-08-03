@@ -272,6 +272,8 @@
       "port": 1639,
       "connections": 3,
       "privileged": true,
+      "newsProviderShort": "NYT",
+      "newsProviderLong": "New York Times",
       "modules": [
         "WTVCache"
       ]

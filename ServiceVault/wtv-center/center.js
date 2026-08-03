@@ -343,7 +343,7 @@ Weather info is unavailable`;
 			}
 			data += `
 </td></tr><tr><td height="10">
-</td></tr><tr><td valign="middle" height="46" align="right"> <font size="-1" color="#4A4252">&#128; </font><a href="client:showalert?message=This%20feature%20is%20not%20yet%20available."><font color=#4A4252 size=-1><b>provided by New York Times</b></font></a>
+</td></tr><tr><td valign="middle" height="46" align="right"> <font size="-1" color="#4A4252">&#128; </font><a href="client:showalert?message=This%20feature%20is%20not%20yet%20available."><font color=#4A4252 size=-1><b>provided by ${this.minisrv_config.services["wtv-center"].newsProviderLong}</b></font></a>
 </td></tr><tr><td gradcolor="#9C9C8C" gradangle="90" height="5" bgcolor="#B5B5A5">
 </td></tr><tr><td gradcolor="#9C9C8C" gradangle="90" bgcolor="#B5B5A5">
 <spacer type="HORIZONTAL" size="5">
@@ -810,7 +810,7 @@ Weather info is unavailable`;
 		</tr>
 						   <tr>
 							  <td HEIGHT=46 align=right valign=MIDDLE>
-								 <font color=#345463 size=-1>&#128;&nbsp;</font><a href="client:showalert?message=This%20feature%20is%20not%20yet%20available."><font color=#345463 size=-1><b>provided by New York Times</b></font></a>
+								 <font color=#345463 size=-1>&#128;&nbsp;</font><a href="client:showalert?message=This%20feature%20is%20not%20yet%20available."><font color=#345463 size=-1><b>provided by ${this.minisrv_config.services["wtv-center"].newsProviderLong}</b></font></a>
 						   <tr>
 							  <td height=5>
 						</table>
