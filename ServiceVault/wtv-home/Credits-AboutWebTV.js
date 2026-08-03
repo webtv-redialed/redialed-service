@@ -53,7 +53,7 @@ are provided by <a href="proto://www.webtv.net" selected>WebTV Networks, Inc.</a
 ${altocomCreds}`;
 }
 
-data = nunjucks.render('ServiceDeps/templates/wtv-home/credits.njk', { title: "About WebTV", display: "noscroll", body: `<td WIDTH=532 HEIGHT=236 VALIGN=top ALIGN=left>
+data = engine.renderFileSync('wtv-home/credits', { title: "About WebTV", display: "noscroll", body: `<td WIDTH=532 HEIGHT=236 VALIGN=top ALIGN=left>
 <p>${providedBy}
 <p>See who else made this happen <a href="https://webtv.zone/info/credits.html">here</a>.
 </tr></td>`, isJapaneseClient: session_data.isJapaneseClient(), randomAssSpace: true});

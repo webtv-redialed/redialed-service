@@ -6,7 +6,7 @@ Content-Type: text/html`;
 
 
 
-data = nunjucks.render('ServiceDeps/templates/wtv-setup/setupGeneral.njk', { title: "Music", body: `<td abswidth=20>
+data = engine.renderFileSync('wtv-setup/setupGeneral', { title: "Music", body: `<td abswidth=20>
 <TR>
 <td>
 <td WIDTH=198 HEIGHT=236 VALIGN=top ALIGN=left>

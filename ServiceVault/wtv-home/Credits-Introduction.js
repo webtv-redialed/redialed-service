@@ -1,12 +1,10 @@
-var minisrv_service_file = true;
+var minisrv_service_file = true
 
 headers = `200 OK
 Connection: Keep-Alive
 Content-Type: text/html`;
 
-
-
-data = nunjucks.render('ServiceDeps/templates/wtv-home/credits.njk', { title: "Credits", body: `<td WIDTH=198 HEIGHT=236 VALIGN=top ALIGN=left>
+data = engine.renderFileSync('wtv-home/credits', { title: "Credits", body: `<td WIDTH=198 HEIGHT=236 VALIGN=top ALIGN=left>
 <A HREF="wtv-home:/Credits-AboutWebTV"><BLACKFACE>About WebTV</BLACKFACE></A><BR>
 <IMG SRC="wtv-home:/ROMCache/Spacer.gif" WIDTH=1 HEIGHT=4><BR>
 <FONT SIZE="-1">Who we are</FONT><BR>

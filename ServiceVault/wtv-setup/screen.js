@@ -4,7 +4,7 @@ headers = `200 OK
 Connection: Keep-Alive
 Content-Type: text/html`;
 
-data = nunjucks.render('ServiceDeps/templates/wtv-setup/setupGeneral.njk', {
+data = engine.renderFileSync('wtv-setup/setupGeneral', {
     title: 'Television',
     body: `
 <td abswidth=20>

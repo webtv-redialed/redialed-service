@@ -5,7 +5,6 @@ const wtvshared = new WTVShared(); // creates minisrv_config
 classPath = wtvshared.getAbsolutePath(classPath, __dirname);
 
 const fs = require("fs");
-const nunjucks = require('nunjucks');
 const path = require("path");
 const zlib = require("zlib");
 const http = require("follow-redirects").http;
@@ -27,6 +26,7 @@ const vm = require("vm");
 const debug = require("debug")("minisrv_main");
 const express = require("express");
 const strftime = require("strftime");
+const { Liquid } = require('liquidjs');
 var wtvnewsserver = null;
 const surfwatchBlacklist = fs.readFileSync('./ServiceDeps/proxy/surfwatch.txt');
 
@@ -229,6 +229,12 @@ async function sendRawFile(socket, path) {
     });
 }
 
+// REDIALED: LiquidJS support
+var engine = new Liquid({
+    root: path.resolve(__dirname, 'ServiceDeps/templates'),
+    extname: '.liquid'
+});
+
 var runScriptInVM = function (
     script_data,
     user_contextObj = {},
@@ -257,9 +263,6 @@ var runScriptInVM = function (
         }
     }
 
-    // TODO: NO MORE NUNJUCKS
-    nunjucks.configure({ autoescape: false });
-
     // create global context object
     var contextObj = {
         // node core variables and functions
@@ -270,7 +273,7 @@ var runScriptInVM = function (
         wtvmime: wtvmime,
         http: http,
         https: https,
-        nunjucks: nunjucks,
+        engine: engine,
         wtvshared: wtvshared,
         zlib: zlib,
         clientShowAlert: clientShowAlert,
@@ -3117,6 +3120,8 @@ minisrv_config = wtvshared.getminisrvConfig(); // snatches minisrv_config
 
 const debugmode = minisrv_config.config.serviceType == 'Debug';
 const { version } = require('./package.json');
+// TODO: REMOVE ME?
+//const { default: liquid } = require("liquidjs/dist/tags/liquid");
 const z_title = `WebTV Redialed v${version}${debugmode ? ' (Debug)' : ''}`;
 console.log(`**** Welcome to ${z_title} ****`);
 

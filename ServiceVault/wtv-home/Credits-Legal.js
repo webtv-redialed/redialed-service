@@ -9,6 +9,4 @@ const termsOfServiceContent = fs.readFileSync(
     {encoding: "utf8", flag: "r"}
 );
 
-
-
-data = nunjucks.render('ServiceDeps/templates/wtv-home/termsPrivacy.njk', { title: "WebTV Terms of Service", body: termsOfServiceContent, isJapaneseClient: session_data.isJapaneseClient()});
+data = engine.renderFileSync('wtv-home/termsPrivacy', { title: "WebTV Terms of Service", body: termsOfServiceContent, isJapaneseClient: session_data.isJapaneseClient()});

@@ -1,0 +1,16 @@
+{% comment %} 2026 WebTV Redialed {% endcomment %}
+<html>
+<display nosave nosend skipback>
+{% if goHomeAuto %}<meta http-equiv="refresh" content="15; url=wtv-home:/home">{% endif %}
+<title>{{ title }}</title>
+<body bgcolor="#191919" text="#44cc55" link="36d5ff" vlink="36d5ff">
+<br>
+<h1>{{ header }}</h1>
+{{ body }}
+{% if leaveLink %}
+<p>
+<p>
+<a selected href="{{ leaveLink }}">{{ leaveLinkName }}</a>
+{% endif %}
+</body>
+</html>
