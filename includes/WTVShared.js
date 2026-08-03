@@ -680,7 +680,7 @@ class WTVShared {
             split = string.match(new RegExp(".{1," + len + "}", "g"));
         } else
             Object.keys(split).forEach((k) => {
-                if (split[k].substr(0, 1) == " ") split[k] = split[k].trim(" ");
+                if (split[k].substring(0, 1) == " ") split[k] = split[k].trim(" ");
             });
 
         if (split) return split.join(join);
@@ -755,27 +755,27 @@ class WTVShared {
     filterSSID(obj) {
         if (this.minisrv_config.config.hide_ssid_in_logs === true) {
             if (typeof obj == "string") {
-                if (obj.substr(0, 8) == "MSTVSIMU") {
-                    return obj.substr(0, 10) + "*".repeat(10) + obj.substr(20);
-                } else if (obj.substr(0, 5) == "1SEGA") {
-                    return obj.substr(0, 6) + "*".repeat(6) + obj.substr(13);
+                if (obj.substring(0, 8) == "MSTVSIMU") {
+                    return obj.substring(0, 10) + "*".repeat(10) + obj.substring(20);
+                } else if (obj.substring(0, 5) == "1SEGA") {
+                    return obj.substring(0, 6) + "*".repeat(6) + obj.substring(13);
                 } else {
-                    return obj.substr(0, 6) + "*".repeat(9);
+                    return obj.substring(0, 6) + "*".repeat(9);
                 }
             } else {
                 var newobj = this.cloneObj(obj);
                 if (obj.post_data) newobj.post_data = obj.post_data;
                 if (newobj["wtv-client-serial-number"]) {
                     var ssid = newobj["wtv-client-serial-number"];
-                    if (ssid.substr(0, 8) == "MSTVSIMU") {
+                    if (ssid.substring(0, 8) == "MSTVSIMU") {
                         newobj["wtv-client-serial-number"] =
-                            ssid.substr(0, 10) + "*".repeat(10) + ssid.substr(20);
-                    } else if (ssid.substr(0, 5) == "1SEGA") {
+                            ssid.substring(0, 10) + "*".repeat(10) + ssid.substring(20);
+                    } else if (ssid.substring(0, 5) == "1SEGA") {
                         newobj["wtv-client-serial-number"] =
-                            ssid.substr(0, 6) + "*".repeat(6) + ssid.substr(13);
+                            ssid.substring(0, 6) + "*".repeat(6) + ssid.substring(13);
                     } else {
                         newobj["wtv-client-serial-number"] =
-                            ssid.substr(0, 6) + "*".repeat(9);
+                            ssid.substring(0, 6) + "*".repeat(9);
                     }
                 }
                 return newobj;
