@@ -37,7 +37,7 @@ Dealer Demo JP
 <li><a href="wtv-disk:/content/DownloadScreen.tmpl?diskmap=DealerDemo-BPS&amp;group=DealerDemo">
 Dealer Demo BPS
 </a> </li>
-<li><a href="wtv-disk:/content/DownloadScreen.tmpl?diskmap=PhilEmail&amp;group=PhilEmail">
+<!--<li><a href="wtv-disk:/content/DownloadScreen.tmpl?diskmap=PhilEmail&amp;group=PhilEmail">
 Phil Video E-mail Demo Data
 </a> (also, don't forget to send yourself a
 <a href="wtv-tricks:/sendvideoemail?message=PhilEmailDemo.tmpl">phil video mail</a> message)
@@ -45,7 +45,7 @@ Phil Video E-mail Demo Data
 Japan Video E-mail Demo Data
 </a> (also, don't forget to send yourself a
 <a href="wtv-tricks:/sendvideoemail">demo video mail</a> message)
-</li><li><a href="wtv-disk:/content/DownloadScreen.tmpl?diskmap=VideoFlash&amp;group=VideoFlash">VideoFlash Demos</a>
+</li>--><li><a href="wtv-disk:/content/DownloadScreen.tmpl?diskmap=VideoFlash&amp;group=VideoFlash">VideoFlash Demos</a>
 (Test the downloaded <a href="file://Disk/Browser/VideoFlash/Index.html">movies</a>.)
 </li></ul>
 <h2>Offline Games</h2>
@@ -60,6 +60,8 @@ Japan Video E-mail Demo Data
 <i>Giants Demo Disk Cache Preload</i></a>
 </li><li><a href="wtv-disk:/content/DownloadScreen.tmpl?diskmap=Emmys&amp;group=diskcache-Emmys">
 <i>Emmys ITV Demo Disk Cache Preload</i></a>
+</li><li><a href="wtv-disk:/content/DownloadScreen.tmpl?diskmap=Cache&amp;group=DiskCache">
+<i>Service Cache</i></a>
 </li></ul>
 <h2>Music</h2>
 <li><a href="wtv-disk:/sync?diskmap=Music&amp;group=Music&amp;Throttle=no">
