@@ -224,7 +224,7 @@ wtv-messagewatch-url: wtv-head-waiter:/login-stage-two?MessageWatch=1
 wtv-datadownload-url: wtv-disk:/download-list
 wtv-datadownload-login-url: wtv-head-waiter:/login-stage-two?DataDownload=1
 wtv-favorites-folders-url: wtv-favorite:/list-folders
-wtv-input-timeout: 600
+wtv-input-timeout: ${minisrv_config.config.serviceType == "Debug" ? 86400 : 600}
 wtv-connection-timeout: 1440
 wtv-fader-timeout: 900
 wtv-inactive-timeout: 0
