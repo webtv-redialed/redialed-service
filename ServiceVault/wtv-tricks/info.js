@@ -11,182 +11,18 @@ if (socket.ssid != null) {
 headers = `200 OK
 Content-Type: text/html`;
 
-const versionMap = [
-    { build: 0, vers: `1.0` },
-    { build: 200, vers: `1.1` },
-    { build: 300, vers: `1.2` },
-    { build: 1000, vers: `1.3` },
-    { build: 1090, vers: `1.3Retail` },
-    { build: 1127, vers: `1.4Retail` },
-    { build: 1150, vers: `1.4` },
-    { build: 2000, vers: `2.0` },
-    { build: 2100, vers: `2.0J` },
-    { build: 2150, vers: `2.0.1J` },
-    { build: 2200, vers: `2.0.1` },
-    { build: 2300, vers: `2.0.3` },
-    { build: 2500, vers: `2.0.5` },
-    { build: 3000, vers: `2.1` },
-    { build: 3065, vers: `2.1.1` },
-    { build: 3070, vers: `2.1.5` },
-    { build: 3250, vers: `2.1.7` },
-    { build: 3450, vers: `Springboard2.2` },
-    { build: 3600, vers: `2.0.2J` },
-    { build: 3700, vers: `2.2.1J` },
-    { build: 3800, vers: `2.2.5` },
-    { build: 5000, vers: `2.3` },
-    { build: 5200, vers: `Fiji` },
-    { build: 5500, vers: `2.3.5` },
-    { build: 5700, vers: `2.3.7` },
-    { build: 5750, vers: `2.3.8` },
-    { build: 5759, vers: `2.3.8-NAND` },
-    { build: 6000, vers: `3.0` }, // WNI actually did this, i'm pretty sure they gave up
-    { build: 32767, vers: `Private` },
-];
-
-function getVersion(givenBuild) {
-    return (versionMap.at(versionMap.findIndex(({ build }) => build > givenBuild) - 1).vers);
-}
-
 let serviceIP = minisrv_config.config.service_ip;
 let zTitle = minisrv_version_string;
 
-let systemVersion = session_data.get("wtv-system-version");
-let bootromVersion = session_data.get("wtv-client-bootrom-version");
 let SSID = wtvshared.filterSSID(
     session_data.get("wtv-client-serial-number")
 );
-let romType = session_data.get("wtv-client-rom-type");
-let chipVersionStr =
+let chipversionStr =
     "0x0" + parseInt(session_data.get("wtv-system-chipversion")).toString(16);
 let sysConfigHex =
     "0x" + parseInt(session_data.get("wtv-system-sysconfig")).toString(16);
 let capabilitiesTable = new WTVClientCapabilities().capabilities_table;
 let wtvt = new WTVTricks(minisrv_config);
-
-// halen's sysconfig/chipversion stuff
-let soloVersion = (chipVersionStr & 0xf00000) >> 0x14;
-let soloFab = (chipVersionStr & 0xf0000) >> 0x10;
-let boardType = (sysConfigHex & 0x7000) >> 0xc;
-let boardRev = (sysConfigHex & 0xf00) >> 8;
-let boardRevB = (sysConfigHex & 0xf0) >> 4;
-
-// determine box ASIC type
-switch (chipVersionStr >> 0x18) {
-    case 1:
-        chip = "FIDO1";
-        break;
-    case 3:
-        chip = `SOLO-${soloVersion}, fab ${soloFab}`;
-        break;
-    case 4:
-        chip = `SOLO2-${soloVersion}, fab ${soloFab}`; // don't know much about this one
-        break;
-    default:
-        chip = "?";
-}
-
-// ========================= LC2 SYSCONFIG DECODE START =========================
-
-// determine box video type
-if ((sysConfigHex & 8) == 0) video = "NTSC";
-else video = "PAL";
-
-// determine box storage type
-if ((sysConfigHex & 4) == 0) storage = "disk";
-else storage = "flash";
-
-// determine box CPU endianness
-if ((sysConfigHex & 0x80000) == 0) endianness = "little";
-else endianness = "big";
-
-// determine box CPU type
-if ((sysConfigHex & 0x100000) == 0) cpu = 5230;
-else cpu = 4640;
-
-// determine box CPU clock multiplier
-if ((sysConfigHex & 0x20000) == 0) cpuMult = 3;
-else cpuMult = 2;
-
-// determine smartcard 0 support
-if ((sysConfigHex & 0x400000) == 0) sc0 = "supported";
-else sc0 = "not supported";
-
-//determine smartcard 1 support
-if ((sysConfigHex & 0x200000) == 0) sc1 = "supported";
-else sc1 = "not supported";
-
-// ========================= FCS SYSCONFIG DECODE START =========================
-
-/*  "I don't even know how it works."
-    -Bruce Leak, Thursday, October 12, 1995 1:53:28 AM */
-
-// determine box CPU output bufs
-if ((sysConfigHex & 0x2000) == 0) outputBufs = 100;
-else outputBufs = 50;
-
-// determine box SGRAM speed
-function getSGSpeed() {
-    let SGRAMand = sysConfigHex & 0xc00000;
-    if (SGRAMand == 0x400000) return 66;
-    else if (0x400000 < SGRAMand)
-        if (SGRAMand == 0x800000) return 77;
-        else if (SGRAMand == 0xc00000) return 83; // potentially incorrect but looks like it should return 83MHz on known existing hardware
-        else if (SGRAMand == 0) return 100;
-}
-
-// determine box audio chip type
-if ((sysConfigHex & 0xc0000) == 0xc0000) audio = "AKM4310/4309";
-else audio = "Unknown";
-
-// determine box audio clock source
-if ((sysConfigHex & 0x20000) == 0) audioClk = "SPOT";
-else audioClk = "External";
-
-// determine box video chip
-function getVideoChip() {
-    let videoChipAnd = sysConfigHex & 0x600;
-
-    if (videoChipAnd == 0x200) return "Bt851";
-    else if (videoChipAnd < 0x201 && videoChipAnd !== 0) return "Unknown";
-    else if (videoChipAnd == 0x400) return "Bt852";
-    else return "Philips7187/Bt866";
-}
-
-// determine box video type
-if ((sysConfigHex & 0x800) == 0) videoB = "PAL";
-else videoB = "NTSC";
-
-// determine box video clock source
-if ((sysConfigHex & 0x10000) == 0) videoClk = "External";
-else videoClk = "SPOT";
-
-// determine box board type
-switch (sysConfigHex & 0xc) {
-    case 8:
-        boardTypeB = "Trial";
-        break;
-    case 0xc:
-        boardTypeB = "FCS";
-        break;
-    default:
-        boardTypeB = "Unknown Type";
-}
-
-// determine bank 0 type
-if (sysConfigHex < 0) bank0Type = "Mask";
-else bank0Type = "Flash";
-
-// determine bank 0 mode
-if ((sysConfigHex & 0x40000000) == 0) bank0Mode = "Normal";
-else bank0Mode = "PageMode";
-
-// determine bank 1 type
-if ((sysConfigHex & 0x8000000) == 0) bank1Type = "Flash";
-else bank1Type = "Mask";
-
-// determine bank 1 mode
-if ((sysConfigHex & 0x40000000) == 0) bank1Mode = "Normal";
-else bank1Mode = "PageMode";
 
 if (request_headers.query.password == wtvt.getPasswordByType("low")) {
     data = `<html>
@@ -223,11 +59,11 @@ if (request_headers.query.password == wtvt.getPasswordByType("low")) {
 <tr>
 		<td valign=top align=right><shadow>Client:</shadow>
 		<td width=10>
-		<td valign=top>&vers; (Build ${systemVersion} [${getVersion(systemVersion)}])
+		<td valign=top>&vers; (Build ${session_data.get("wtv-system-version")} [${wtvt.getVersion(session_data.get("wtv-system-version"))}])
 <tr>
 		<td valign=top align=right><shadow>Boot:</shadow>
 		<td width=10>
-		<td valign=top>&wtv-bootvers; (Build ${bootromVersion} [${getVersion(bootromVersion)}])
+		<td valign=top>&wtv-bootvers; (Build ${session_data.get("wtv-client-bootrom-version")} [${wtvt.getVersion(session_data.get("wtv-client-bootrom-version"))}])
 <tr>
 		<td height=20)
 <tr>
@@ -263,7 +99,7 @@ if (request_headers.query.password == wtvt.getPasswordByType("low")) {
 <tr>
 		<td valign=top align=right><shadow>ROM type:</shadow>
 		<td width=10>
-		<td valign=top>${romType}
+		<td valign=top>${session_data.get("wtv-client-rom-type")}
 <tr>
 		<td valign=top align=right><shadow>Modem f/w (when available):</shadow>
 		<td width=10>
@@ -271,7 +107,7 @@ if (request_headers.query.password == wtvt.getPasswordByType("low")) {
 <tr>
 		<td valign=top align=right><shadow>Chip version:</shadow>
 		<td width=10>
-		<td valign=top>${chipVersionStr} (${chip})`;
+		<td valign=top>${chipversionStr} (${wtvt.decodeChipversion(chipversionStr)})`;
     if (sysConfigHex !== "0xNaN")
         data += `
 <tr>
@@ -308,21 +144,8 @@ if (request_headers.query.password == wtvt.getPasswordByType("low")) {
     data += `
 </table>
 <pre>`
-    // TODO: finish FCS decode
-    if (romType == "bf0app" && sysConfigHex !== "0xNaN") {
-        data += `CPU Clk Mult = 2x Bus Clk, CPU output bufs @ ${outputBufs}%
-ROM Bank 0:  ${bank0Type}, ${bank0Mode}, 120ns/60ns
-ROM Bank 1:  ${bank1Type}, ${bank1Mode}, 150ns/75ns
-SGRAM:  ${getSGSpeed()}MHz
-Audio:  ${audio}, ${audioClk} Clk
-Video:  ${getVideoChip()}, ${videoB}, ${videoClk} Clk
-Board:  ${boardTypeB}, Rev = ${0xf - (boardRevB)} (${boardRevB})`;
-    } else if (sysConfigHex !== "0xNaN") {
-        data += `Video = ${video}, storage = ${storage}
-CPU type = ${cpu}, ${endianness}-endian
-CPU clock mult = ${cpuMult}x
-SmartCard 0 ${sc0}, SmartCard 1 ${sc1}
-Board type = ${boardType}, board rev = ${boardRev}`;
+    if (sysConfigHex !== "0xNaN") {
+        data += wtvt.decodeSysconfig(session_data.get("wtv-client-rom-type"), sysConfigHex);
     }
     data += `
 </pre>
