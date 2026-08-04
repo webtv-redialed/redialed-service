@@ -91,7 +91,7 @@ cellspacing=0 cellpadding=0>
 <td valign="top">
 <font size="6" color="#A8B3DB"><blackface>Moving To a More Powerful Server</blackface></font><br><br>
 <font size="3" color="#FFFFFF"><b>
-by HIDEN</font></b>
+by hiden</font></b>
 <P>
 <P>
 <FONT COLOR="#FFFFFF" size=4>

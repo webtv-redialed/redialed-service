@@ -84,7 +84,7 @@ cellspacing=0 cellpadding=0>
 <td valign="top">
 <font size="6" color="#547C30"><blackface>WebTV Redialed Is Now Open Source</blackface></font><br><br>
 <font size="3" color="#273E13"><b>
-by HIDEN</font></b>
+by hiden</font></b>
 <P>
 <FONT COLOR="#273E13" size=3>
 <P>

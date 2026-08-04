@@ -84,7 +84,7 @@ cellspacing=0 cellpadding=0>
 <td valign="top">
 <font size="5" color="#547C30"><blackface>Under New Ownership, And What's In Store For The Future</blackface></font><br><br>
 <font size="3" color="#273E13"><b>
-by HIDEN</font></b>
+by hiden</font></b>
 <P>
 <FONT COLOR="#273E13" size=3>
 <P>

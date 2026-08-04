@@ -276,7 +276,7 @@ switch (infoCenter) {
 			</table>
 			<tr>
 		<td align=right VALIGN=MIDDLE HEIGHT=30>
-				<font size=-1 color=#313939><b>forecast from Weather Channel<SPACER TYPE=HORIZONTAL SIZE=10>
+				<font size=-1 color=#313939><b>forecast from ${this.minisrv_config.services["wtv-center"].wxProviderLong}<SPACER TYPE=HORIZONTAL SIZE=10>
 
 			</table>
 			</table>

@@ -81,7 +81,7 @@ Club WebTV: Back to the Past
 
 <i>To the 90s, specifically.</i>
 </p>
-<p><font size="3" color="#FFFFFF">By: <i><b>HIDEN</b></i></font></p><br><p>
+<p><font size="3" color="#FFFFFF">By: <i><b>hiden</b></i></font></p><br><p>
 Hey all! We've introduced some new features and other improvements to the service in the past few months, for nostalgia junkies and general WebTV fanatics alike. If you've missed out on the news, then just simply read below.
 </p><br><p>
 <blackface>Back to '97</blackface>

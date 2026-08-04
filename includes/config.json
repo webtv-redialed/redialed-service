@@ -275,6 +275,8 @@
       "privileged": true,
       "newsProviderShort": "NYT",
       "newsProviderLong": "New York Times",
+      "wxProviderShort": "TWC",
+      "wxProviderLong": "The Weather Channel",
       "modules": [
         "WTVCache"
       ]

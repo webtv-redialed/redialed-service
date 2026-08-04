@@ -913,7 +913,7 @@ Weather info is unavailable`;
 		</tr>
 						   <tr>
 							  <td HEIGHT=46 align=right valign=MIDDLE>
-								 <font color=#345463 size=-1>&#128;&nbsp;</font><a href="proto://www.weather.com"><font color=#345463 size=-1><b>more weather from Weather Channel</b></font></a>
+								 <font color=#345463 size=-1>&#128;&nbsp;</font><a href="proto://www.weather.com"><font color=#345463 size=-1><b>more weather from ${this.minisrv_config.services["wtv-center"].wxProviderLong}</b></font></a>
 						   <tr>
 							  <td height=5>
 						</table>

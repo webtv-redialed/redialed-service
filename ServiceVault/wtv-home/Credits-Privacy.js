@@ -30,7 +30,7 @@ data = engine.renderFileSync('wtv-home/termsPrivacy', { title: "WebTV Service Pr
   <p><b>Your Name</b><br>
 <p>The name that you enter while signing up will be stored on our servers, however it will not be shared with anyone except the server operators.</p>
   <p><b>Your ZIP Code</b><br>
-<p>The ZIP Code you enter to set weather info will be stored on our servers, and will only be sent to The Weather Channel to get current data. You are not required to enter a ZIP code, however it is required to fully utilize weather forecasting.</p>
+<p>The ZIP Code you enter to set weather info will be stored on our servers, and will only be sent to ${this.minisrv_config.services["wtv-center"].wxProviderLong} to get current data. You are not required to enter a ZIP code, however it is required to fully utilize weather forecasting.</p>
   <p><b>Pages you access</b><br>
 <p>All pages you visit and images you download will be temporarily logged for security reasons. This includes WebTV Network pages and Internet Web sites. This information can not be traced back to you, and will only be viewable to server operators for a short time. IRC Chat messages will <b><i>not</i></b> be logged, however server operators can see what servers you are connecting to.</p>
 <p><b>How We Help Protect Children's Privacy</b><br>
