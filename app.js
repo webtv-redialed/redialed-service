@@ -219,10 +219,6 @@ async function sendRawFile(socket, path) {
     var headers = "200 OK\n";
     headers += "Content-Type: " + contypes[0] + "\n";
     headers += "wtv-modern-content-type" + contypes[1] + "\n";
-    // REDIALED: .headers support
-    if (fs.existsSync(path + ".headers")) {
-        headers += fs.readFileSync(path + ".headers", {encoding: "utf8", flag: "r"}) + "\n";
-    }
     headers += "Last-Modified: " + wtvshared.getFileLastModifiedUTCString(path);
     fs.readFile(path, null, function (err, data) {
         sendToClient(socket, headers, data);
