@@ -92,7 +92,7 @@ async function loadCurrentData() {
             return session_data.getSessionData("infocenter_cache").currentWeather.data
         } else {
             console.log("* Using new weather data")
-            const response = await fetch('https://api.weather.com/v3/wx/observations/current?postalKey=' + (accounts.subscriber.subscriber_zip_code || "98052") + ':US&units=e&language=en-US&format=json&apiKey=' + minisrv_config.config.weatherApiKey);
+            const response = await fetch('https://api.weather.com/v3/wx/observations/current?postalKey=' + (accounts.subscriber.subscriber_zip_code || "98052") + ':US&units=e&language=en-US&format=json', { headers: { 'apiKey': minisrv_config.config.weatherApiKey } });
             const weather = await response.json();
 
             const currentData = {
@@ -133,6 +133,12 @@ function renderPage(weatherData) {
     const {getByZip} = require('zcs');
     let cityZIP = getByZip(accounts.subscriber.subscriber_zip_code || "98052");
     let cityname = titleCase(cityZIP.city);
+    const safeTemp = parseInt(weatherData.temp, 10);
+    const safeCond = String(weatherData.cond).replace(/[^a-z\s]/gi, '');
+    const safeIcon = twcIcons[parseInt(weatherData.icon, 10)] || '0';
+    const weatherDisplay = safeCond + ', ' + safeTemp;
+    const safeCity = String(cityname).replace(/[^a-zA-Z0-9\s\-,\.]/g, '');
+    const safeProvider = String(minisrv_config.services["wtv-center"].wxProviderLong).replace(/[^a-zA-Z0-9\s\-,\.]/g, '');
 // i frew up
     data = `
 <html>
@@ -163,18 +169,18 @@ function renderPage(weatherData) {
 			<table border=0 cellspacing=0 cellpadding=0>
 				<tr>
 					<td valign=BOTTOM align=left MAXLINES=1 HEIGHT=20>
-						<font color=313939><b>Weather for ${cityname}</b></font>
+						<font color=313939><b>Weather for CITY_PLACEHOLDER</b></font>
 					<td width=10>
 			</table>
 	<tr>
 		<td HEIGHT=60>
 			<table border=0 cellspacing=0 cellpadding=0>
 				<tr><br>
-					<td width=68 VALIGN=MIDDLE ALIGN=LEFT><img name="weather_icon" src="wtv-home:/ROMCache/weather/${twcIcons[weatherData.icon]}.gif" width=68 height=60>
+					<td width=68 VALIGN=MIDDLE ALIGN=LEFT><img name="weather_icon" src="wtv-home:/ROMCache/weather/WEATHER_ICON_PLACEHOLDER.gif" width=68 height=60>
 					<td valign=middle align=left>
 					<form name=teaserForm>
 						<font color="#000000"><blackface><input id=disp1 type=text size=20 usestyle nobackground border=0 marginheight=3 nocursor noselect value="CURRENT"></blackface></font><br>
-						<font color="#000000"><b>        <input id=disp2 type=text size=25 usestyle nobackground border=0 marginheight=3 nocursor noselect value="${weatherData.cond}, ${weatherData.temp}"></b></font>
+						<font color="#000000"><b>        <input id=disp2 type=text size=25 usestyle nobackground border=0 marginheight=3 nocursor noselect value="WEATHER_DISPLAY_PLACEHOLDER"></b></font>
 
 						<!-- these aren't for display -- they just hold information until the Javascript -->
 						<!-- comes along and copies it into the one that does display.                   -->
@@ -184,7 +190,7 @@ function renderPage(weatherData) {
 		</tr>
 		<tr>
 		<td align=right VALIGN=MIDDLE HEIGHT=30>
-				<font size=-1 color=313939><b>forecast from ${this.minisrv_config.services["wtv-center"].wxProviderLong}<SPACER TYPE=HORIZONTAL SIZE=10>
+				<font size=-1 color=313939><b>forecast from PROVIDER_PLACEHOLDER<SPACER TYPE=HORIZONTAL SIZE=10>
 
 
 											</table>
@@ -195,6 +201,7 @@ function renderPage(weatherData) {
 
 </body>
 </html>`;
+    data = data.replace('CITY_PLACEHOLDER', safeCity).replace('WEATHER_ICON_PLACEHOLDER', safeIcon).replace('WEATHER_DISPLAY_PLACEHOLDER', weatherDisplay).replace('PROVIDER_PLACEHOLDER', safeProvider);
     return data;
 }
 
