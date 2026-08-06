@@ -431,7 +431,7 @@ class WTVNews {
                                     articleData.headers.References = messageid;
                                     articleData.headers["In-Reply-To"] = messageid;
                                 }
-                                if (msg_body) articleData.body = msg_body.split("\n");
+                                if (msg_body) articleData.body = [msg_body];
                                 else articleData.body = [];
 
                                 response
