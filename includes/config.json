@@ -121,7 +121,7 @@
       "modules": [
         "WTVNews"
       ],
-      "featuredGroups": [
+"featuredGroups": [
         {
           "name": "WebTV",
           "group": "webtv.users",
@@ -133,24 +133,24 @@
           "description": "A moderated discussion with WebTV Plus customers"
         },
         {
-          "name": "WebTV Classic",
-          "group": "alt.discuss.webtv.classic",
-          "description": "A moderated discussion with WebTV Classic customers"
-        },
-        {
           "name": "Talk",
           "group": "alt.discuss.talk",
           "description": "Talk about anything"
         },
         {
-          "name": "MIDI",
-          "group": "alt.discuss.midi",
-          "description": "Share or discuss MIDI audio files"
-        },
-        {
           "name": "Gaming",
           "group": "alt.discuss.gaming",
           "description": "A place to discuss consoles and games"
+        },
+        {
+          "name": "Music",
+          "group": "alt.discuss.music",
+          "description": "Discuss your favorite tunes"
+        },
+        {
+          "name": "Cars",
+          "group": "alt.discuss.cars",
+          "description": "Show off your rides"
         }
       ],
       "groupMetaRefreshInterval": 86400
