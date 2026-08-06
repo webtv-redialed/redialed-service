@@ -7,6 +7,7 @@ Connection: Keep-Alive
 Content-Type: text/html`;
 
 const splash = session_data.getSessionData('splash')
+const altHome = session_data.getSessionData('alt_home')
 const isPlus = session_data.hasCap('client-has-tv-experience')
 const supportsEtude = session_data.hasCap('client-supports-etude-service')
 
@@ -20,13 +21,13 @@ if (request_headers.query.password == wtvt.getPasswordByType("low")) {
 <td width=198 valign=top align=left>
 <form action=wtv-tricks:/validate-home-customization><input type=hidden autosubmit=onleave>
 <table cellspacing=0 cellpadding=0>
-<tr><td valign=middle>
-<input type=checkbox name=home value=1${!supportsEtude ? ' checked disabled><input type=hidden name=ignorehome value=1' : session_data.getSessionData('alt_home') == '1' ? ' checked' : ''}>
-<td abswidth=4>
-<td valign=bottom>
-<font size=-1>Classic home <a href="client:showalert?message=Enable this option to use the classic 1998 ${isPlus ? 'Web Home' : 'Home'} page design rather than the current one.&buttonlabel1=Dismiss&buttonaction1=client:doNothing&buttonlabel2=Preview&buttonaction2=wtv-home:/home?force_old_home%3Dtrue"><img src=images/HelpButton.gif width=20 height=20 align=absbottom></a></font>
-<tr><td absheight=8>
 <tr><td valign=top>
+<font size=-1>${isPlus ? 'Web Home' : 'Home'} design: <a href="client:showalert?message=Use the dropdown menu to choose which design of the ${isPlus ? 'Web Home' : 'Home'} page to use.&buttonlabel1=Dismiss&buttonaction1=client:doNothing"><img src=images/HelpButton.gif width=20 height=20 align=absbottom></a>
+<spacer type=vertical height=40><font size=-2><select name=home width=182 usestyle insetselection${!supportsEtude ? ' disabled' : ''}>
+<option value=0${!supportsEtude ? '' : !altHome || altHome == '0' ? ' selected' : ''}>1999 home</option>
+<option value=1${!supportsEtude ? ' selected' : altHome == '1' ? ' selected' : ''}>1998 home</option>
+<option value=2${!supportsEtude ? '' : altHome == '2' ? ' selected' : ''}>Alpha home</option>
+</select>${!supportsEtude ? '<input type=hidden name=ignorehome value=1>' : ''}</font></font>
 </table>
 <table cellspacing=0 cellpadding=0>
 <tr><td valign=middle>
