@@ -24,7 +24,7 @@ if (request_headers.query.password == wtvt.getPasswordByType("low")) {
 <tr><td valign=top>
 <font size=-1>${isPlus ? 'Web Home' : 'Home'} design: <a href="client:showalert?message=Use the dropdown menu to choose which design of the ${isPlus ? 'Web Home' : 'Home'} page to use.&buttonlabel1=Dismiss&buttonaction1=client:doNothing"><img src=images/HelpButton.gif width=20 height=20 align=absbottom></a>
 <spacer type=vertical height=40><font size=-2><select name=home width=182 usestyle insetselection${!supportsEtude ? ' disabled' : ''}>
-<option value=0${!supportsEtude ? '' : !altHome || altHome == '0' ? ' selected' : ''}>1999 home</option>
+<option value=0${!supportsEtude ? '' : !altHome || altHome == '0' ? ' selected' : ''}>1999 home (default)</option>
 <option value=1${!supportsEtude ? ' selected' : altHome == '1' ? ' selected' : ''}>1998 home</option>
 <option value=2${!supportsEtude ? '' : altHome == '2' ? ' selected' : ''}>Alpha home</option>
 </select>${!supportsEtude ? '<input type=hidden name=ignorehome value=1>' : ''}</font></font>
