@@ -3118,7 +3118,7 @@ const debugmode = minisrv_config.config.serviceType == 'Debug';
 const { version } = require('./package.json');
 // TODO: REMOVE ME?
 //const { default: liquid } = require("liquidjs/dist/tags/liquid");
-const z_title = `WebTV Redialed v${version}${debugmode ? ' (Debug)' : ''}`;
+const z_title = `WebTV Redialed v${version}${debugmode ? ' (TestDrive)' : ''}`;
 console.log(`**** Welcome to ${z_title} ****`);
 
 minisrv_config = wtvshared.getminisrvConfig(); // snatches minisrv_config
