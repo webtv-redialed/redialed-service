@@ -109,7 +109,7 @@ Choose a shortcut label for <b>${favoritedata.title}</b>, then choose <b>Done</b
 </td><td>
 <form action="wtv-favorite:/commit-shortcuts-favorites">`
 let fav;
-for (let i = 1; i <= 8; i++) {
+for (let i = 1; i <= 7; i++) {
     const key = "F" + i;
     const scfav = session_data.favstore.getShortcutKey(key);
 	var favimage;
