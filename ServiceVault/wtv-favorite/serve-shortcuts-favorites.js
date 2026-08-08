@@ -1,28 +1,23 @@
-var minisrv_service_file = true;
+const minisrv_service_file = true;
 
-var favoritenum = 0;
+const foldername = request_headers.query.favorite_folder_name;
+const favarray = session_data.favstore.listFavorites(foldername);
+const folder_array = session_data.favstore.getFolders();
+const folderid = folder_array.indexOf(foldername);
+const numoffolders = folder_array.length;
+const favoritenum = Object.keys(favarray).length;
 
-var foldername = request_headers.query.favorite_folder_name;
-
-var favarray = session_data.favstore.listFavorites(foldername);
-
-var folder_array = session_data.favstore.getFolders();
-
-var folderid = folder_array.indexOf(foldername);
-
-var numoffolders = folder_array.length;
-
-favoritenum = Object.keys(favarray).length;
 
 headers = `200 OK
 Connection: Keep-Alive
 Content-Type: text/html
-wtv-expire-all: wtv-favorite:/serve-`;
+wtv-expire-all: wtv-favorite:/serve-`
+
 
 data = `<html>
 <head>
 </head>
-<body fontsize="${session_data.isJapaneseClient() ? `medium` : `large`}" vspace="0" hspace="0" vlink="189cd6" text="44cc55" link="189cd6" bgcolor="191919">
+<body fontsize="large" vspace="0" hspace="0" vlink="189cd6" text="44cc55" link="189cd6" bgcolor="191919">
 <title>
 Assign shortcut to favorite
 </title>
@@ -117,18 +112,18 @@ Assign shortcut to favorite
 <tbody><tr><td width="5" height="4"><img src="wtv-home:/ROMCache/Spacer.gif" width="1" height="1">
 </td></tr><tr><td width="15">
 </td><td valign="middle" align="left">
-<font size="-1" color="#42BC52">`;
-if (favoritenum == 0) {
-    data +=
-        "<font size=2>&nbsp;&nbsp;&nbsp;<i>There are no favorites to move in this folder.</i></font>";
+<font size="-1" color="#42BC52">`
+if (favoritenum === 0)
+{
+	data += "<font size=2>&nbsp;&nbsp;&nbsp;<i>There are no favorites to move in this folder.</i></font>";
 } else {
-    data += `To assign a keyboard shortcut to a favorite, <br>
+	data += `To assign a keyboard shortcut to a favorite, <br>
 choose the button to the right of the favorite. <br>
 <img src="wtv-home:/ROMCache/Spacer.gif" width="1" height="4"><br>
 </font>
-</td></tr><tr></tr></tbody></table>`;
-    for (let i = 0; i < favoritenum; i++) {
-        data += `<table cellspacing="0" cellpadding="0" bgcolor="191919">
+</td></tr><tr></tr></tbody></table>`
+for (let i = 0; i < favoritenum; i++) {
+	data += `<table cellspacing="0" cellpadding="0" bgcolor="191919">
 <tbody><tr>
 <td><table cellspacing="0" cellpadding="0" bgcolor="191919">
 <tbody><tr><td height="4">
@@ -145,12 +140,12 @@ choose the button to the right of the favorite. <br>
 </td><td width="354">
 <table bgcolor="191919">
 <tbody><tr><td abswidth="70" valign="center" align="center">
-`;
-        if (favarray[i].imagetype == "url")
-            data += `<img src="${favarray[i].image}" width="70" vspace="5" height="52"><br>`;
-        else
-            data += `<img src="get-thumbnail?folder=${favarray[i].folder}&id=${favarray[i].id}" width="70" vspace="5" height="52"><br>`;
-        data += `
+`
+if (favarray[i].imagetype === "url")
+	data += `<img src="${favarray[i].image}" width="70" vspace="5" height="52"><br>`
+else
+	data += `<img src="get-thumbnail?folder=${favarray[i].folder}&id=${favarray[i].id}" width="70" vspace="5" height="52"><br>`
+data += `
 </td><td width="7">
 </td><td width="100%" valign="center" align="left">
 <font size="-1" color="#42BC52">
@@ -160,7 +155,14 @@ ${favarray[i].title}<br>
 </td><td>	<table bgcolor="191919">
 <tbody><tr><td abswidth="62" valign="center" align="center">
 <table absheight="38" href="wtv-favorite:/serve-choose-shortcut-favorites?favorite_folder_name=${foldername}&amp;favoriteid=${favarray[i].id}" width="53" cellspacing="0" cellpadding="0">
-<tbody><tr><td valign="middle" background="images/FKey.gif" align="left">
+<tbody><tr><td valign="middle" background="images/FKey.gif" absheight=38 align="center">
+`
+const scdata = session_data.favstore.isFavoriteAShortcut(favarray[i].id);
+if (scdata) {
+	data += `<font size="-2" color="#F1F1F1">${scdata.key}</font>`;
+}
+
+data += `
 <table cellspacing="0" cellpadding="0">
 <tbody><tr><td width="8">
 </td><td absheight="38" width="44" valign="center" align="center">
@@ -171,8 +173,8 @@ ${favarray[i].title}<br>
 </td></tr></tbody></table>
 </td></tr></tbody></table>
 </td><td width="3">
-</td></tr></tbody></table>`;
-    }
+</td></tr></tbody></table>`
+}
 }
 data += `<table cellspacing="0" cellpadding="0">
 <tbody><tr><td><table cellspacing="0" cellpadding="0" bgcolor="191919">
@@ -186,14 +188,14 @@ data += `<table cellspacing="0" cellpadding="0">
 </td></tr></tbody></table>
 </td></tr></tbody></table>
 </td></tr></tbody></table>
-<form action="wtv-favorite:/commit-shortcuts-favorites">
+<form action="wtv-favorite:/serve-organize-favorites">
 <input type="hidden" name="favorite_folder_name" value="${foldername}">
 <table height="50" cellspacing="0" cellpadding="0" bgcolor="191919">
 <tbody><tr><td height="10"><img src="wtv-home:/ROMCache/Spacer.gif" width="1" height="1">
 </td></tr><tr><td width="100%"><img src="wtv-home:/ROMCache/Spacer.gif" width="100%" height="1">
 </td><td valign="center" align="right">
 <font size="-1" color="#E7CE4A"><shadow>
-<input type="submit" useform="Shortcuts" borderimage="file://ROM/Borders/ButtonBorder2.bif" value="Done" name="ForwardToBrowser" usestyle="" width="110">
+<input type="submit" borderimage="file://ROM/Borders/ButtonBorder2.bif" value="Done" name="ForwardToBrowser" usestyle="" width="110">
 </shadow></font>
 </td><td abswidth="13">
 </td></tr><tr><td height="8"><img src="wtv-home:/ROMCache/Spacer.gif" width="1" height="1">

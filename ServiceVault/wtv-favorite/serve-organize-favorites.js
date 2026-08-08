@@ -1,36 +1,24 @@
-var minisrv_service_file = true;
+const minisrv_service_file = true;
 
-var favoritenum = 0;
+const foldername = request_headers.query.favorite_folder_name;
+const favarray = session_data.favstore.listFavorites(foldername);
+const folder_array = session_data.favstore.getFolders();
+const folderid = folder_array.indexOf(foldername);
+const numoffolders = folder_array.length;
+const favoritenum = Object.keys(favarray).length;
 
-var foldername = request_headers.query.favorite_folder_name;
-
-var favarray = session_data.favstore.listFavorites(foldername);
-
-var folder_array = session_data.favstore.getFolders();
-
-var folderid = folder_array.indexOf(foldername);
-
-var numoffolders = folder_array.length;
-
-favoritenum = Object.keys(favarray).length;
-
-var imagesource = "ROMCache";
-
-// 2.6 and later have updated folder images, so we can't use ROMCache
-if (session_data.get("wtv-system-version") >= 7623) {
-    imagesource = "images";
-}
 
 headers = `200 OK
 Connection: Keep-Alive
 Content-Type: text/html
-wtv-expire-all: wtv-favorite:/serve-`;
+wtv-expire-all: wtv-favorite:/serve-`
+
 
 data = `<html><head>
 <title>
 Organize favorites
 </title>
-</head><body fontsize="${session_data.isJapaneseClient() ? `medium` : `large`}" vspace="0" hspace="0" vlink="189cd6" text="44cc55" link="189cd6" bgcolor="191919"><display>
+</head><body fontsize="large" vspace="0" hspace="0" vlink="189cd6" text="44cc55" link="189cd6" bgcolor="191919"><display>
 <sidebar width="109" height="384">
 <table cellspacing="0" cellpadding="0" bgcolor="284a52">
 <tbody><tr><td absheight="196" valign="top">
@@ -134,7 +122,7 @@ Organize favorites
 <table cellspacing="0" cellpadding="0">
 <tbody><tr><td valign="top" align="left">
 <table width="221" cellspacing="0" cellpadding="0">
-	<tbody><tr><td width="221" valign="middle" height="42" background="${imagesource}/LeftTop.gif" align="left">
+	<tbody><tr><td width="221" valign="middle" height="42" background="ROMCache/LeftTop.gif" align="left">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tbody><tr><td width="10"> </td><td width="20" valign="top" height="28" align="left">
 <table cellspacing="0" cellpadding="0">
@@ -156,11 +144,11 @@ Organize favorites
 <tbody><tr><td>
 <table abswidth="178" cellspacing="0" cellpadding="0">
 <tbody><tr><td absheight="20" bgcolor="2b2b2b"> 
-</td></tr><tr><td abswidth="178" valign="middle" height="22" background="${imagesource}/MiddleTop.gif" align="left">
+</td></tr><tr><td abswidth="178" valign="middle" height="22" background="ROMCache/MiddleTop.gif" align="left">
 </td></tr></tbody></table>
 </td><td>
 <table abswidth="52" cellspacing="0" cellpadding="0">
-<tbody><tr></tr></tbody></table><table abswidth="52" cellspacing="0" cellpadding="0" background="${imagesource}/FarRightTop.gif">
+<tbody><tr></tr></tbody></table><table abswidth="52" cellspacing="0" cellpadding="0" background="ROMCache/FarRightTop.gif">
 <tbody><tr><td width="20" valign="middle" height="42" align="left">
 </td><td width="25" valign="middle" height="42" align="left">
 </td><td width="7" valign="middle" height="40" align="left">
@@ -190,9 +178,9 @@ Organize favorites
 <TD WIDTH=198 VALIGN=top ALIGN=left>
 <A HREF="wtv-favorite:/serve-rename-favorites?favorite_folder_name=${foldername}"><BLACKFACE>Rename</BLACKFACE></A><BR>
 <FONT SIZE="-1">Rename favorites in this folder</FONT><BR>
-<!--<spacer type=block WIDTH=1 HEIGHT=7><BR>
+<spacer type=block WIDTH=1 HEIGHT=7><BR>
 <A HREF="wtv-favorite:/serve-shortcuts-favorites?favorite_folder_name=${foldername}"><BLACKFACE>Shortcuts</BLACKFACE></A><BR>
-<FONT SIZE="-1">Assign a keyboard shortcut to a favorite, or <a href="client:showalert?message=fuck">view a list</a> of all shortcuts</FONT><BR>-->
+<FONT SIZE="-1">Assign a keyboard shortcut to a favorite, or <a href="wtv-favorite:/serve-shortcut-list">view a list</a> of all shortcuts</FONT><BR>
 
 <TR>
 <TD>

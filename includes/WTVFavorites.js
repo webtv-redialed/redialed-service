@@ -306,112 +306,140 @@ class WTVFavorites {
         return true;
     }
 
-    createShortcutKey() {
-        var favoritefileout = this.favstore_dir + "KeyStore.zfav";
-        var keydata = {};
+    isFavoriteAShortcut(favoriteid) {
+		const favoritefileout = this.favstore_dir + "KeyStore.zfav";
+		if (!this.fs.existsSync(favoritefileout)) {
+			this.createShortcutKey();
+		}
+		const keydata = JSON.parse(this.fs.readFileSync(favoritefileout));
+		const keys = Object.keys(keydata);
+		for (let i = 0; i < keys.length; i++) {
+			if (keydata[keys[i]].id === favoriteid) {
+				return { key: keys[i], folder: keydata[keys[i]].folder };
+			}
+		}
+		return false;
+	}
 
-        keydata.F1 = {
-            folder: "none",
-            id: "none",
-        };
-        keydata.F2 = {
-            folder: "none",
-            id: "none",
-        };
-        keydata.F3 = {
-            folder: "none",
-            id: "none",
-        };
-        keydata.F4 = {
-            folder: "none",
-            id: "none",
-        };
-        keydata.F5 = {
-            folder: "none",
-            id: "none",
-        };
-        keydata.F6 = {
-            folder: "none",
-            id: "none",
-        };
-        keydata.F7 = {
-            folder: "none",
-            id: "none",
-        };
+	getShortcutKey(key) {
+		const favoritefileout = this.favstore_dir + "KeyStore.zfav";
+		if (!this.fs.existsSync(favoritefileout)) {
+			this.createShortcutKey();
+		}
+		const keydata = JSON.parse(this.fs.readFileSync(favoritefileout));
+		if (key && keydata[key]) {
+			return { folder: keydata[key].folder, id: keydata[key].id };
+		}
+	}
+	
+	createShortcutKey() {
+            const favoritefileout = this.favstore_dir + "KeyStore.zfav";
+			const keydata = {};
+			
+			keydata.F1 = {
+				folder: "none",
+				id: "none"
+			}
+			keydata.F2 = {
+				folder: "none",
+				id: "none"
+			}
+			keydata.F3 = {
+				folder: "none",
+				id: "none"
+			}
+			keydata.F4 = {
+				folder: "none",
+				id: "none"
+			}
+			keydata.F5 = {
+				folder: "none",
+				id: "none"
+			}
+			keydata.F6 = {
+				folder: "none",
+				id: "none"
+			}
+			keydata.F7 = {
+				folder: "none",
+				id: "none"
+			}
 
-        try {
-            // encode favorite into json
-            var result = this.fs.writeFileSync(favoritefileout, keydata);
-            if (!result) return false;
-        } catch (e) {
-            console.error(" # FavErr: Key Store failed\n", e, "\n", favoritefileout);
-        }
-        return false;
+            try {
+                // encode favorite into json
+                const result = this.fs.writeFileSync(favoritefileout, JSON.stringify(keydata));
+                if (!result) return false;
+
+            } catch (e) {
+                console.error(" # FavErr: Key Store failed\n", e, "\n", favoritefileout);
+            }
+            return false;
     }
+	
+	updateShortcutKey(oldkey, newkey, folder, id) {
+            const favoritefileout = this.favstore_dir + "KeyStore.zfav";
+			if (!this.fs.existsSync(favoritefileout)) {
+				this.createShortcutKey();
+			}
+			const keydata = JSON.parse(this.fs.readFileSync(favoritefileout));
+			switch(newkey) {
+				case "F1":
+					keydata.F1 = {
+						folder: folder,
+						id: id
+					};
+					break;
+				case "F2":
+					keydata.F2 = {
+						folder: folder,
+						id: id
+					}
+					break;
+				case "F3":
+					keydata.F3 = {
+						folder: folder,
+						id: id
+					}
+					break;
+				case "F4":
+					keydata.F4 = {
+						folder: folder,
+						id: id
+					}
+					break;
+				case "F5":
+					keydata.F5 = {
+						folder: folder,
+						id: id
+					}
+					break;
+				case "F6":
+					keydata.F6 = {
+						folder: folder,
+						id: id
+					}
+					break;
+				case "F7":
+					keydata.F7 = {
+						folder: folder,
+						id: id
+					}
+					break;
+				}
+			if (oldkey !== "none") {
+				keydata[oldkey].folder = null;
+				keydata[oldkey].id = null;
+			}
+			
+            try {
+                // encode favorite into json
+                const result = this.fs.writeFileSync(favoritefileout, JSON.stringify(keydata));
+                if (!result) return false;
 
-    updateShortcutKey(oldkey, newkey, folder, id) {
-        var folderpath = this.getFolderDir(folder);
-        var favoritefileout = this.favstore_dir + "KeyStore.zfav";
-        var keydata = {};
-
-        keydata = this.fs.readFileSync(favoritefileout);
-        console.log(newkey);
-        switch (newkey) {
-            case "F1":
-                keydata.F1.folder = folder;
-                break;
-            case "F2":
-                keydata.F2 = {
-                    folder: folder,
-                    id: id,
-                };
-                break;
-            case "F3":
-                keydata.F3 = {
-                    folder: folder,
-                    id: id,
-                };
-                break;
-            case "F4":
-                keydata.F4 = {
-                    folder: folder,
-                    id: id,
-                };
-                break;
-            case "F5":
-                keydata.F5 = {
-                    folder: folder,
-                    id: id,
-                };
-                break;
-            case "F6":
-                keydata.F6 = {
-                    folder: folder,
-                    id: id,
-                };
-                break;
-            case "F7":
-                keydata.F7 = {
-                    folder: folder,
-                    id: id,
-                };
-                break;
-        }
-        if (oldkey == "none") {
-            //no
-        } else {
-            keydata[oldkey].folder = null;
-            keydata[oldkey].id = null;
-        }
-
-        try {
-            // encode favorite into json
-            var result = this.fs.writeFileSync(favoritefileout, keydata);
-            if (!result) return false;
-        } catch (e) {
-            console.error(" # FavErr: Key Store failed\n", e, "\n", favoritefileout);
-        }
-        return false;
+            } catch (e) {
+                console.error(" # FavErr: Key Store failed\n", e, "\n", favoritefileout);
+            }
+            return false;
     }
 }
 
