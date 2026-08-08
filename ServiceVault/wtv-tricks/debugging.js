@@ -2,6 +2,8 @@ var minisrv_service_file = true;
 var accounts = session_data.listPrimaryAccountUsers();
 var wtvt = new WTVTricks(minisrv_config);
 const os = require('node:os');
+const cpus = os.cpus();
+const process = require('process');
 
 headers = `200 OK
 Content-Type: text/html`;
@@ -83,10 +85,18 @@ VALUE="${session_data.getSessionData(
 </table>
 <p>
 <table border cellpadding=2>
-<th colspan=2>System statistics</th>
+<th colspan=2>System information</th>
+<tr>
+<td>Server</td>
+<td>${minisrv_version_string}</td>
+</tr>
+<tr>
+<td>Node</td>
+<td>${process.version}</td>
+</tr>
 <tr>
 <td>CPU</td>
-<td>${cpus.length}x ${cpus[0].model}}</td>
+<td>${cpus.length}x ${cpus[0].model}</td>
 </tr>
 <tr>
 <td>Free Memory</td>
@@ -98,7 +108,7 @@ VALUE="${session_data.getSessionData(
 </tr>
 <tr>
 <td>Platform</td>
-<td>${os.platform}, ${os.type()}, ${os.version()}</td>
+<td>${os.type()} ${os.release()} (${os.arch()})</td>
 </tr>
 <tr>
 <td>Uptime</td>
