@@ -55,14 +55,21 @@ class WTVFavorites {
     }
 
     folderExists(foldername) {
-        var folder_dir = null;
-        if (this.favstoreExists()) {
+        let folder_dir, store_dir = null;
+		if (this.favstoreExists()) {
             if (!foldername) return null;
 
-            var folder_dir = foldername + this.path.sep;
-            var store_dir = this.favstore_dir + folder_dir;
+            folder_dir = foldername + this.path.sep;
+            store_dir = this.favstore_dir + folder_dir;
         }
-        return store_dir !== null ? this.fs.existsSync(store_dir) : false;
+		if (store_dir) {
+			if (this.fs.existsSync(store_dir)) {
+				if (this.fs.statSync(store_dir).isDirectory()) {
+					return store_dir;
+				}
+			}
+		}
+        return false;
     }
 
     getFolderDir(foldername) {
@@ -135,14 +142,15 @@ class WTVFavorites {
     }
 
     getFolders() {
-        var path = this.favstore_dir;
-        var self = this;
-        return this.fs.readdirSync(path).filter(function (file) {
-            self.folderArr.push(file);
-            return self.folderArr;
-        });
+        const path = this.favstore_dir;
+		const self = this;
+		return this.fs.readdirSync(path).filter(function (file) {
+			if (self.folderExists(file)) {
+				self.folderArr.push(file);
+				return self.folderArr;
+			}
+		});
     }
-
     createFavoriteID() {
         return this.uuid.v1();
     }

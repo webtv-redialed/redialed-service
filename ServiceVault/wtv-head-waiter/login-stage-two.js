@@ -223,6 +223,7 @@ wtv-messagewatch-checktimeoffset: ${accounts.subscriber["messagewatch-offset"] |
 wtv-messagewatch-url: wtv-head-waiter:/login-stage-two?MessageWatch=1
 wtv-datadownload-url: wtv-disk:/download-list
 wtv-datadownload-login-url: wtv-head-waiter:/login-stage-two?DataDownload=1
+wtv-favorite-index-url: wtv-favorite:/favorite-index?
 wtv-favorites-folders-url: wtv-favorite:/list-folders
 wtv-input-timeout: ${minisrv_config.config.serviceType == "Debug" ? 86400 : 600}
 wtv-connection-timeout: 1440

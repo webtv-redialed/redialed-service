@@ -77,10 +77,17 @@ let fav;
 for (let i = 1; i <= 7; i++) {
     const key = "F" + i;
     const scfav = session_data.favstore.getShortcutKey(key);
+    var favimage;
     if (scfav && scfav.id !== "none") {
         fav = session_data.favstore.getFavorite(scfav.folder, scfav.id);
+		if (fav.imagetype === "url") {
+			favimage = fav.image
+		} else {
+			favimage = `get-thumbnail?folder=${fav.folder}&id=${fav.id}`
+		}
     } else {
-        fav = { image: "wtv-home:/ROMCache/Spacer.gif", title: "Not assigned" };
+        fav = { image: "wtv-home:/ROMCache/Spacer.gif", imagetype: "url", title: "Not assigned" };
+		favimage = "wtv-home:/ROMCache/Spacer.gif"
     }
 
 data += `
@@ -105,7 +112,7 @@ data += `
 <tbody><tr><td><table cellspacing="0" cellpadding="0">
 <tbody><tr><td abswidth="70" valign="center" align="center">
 <table bgcolor="000000">
-<tbody><tr><td><img src="${fav.image}" width="70" height="52">
+<tbody><tr><td><img src="${favimage}" width="70" height="52">
 </td></tr></tbody></table>
 </td><td width="10">
 </td><td width="279" valign="center" align="left">
