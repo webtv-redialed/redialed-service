@@ -14,43 +14,9 @@ Add a folder
 <DISPLAY
 >
 </HEAD>
-<body bgcolor="#191919" text="#44cc55" link="#FFE99B" vlink="#FFE99B" fontsize="${session_data.isJapaneseClient() ? `small` : `medium`}" vspace=0 hspace=0>
-<sidebar width="109" height="384">
-<table cellspacing="0" cellpadding="0" bgcolor="284a52">
-<tbody><tr><td absheight="196" valign="top">
-<table absheight="196" cellspacing="0" cellpadding="0">
-<tbody><tr>
-<td width="100%" valign="top" height="50%">
-<table cellspacing="0" cellpadding="0">
-<tbody><tr>
-<td colspan="3" absheight="1" width="100%">
-</td></tr><tr>
-<td abswidth="6">
-</td><td absheight="79" width="100%" align="center">
-<table href="wtv-home:/home" absheight="79" width="100%" cellspacing="0" cellpadding="0">
-<tbody><tr>
-<td width="100%" align="center">
-<img src="wtv-home:/ROMCache/WebTVLogoJewel.gif" width="87" height="67">
-</td></tr></tbody></table>
-</td><td abswidth="5">
-</td></tr><tr><td colspan="3" absheight="2" abswidth=104 bgcolor="1f3136">
-<img src="wtv-home:/ROMCache/Spacer.gif" width="1" height="1">
-</td></tr><tr><td colspan="3" absheight="1" abswidth=104>
-</td></tr><tr><td colspan="3" absheight="2" abswidth=104 bgcolor="436f79">
-<img src="wtv-home:/ROMCache/Spacer.gif" width="1" height="1">	</td></tr><tr><td absheight="32" colspan="3" width="100%">
-<table cellspacing="0" cellpadding="0">
-</td></tr></tbody></table>
-</td></tr></tbody></table>
-</td></tr></tbody></table>
-</td><td abswidth="5" background="ROMCache/Shadow.gif"><img src="wtv-home:/ROMCache/Spacer.gif" width="1" height="1">
-</td></tr><tr><td absheight="188" valign="top">
-<table absheight="188" cellspacing="0" cellpadding="0">
-<tbody><tr><td width="100%"><img src="wtv-home:/ROMCache/Spacer.gif" width="100%" height="1">
-</td><td valign="bottom" align="right"><img src="ROMCache/FavoritesBanner.gif" width="50" height="188">
-</td></tr></tbody></table>
-</td><td abswidth="5" background="ROMCache/Shadow.gif"><img src="wtv-home:/ROMCache/Spacer.gif" width="1" height="1">
-</td></tr></tbody></table>
-</sidebar>
+<body bgcolor="#191919" text="#44cc55" link="#FFE99B" vlink="#FFE99B" fontsize="${session_data.isJapaneseClient() ? `small` : `medium`}" vspace=0 hspace=0>`;
+data += engine.renderFileSync('wtv-favorite/partials/sidebar');
+data += `
 <table width="451" cellspacing="0" cellpadding="0" bgcolor="191919">
 <tbody><tr>
 <td width="4" height="16"><img src="wtv-home:/ROMCache/Spacer.gif" width="1" height="1">

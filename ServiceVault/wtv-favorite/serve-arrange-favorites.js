@@ -30,7 +30,9 @@ data = `<html><head>
 <title>
 Listing favorites
 </title>
-</head><body fontsize="${session_data.isJapaneseClient() ? `medium` : `large`}" vspace="0" hspace="0" vlink="189cd6" text="44cc55" link="189cd6" bgcolor="191919"><display>
+</head><body fontsize="${session_data.isJapaneseClient() ? `medium` : `large`}" vspace="0" hspace="0" vlink="189cd6" text="44cc55" link="189cd6" bgcolor="191919"><display>`;
+data += engine.renderFileSync('wtv-favorite/partials/sidebar', { options: [{ url: 'wtv-favorite:/favorite', text: 'Folders' }, { url: 'wtv-favorite:/serve-add-folder-page', text: 'Add folder' }, { url: 'wtv-guide:/quickhelp?title=Favorites', text: 'Help' }] });
+data += `
 <sidebar width="109" height="384">
 <table cellspacing="0" cellpadding="0" bgcolor="284a52">
 <tbody><tr><td absheight="196" valign="top">

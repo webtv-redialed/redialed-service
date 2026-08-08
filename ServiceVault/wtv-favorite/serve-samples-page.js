@@ -12,58 +12,9 @@ Add sample folders
 </TITLE>
 <DISPLAY>
 </HEAD>
-<BODY BGCOLOR=191919 TEXT=44cc55 LINK=189cd6 VLINK=189cd6 HSPACE=0 VSPACE=0 FONTSIZE=large>            
-<sidebar width=109 height=384>
-<tr><td absheight=384>
-<table cellspacing=0 cellpadding=0 bgcolor=284a52>
-<tr><td valign=top absheight=196>
-<table cellspacing=0 cellpadding=0 absheight=196>
-<tr>
-<td valign=top width=100% height=50%>
-<table cellspacing=0 cellpadding=0>
-<tr>
-<td colspan=3 width=100% absheight=1>
-<tr>
-<td abswidth=6>
-<td width=100% align=center absheight=79>
-<table href="wtv-home:/home" width=100% absheight=79 cellspacing=0 cellpadding=0>
-<tr>
-<td width=100% align=center>
-<img src="wtv-home:/ROMCache/WebTVLogoJewel.gif" width=87 height=67>
-</table>
-<td abswidth=5>
-<tr><td colspan=3 abswidth=104 absheight=2 bgcolor=1f3136>
-<img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
-<tr><td colspan=3 width=100% absheight=1>
-<tr><td colspan=3 width=100% absheight=2 bgcolor=436f79>
-<img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>	<tr><td abswidth=104 absheight=32 colspan=3>
-<table cellspacing=0 cellpadding=0>
-<tr><td abswidth=6 absheight=26>
-<td width=100%><table width=100% cellspacing=0 cellpadding=0 href="wtv-favorite:/favorite">
-<tr><td>
-<table cellspacing=0 cellpadding=0>
-<tr><td><shadow><font color=E7CE4A size=-1>
-&nbsp;Favorites
-</table>
-</table>
-<td abswidth=5>
-<tr><td colspan=3 width=104 absheight=2 bgcolor=1f3136>
-<img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
-<tr><td absheight=1>
-<tr><td colspan=3 width=104 absheight=2 bgcolor=436f79>
-<img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
-</table>
-</table>
-</table>
-<td abswidth=5 background="ROMCache/Shadow.gif"><img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
-<tr><td valign=top absheight=188>
-<table cellspacing=0 cellpadding=0 absheight=188>
-<tr><td width=100%><img src="wtv-home:/ROMCache/Spacer.gif" width=100% height=1>
-<td align=right valign=bottom><img src="ROMCache/FavoritesBanner.gif" width=50 height=188>
-</table>
-<td abswidth=5 background="ROMCache/Shadow.gif"><img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
-</table>
-</sidebar>
+<BODY BGCOLOR=191919 TEXT=44cc55 LINK=189cd6 VLINK=189cd6 HSPACE=0 VSPACE=0 FONTSIZE=large>`;
+data += engine.renderFileSync('wtv-favorite/partials/sidebar', { options: [{ url: 'wtv-favorite:/favorite', text: 'Favorites' }] });
+data += `
 <table cellspacing=0 cellpadding=0>
 <tr><td abswidth=5><img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
 <td><table cellspacing=0 cellpadding=0>

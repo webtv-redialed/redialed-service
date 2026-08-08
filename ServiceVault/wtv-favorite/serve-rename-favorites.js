@@ -30,58 +30,9 @@ data = `<html><head>
 <title>
 Rename favorites
 </title>
-</head><body fontsize="${session_data.isJapaneseClient() ? `medium` : `large`}" vspace="0" hspace="0" vlink="189cd6" text="44cc55" link="189cd6" bgcolor="191919"><display>
-<sidebar width=109 height=384>
-<tr><td absheight=384>
-<table cellspacing=0 cellpadding=0 bgcolor=284a52>
-<tr><td valign=top absheight=196>
-<table cellspacing=0 cellpadding=0 absheight=196>
-<tr>
-<td valign=top width=100% height=50%>
-<table cellspacing=0 cellpadding=0>
-<tr>
-<td colspan=3 width=100% absheight=1>
-<tr>
-<td abswidth=6>
-<td width=100% align=center absheight=79>
-<table href="wtv-home:/home" width=100% absheight=79 cellspacing=0 cellpadding=0>
-<tr>
-<td width=100% align=center>
-<img src="wtv-home:/ROMCache/WebTVLogoJewel.gif" width=87 height=67>
-</table>
-<td abswidth=5>
-<tr><td colspan=3 width=100% absheight=2 bgcolor=1f3136>
-<img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
-<tr><td colspan=3 width=100% absheight=1>
-<tr><td colspan=3 width=100% absheight=2 bgcolor=436f79>
-<img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>	<tr><td width=100% absheight=32 colspan=3>
-<table cellspacing=0 cellpadding=0>
-<tr><td abswidth=6 absheight=26>
-<td width=100%><table width=100% cellspacing=0 cellpadding=0 href="wtv-favorite:/serve-organize-favorites?favorite_folder_name=${foldername}">
-<tr><td>
-<table cellspacing=0 cellpadding=0>
-<tr><td><shadow><font color=E7CE4A size=-1>
-&nbsp;Organize
-</table>
-</table>
-<td abswidth=5>
-<tr><td colspan=3 width=104 absheight=2 bgcolor=1f3136>
-<img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
-<tr><td absheight=1>
-<tr><td colspan=3 width=104 absheight=2 bgcolor=436f79>
-<img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
-</table>
-</table>
-</table>
-<td abswidth=5 background="ROMCache/Shadow.gif"><img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
-<tr><td valign=top absheight=188>
-<table cellspacing=0 cellpadding=0 absheight=188>
-<tr><td width=100%><img src="wtv-home:/ROMCache/Spacer.gif" width=100% height=1>
-<td align=right valign=bottom><img src="ROMCache/FavoritesBanner.gif" width=50 height=188>
-</table>
-<td abswidth=5 background="ROMCache/Shadow.gif"><img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=1>
-</table>
-</sidebar>
+</head><body fontsize="${session_data.isJapaneseClient() ? `medium` : `large`}" vspace="0" hspace="0" vlink="189cd6" text="44cc55" link="189cd6" bgcolor="191919"><display>`;
+data += engine.renderFileSync('wtv-favorite/partials/sidebar', { options: [{ url: `wtv-favorite:/serve-organize-favorites?favorite_folder_name=${foldername}`, text: 'Organize' }] });
+data += `
 <table width="451" cellspacing="0" cellpadding="0" bgcolor="2b2b2b">
 <tbody><tr>
 <td width="4" height="16"><img src="wtv-home:/ROMCache/Spacer.gif" width="1" height="1">
