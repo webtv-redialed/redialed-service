@@ -381,6 +381,7 @@ if (gWeatherIndex != 2 || gNumCategories == 1) gWeatherTimeout = setTimeout(Rota
 </table>
 </sidebar>
 <body onLoad="Initialize()" bgcolor=13142e>
+{% if isMyBirthday %}{% render 'wtv-home/partials/birthday' %}{% endif %}
 <table cellspacing=0 cellpadding=0 border=0 abswidth=422 absheight=384>
 <tr><td colspan=2>
 <table cellspacing=0 cellpadding=0 border=0 bgcolor=31365d gradcolor=9eaacd>
