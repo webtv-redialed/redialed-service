@@ -67,7 +67,7 @@ const messages = [
     "This is the sign you've been looking for",
     "Hey Lois, I'm in wtv-tricks:/tricks",
     "<embed src=sounds/noway.mid autostart=true><marquee>GET BLUE SPHERES!</marquee>",
-    "<a href='http://frogfind.com/?q=florida+man+" + month + "%2F" + day + "'>Florida is not real.</a>",
+    "<a href='http://lite.duckduckgo.com/lite?q=florida+man+" + month + "%2F" + day + "'>Florida is not real.</a>",
     "Brought to you by the letter T",
     "The Polyzoot admin command is not real",
     "Jarvis, set this guy's access number to 911",

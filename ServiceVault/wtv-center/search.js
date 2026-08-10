@@ -6,5 +6,5 @@ if (/([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.\:]\w+([\/\?\=\&\#\.]?[\w-]+)*\/?/gm.t
     if (!/^(https|http|proto|gopher?:\/\/)/.test(request_headers.query["search-string"])) headers += `http://`; // If our search string doesn't include a protocol, assume it's HTTP
     headers += request_headers.query["search-string"];
 } else {
-    headers += `http://frogfind.com/?q=${encodeURIComponent(request_headers.query["search-string"])}`;
+    headers += `http://lite.duckduckgo.com/lite?q=${encodeURIComponent(request_headers.query["search-string"])}`;
 }
