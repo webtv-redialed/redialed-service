@@ -58,7 +58,7 @@ text=273c33 link=273c33 alink=273c33 vlink=273c33>
 <font size=5>
 <p>
 Our <b>Help</b> is open day or night with instructions and tips for getting the<br>
-most out of WebTV Plus.
+most out of WebTV${session_data.hasCap("client-has-tv-experience" ? "" : " Plus")}.
 </font>
 </td>
 <td>
