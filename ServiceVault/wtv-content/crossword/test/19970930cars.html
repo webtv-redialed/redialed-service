@@ -1,0 +1,500 @@
+<!-- WebTV Crossword 
+     Tim Park (tpark@corp.webtv.net)
+     v4 - 08/21/97
+     Copyright 1997, WebTV Networks -->
+
+<html>
+<title>
+  WebTV Crossword 
+</title>
+<bgsound src="../sounds/jollygooba1.mid" LOOP=TRUE> 
+<body background="../images/BACK.JPG" bgcolor=191919 text=668866 
+      hspace=0>
+
+   <display>
+   <form name="crossword">
+      <script language="JavaScript">
+
+	    sPuzzleName = "19970930cars";  
+
+aasAcross = new Array( 
+                  new Array("Competes with GM","","","","",""),new Array("","","","","",""),new Array("","","","","",""),new Array("","","","","",""),new Array("","","","","",""),new Array("","","","","",""),new Array("","","","","",""),new Array("","","","","",""),new Array("","","","","",""),new Array("","","","","",""),new Array("","","","","",""),new Array("","","","","","")
+                   );
+
+ asPuzzle = "FORD++++++++A+++++++++++L+++++++++++C+++++++++++O+++++++++++N+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
+
+ aasDown = new Array( 
+                  new Array("A car named after a bird of prey","","","","",""),new Array("","","","","",""),new Array("","","","","",""),new Array("","","","","",""),new Array("","","","","",""),new Array("","","","","",""),new Array("","","","","",""),new Array("","","","","",""),new Array("","","","","",""),new Array("","","","","",""),new Array("","","","","",""),new Array("","","","","","")
+                    );   
+      
+	   kWidth  = 12;
+	   kHeight = 12;
+
+	   kOtherFormElements = 0;
+	   
+	function FindAcrossClue(x,y) {
+
+	  var cWordOn = -1;
+	  var cx;
+
+          // Check for no clue.
+          var xm1  = eval(eval(x)-1);
+          var xp1  = eval(eval(x)+1);
+          
+          var pxm1;
+          if (xm1 >= 0) {
+            pxm1 = GetCell(xm1, y);
+          } else {
+            pxm1 = "+"; 
+          }
+
+          var pxp1;
+          if (xp1 < kWidth) {
+            pxp1 = GetCell(xp1, y);
+          } else {
+            pxp1 = "+";
+          }  
+
+          var px = GetCell(x,y);
+          if (pxm1 == "+" && px != "+" && pxp1 == "+" ) {
+            // No clue, return " "
+            return(" ");
+          }
+
+	  for (cx=0; cx <= x; cx++) {
+
+             var xm1  = eval(eval(cx)-1);
+             var xp1  = eval(eval(cx)+1);
+
+             var pxm1;
+             if (xm1 >= 0) {
+               pxm1 = GetCell(xm1, y);
+             } else {
+               pxm1 = "+";
+             }
+
+             var pxp1;
+             if (xp1 < kWidth) {
+               pxp1 = GetCell(xp1, y);
+             } else {
+               pxp1 = "+";
+             }
+
+             var px = GetCell(cx,y);   
+
+	     if (pxm1 == "+" && px != "+" && pxp1 != "+") {
+	       cWordOn++;
+	     }
+
+	  }
+
+	  return(aasAcross[y][cWordOn]);
+
+	}
+
+	function FindDownClue(x,y) {
+
+	  var cWordOn = -1;
+	  var cy;
+
+          // Check for no clue.
+          var ym1  = eval(eval(y)-1);
+          var yp1  = eval(eval(y)+1);
+          
+          var pym1;
+          if (ym1 >= 0) {
+            pym1 = GetCell(x, ym1);
+          } else {
+            pym1 = "+"; 
+          }
+
+          var pyp1;
+          if (yp1 < kWidth) {
+            pyp1 = GetCell(x, yp1);
+          } else {
+            pyp1 = "+";
+          }  
+
+          var py = GetCell(x,y);
+          if (pym1 == "+" && py != "+" && pyp1 == "+" ) {
+            // No clue, return " "
+            return(" ");
+          }
+
+	  for (cy=0; cy <= y; cy++) {
+
+             var ym1  = eval(eval(cy)-1);
+             var yp1  = eval(eval(cy)+1);
+
+             var pym1;
+             if (ym1 >= 0) {
+               pym1 = GetCell(x, ym1);
+             } else {
+               pym1 = "+";
+             }
+
+             var pyp1;
+             if (yp1 < kHeight) {
+               pyp1 = GetCell(x, yp1);
+             } else {
+               pyp1 = "+";
+             }
+
+             var py = GetCell(x,cy);
+             if (pym1 == "+" && py != "+" && pyp1 != "+" ) {
+	       cWordOn++;
+	     }
+
+	  }
+
+	  return(aasDown[x][cWordOn]);
+      }
+
+	function show_clue(x, y) {
+     
+          document.crossword.across.value =  FindAcrossClue(x,y);
+	  document.crossword.down.value = FindDownClue(x,y);
+	
+	}
+
+	function GetCell(x,y) {
+	 
+          return (asPuzzle.charAt(y*kWidth+x));
+
+	}
+
+	function SolvePuzzle() {
+		
+           var sy=0;
+           var sx=0;
+
+	   for (sy=0; sy < kHeight; sy++) {
+	      for (sx=0; sx < kWidth; sx++) { 
+		 document.crossword.elements[eval(sx+sy*kHeight+kOtherFormElements)].value = GetCell(sx,sy);
+	      }
+	   }
+	     
+	}
+	
+        function PlaySound(sound) {
+
+          if (sound == null) {  
+            return;
+          } else {
+            sound.play(false);
+          }
+
+        }
+
+	function CorrectPuzzle() {
+
+	  var cy=0;
+	  var cx=0;
+ 	  var bCorrect="t";
+		  
+                for (cy=0; cy < kHeight; cy++) { 
+		   for (cx=0; cx < kWidth; cx++) {
+		      if (document.crossword.elements[eval(cx+cy*kHeight+kOtherFormElements)].value != GetCell(cx,cy)) {
+			document.crossword.elements[eval(cx+cy*kHeight+kOtherFormElements)].value = "";
+			bCorrect="f";
+		      }
+		   }
+		}
+	    
+	
+	  if (bCorrect == "t") {
+            PlaySound(document.applause);
+          }
+
+	}       
+
+	function RenderCell(x, y) { 
+
+	  if (GetCell(x,y) == '+') {
+	    document.write("<td width=20 bgcolor=000000 align=left valign=top>");
+	    document.write("  <img src=/ROMCache/Spacer.gif width=20 height=20>");
+	    document.write("  <input type=hidden name=sel"+eval(x+y*kWidth)+" value=\"+\">");
+	    document.write("</td>");
+	  } else {
+	    document.write("<td width=20 height=20 bgcolor=666666 align=center valign=bottom>");
+	    document.write("  <input type=text name=sel"+eval(x+y*kWidth)+" bgcolor=666666 maxlength=1 autocaps size=1 width=20 border=0 onChange=\"CaseSet(this)\" onFocus=\"show_clue("+x+","+y+")\">");
+	    document.write("</td>");
+	  }
+
+	}
+
+	function RenderRow(y) {
+
+	  document.write("<tr>");
+
+	  var x=0;
+
+	  for (x=0; x < kWidth; x++) {
+	     RenderCell(x,y);
+	  }
+
+	  document.write("</tr>");
+
+	}
+
+	function RenderPuzzle() {
+	 
+	  document.write("<table border=0 cellspacing=3 cellpadding=0 bgcolor=222222>");
+
+	  var y=0;
+
+	  for (y=0; y < kHeight; y++) {
+	     RenderRow(y);
+	  }
+
+	      document.write("</table>");
+
+	}
+
+	function CaseSet(j) {
+	  for (var i = 0; i < j.value.length;  i++) {
+	     var c = j.value.charAt(i);
+	     if (c >= 'a' && c <= 'z') {
+	       j.value = j.value.toUpperCase();
+	     }
+	  }
+	}
+
+        function SetCookie (name, value) {
+          
+           var argv = SetCookie.arguments;
+           var argc = SetCookie.arguments.length;
+           var expires = (argc > 2) ? argv[2] : null;
+           var path = (argc > 3) ? argv[3] : null;
+           var domain = (argc > 4) ? argv[4] : null;
+           var secure = (argc > 5) ? argv[5] : false;
+           document.cookie = name + "=" + escape (value) +
+              ((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
+              ((path == null) ? "" : ("; path=" + path)) +
+              ((domain == null) ? "" : ("; domain=" + domain)) +
+              ((secure == true) ? "; secure" : "");       
+         
+        }
+
+        function GetCookieVal (offset) {
+  
+          var endstr = document.cookie.indexOf (";", offset);
+          if (endstr == -1)
+            endstr = document.cookie.length;
+          return unescape(document.cookie.substring(offset, endstr));
+
+        }    
+
+        function GetCookie (name) {
+       
+          var arg = name + "=";
+          var alen = arg.length;
+          var clen = document.cookie.length;
+          var i = 0;
+
+          while (i < clen) {
+            var j = i + alen;
+            if (document.cookie.substring(i, j) == arg)
+              return GetCookieVal (j);
+
+            i = document.cookie.indexOf(" ", i) + 1;
+            if (i == 0)
+              break;
+          }
+
+          return null;
+
+        }
+
+        function SetCookieMacro (sCookieName, sValue) {
+
+          var expdate = new Date ();
+          // Save Cookie for 56 days (8 weeks).
+          expdate.setTime (expdate.getTime() + (56 * 24 * 60 * 60 * 1000));
+
+          SetCookie (sCookieName, sValue, expdate, "/");
+
+        }  
+      
+	function SaveGame() {
+
+           sGameCookie = "";
+
+	   for (gy=0; gy < kHeight; gy++) {
+	      for (gx=0; gx < kWidth; gx++) {
+                 if (document.crossword.elements[eval(gx+gy*kHeight+kOtherFormElements)].value != "") {
+		   sGameCookie += document.crossword.elements[eval(gx+gy*kHeight+kOtherFormElements)].value;
+		 } else {
+                   sGameCookie += "+";
+                 }
+  	      }
+	   }
+
+	   SetCookieMacro("sgcw"+sPuzzleName, sGameCookie);
+	   //alert("sGameCookie: "+sGameCookie);
+	}      
+
+	function LoadGame() {
+
+           sGameCookie = GetCookie("sgcw"+sPuzzleName);	
+
+           if (sGameCookie == null) 
+             return;
+
+	   for (ly=0; ly < kHeight; ly++) {
+	      for (lx=0; lx < kWidth; lx++) {
+                 if (sGameCookie.charAt(lx+ly*kHeight) != "+") {
+		   document.crossword.elements[eval(lx+ly*kHeight+kOtherFormElements)].value = sGameCookie.charAt(lx+ly*kHeight);
+		 }
+  	      }
+	   }
+	  
+	}
+
+	function Quit() {
+
+
+	}
+
+      </script>
+
+      <EMBED SRC="sounds/applause.MP2" HIDDEN=TRUE CONTROLS=console
+       VOLUME=100 LOOP=FALSE AUTOSTART=FALSE NAME="applause"
+       MASTERSOUND>
+
+      <table cellpadding=0 cellspacing=0 border=0 width=100% valign=top>
+	    <tr>
+	      
+	      <td align=center abswidth=181>
+		 <img src="/ROMCache/WebTVLogoJewel.gif" width=84 height=65 align=left>
+		 <img src="../images/LOGO.GIF" width=97 height=74>
+	      </td>
+
+	      <td rowspan=5 valign=center align=center abswidth=363>   
+		    <center>             
+		       <SCRIPT LANGAUGE="Javascript">
+			  RenderPuzzle();
+		       </SCRIPT>
+		    </center>
+	      </td>
+				       
+	   </tr>
+	
+ 	   <tr> <!-- Spacer Field -->
+	      <td>
+		<img src="/ROMCache/spacer.gif" width=20 height=15>
+	      </td>
+	   </tr>	          
+    
+	   <tr> <!-- Across Field -->  
+	      <td valign=top align=center>
+		 <table cellspacing=0 cellpadding=0 border=0 width=100% border=0>
+		   <tr> <!-- Spacer Between Logo And Across -->
+ 	             <td>
+		       <center><font size=+1 effect=emboss color=080808><b>Across</b></font></center>
+		     </td>
+  	           </tr>
+                   <tr>
+	 	     <td>
+		       <center>
+		       <font color=080808>
+		         <textarea noselect bgcolor=#91751A align=center name="across" rows=3 
+			           value="" usestyle border=0 cols=17>
+		         </textarea>
+		       </font>
+		       </center>
+		     </td>
+		   </tr>
+		 </table>
+		 <img src="/ROMCache/spacer.gif" width=20 height=5>
+	      </td>
+	   </tr>  
+
+	   <tr> <!--Down Field -->  
+	      <td valign=top align=center>
+
+		  <table cellspacing=1 cellpadding=0 width=100% border=0>
+		   <tr> 
+ 	             <td>
+		       <center><font size=+1 effect=emboss color=080808><b>Down</b></font></center>
+		     </td>
+  	           </tr>
+                   <tr>
+	 	     <td>
+		       <center>
+		       <font color=080808>
+		          <textarea noselect bgcolor=#91751A type=text name="down" 
+			    rows=3 value="" usestyle border=0 cols=17>
+		          </textarea>
+		       </font>
+		       </center>
+		     </td>
+		   </tr>
+		 </table>
+	      </td>
+	   </tr>
+
+	   <tr> <!-- Control Buttons -->
+
+	     <td>
+	    
+	      <table border=0 width=100%>
+		 <tr>    
+		   <td>
+		     <A HREF="javascript:CorrectPuzzle()">
+		       <IMG SRC="../images/CORRECT.GIF">
+<!--
+		     <input type=button borderimage="file://ROM/Borders/ButtonBorder4.bif" 
+			    noimage name="Correct" 	
+			    value="Correct" onClick="CorrectPuzzle()" usestyle>
+-->
+		     </A>
+		   </td>
+		   <td>
+ 		     <A HREF="javascript:SolvePuzzle()">
+		       <IMG SRC="../images/SOLVE.GIF">
+<!--
+		     <input type=button borderimage="file://ROM/Borders/ButtonBorder4.bif" 
+			    noimage name="Solve" 
+			    onClick="SolvePuzzle()" value="Solve" usestyle>
+-->
+		     </A>
+		   </td>
+		 </tr>
+		 <tr>
+		   <td colspan=2>
+		     <center>
+	 	     <A HREF="javascript:SaveGame()">
+		       <IMG SRC="../images/SAVE.GIF">
+		     </A>
+	             </center>					   
+		   </td>
+<!--
+		   <td>
+		     <A HREF="wtv-home:/home">
+		       <IMG SRC="../images/QUIT.GIF">
+		     </A>
+		  </td>
+-->
+		 </tr>
+<!--AD ROW-->
+		 
+	       </table>
+	  
+	   </td>
+	 </tr>
+			      
+       </table>
+       </form>
+
+</body>
+
+       <script langauge="Javascript">
+
+	  LoadGame();
+	  show_clue(0,0);
+
+       </script>
+
+</html>
+                    

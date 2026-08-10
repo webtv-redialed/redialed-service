@@ -85,6 +85,7 @@ width=244>
 &nbsp;&nbsp;<font color=#2E0F1F>&#128;</font>&nbsp;<a href=wtv-center:/programming/tryit/tryit.solitaire.tmpl>Have solo fun with Solitaire</a><br>
 &nbsp;&nbsp;<font color=#2E0F1F>&#128;</font>&nbsp;<a href=wtv-center:/programming/tryit/tryit.reversi.tmpl>Settle it with Reversi</a><br>
 &nbsp;&nbsp;<font color=#2E0F1F>&#128;</font>&nbsp;<a href=wtv-center:/programming/tryit/tryit.match.tmpl>Test your brains with Match!</a><br>
+&nbsp;&nbsp;<font color=#2E0F1F>&#128;</font>&nbsp;<a href=wtv-center:/programming/tryit/tryit.crossword.tmpl>Solve crossword puzzles</a><br>
 
 </table>
 
