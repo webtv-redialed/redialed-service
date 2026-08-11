@@ -33,7 +33,6 @@
     "follow-redirects": "^1.16.0",
     "html-entities": "^2.4.0",
     "iconv-lite": "^0.6.3",
-    "ip": "^1.1.9",
     "liquidjs": "^10.28.0",
     "mime-types": "^2.1.35",
     "newsie": "^1.2.1",
