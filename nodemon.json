@@ -1,7 +1,8 @@
 {
     "watch": [
         "app.js",
-        "includes/"
+        "includes/",
+        "user_config.json"
     ],
     "ext": "js,json"
 }
