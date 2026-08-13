@@ -64,9 +64,9 @@ Ask about our 10% employee discount!
     if (query.type) flashRoms = flashRoms.filter(o => o.type === query.type);
     if (query.reverseSort) flashRoms = flashRoms.reverse();
     // Paginate the data so that bf0app and slow connections have a better time
-    if (query.page && query.limit) { flashRoms = flashRoms.slice((query.page - 1) * query.limit, query.page * query.limit); }
+    if (query.page && query.limit) { flashRomsSliced = flashRoms.slice((query.page - 1) * query.limit, query.page * query.limit); }
     else {
-        flashRoms = flashRoms.slice(0, 25);
+        flashRomsSliced = flashRoms.slice(0, 25);
         query.page = 1;
     }
 
@@ -102,9 +102,9 @@ Ask about our 10% employee discount!
 
 <table width=100%>`;
     if (parseInt(query.page) > 1) data += `<td align=left><a href=willie?type=${query.type || ""}&reverseSort=${query.reverseSort || ""}&page=${parseInt(query.page) - 1 || 2}&limit=${query.limit || 25}>prev</a></td>`;
-    if (flashRoms.length && parseInt(query.page) < Math.ceil(wtvshared.getDynamicConfig(`flashrom/${boxInfo.romDir}`).length / (parseInt(query.limit) || 25))) { data += `<td align=right><a href=willie?type=${query.type || ""}&reverseSort=${query.reverseSort || ""}&page=${parseInt(query.page) + 1 || 2}&limit=${query.limit || 25}>next</a></td>`; }
+    if (flashRoms.length && parseInt(query.page) < Math.ceil(flashRoms.length / (parseInt(query.limit) || 25))) { data += `<td align=right><a href=willie?type=${query.type || ""}&reverseSort=${query.reverseSort || ""}&page=${parseInt(query.page) + 1 || 2}&limit=${query.limit || 25}>next</a></td>`; }
     data += `</table>\n`;
-    if (boxInfo && flashRoms.length) data += `<table border align=center cellspacing=1 cellpadding=0>
+    if (boxInfo && flashRoms.length) data += `<table border align=center cellspacing=1 cellpadding=0 width=100%>
 <th>Num</th>
 <th>Type</th>
 <th>Parts</th>
@@ -115,8 +115,8 @@ Ask about our 10% employee discount!
     // my brain hurts
     let yeah = "";
 
-    if (boxInfo && flashRoms.length) {
-        flashRoms.forEach((details, index) => {
+    if (boxInfo && flashRomsSliced.length) {
+        flashRomsSliced.forEach((details, index) => {
             yeah += `<tr>
 <td align=center><a href="${boxInfo.romTypeShort == "BPS" && details.type == "internal-debug" ? `client:showalert?message=You%20sure%20about%20this%20one%20chief%3F%3Cp%3E%3Cb%3Einternal-debug%3C%2Fb%3E%20builds%20are%20known%20to%20brick%20your%20type%20of%20box%20%28no%20more%20WebTV%21%29%3Cp%3ENote%3A%20WebTV%20Redialed%20is%20not%20liable%20for%20any%20damages%20caused%20by%20Halen-induced%20VCC%20shorts%20to%20ground.&buttonlabel2=Sounds%20good%20to%20me&buttonaction2=wtv-flashrom:/initiate-lc2-download?path=content/${boxInfo.romDir}/build${details.build}/${details.type}/${boxInfo.romType}-part000.rom&numparts=${details.parts}&buttonlabel1=Perhapsn%27t&buttonaction1=client:donothing` : `wtv-flashrom:/initiate-lc2-download?path=content/${boxInfo.romDir}/build${details.build}/${details.type}/${boxInfo.romType}-part000.rom&numparts=${details.parts}`}">${details.build}</a></td>
 <td>${details.type}</td>
