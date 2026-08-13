@@ -11,8 +11,6 @@ if (request_headers.query.path) {
             minisrv_config.services[service_name].port +
             "&path=" +
             escape(service_name + ":/" + request_headers.query.path);
-        if (request_headers.query.numparts)
-            url += escape("?numparts=" + request_headers.query.numparts);
     } else {
         if (request_headers.query.numparts)
             url += "&numparts=" + request_headers.query.numparts;
