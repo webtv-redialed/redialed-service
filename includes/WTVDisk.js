@@ -129,7 +129,7 @@ class WTVDownloadList {
     putUserStoreDest(path, destination) {
         this.put(
             path,
-            this.service_name + ":/userstore?partialPath=" + escape(destination)
+            this.service_name + ":/userstore?partialPath=" + encodeURIComponent(destination)
         );
     }
 
@@ -317,7 +317,7 @@ class WTVDownloadList {
         if (force_update === null) force_update = false;
 
         if (url === null)
-            url = this.service_name + ":/sync?diskmap=" + escape(diskmap);
+            url = this.service_name + ":/sync?diskmap=" + encodeURIComponent(diskmap);
 
         if (force_update) url += "&force=" + force_update;
         if (dont_delete_files) url += "&dont_delete_files=" + dont_delete_files;

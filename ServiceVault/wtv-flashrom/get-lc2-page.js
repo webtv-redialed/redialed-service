@@ -52,8 +52,8 @@ async function processLC2DownloadPage(path, flashrom_info, numparts = null) {
         }
         if (!flashrom_info.is_last_part) {
             flashrom_info.next_rompath = request_headers.request_url.replace(
-                escape(request_headers.query.path),
-                escape(flashrom_info.next_rompath.replace(service_name + ":/", ""))
+                encodeURI(request_headers.query.path),
+                encodeURI(flashrom_info.next_rompath.replace(service_name + ":/", ""))
             );
         }
 

@@ -10,7 +10,7 @@ if (request_headers.query.path) {
             "&port=" +
             minisrv_config.services[service_name].port +
             "&path=" +
-            escape(service_name + ":/" + request_headers.query.path);
+            encodeURIComponent(service_name + ":/" + request_headers.query.path);
     } else {
         if (request_headers.query.numparts)
             url += "&numparts=" + request_headers.query.numparts;

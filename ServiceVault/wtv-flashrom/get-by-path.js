@@ -1,5 +1,7 @@
 var minisrv_service_file = true;
 
+// TODO: this doesn't account for nonexistent flashrom images. flashrom probably needs a serious rewrite
+
 const WTVFlashrom = require(classPath + "/WTVFlashrom.js");
 request_is_async = true;
 

@@ -311,10 +311,10 @@ From:
                     wtvshared.htmlEntitize(message.from_addr)
                 )} <a href="client:showalert?sound=none&message=Would%20you%20like%20to%20add%20%3Cblackface%3E${wtvshared.sanitizeSignature(
                     wtvshared.htmlEntitize(message.from_name)
-                )}%3C%2Fblackface%3E%20to%20your%20address%20list%3F&buttonlabel2=No&buttonaction2=client:donothing&buttonlabel1=Yes&buttonaction1=wtv-mail:/addressbook%3Faction%3Deditfromheader%26noresponse%3Dtrue%26nickname%3D${escape(
-                    escape(message.from_name)
-                )}%26address%3D${escape(
-                    escape(message.from_addr)
+                )}%3C%2Fblackface%3E%20to%20your%20address%20list%3F&buttonlabel2=No&buttonaction2=client:donothing&buttonlabel1=Yes&buttonaction1=wtv-mail:/addressbook%3Faction%3Deditfromheader%26noresponse%3Dtrue%26nickname%3D${encodeURIComponent(
+                    encodeURIComponent(message.from_name)
+                )}%26address%3D${encodeURIComponent(
+                    encodeURIComponent(message.from_addr)
                 )}%26new_address%3Dtrue">(${wtvshared.sanitizeSignature(
                     wtvshared.htmlEntitize(message.from_name)
                 )})</a>`;

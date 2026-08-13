@@ -39,7 +39,6 @@ const messages = [
     "<tt>wl#wo4kJAmiVjc<br>8qMAqyKG3NpLJu</tt>",
     "Mr. OnLive",
     "I'm going to 55325532 you so hard",
-    "<embed src=sink.mp3 autostart=true> SINK RATE!",
     "WebTV is immune to cap issues",
     "WebTV - The toughest set-top box since 1992",
     "At least it's not Wiimmfi",

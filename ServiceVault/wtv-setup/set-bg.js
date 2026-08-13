@@ -85,7 +85,7 @@ Choose the songs that you'd like to include.
             wtvbgm.isSongEnabled(musicList[k]["id"]) ? ' checked="checked"' : ""
         }>
 </td><td valign="bottom">
-<a href=${musicList[k]["url"]}?wtv-title=${escape(musicList[k]["title"])}>${
+<a href=${musicList[k]["url"]}?wtv-title=${encodeURIComponent(musicList[k]["title"])}>${
             musicList[k]["title"]
         }</a>
 </td></tr></tbody></table>`;

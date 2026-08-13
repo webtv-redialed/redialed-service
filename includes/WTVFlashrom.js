@@ -53,7 +53,7 @@ class WTVFlashrom {
         } catch (e) {
             var errpage = this.wtvshared.doErrorPage(
                 404,
-                "The service could not find the requested ROM."
+                `Image not found on this machine (${this.minisrv_config.config.service_ip}).`
             );
             var headers = errpage[0];
             var data = errpage[1];
