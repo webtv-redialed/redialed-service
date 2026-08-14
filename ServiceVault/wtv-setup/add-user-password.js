@@ -18,7 +18,7 @@ else if (nonoWords.some((v) => lowerusername.includes(v)))
         400,
         "Your Internet Name contains a bad word. Please change it and try again."
     );
-else if (reservedWords.some((v) => lowerusername.includes(v)))
+else if (reservedWords.some((v) => lowerusername.match(new RegExp(v, "ig"))))
     errpage = wtvshared.doErrorPage(
         400,
         "That Internet Name is reserved. Please choose another one."
