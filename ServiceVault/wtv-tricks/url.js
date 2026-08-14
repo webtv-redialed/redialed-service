@@ -112,5 +112,5 @@ Client Command:<br>
 </html>
 `;
 } else {
-    data = wtvt.tricksUnauthorized();
+    data = engine.renderFileSync('wtv-tricks/unauthorized');
 }

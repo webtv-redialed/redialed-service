@@ -30,8 +30,7 @@ function load() {
 }
 </script>
 </body>
-</html>
-`;
+</html>`;
 
 } else {
 
@@ -71,7 +70,7 @@ hspace="0" vspace="0" fontsize="large" noscroll>
 	  function doConnect() {
 	    if (document.connect.preset.value == "noneofem") {
             	alert("Please choose a WebTV server to connect to.")
-		} else if (document.connect.machine.value == "${minisrv_config.services['wtv-1800'].host}" && document.connect.port.value == "${minisrv_config.services['wtv-1800'].port}") {
+		} else if (document.connect.machine.value == "${minisrv_config.serviceIp}" && document.connect.port.value == "${minisrv_config.services['wtv-1800'].port}") {
 				alert("Mate, you're already here.");
 		} else {
 			document.connect.submit();

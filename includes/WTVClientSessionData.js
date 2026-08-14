@@ -761,29 +761,19 @@ class WTVClientSessionData {
         this.SaveIfRegistered(true);
     }
 
-    //remove unknown romtypes because we can't be certain whether or not they are a "WebTV Plus receiver"
+    // remove unknown romtypes because we can't be certain whether or not they are a "WebTV Plus receiver"
     getBoxName() {
         switch (this.get("wtv-client-rom-type")) {
-            case "US-DTV-disk-0MB-16MB-softmodem-CPU5230": //all of these should return "satellite receiver", no branding is associated with the box names here
+            case "US-DTV-disk-0MB-16MB-softmodem-CPU5230":
             case "US-DTV-disk-0MB-32MB-softmodem-CPU5230":
             case "US-WEBSTAR-disk-0MB-8MB-softmodem-CPU5230":
             case "US-WEBSTAR-disk-0MB-16MB-softmodem-CPU5230":
                 return "satellite receiver";
-
             case "US-LC2-flashdisk-0MB-16MB-softmodem-CPU5230":
             case "US-LC2-disk-0MB-8MB":
-            //case "US-LC2-flash-2MB-8MB":
-            //case "JP-LC2-disk-0MB-8MB":   This is a classic.
-            //case "JP-LC2-flash-2MB-8MB":
             case "US-LC2-disk-0MB-8MB-softmodem-CPU5230":
-            //case "US-LC2-flash-2MB-8MB-softmodem-CPU5230":
-            //case "US-LC2-disk-0MB-8MB-CPU5230":
-            //case "US-LC2-flash-2MB-8MB-CPU5230":
             case "JP-LC2-disk-0MB-8MB-CPU5230":
-                //case "JP-LC2-disk-0MB-16MB-CPU5230":
-                //case "JP-LC2-flash-2MB-8MB-CPU5230":
                 return "WebTV Plus receiver";
-
             default:
                 return "WebTV Internet terminal";
         }
@@ -1017,10 +1007,8 @@ class WTVClientSessionData {
     }
 
     getManufacturer() {
-        var brandId = this.ssid.charAt(11) + this.ssid.charAt(8);
-        var brand; //me when shitass variable scope
-        //went to a switch statement instead of a scary nested if statement
-        switch (brandId) {
+        var brand; // me when shitass variable scope
+        switch (this.ssid.charAt(11) + this.ssid.charAt(8)) {
             case "00":
                 brand = "Sony";
                 break;
@@ -1054,25 +1042,19 @@ class WTVClientSessionData {
             default:
                 brand = "WebTV";
         }
-        //process the special guys here
+        // process the special guys here
         if (this.ssid.includes("1ROG")) {
             brand = "Rogers";
         } else if (this.ssid.includes("1SEGA")) {
             brand = "SegaFiji";
-        } else if (this.ssid.length != 16 || this.ssid.charAt(0) == 9) { //detect unusual SSIDs + viewers
+        } else if (this.ssid.length != 16 || this.ssid.charAt(0) == 9) { // detect unusual SSIDs + viewers
             brand = "WebTV";
         }
         return (brand);
     }
 
     isJapaneseClient() {
-        const knownJapaneseRomTypes = [
-            "JP-Fiji", //dreamcast
-            "JP-LC2-disk-0MB-8MB", //LC2 "classic"
-            "JP-LC2-disk-0MB-8MB-CPU5230", //LC2 plus
-            "japan-4MegBoot" //not sure
-        ];
-        return (knownJapaneseRomTypes.includes(this.get("wtv-client-rom-type")) ? true : false);
+        return (this.get("wtv-client-rom-type").match(/^(JP-|japan)/gi) ? true : false);
     }
 }
 

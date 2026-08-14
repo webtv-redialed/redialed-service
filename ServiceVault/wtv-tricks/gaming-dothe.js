@@ -1,5 +1,4 @@
 var minisrv_service_file = true;
-var wtvt = new WTVTricks(minisrv_config);
 
 headers = `300 OK
 Location: wtv-tricks:/gaming-doed`;

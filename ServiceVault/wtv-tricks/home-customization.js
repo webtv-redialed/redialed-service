@@ -85,5 +85,5 @@ default:return
 <TD VALIGN=top ALIGN=right>
 <font color="#E7CE4A" size=-1><shadow>`, hasTuner: session_data.hasCap('client-has-tuner'), isJapaneseClient: session_data.isJapaneseClient(), button: true});
 } else {
-	data = wtvt.tricksUnauthorized();
+	data = engine.renderFileSync('wtv-tricks/unauthorized');
 }

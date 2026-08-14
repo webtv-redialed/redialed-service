@@ -94,7 +94,9 @@ if (today == "12/25") {
 
 const theShit = [
     { name: "Info", url: `wtv-tricks:/info?password=${wtvt.getPasswordByType("low")}` },
-    { name: "Run a WWW Tour", url: `wtv-home:/content/tourist.html` },
+    // some day, perhaps.
+    //{ name: "Run a WWW Tour", url: `wtv-home:/content/tourist.html` },
+    { name: "Connection Benchmark", url: `wtv-tricks:/benchmark-image` },
     { name: "Visit Big Willie's!", url: `client:showalert?message=Only%20proceed%20to%20this%20page%20if%20you%20are%20%3Cb%3EABSOLUTELY%20%3C%2Fb%3Esure%20you%20know%20what%20you%20are%20doing.%3Cbr%3E%3Cbr%3E%20You%20can%20cause%20serious%20damage%20to%20and%20even%20brick%20your%20receiver%20if%20you%20aren%27t%20careful.&buttonLabel1=Cancel&buttonAction1=client:donothing&buttonLabel2=Proceed to Big Willie%27s&buttonAction2=wtv-flashrom:/willie` },
     { name: "Visit Little Willie's!", url: `client:showalert?message=Only%20proceed%20to%20this%20page%20if%20you%20are%20%3Cb%3EABSOLUTELY%20%3C%2Fb%3Esure%20you%20know%20what%20you%20are%20doing.%3Cbr%3E%3Cbr%3E%20You%20can%20cause%20serious%20damage%20to%20and%20even%20brick%20your%20receiver%20if%20you%20aren%27t%20careful.&buttonLabel1=Cancel&buttonAction1=client:donothing&buttonLabel2=Proceed to Little Willie%27s&buttonAction2=wtv-flashrom:/willie?label=LittleWillie` },
     // yes i cared this hard
@@ -110,8 +112,7 @@ const theShit = [
     { name: "Show Services", url: `client:showservices` },
     { name: "Show Cookies", url: `wtv-cookie:/list` },
     { name: "URL Accessor", url: `wtv-tricks:/url?password=${wtvt.getPasswordByType("high")}`, highOnly: true },
-    { name: "Rare Retro Gaming", url: `wtv-tricks:/gaming` },
-    { name: "Visit the Name Changer&#153;", url: `wtv-tricks:/namechange?password=${wtvt.getPasswordByType("high")}`, highOnly: true }
+    { name: "Rare Retro Gaming", url: `wtv-tricks:/gaming` }
 ];
 if (request_headers.query.password == wtvt.getPasswordByType("high") || request_headers.query.password == wtvt.getPasswordByType("low")) { //i'm sorry
     headers = `200 OK
@@ -182,5 +183,5 @@ Enter a password for greater access:
 } else {
     headers = `200 OK
 Content-Type: text/html`;
-    data = wtvt.tricksUnauthorized();
+    data = engine.renderFileSync('wtv-tricks/unauthorized');
 }

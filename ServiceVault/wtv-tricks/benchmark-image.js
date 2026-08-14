@@ -1,13 +1,11 @@
 var minisrv_service_file = true;
 // TODO: move this to wtv-customscript
 
-var now = Math.floor(Date.now() / 1000)
-
 headers = `200 OK
 Content-Type: text/html
 wtv-expire: ${serviceName}:/images/benchmark.jpg
-wtv-visit: ${serviceName}:/benchmark-test-result?begin-time=${now}
-Expires: Wed, 09 Oct 1991 22:00:00 GMT`; // close enough
+wtv-visit: ${serviceName}:/benchmark-test-result?begin-time=${Math.floor(Date.now() / 1000)}
+Expires: Wed, 09 Oct 1991 22:00:00 GMT`;
 
 data = `<HTML>
 <HEAD>

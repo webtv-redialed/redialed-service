@@ -1,6 +1,5 @@
 var minisrv_service_file = true;
 var accounts = session_data.listPrimaryAccountUsers();
-var wtvt = new WTVTricks(minisrv_config);
 
 headers = `200 OK
 Content-Type: text/html`;

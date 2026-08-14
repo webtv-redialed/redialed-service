@@ -63,8 +63,9 @@ VALUE="${session_data.getSessionData(
 		fsize: &fsize;<br>
 		kbd: &kbd;<br>
 		date: &date;<br></a><br><br>
-		Subscriber ZIP code: ${accounts.subscriber.subscriber_zip_code}<br></shadow></a>
-		CPU speed: ${Math.round(parseInt(session_data.get("wtv-system-cpuspeed")) / 1000000)} MHz<br></a><br>`;
+		<shadow>Subscriber ZIP code: </shadow>${accounts.subscriber.subscriber_zip_code}<br>
+		<shadow>Is Japanese client: </shadow>${session_data.isJapaneseClient()}<br>`;
+	if (session_data.get("wtv-system-cpuspeed")) data += `<shadow>CPU speed: </shadow>${Math.round(parseInt(session_data.get("wtv-system-cpuspeed")) / 1000000)} MHz<br>`;
 	if (ssid_sessions[socket.ssid].hasCap("client-has-disk") && session_data.get("wtv-disk-size")) data += `
 		${("0x" + parseInt(session_data.get("wtv-system-sysconfig")).toString(16) & 4) == 0 ? "Disk" : "Flash"} size: ${Math.round(parseInt(session_data.get("wtv-disk-size")) / 1000)} MB<br></a><br><br>`;
 	data += `
@@ -116,5 +117,5 @@ VALUE="${session_data.getSessionData(
 </table>
 </body> </html>`;
 } else {
-	data = wtvt.tricksUnauthorized();
+	data = engine.renderFileSync('wtv-tricks/unauthorized');
 }

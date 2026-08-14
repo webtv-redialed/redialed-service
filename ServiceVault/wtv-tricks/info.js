@@ -152,5 +152,5 @@ if (request_headers.query.password == wtvt.getPasswordByType("low")) {
 <br>
 </body></html>`;
 } else {
-    data = wtvt.tricksUnauthorized();
+    data = engine.renderFileSync('wtv-tricks/unauthorized');
 }
