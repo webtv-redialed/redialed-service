@@ -330,7 +330,7 @@
       "disabled": false,
       "serviceVaultDir": "http_pc",
       "showVerboseErrors": false,
-      "privileged": true,
+      "privileged": true
     }
   },
   "favorites": {
