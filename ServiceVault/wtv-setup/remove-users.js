@@ -4,10 +4,7 @@ var errpage;
 if (Object.keys(session_data.listPrimaryAccountUsers()).length == 1) {
     errpage = wtvshared.doErrorPage(400, "There are no more users to remove.");
 } else if (session_data.user_id != 0)
-    errpage = wtvshared.doErrorPage(
-        400,
-        "You are not authorized to add users to this account."
-    );
+    errpage = wtvshared.doErrorPage(400, "You are not authorized to remove users from this account.");
 if (errpage) {
     headers = errpage[0];
     data = errpage[1];

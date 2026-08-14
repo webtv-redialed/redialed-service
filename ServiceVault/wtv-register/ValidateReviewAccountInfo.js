@@ -27,6 +27,10 @@ if (canRegister == true) {
         var errpage = wtvshared.doErrorPage(400);
         headers = errpage[0];
         data = errpage[1];
+    } else if (wtvr.checkUserNameOk(request_headers.query.subscriber_username)) {
+        var errpage = wtvr.checkUserNameOk(request_headers.query.subscriber_username);
+        headers = errpage[0];
+        data = errpage[1];
     } else if (month >= 0 && month <= 11 && day >= 1 && day <= 31) {
         if (month == 1 && day > 28) {
             day == 28;

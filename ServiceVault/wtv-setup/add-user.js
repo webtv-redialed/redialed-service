@@ -1,23 +1,10 @@
 var minisrv_service_file = true;
 var errpage;
 
-if (
-    Object.keys(session_data.listPrimaryAccountUsers()).length >=
-    minisrv_config.config.userAccounts.maxUsersPerAccount
-) {
-    errpage = wtvshared.doErrorPage(
-        400,
-        "You are not authorized to add more than " +
-        minisrv_config.config.userAccounts.maxUsersPerAccount +
-        ` account${
-            minisrv_config.config.userAccounts.maxUsersPerAccount > 1 ? "s" : ""
-        }.`
-    );
-} else if (session_data.user_id != 0)
-    errpage = wtvshared.doErrorPage(
-        400,
-        "You are not authorized to add users to this account."
-    );
+if (session_data.user_id != 0)
+    errpage = wtvshared.doErrorPage(400, "You are not authorized to add users to this account.");
+else if (session_data.getNumberOfUserAccounts() > minisrv_config.config.userAccounts.maxUsersPerAccount)
+    errpage = wtvshared.doErrorPage(400, "You are not authorized to add more than " + minisrv_config.config.userAccounts.maxUsersPerAccount + ` account${minisrv_config.config.userAccounts.maxUsersPerAccount > 1 ? "s" : ""}.`);
 
 if (errpage) {
     headers = errpage[0];

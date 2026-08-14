@@ -6,50 +6,9 @@ if (!request_headers.query.registering) {
     data = errpage[1];
 } else {
     var wtvr = new WTVRegister(minisrv_config, SessionStore);
-    var errpage = null;
-    var available = wtvr.checkUsernameAvailable(
-        request_headers.query.subscriber_username
-    );
 
-    const nonoWords = wtvshared.getDynamicConfig(`nonoWords`);
-    const reservedWords = wtvshared.getDynamicConfig(`reservedWords`);
-    var lowerusername = request_headers.query.subscriber_username.toLowerCase();
-
-    if (!request_headers.query.registering) errpage = wtvshared.doErrorPage(400);
-    else if (!request_headers.query.subscriber_username)
-        errpage = wtvshared.doErrorPage(400, "You must choose an Internet Name.");
-    else if (nonoWords.some((v) => lowerusername.includes(v)))
-        errpage = wtvshared.doErrorPage(
-            400,
-            "Your Internet Name contains a bad word. Please change it and try again."
-        );
-    else if (reservedWords.some((v) => lowerusername.match(new RegExp(v, "ig"))))
-        errpage = wtvshared.doErrorPage(
-            400,
-            "That Internet Name is reserved. Please choose another one."
-        );
-    else if (request_headers.query.subscriber_username.length < 5)
-        errpage = wtvshared.doErrorPage(
-            400,
-            "Please choose an Internet Name with 5 or more characters."
-        );
-    else if (request_headers.query.subscriber_username.length > 16)
-        errpage = wtvshared.doErrorPage(
-            400,
-            "Please choose an Internet Name with 16 or less characters."
-        );
-    else if (!wtvr.checkUsernameSanity(request_headers.query.subscriber_username))
-        errpage = wtvshared.doErrorPage(
-            400,
-            "You can only use letters, numbers, hyphens, and underscores in your Internet Name. It must also begin with a letter."
-        );
-    else if (
-        !wtvr.checkUsernameAvailable(request_headers.query.subscriber_username)
-    )
-        errpage = wtvshared.doErrorPage(
-            400,
-            "The username you have selected is already in use. Please select another username."
-        );
+    if (wtvr.checkUserNameOk(request_headers.query.subscriber_username))
+        errpage = wtvr.checkUserNameOk(request_headers.query.subscriber_username);
 
     if (errpage) {
         headers = errpage[0];

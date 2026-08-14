@@ -1,6 +1,8 @@
 var minisrv_service_file = true;
 var errpage = null;
 
+const wtvr = new WTVRegister(minisrv_config, SessionStore);
+
 const months = [
     "January",
     "February",
@@ -50,46 +52,13 @@ const days = [
 ];
 
 if (session_data.user_id != 0)
-    errpage = wtvshared.doErrorPage(
-        400,
-        "You are not authorized to add users to this account."
-    );
+    errpage = wtvshared.doErrorPage(400, "You are not authorized to add users to this account.");
+else if (session_data.getNumberOfUserAccounts() > minisrv_config.config.userAccounts.maxUsersPerAccount)
+    errpage = wtvshared.doErrorPage(400, "You are not authorized to add more than " + minisrv_config.config.userAccounts.maxUsersPerAccount + ` account${minisrv_config.config.userAccounts.maxUsersPerAccount > 1 ? "s" : ""}.`);
 
 // seperate if statements as to not overwrite the first error if multiple occur
 
-if (!errpage) {
-    if (request_headers.query.user_password) {
-        if (
-            request_headers.query.user_password.length <
-            minisrv_config.config.passwords.minLength
-        )
-            errpage = wtvshared.doErrorPage(
-                400,
-                "Your password must contain at least " +
-                minisrv_config.config.passwords.minLength +
-                " characters."
-            );
-    } else {
-        if (
-            request_headers.query.user_password.length >
-            minisrv_config.config.passwords.maxLength
-        )
-            errpage = wtvshared.doErrorPage(
-                400,
-                "Your password must contain no more than than " +
-                minisrv_config.config.passwords.maxLength +
-                " characters."
-            );
-        else if (
-            request_headers.query.user_password !==
-            request_headers.query.user_password2
-        )
-            errpage = wtvshared.doErrorPage(
-                400,
-                "The passwords you entered did not match. Please check them and try again."
-            );
-    }
-}
+if (!errpage) errpage = wtvr.checkPasswordOk(request_headers.query.user_password, request_headers.query.user_password2);
 
 var month = request_headers.query.subscriber_birth_month;
 var day = request_headers.query.subscriber_birth_date;

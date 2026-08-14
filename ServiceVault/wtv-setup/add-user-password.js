@@ -2,59 +2,13 @@ var minisrv_service_file = true;
 var errpage = null;
 
 const wtvr = new WTVRegister(minisrv_config, SessionStore);
-const nonoWords = wtvshared.getDynamicConfig(`nonoWords`);
-const reservedWords = wtvshared.getDynamicConfig(`reservedWords`);
-var lowerusername = request_headers.query.user_name.toLowerCase();
 
 if (session_data.user_id != 0)
-    errpage = wtvshared.doErrorPage(
-        400,
-        "You are not authorized to add users to this account."
-    );
-else if (!request_headers.query.user_name)
-    errpage = wtvshared.doErrorPage(400, "You must choose an Internet Name.");
-else if (nonoWords.some((v) => lowerusername.includes(v)))
-    errpage = wtvshared.doErrorPage(
-        400,
-        "Your Internet Name contains a bad word. Please change it and try again."
-    );
-else if (reservedWords.some((v) => lowerusername.match(new RegExp(v, "ig"))))
-    errpage = wtvshared.doErrorPage(
-        400,
-        "That Internet Name is reserved. Please choose another one."
-    );
-else if (request_headers.query.user_name.length < 5)
-    errpage = wtvshared.doErrorPage(
-        400,
-        "Please choose an Internet name with 5 or more characters."
-    );
-else if (request_headers.query.user_name.length > 16)
-    errpage = wtvshared.doErrorPage(
-        400,
-        "Please choose an Internet Name with 16 or less characters."
-    );
-else if (!wtvr.checkUsernameSanity(request_headers.query.user_name))
-    errpage = wtvshared.doErrorPage(
-        400,
-        "You can only use letters, numbers, hyphens, and underscores in your Internet Name. It must also begin with a letter."
-    );
-else if (!wtvr.checkUsernameAvailable(request_headers.query.user_name))
-    errpage = wtvshared.doErrorPage(
-        400,
-        "That Internet Name is already in use. Please choose another one."
-    );
-else if (
-    session_data.getNumberOfUserAccounts() >
-    minisrv_config.config.userAccounts.maxUsersPerAccount
-)
-    errpage = wtvshared.doErrorPage(
-        400,
-        "You are not authorized to add more than " +
-        minisrv_config.config.userAccounts.maxUsersPerAccount +
-        ` account${
-            minisrv_config.config.userAccounts.maxUsersPerAccount > 1 ? "s" : ""
-        }.`
-    );
+    errpage = wtvshared.doErrorPage(400, "You are not authorized to add users to this account.");
+else if (session_data.getNumberOfUserAccounts() > minisrv_config.config.userAccounts.maxUsersPerAccount)
+    errpage = wtvshared.doErrorPage(400, "You are not authorized to add more than " + minisrv_config.config.userAccounts.maxUsersPerAccount + ` account${minisrv_config.config.userAccounts.maxUsersPerAccount > 1 ? "s" : ""}.`);
+else if (wtvr.checkUserNameOk(request_headers.query.user_name))
+    errpage = wtvr.checkUserNameOk(request_headers.query.user_name);
 
 if (errpage) {
     headers = errpage[0];
@@ -114,15 +68,12 @@ Optional password
 <td>
 <td absheight=244 valign=top align=left>
 <form action="wtv-setup:/add-user-birthday">
-<INPUT TYPE="hidden" NAME="user_human_name_first" VALUE="${
-        request_headers.query.user_human_name_first || ""
-    }">
-<INPUT TYPE="hidden" NAME="user_human_name_last" VALUE="${
-        request_headers.query.user_human_name_last || ""
-    }">
-<INPUT TYPE="hidden" NAME="user_name" VALUE="${
-        request_headers.query.user_name
-    }">
+<INPUT TYPE="hidden" NAME="user_human_name_first" VALUE="${request_headers.query.user_human_name_first || ""
+        }">
+<INPUT TYPE="hidden" NAME="user_human_name_last" VALUE="${request_headers.query.user_human_name_last || ""
+        }">
+<INPUT TYPE="hidden" NAME="user_name" VALUE="${request_headers.query.user_name
+        }">
 <table cellspacing=0 cellpadding=0 border=0>
 <tr>
 <td align=left valign=top abswidth=198>

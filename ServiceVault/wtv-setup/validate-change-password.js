@@ -3,6 +3,8 @@ var userSession = null;
 
 session_data.loadSessionData();
 
+const wtvr = new WTVRegister(minisrv_config, SessionStore);
+
 var user_id = null;
 if (request_headers.query.user_id) {
     user_id = request_headers.query.user_id;
@@ -60,33 +62,8 @@ Location: ${request_headers.query.return_to}`;
                     "Location: " + (session_data.user_id === user_id)
                         ? "wtv-setup:/setup"
                         : "wtv-setup:/accounts";
-        } else if (
-            request_headers.query.password.length <
-            minisrv_config.config.passwords.minLength
-        )
-            errpage = wtvshared.doErrorPage(
-                400,
-                "Your password must contain at least " +
-                minisrv_config.config.passwords.minLength +
-                " characters."
-            );
-        else if (
-            request_headers.query.password.length >
-            minisrv_config.config.passwords.maxLength
-        )
-            errpage = wtvshared.doErrorPage(
-                400,
-                "Your password must contain no more than than " +
-                minisrv_config.config.passwords.maxLength +
-                " characters."
-            );
-        else if (
-            request_headers.query.password !== request_headers.query.password_verify
-        )
-            errpage = wtvshared.doErrorPage(
-                400,
-                "The passwords you entered did not match. Please check them and try again."
-            );
+        } else if (wtvr.checkPasswordOk(request_headers.query.password, request_headers.query.password_verify))
+            errpage = wtvr.checkPasswordOk(request_headers.query.password, request_headers.query.password_verify)
         else {
             if (errpage) {
                 headers = errpage[0];
