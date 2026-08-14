@@ -257,7 +257,7 @@ class WTVMail {
         var to_addr =
             this.wtvclient.getSessionData("subscriber_username") +
             "@" +
-            this.minisrv_config.config.domain_name;
+            this.minisrv_config.config.domainName;
         var to_name = this.wtvclient.getSessionData("subscriber_name");
         var available_tags = {
             ...this.minisrv_config.config,
@@ -567,7 +567,7 @@ class WTVMail {
 
 		for (let i = 0; i < recipients.length; i++) {
 			var addr = recipients[i].split("@")[0];
-			recipients[i] = addr + "@" + this.minisrv_config.config.domain_name;
+			recipients[i] = addr + "@" + this.minisrv_config.config.domainName;
 			usernames.push(addr)
 		}
 

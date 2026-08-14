@@ -9,9 +9,9 @@ if ((!attachment_id && attachment_id != 0) || !group || !article) {
     errpage = wtvshared.doErrorPage(400, "Attachment ID required.");
     sendToClient(socket, errpage[0], errpage[1]);
 } else {
-    const wtvnews = new WTVNews(minisrv_config, service_name);
-    var service_config = minisrv_config.services[service_name];
-    if (service_config.local_nntp_port && wtvnewsserver) {
+    const wtvnews = new WTVNews(minisrv_config, serviceName);
+    var service_config = minisrv_config.services[serviceName];
+    if (service_config.localNntpPort && wtvnewsserver) {
         var tls_path = this.wtvshared.getAbsolutePath(
             this.minisrv_config.config.ServiceDeps + "/wtv-news"
         );
@@ -26,7 +26,7 @@ if ((!attachment_id && attachment_id != 0) || !group || !article) {
         if (wtvnewsserver.username)
             wtvnews.initializeUsenet(
                 "127.0.0.1",
-                service_config.local_nntp_port,
+                service_config.localNntpPort,
                 tls_options,
                 wtvnewsserver.username,
                 wtvnewsserver.password
@@ -34,7 +34,7 @@ if ((!attachment_id && attachment_id != 0) || !group || !article) {
         else
             wtvnews.initializeUsenet(
                 "127.0.0.1",
-                service_config.local_nntp_port,
+                service_config.localNntpPort,
                 tls_options
             );
     } else {

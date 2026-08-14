@@ -2,7 +2,7 @@ var minisrv_service_file = true;
 request_is_async = true;
 
 var bf0app_update = false;
-var request_path = request_headers.request_url.replace(service_name + ":/", "");
+var request_path = request_headers.request_url.replace(serviceName + ":/", "");
 var romtype = session_data.get("wtv-client-rom-type");
 var bootver = session_data.get("wtv-client-bootrom-version")
 
@@ -14,7 +14,7 @@ if ((romtype == "bf0app" || !romtype) && (bootver == "105" || !bootver)) {
 }
 
 if (!session_data.data_store.WTVFlashrom) {
-    session_data.data_store.WTVFlashrom = new WTVFlashrom(minisrv_config, service_vaults, service_name, minisrv_config.services[service_name].use_zefie_server, bf0app_update);
+    session_data.data_store.WTVFlashrom = new WTVFlashrom(minisrv_config, service_vaults, serviceName, minisrv_config.services[serviceName].useZefieServer, bf0app_update);
 }
 
 session_data.data_store.WTVFlashrom.getFlashRom(request_path, function (data, headers) {

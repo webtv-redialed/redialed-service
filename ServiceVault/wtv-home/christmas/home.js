@@ -53,7 +53,7 @@ function checkIfLoaded(song) {
 <img src="christmas.gif"><br>
 <font color="#449944" size="3px">
 From everybody working on<br><br>
-<img src="${minisrv_config.config.service_splash_logo}"><br><br><br>
+<img src="${minisrv_config.config.serviceDefaultSplashLogo}"><br><br><br>
 <form name="uselessBullshit">
 <input type="text" width=181 name="status" id="status" border="0" value="    Have a good one!" usestyle disabled nobackground>
 </form>

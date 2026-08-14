@@ -27,7 +27,7 @@ data += `&message=Retrieving Files..."
 <table cellspacing=0 cellpadding=0>
 	<tr>
 		<td width=104 height=74 valign=middle align=center bgcolor=3B3A4D>
-			<img src="${minisrv_config.config.service_logo}" width=86 height=64>
+			<img src="${minisrv_config.config.serviceLogo}" width=86 height=64>
 		<td width=20 valign=top align=left bgcolor=3B3A4D>
 			<spacer>
 		<td colspan=2 width=436 valign=middle align=left bgcolor=3B3A4D>

@@ -78,7 +78,7 @@ data = `<HTML>
 </table>
 <p>
 <p>
-<a selected href="${service_name}:/benchmark-image">Re-Test</a>
+<a selected href="${serviceName}:/benchmark-image">Re-Test</a>
 <td width=30>
 <a href="wtv-tricks:/tricks">Back to Tricks</a>
 </CENTER>

@@ -31,7 +31,7 @@ wtv-expire-all: wtv-favorite:/favorite
 Favorite folders
 </title>
 </head><body fontsize="${session_data.isJapaneseClient() ? `medium` : `large`}" vspace="0" hspace="0" vlink="189cd6" text="44cc55" link="189cd6" bgcolor="191919"><display ${
-        minisrv_config.services[service_name].max_folders <= 14 ? "noscroll" : ""
+        minisrv_config.services[serviceName].maxFolders <= 14 ? "noscroll" : ""
     }>`;
 data += engine.renderFileSync('wtv-favorite/partials/sidebar', { options: [{ url: 'wtv-favorite:/serve-add-folder-page', text: 'Add folder' }, { url: 'wtv-favorite:/serve-discard-folders', text: 'Remove' }, {url: 'wtv-guide:/help', text: 'Help'}] });
 data += `

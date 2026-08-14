@@ -18,7 +18,7 @@ wtv-boot-url: wtv-1800:/preregister?relogin=true`;
     var message = "You will now be be redirected to registration.<br><br>";
     message += `<a href="${redirect[1]}">Click here if you are not automatically redirected.</a>`;
 } else {
-    message = `Are you ready to register your box with ${minisrv_config.config.service_name}?
+    message = `Are you ready to register your box with ${minisrv_config.config.serviceName}?
 <br><br>
 <form action="register" method="POST" ENCTYPE="x-www-form-encoded">
 <input type="button" action="client:goback" value="Nah, I like being a Guest" borderimage="file://ROM/Borders/ButtonBorder2.bif" text="#dadada" >

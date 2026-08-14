@@ -8,7 +8,7 @@ else if (!session_data.getSessionData("subscriber_irc_nick"))
     session_data.getSessionData("subscriber_username") ||
     session_data
         .setIRCNick(
-            minisrv_config.config.service_name +
+            minisrv_config.config.serviceName +
             "_" +
             Math.floor(Math.random() * 100000)
         )

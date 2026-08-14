@@ -1,26 +1,26 @@
 class WTVFlashrom {
     fs = require("fs");
     https = require("follow-redirects").https;
-    use_zefie_server = true;
+    useZefieServer = true;
     bf0app_update = false;
     service_vaults = new Array();
     no_debug = false;
-    service_name = "";
+    serviceName = "";
     minisrv_config = [];
     wtvshared = null;
 
     constructor(
         minisrv_config,
         service_vaults,
-        service_name,
-        use_zefie_server = true,
+        serviceName,
+        useZefieServer = true,
         bf0app_update = false,
         no_debug = false
     ) {
         var {WTVShared} = require("./WTVShared.js");
         this.service_vaults = service_vaults;
-        this.service_name = service_name;
-        this.use_zefie_server = use_zefie_server;
+        this.serviceName = serviceName;
+        this.useZefieServer = useZefieServer;
         this.bf0app_update = bf0app_update;
         this.no_debug = no_debug;
         this.minisrv_config = minisrv_config;
@@ -53,7 +53,7 @@ class WTVFlashrom {
         } catch (e) {
             var errpage = this.wtvshared.doErrorPage(
                 404,
-                `Image not found on this machine (${this.minisrv_config.config.service_ip}).`
+                `Image not found on this machine (${this.minisrv_config.config.serviceIp}).`
             );
             var headers = errpage[0];
             var data = errpage[1];
@@ -240,10 +240,10 @@ class WTVFlashrom {
         Object.keys(self.service_vaults).forEach(function (g) {
             if (flashrom_file_path != null) return;
             flashrom_file_path =
-                self.service_vaults[g] + "/" + self.service_name + "/" + request_path;
+                self.service_vaults[g] + "/" + self.serviceName + "/" + request_path;
             if (!self.fs.existsSync(flashrom_file_path)) flashrom_file_path = null;
         });
-        if (this.use_zefie_server && !flashrom_file_path) {
+        if (this.useZefieServer && !flashrom_file_path) {
             // get flashrom files from archive.midnightchannel.net
             var options = {
                 host: "archive.midnightchannel.net",

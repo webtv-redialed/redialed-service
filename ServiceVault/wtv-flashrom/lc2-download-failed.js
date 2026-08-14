@@ -33,7 +33,7 @@ if (request_headers.query.error) {
     }
 }
 
-var try_again_url = service_name + ":/willie";
+var try_again_url = serviceName + ":/willie";
 var try_again_url_path = "";
 var try_again_url_start_time = parseInt(new Date().toUTCString()) / 1000;
 
@@ -52,15 +52,15 @@ data = `<html>
         <tr>
             <td width=104 height=74 valign=middle align=center bgcolor="3B3A4D">
                 <img src="${
-    minisrv_config.config.service_logo
+    minisrv_config.config.serviceLogo
 }" width=87 height=67>
             <td width=20 valign=top align=left bgcolor="3B3A4D">
-                <img src="${service_name}:/ROMCache/Spacer.gif" width=1 height=1>
+                <img src="${serviceName}:/ROMCache/Spacer.gif" width=1 height=1>
             <td colspan=10 width=436 valign=middle align=left bgcolor="3B3A4D">
                 <font color="D6DFD0" size="+2">
                     <blackface>
                         <shadow>
-                            <img src="${service_name}:/ROMCache/Spacer.gif" width=1 height=4>
+                            <img src="${serviceName}:/ROMCache/Spacer.gif" width=1 height=4>
                             <br>
                             Updating failed
                         </shadow>
@@ -68,7 +68,7 @@ data = `<html>
                 </font>
         <tr>
             <td colspan=12 width=560 height=10 valign=top align=left>
-                <img src="${service_name}:/ROMCache/S40H1.gif" width=560 height=6>
+                <img src="${serviceName}:/ROMCache/S40H1.gif" width=560 height=6>
         <tr>
             <td width=104 height=10 valign=top align=left>
             <td width=20 valign=top align=left>
@@ -98,7 +98,7 @@ data = `<html>
             <td width=104 valign=middle align=center>
             <td width=20 valign=middle align=center>
             <td colspan=10 height=2 valign=middle align=center bgcolor="2B2B2B">
-                <img src="${service_name}:/ROMCache/Spacer.gif" width=436 height=1>
+                <img src="${serviceName}:/ROMCache/Spacer.gif" width=436 height=1>
         <tr>
             <td width=104 valign=middle align=center>
             <td width=20 valign=middle align=center>
@@ -107,7 +107,7 @@ data = `<html>
             <td width=104 valign=middle align=center>
             <td width=20 valign=middle align=center>
             <td colspan=10 height=2 valign=top align=left bgcolor="0D0D0D">
-                <img src="${service_name}:/ROMCache/Spacer.gif" width=436 height=1>
+                <img src="${serviceName}:/ROMCache/Spacer.gif" width=436 height=1>
         <tr>
             <td width=104 valign=middle align=center>
             <td width=20 valign=middle align=center>

@@ -7,8 +7,8 @@ const wtvshared = new WTVShared(); // creates minisrv_config
 var minisrv_config = wtvshared.getminisrvConfig(); // snatches minisrv_config
 
 // primitive recursive diskmap generator, usage:
-// node diskmap_gen.js path_in_servicevault diskmap_name wtvdest [service_name]
-// service_name defaults to wtv-disk
+// node diskmap_gen.js path_in_servicevault diskmap_name wtvdest [serviceName]
+// serviceName defaults to wtv-disk
 // will create a primitive diskmap you can then edit it as you need
 // example: node diskmap_gen.js content/Demo/ Demo.json DealerDemo file://Disk/Demo/
 
@@ -21,7 +21,7 @@ if (process.argv.length < 6) {
         "diskmap_name",
         "wtv_file_dest",
         "groupname",
-        "[service_name]"
+        "[serviceName]"
     );
     console.error(
         "Example:",
@@ -36,8 +36,8 @@ var service_vault_subdir = process.argv[2];
 var out_file = process.argv[3];
 var group_name = process.argv[4];
 var client_dest = process.argv[5];
-if (process.argv.length >= 7) var service_name = process.argv[6];
-else service_name = "wtv-disk";
+if (process.argv.length >= 7) var serviceName = process.argv[6];
+else serviceName = "wtv-disk";
 
 // find which service_vault the files are in
 // nothing fancy, won't support generating a list across multiple vaults
@@ -47,19 +47,19 @@ else service_name = "wtv-disk";
 
 var service_vault = null;
 var service_vault_dir = null;
-if (minisrv_config.config.ServiceVaults) {
-    Object.keys(minisrv_config.config.ServiceVaults).forEach(function (k) {
+if (minisrv_config.config.serviceVaults) {
+    Object.keys(minisrv_config.config.serviceVaults).forEach(function (k) {
         if (service_vault_dir) return;
         var test = wtvshared.makeSafePath(
-            wtvshared.returnAbsolutePath(minisrv_config.config.ServiceVaults[k]),
-            service_name + path.sep + service_vault_subdir
+            wtvshared.returnAbsolutePath(minisrv_config.config.serviceVaults[k]),
+            serviceName + path.sep + service_vault_subdir
         );
         console.log(" * Looking for", test);
         if (fs.existsSync(test)) {
             console.log(" * Found", test);
             service_vault = wtvshared.makeSafePath(
-                wtvshared.returnAbsolutePath(minisrv_config.config.ServiceVaults[k]),
-                service_name
+                wtvshared.returnAbsolutePath(minisrv_config.config.serviceVaults[k]),
+                serviceName
             );
             service_vault_dir = test;
         }

@@ -66,7 +66,7 @@ Content-type: text/html`;
         data = "";
     } else {
         if (session_data.lockdown) {
-            home_url = minisrv_config.config.unauthorized_url;
+            home_url = minisrv_config.config.unauthorizedUrl;
         } else if (!session_data.getSessionData("registered")) {
             var errpage = wtvshared.doErrorPage(400);
             headers = errpage[0];
@@ -236,7 +236,7 @@ wtv-inactive-timeout: 0
                   headers += `wtv-bypass-proxy: true
           user-id: 0
           wtv-human-name: Unauthorized User
-          wtv-domain: ${minisrv_config.config.domain_name}
+          wtv-domain: ${minisrv_config.config.domainName}
           wtv-input-timeout: 30
           wtv-connection-timeout: 60
           wtv-fader-timeout: 60

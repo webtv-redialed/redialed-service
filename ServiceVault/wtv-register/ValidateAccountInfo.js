@@ -18,22 +18,22 @@ if (!request_headers.query.registering) {
         errpage = wtvshared.doErrorPage(400, "Please enter a username.");
     else if (
         request_headers.query.subscriber_username.length <
-        minisrv_config.config.user_accounts.min_username_length
+        minisrv_config.config.userAccounts.minUsernameLength
     )
         errpage = wtvshared.doErrorPage(
             400,
             "Please choose a username with <b>" +
-            minisrv_config.config.user_accounts.min_username_length +
+            minisrv_config.config.userAccounts.minUsernameLength +
             "</b> or more characters."
         );
     else if (
         request_headers.query.subscriber_username.length >
-        minisrv_config.config.user_accounts.max_username_length
+        minisrv_config.config.userAccounts.maxUsernameLength
     )
         errpage = wtvshared.doErrorPage(
             400,
             "Please choose a username with <b>" +
-            minisrv_config.config.user_accounts.max_username_length +
+            minisrv_config.config.userAccounts.maxUsernameLength +
             "</b> or less characters."
         );
     else if (!wtvr.checkUsernameSanity(request_headers.query.subscriber_username))

@@ -8,10 +8,10 @@ class WTVTricks {
     }
 
     getPasswordByType(type) {
-        if (type == "high" && (this.minisrv_config.services["wtv-tricks"].password_high)) {
-            return this.minisrv_config.services["wtv-tricks"].password_high;
-        } else if (type == "low" && this.minisrv_config.services["wtv-tricks"].password_low) {
-            return this.minisrv_config.services["wtv-tricks"].password_low;
+        if (type == "high" && (this.minisrv_config.services["wtv-tricks"].passwordHigh)) {
+            return this.minisrv_config.services["wtv-tricks"].passwordHigh;
+        } else if (type == "low" && this.minisrv_config.services["wtv-tricks"].passwordLow) {
+            return this.minisrv_config.services["wtv-tricks"].passwordLow;
         } else {
             throw ` * Tricks password type "${type}" not known or undefined in config, THIS IS BAD!`;
         }

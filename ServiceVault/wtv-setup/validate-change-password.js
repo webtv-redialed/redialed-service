@@ -62,22 +62,22 @@ Location: ${request_headers.query.return_to}`;
                         : "wtv-setup:/accounts";
         } else if (
             request_headers.query.password.length <
-            minisrv_config.config.passwords.min_length
+            minisrv_config.config.passwords.minLength
         )
             errpage = wtvshared.doErrorPage(
                 400,
                 "Your password must contain at least " +
-                minisrv_config.config.passwords.min_length +
+                minisrv_config.config.passwords.minLength +
                 " characters."
             );
         else if (
             request_headers.query.password.length >
-            minisrv_config.config.passwords.max_length
+            minisrv_config.config.passwords.maxLength
         )
             errpage = wtvshared.doErrorPage(
                 400,
                 "Your password must contain no more than than " +
-                minisrv_config.config.passwords.max_length +
+                minisrv_config.config.passwords.maxLength +
                 " characters."
             );
         else if (

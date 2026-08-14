@@ -13,9 +13,9 @@ class WTVRegister {
     checkUsernameSanity(username) {
         var regex_str =
             "^([A-Za-z0-9-_]{" +
-            this.minisrv_config.config.user_accounts.min_username_length +
+            this.minisrv_config.config.userAccounts.minUsernameLength +
             "," +
-            this.minisrv_config.config.user_accounts.max_username_length +
+            this.minisrv_config.config.userAccounts.maxUsernameLength +
             "})$";
         var regex = new RegExp(regex_str);
         return regex.test(username);
@@ -32,12 +32,12 @@ class WTVRegister {
         // returns the user's ssid, and user_id and userid in an array if true, false if not
 
         // check against reserved name list
-        if (this.minisrv_config.config.user_accounts.reserved_names) {
+        if (this.minisrv_config.config.userAccounts.reserved_names) {
             Object.keys(
-                this.minisrv_config.config.user_accounts.reserved_names
+                this.minisrv_config.config.userAccounts.reserved_names
             ).forEach((k) => {
                 if (
-                    self.minisrv_config.config.user_accounts.reserved_names[
+                    self.minisrv_config.config.userAccounts.reserved_names[
                         k
                     ].toLowerCase() == username.toLowerCase()
                 )
@@ -112,7 +112,7 @@ class WTVRegister {
    <table cellspacing=0 cellpadding=0>
       <tr>
          <td width=104 height=74 valign=middle align=center bgcolor=#3B3A4D>
-            <img src="${this.minisrv_config.config.service_logo}" width=86 height=64>
+            <img src="${this.minisrv_config.config.serviceLogo}" width=86 height=64>
          <td width=20 valign=top align=left bgcolor=#3B3A4D>
             <spacer>
          <td colspan=2 width=100% align=left bgcolor=#3B3A4D>
@@ -169,7 +169,7 @@ hspace=0 vspace=0 fontsize="large"
 <table cellspacing=0 cellpadding=0 border=0 width=560 bgcolor=#171726>
 <tr>
 <td align=middle bgcolor="#5b6c81" border=0 colspan= 3 width="100" height="80">
-<img src="${this.minisrv_config.config.service_logo}" WIDTH="87" HEIGHT="67">
+<img src="${this.minisrv_config.config.serviceLogo}" WIDTH="87" HEIGHT="67">
 <td colspan= 6 bgcolor="#5b6c81" border=0 width=100% absheight="80" valign=bottom >
 <img src="images/head_registration.gif" >
 <tr>

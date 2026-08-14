@@ -14,9 +14,9 @@ const WTVNewsServer = require(classPath + "/WTVNewsServer.js");
 var data_path = wtvshared.getAbsolutePath(
     minisrv_config.config.SessionStore + "/minisrv_internal_nntp"
 );
-const service_name = "wtv-news";
+const serviceName = "wtv-news";
 
-if (!minisrv_config.services[service_name].upstream_address) {
+if (!minisrv_config.services[serviceName].upstream_address) {
     console.error("Service config not configured with usenet upstream");
     process.exit(1);
 }
@@ -29,7 +29,7 @@ if (!minisrv_config) {
 if (!minisrv_config.config.debug_flags.quiet)
     console.log(" *** Successfully read service configuration....");
 
-const service_config = minisrv_config.services[service_name];
+const service_config = minisrv_config.services[serviceName];
 const wtvnewsserver = new WTVNewsServer(
     minisrv_config,
     minisrv_config.services["wtv-news"].local_server_port,
@@ -39,7 +39,7 @@ const wtvnewsserver = new WTVNewsServer(
     false
 );
 
-const wtvnews = new WTVNews(minisrv_config, service_name);
+const wtvnews = new WTVNews(minisrv_config, serviceName);
 
 if (service_config.upstream_auth) {
     wtvnews.initializeUsenet(

@@ -16,7 +16,7 @@ if (!errpage) {
   if (request_headers.query.user_password) {
     if (
       request_headers.query.user_password.length <
-      minisrv_config.config.passwords.min_length
+      minisrv_config.config.passwords.minLength
     )
       errpage = wtvshared.doErrorPage(
         400,
@@ -25,7 +25,7 @@ if (!errpage) {
   } else {
     if (
       request_headers.query.user_password.length >
-      minisrv_config.config.passwords.max_length
+      minisrv_config.config.passwords.maxLength
     )
       errpage = wtvshared.doErrorPage(
         400,
@@ -62,7 +62,7 @@ var day = request_headers.query.subscriber_birth_date;
 if (!errpage) {
   if (
     session_data.getNumberOfUserAccounts() >
-    minisrv_config.config.user_accounts.max_users_per_account
+    minisrv_config.config.userAccounts.maxUsersPerAccount
   )
     errpage = wtvshared.doErrorPage(
       400,

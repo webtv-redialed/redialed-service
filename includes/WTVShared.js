@@ -753,7 +753,7 @@ class WTVShared {
      * @param {string|Array} obj SSID String or Headers Object
      */
     filterSSID(obj) {
-        if (this.minisrv_config.config.hide_ssid_in_logs === true) {
+        if (this.minisrv_config.config.hideSsidInLogs === true) {
             if (typeof obj == "string") {
                 if (obj.substring(0, 8) == "MSTVSIMU") {
                     return obj.substring(0, 10) + "*".repeat(10) + obj.substring(20);
@@ -786,7 +786,7 @@ class WTVShared {
     }
 
     filterRequestLog(obj) {
-        if (this.minisrv_config.config.filter_passwords_in_logs === true) {
+        if (this.minisrv_config.config.filterPasswordsInLogs === true) {
             if (obj.query) {
                 var newobj = this.cloneObj(obj);
                 try {
@@ -812,7 +812,7 @@ class WTVShared {
 
     decodePostData(obj) {
         if (obj.post_data) {
-            if (this.minisrv_config.config.filter_passwords_in_logs === true) {
+            if (this.minisrv_config.config.filterPasswordsInLogs === true) {
                 // complex, to filter
                 var post_obj = {};
                 post_obj.query = [];
@@ -1105,16 +1105,16 @@ class WTVShared {
         return this.zlib.deflateSync(data, { level: 9 }).toString("base64");
     }
 
-    getTemplate(service_name, path, path_only = false) {
+    getTemplate(serviceName, path, path_only = false) {
         var self = this;
         var outdata = null;
         var found = false;
-        this.minisrv_config.config.ServiceTemplates.forEach(function (
+        this.minisrv_config.config.serviceTemplates.forEach(function (
             template_vault_dir
         ) {
             if (found) return;
             var search = self.getAbsolutePath(
-                template_vault_dir + self.path.sep + service_name + self.path.sep + path
+                template_vault_dir + self.path.sep + serviceName + self.path.sep + path
             );
             if (self.fs.existsSync(search)) {
                 if (path_only) outdata = search;

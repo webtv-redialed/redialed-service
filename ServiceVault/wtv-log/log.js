@@ -29,7 +29,7 @@ Content-length: 0`;
         "hex"
     );
     logdata_outstring_hex += request_headers.post_data.toString(CryptoJS.enc.Hex);
-    if (minisrv_config.services[service_name].write_logs_to_disk) {
+    if (minisrv_config.services[serviceName].writeLogsToDisk) {
         fs.writeFile(fullpath, logdata_outstring_hex, "Hex", function () {
             if (!minisrv_config.config.debug_flags.quiet)
                 console.log(
@@ -55,7 +55,7 @@ Content-length: 0`;
     var logdata_outstring_hex = Buffer.from(logdata_outstring, "utf8").toString(
         "hex"
     );
-    if (minisrv_config.services[service_name].write_logs_to_disk) {
+    if (minisrv_config.services[serviceName].writeLogsToDisk) {
         fs.writeFile(fullpath, logdata_outstring_hex, "Hex", function () {
             if (!minisrv_config.config.debug_flags.quiet)
                 console.log(

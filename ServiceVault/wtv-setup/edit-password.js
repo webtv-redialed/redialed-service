@@ -55,7 +55,7 @@ noscroll>
 <table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
 <tr>
 <td align=right>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${minisrv_config.config.serviceLogo}" width=87 height=67>
 </table>
 <td abswidth=6>
 <tr><td absheight=5 colspan=3>
@@ -95,8 +95,8 @@ action="wtv-setup:/validate-change-password"
 <tr>
 <td align=left>
 Type a password<br>
-from ${minisrv_config.config.passwords.min_length} to ${
-            minisrv_config.config.passwords.max_length
+from ${minisrv_config.config.passwords.minLength} to ${
+            minisrv_config.config.passwords.maxLength
         } <br>
 characters long.
 <p>This password will be<br>
@@ -124,8 +124,8 @@ Password<br>
         data += `<INPUT noSubmit name="password" id="password" Value=""
 bgcolor=#444444 text=#ffdd33 cursor=#cc9933
 TYPE="password" ASCIIONLY
-SIZE="${minisrv_config.config.passwords.form_size}"
-MAXLENGTH="${minisrv_config.config.passwords.max_length}">
+SIZE="${minisrv_config.config.passwords.formSize}"
+MAXLENGTH="${minisrv_config.config.passwords.maxLength}">
 <tr>
 <td height=6>
 <tr>
@@ -134,8 +134,8 @@ MAXLENGTH="${minisrv_config.config.passwords.max_length}">
 <INPUT noSubmit name="password_verify" id="password_verify" Value=""
 bgcolor=#444444 text=#ffdd33 cursor=#cc9933
 TYPE="password" ASCIIONLY
-SIZE="${minisrv_config.config.passwords.form_size}"
-MAXLENGTH="${minisrv_config.config.passwords.max_length}">
+SIZE="${minisrv_config.config.passwords.formSize}"
+MAXLENGTH="${minisrv_config.config.passwords.maxLength}">
 </a>
 </table>
 </table>

@@ -8,7 +8,7 @@ request_is_async = true;
 // https://archive.midnightchannel.net/zefie/files/wtv-flashrom/content/artemis-webtv-000/
 // and put everything from 'content/' onwards, including the part000.rom filename
 // example is below
-var default_build_to_send = minisrv_config.services[service_name].bf0app_default_rom || "content/artemis-webtv-000/build1235/external-nondebug/bf0app-part000.rom";
+var default_build_to_send = minisrv_config.services[serviceName].bf0appDefaultRom || "content/artemis-webtv-000/build1235/external-nondebug/bf0app-part000.rom";
 
 var request_path = "";
 var bf0app_update = true;
@@ -29,11 +29,11 @@ if (!session_data.data_store.WTVFlashrom) {
     session_data.data_store.WTVFlashrom = new WTVFlashrom(
         minisrv_config,
         service_vaults,
-        service_name,
+        serviceName,
         0,
-        minisrv_config.services[service_name].use_zefie_server,
+        minisrv_config.services[serviceName].useZefieServer,
         bf0app_update,
-        minisrv_config.services[service_name].debug
+        minisrv_config.services[serviceName].debug
     );
 }
 

@@ -10,7 +10,7 @@ wtv-expire-all: wtv-`;
 data = `<html>
 <DISPLAY SWITCHTOWEBMODE>
 <head>
-<title>${fixyModeOn ? `Closed for Maintenance` : `${minisrv_config.config.service_name} Unavailable`}</title>
+<title>${fixyModeOn ? `Closed for Maintenance` : `${minisrv_config.config.serviceName} Unavailable`}</title>
 <display noscroll nooptions nologo hspace=0 vspace=0>
 </head>
 <table cellspacing=0 cellpadding=0>
@@ -20,7 +20,7 @@ data = `<html>
 <td rowspan=2 width=184 valign=top align=left>
 <img src="wtv-star:/ROMCache/Spacer.gif" width=184 height=63><br>
 <img src="wtv-star:/ROMCache/Spacer.gif" width=21>
-<img src="${minisrv_config.config.service_logo}">
+<img src="${minisrv_config.config.serviceLogo}">
 <td rowspan=2 width=40 valign=top align=left bgcolor=000000>
 <img src="wtv-star:/ROMCache/Spacer.gif" width=1 height=1>
 <td width=296 height=108 valign=top align=left bgcolor=000000>
@@ -32,7 +32,7 @@ data = `<html>
 <font size="+1">`;
 if (fixyModeOn) {
     data += `
-<b>The ${minisrv_config.config.service_name} Network<br> 
+<b>The ${minisrv_config.config.serviceName} Network<br> 
 is closed for maintenance.</b>
 <p>
 The Network will re-open soon.<br>
@@ -41,7 +41,7 @@ Please try connecting later.<br>
 </font>`;
 } else {
     data += `<b>
-The ${minisrv_config.config.service_name} Network is temporarily unavailable.
+The ${minisrv_config.config.serviceName} Network is temporarily unavailable.
 </b>
 <p>
 Please try connecting later.`;

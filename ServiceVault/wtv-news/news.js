@@ -25,9 +25,9 @@ function linkify(inputText) {
     return replacedText;
 }
 
-const wtvnews = new WTVNews(minisrv_config, service_name);
-var service_config = minisrv_config.services[service_name];
-if (service_config.local_nntp_port && wtvnewsserver) {
+const wtvnews = new WTVNews(minisrv_config, serviceName);
+var service_config = minisrv_config.services[serviceName];
+if (service_config.localNntpPort && wtvnewsserver) {
     var tls_path = this.wtvshared.getAbsolutePath(
         this.minisrv_config.config.ServiceDeps + "/wtv-news"
     );
@@ -42,7 +42,7 @@ if (service_config.local_nntp_port && wtvnewsserver) {
     if (wtvnewsserver.username)
         wtvnews.initializeUsenet(
             "127.0.0.1",
-            service_config.local_nntp_port,
+            service_config.localNntpPort,
             tls_options,
             wtvnewsserver.username,
             wtvnewsserver.password
@@ -50,7 +50,7 @@ if (service_config.local_nntp_port && wtvnewsserver) {
     else
         wtvnews.initializeUsenet(
             "127.0.0.1",
-            service_config.local_nntp_port,
+            service_config.localNntpPort,
             tls_options
         );
 } else {
@@ -155,7 +155,7 @@ top.location="news:${request_headers.query.group}";
 <table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
 <tr>
 <td align=right>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${minisrv_config.config.serviceLogo}" width=87 height=67>
 </table>
 <td abswidth=5>
 <tr>
@@ -193,7 +193,7 @@ cellspacing=0 cellpadding=0>
 <tr>
 <td abswidth=6 >
 <td abswidth=93 absheight=26 >
-<table href="wtv-mail:/sendmail?discuss=true&group=${request_headers.query.group}&discuss-prefix=${service_name}"
+<table href="wtv-mail:/sendmail?discuss=true&group=${request_headers.query.group}&discuss-prefix=${serviceName}"
 cellspacing=0 cellpadding=0>
 <tr>
 <td abswidth=5>
@@ -508,7 +508,7 @@ ${
 <td abswidth=6>
 <img src="wtv-home:/ROMCache/Spacer.gif" width=1>
 <td align=center>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${minisrv_config.config.serviceLogo}" width=87 height=67>
 </table>
 <td abswidth=5>
 <tr>
@@ -649,7 +649,7 @@ cellspacing=0 cellpadding=0>
 <tr>
 <td abswidth=6>
 <td abswidth=93 absheight=26>
-<table href="wtv-mail:/sendmail?discuss=true&message_subject=${encodeURIComponent("Re: " + wtvshared.stripHTML(response.article.headers.SUBJECT))}&group=${response.article.headers.NEWSGROUPS}&discuss-prefix=${service_name}&article=${request_headers.query.article}"
+<table href="wtv-mail:/sendmail?discuss=true&message_subject=${encodeURIComponent("Re: " + wtvshared.stripHTML(response.article.headers.SUBJECT))}&group=${response.article.headers.NEWSGROUPS}&discuss-prefix=${serviceName}&article=${request_headers.query.article}"
 cellspacing=0 cellpadding=0>
 <tr>
 <td abswidth=5>
@@ -820,8 +820,8 @@ ${linkify(wtvshared.sanitizeSignature(wtvshared.htmlEntitize(message_body, true)
                                     .toString("ascii")
                                     .replace("${group}", group)
                                     .replace(
-                                        "${minisrv_config.config.service_logo}",
-                                        minisrv_config.config.service_logo
+                                        "${minisrv_config.config.serviceLogo}",
+                                        minisrv_config.config.serviceLogo
                                     )
                                     .replace(
                                         "${message_colors.bgcolor}",
@@ -872,7 +872,7 @@ Content-type: text/html`;
 <table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
 <tr>
 <td align=right>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${minisrv_config.config.serviceLogo}" width=87 height=67>
 </table>
 <td abswidth=5>
 <tr>

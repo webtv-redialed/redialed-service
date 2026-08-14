@@ -16,7 +16,7 @@ data = `<html><title>Splash</title>
 if (session_data.hasCap('client-supports-etude-service')) { // Be sure we only give the microsoft logo to the clients that have it in rom
 	data += `<img src="file://ROM/Images/MicrosoftName.gif"><img src="file://ROM/Images/MicrosoftR.gif"><br>`;
 }
-data += `<table cellspacing=0 cellpadding=0><tr><td align=center valign=middle><img src=${minisrv_config.config.service_splash_logo}></td></tr></table>`;
+data += `<table cellspacing=0 cellpadding=0><tr><td align=center valign=middle><img src=${minisrv_config.config.serviceDefaultSplashLogo}></td></tr></table>`;
 if (session_data.hasCap('client-has-tuner')) { // determine gamer level
 	data += `<br><br><img src=ROMCache/plus.gif width=232 height=21>`;
 }

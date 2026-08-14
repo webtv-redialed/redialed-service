@@ -65,7 +65,7 @@ Location: ${gourl}`;
 } else {
     var doClientError = function (msg) {
         var clientErrorMsg = new clientShowAlert({
-            image: minisrv_config.config.service_logo,
+            image: minisrv_config.config.serviceLogo,
             message: msg,
             buttonlabel1: "Okay",
             buttonaction1: "client:donothing",
@@ -190,9 +190,9 @@ Content-Type: audio/wav`;
         var userdisplayname = wtvshared.htmlEntitize(
             session_data.getSessionData("subscriber_name")
         );
-        var address = username + "@" + minisrv_config.config.domain_name;
+        var address = username + "@" + minisrv_config.config.domainName;
         var notImplementedAlert = new clientShowAlert({
-            image: minisrv_config.config.service_logo,
+            image: minisrv_config.config.serviceLogo,
             message: "This feature is not available.",
             buttonlabel1: "Okay",
             buttonaction1: "client:donothing",
@@ -248,10 +248,10 @@ Content-Type: audio/wav`;
 
                 if (newsgroup !== null) {
                     var request_is_async = true;
-                    var local_service_name =
+                    var local_serviceName =
                         request_headers.query["discuss-prefix"] || "wtv-news";
-                    const wtvnews = new WTVNews(minisrv_config, local_service_name);
-                    var service_config = minisrv_config.services[local_service_name];
+                    const wtvnews = new WTVNews(minisrv_config, local_serviceName);
+                    var service_config = minisrv_config.services[local_serviceName];
                     if (wtvnewsserver) {
                         var tls_path = this.wtvshared.getAbsolutePath(
                             this.minisrv_config.config.ServiceDeps + "/wtv-news"
@@ -267,7 +267,7 @@ Content-Type: audio/wav`;
                         if (wtvnewsserver.username)
                             wtvnews.initializeUsenet(
                                 "127.0.0.1",
-                                service_config.local_nntp_port,
+                                service_config.localNntpPort,
                                 tls_options,
                                 wtvnewsserver.username,
                                 wtvnewsserver.password
@@ -275,7 +275,7 @@ Content-Type: audio/wav`;
                         else
                             wtvnews.initializeUsenet(
                                 "127.0.0.1",
-                                service_config.local_nntp_port,
+                                service_config.localNntpPort,
                                 tls_options
                             );
                     } else {
@@ -646,7 +646,7 @@ ${pageTitle}
 <td abswidth=6>
 <img src="wtv-home:/ROMCache/Spacer.gif" width=1>
 <td align=center>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${minisrv_config.config.serviceLogo}" width=87 height=67>
 </table>
 <td abswidth=5>
 <tr>

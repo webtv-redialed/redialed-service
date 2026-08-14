@@ -76,7 +76,7 @@ VALUE="${session_data.getSessionData(
 <th colspan=2>Service configuration</th>
 <tr>
 <td>LZPF compression</td>
-<td>${minisrv_config.config.enable_lzpf_compression}</td>
+<td>${minisrv_config.config.enableLzpfCompression}</td>
 </tr>
 <tr>
 <td>Messenger server</td>

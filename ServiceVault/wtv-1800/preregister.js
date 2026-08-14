@@ -90,7 +90,7 @@ if (session_data.data_store.wtvsec_login) {
     var romtype = session_data.get("wtv-client-rom-type");
     var bootrom = parseInt(session_data.get("wtv-client-bootrom-version"));
     var send_tellyscript =
-        minisrv_config.services[service_name].send_tellyscripts &&
+        minisrv_config.services[serviceName].sendTellyscripts &&
         !request_headers.query.relogin &&
         !bootrom !== 0;
     var wtv_script_id = parseInt(session_data.get("wtv-script-id"));
@@ -100,10 +100,10 @@ if (session_data.data_store.wtvsec_login) {
     )
         send_tellyscript = false;
     if (send_tellyscript) {
-        if (minisrv_config.services[service_name].send_tellyscript_ssid_whitelist) {
+        if (minisrv_config.services[serviceName].send_tellyscript_ssid_whitelist) {
             var send_telly_to_ssid =
                 minisrv_config.services[
-                    service_name
+                    serviceName
                     ].send_tellyscript_ssid_whitelist.findIndex(
                     (element) => element == socket.ssid
                 ) != -1;

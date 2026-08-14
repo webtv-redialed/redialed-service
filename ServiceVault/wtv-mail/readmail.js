@@ -48,7 +48,7 @@ if (!intro_seen && !request_headers.query.intro_seen) {
         } else {
             session_data.mailstore.setMessageReadStatus(messageid);
             var notImplementedAlert = new clientShowAlert({
-                image: minisrv_config.config.service_logo,
+                image: minisrv_config.config.serviceLogo,
                 message: "This feature is not available.",
                 buttonlabel1: "Okay",
                 buttonaction1: "client:donothing",

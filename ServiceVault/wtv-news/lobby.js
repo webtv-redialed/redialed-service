@@ -23,7 +23,7 @@ data = `<HTML>
 <table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
 <tr>
 <td align=right>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${minisrv_config.config.serviceLogo}" width=87 height=67>
 </table>
 <td abswidth=5>
 <tr>
@@ -108,7 +108,7 @@ Featured discussions
 <td>
 <td WIDTH=198 HEIGHT=200 VALIGN=top ALIGN=left>`;
 
-var featuredGroups = minisrv_config.services[service_name].featuredGroups;
+var featuredGroups = minisrv_config.services[serviceName].featuredGroups;
 var limit = 6;
 while (featuredGroups.length > limit) featuredGroups.pop(); // remove anything passing our limit
 

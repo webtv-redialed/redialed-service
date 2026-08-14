@@ -1,16 +1,16 @@
 var minisrv_service_file = true;
 
 if (request_headers.query.path) {
-    var url = service_name + ":/get-lc2-page?path=" + request_headers.query.path;
+    var url = serviceName + ":/get-lc2-page?path=" + request_headers.query.path;
     var romtype = session_data.get("wtv-client-rom-type");
     if (romtype == "bf0app") {
         url =
             "client:updateflash?ipaddr=" +
-            minisrv_config.services[service_name].host +
+            minisrv_config.services[serviceName].host +
             "&port=" +
-            minisrv_config.services[service_name].port +
+            minisrv_config.services[serviceName].port +
             "&path=" +
-            encodeURIComponent(service_name + ":/" + request_headers.query.path);
+            encodeURIComponent(serviceName + ":/" + request_headers.query.path);
     } else {
         if (request_headers.query.numparts)
             url += "&numparts=" + request_headers.query.numparts;

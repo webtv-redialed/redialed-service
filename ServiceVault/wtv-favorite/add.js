@@ -117,11 +117,11 @@ async function saveFavorite(favstore, title, folder, imagetype, favurl) {
 
         if (
             favoritenum ==
-            minisrv_config.services[service_name].max_favorites_per_folder
+            minisrv_config.services[serviceName].maxFavoritesPerFolder
         ) {
             // so webtv just ignores this message and shows a "This item chosen cannot be used" mesage, regardless of what's in the header
             // i want to eat asbestos
-            headers = `400 You can only have ${minisrv_config.services[service_name].max_favorites_per_folder} favorites in a folder. Discard some favorites or choose a different folder, then try again.`;
+            headers = `400 You can only have ${minisrv_config.services[serviceName].maxFavoritesPerFolder} favorites in a folder. Discard some favorites or choose a different folder, then try again.`;
             sendToClient(socket, headers, data);
         } else {
             var createresult = favstore.createFavorite(

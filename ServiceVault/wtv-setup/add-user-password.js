@@ -45,14 +45,14 @@ else if (!wtvr.checkUsernameAvailable(request_headers.query.user_name))
     );
 else if (
     session_data.getNumberOfUserAccounts() >
-    minisrv_config.config.user_accounts.max_users_per_account
+    minisrv_config.config.userAccounts.maxUsersPerAccount
 )
     errpage = wtvshared.doErrorPage(
         400,
         "You are not authorized to add more than " +
-        minisrv_config.config.user_accounts.max_users_per_account +
+        minisrv_config.config.userAccounts.maxUsersPerAccount +
         ` account${
-            minisrv_config.config.user_accounts.max_users_per_account > 1 ? "s" : ""
+            minisrv_config.config.userAccounts.maxUsersPerAccount > 1 ? "s" : ""
         }.`
     );
 
@@ -84,7 +84,7 @@ noscroll>
 <table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
 <tr>
 <td align=right>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${minisrv_config.config.serviceLogo}" width=87 height=67>
 </table>
 <td abswidth=6>
 <tr><td absheight=5 colspan=3>
@@ -130,8 +130,8 @@ Optional password
 <tr>
 <td align=left>
 Type an optional<br>
-password from ${minisrv_config.config.passwords.min_length} to
-<br>${minisrv_config.config.passwords.max_length} characters long.
+password from ${minisrv_config.config.passwords.minLength} to
+<br>${minisrv_config.config.passwords.maxLength} characters long.
 <p>You'll need to type<br>
 the password<br>
 Whenever you switch to <b>${request_headers.query.user_name}</b>.<br>
@@ -151,8 +151,8 @@ Password<br>
 <INPUT noSubmit name="user_password" id="user_password" Value=""
 bgcolor=#444444 text=#ffdd33 cursor=#cc9933
 TYPE="password" ASCIIONLY
-SIZE="${minisrv_config.config.passwords.form_size}"
-MAXLENGTH="${minisrv_config.config.passwords.max_length}">
+SIZE="${minisrv_config.config.passwords.formSize}"
+MAXLENGTH="${minisrv_config.config.passwords.maxLength}">
 <tr>
 <td height=6>
 <tr>
@@ -161,8 +161,8 @@ MAXLENGTH="${minisrv_config.config.passwords.max_length}">
 <INPUT noSubmit name="user_password2" id="user_password2" Value=""
 bgcolor=#444444 text=#ffdd33 cursor=#cc9933
 TYPE="password" ASCIIONLY
-SIZE="${minisrv_config.config.passwords.form_size}"
-MAXLENGTH="${minisrv_config.config.passwords.max_length}">
+SIZE="${minisrv_config.config.passwords.formSize}"
+MAXLENGTH="${minisrv_config.config.passwords.maxLength}">
 </table>
 </table>
 <td>

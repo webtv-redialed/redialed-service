@@ -800,15 +800,15 @@ ${thisblock.title}
     }
 
     getPublishDomain() {
-        if (this.minisrv_config.services["wtv-author"].public_domain) {
-            return this.minisrv_config.services["wtv-author"].public_domain;
+        if (this.minisrv_config.services["wtv-author"].contentDomain) {
+            return this.minisrv_config.services["wtv-author"].contentDomain;
         } else {
             if (
-                this.minisrv_config.services["wtv-author"].publish_mode == "service"
+                this.minisrv_config.services["wtv-author"].publishMode == "service"
             ) {
                 var target_service =
                     this.minisrv_config.services[
-                        this.minisrv_config.services["wtv-author"].publish_dest
+                        this.minisrv_config.services["wtv-author"].publishDest
                         ];
                 if (target_service) {
                     return target_service.host + ":" + target_service.port;
@@ -825,42 +825,42 @@ ${thisblock.title}
 
     getPublishDir() {
         var destDir = false;
-        if (this.minisrv_config.services["wtv-author"].publish_mode == "service") {
+        if (this.minisrv_config.services["wtv-author"].publishMode == "service") {
             var target_service =
                 this.minisrv_config.services[
-                    this.minisrv_config.services["wtv-author"].publish_dest
+                    this.minisrv_config.services["wtv-author"].publishDest
                     ];
             if (target_service) {
                 if (!target_service.pc_services) {
                     console.error(
-                        "Invalid service configuration: publish_dest is not a pc service."
+                        "Invalid service configuration: publishDest is not a pc service."
                     );
                     return false;
                 }
-                if (!target_service.servicevault_dir) {
-                    target_service.servicevault_dir =
-                        this.minisrv_config.services["wtv-author"].publish_dest;
+                if (!target_service.serviceVaultDir) {
+                    target_service.serviceVaultDir =
+                        this.minisrv_config.services["wtv-author"].publishDest;
                 }
                 if (target_service.service_vaults) {
                     destDir =
                         target_service.service_vaults[0] +
                         this.path.sep +
-                        target_service.servicevault_dir +
+                        target_service.serviceVaultDir +
                         this.path.sep;
                 } else {
                     destDir =
-                        minisrv_config.config.ServiceVaults[0] +
+                        minisrv_config.config.serviceVaults[0] +
                         this.path.sep +
-                        target_service.servicevault_dir +
+                        target_service.serviceVaultDir +
                         this.path.sep;
                 }
             }
         } else if (
-            this.minisrv_config.services["wtv-author"].publish_mode == "directory"
+            this.minisrv_config.services["wtv-author"].publishMode == "directory"
         ) {
-            destDir = this.minisrv_config.services["wtv-author"].publish_dest;
+            destDir = this.minisrv_config.services["wtv-author"].publishDest;
         } else {
-            console.error("Invalid service configuration: invalid publish_mode.");
+            console.error("Invalid service configuration: invalid publishMode.");
             return false;
         }
         return destDir;

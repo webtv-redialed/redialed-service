@@ -15,7 +15,7 @@ let isJune = now.getMonth() == 5 && !usingCustomSplash
 let isCrimmis = now.getMonth() == 11 && !usingCustomSplash
 let debug = minisrv_config.config.serviceType == 'Debug'
 
-let splashImage = minisrv_config.config.service_splash_logo
+let splashImage = minisrv_config.config.serviceDefaultSplashLogo
 let splashBackground = ''
 
 // We really need to make this if-else-if mess into a switch later somehow
@@ -32,7 +32,7 @@ if (usingCustomSplash) {
 		break
 		case 'default':
 		default: // fallback for if they somehow set it to an unsupported value
-			splashImage = minisrv_config.config.service_splash_logo;
+			splashImage = minisrv_config.config.serviceDefaultSplashLogo;
 			splashBackground = '';
 		break
 	}
@@ -41,9 +41,9 @@ else if (isAprilFools) { splashImage = 'images/SplashLogo1MSN.gif' }
 else if (isJune) { splashBackground = ' background=images/SplashPrideBG.gif' }
 else if (isCrimmis) { splashBackground = ' background=images/SplashChristmasBG.gif' }
 
-data = `<html><title>${service_name == 'wtv-home' ? `WebTV${session_data.hasCap('client-has-tv-experience') ? ' Plus' : ''} Service` : `Splash`}</title>
+data = `<html><title>${serviceName == 'wtv-home' ? `WebTV${session_data.hasCap('client-has-tv-experience') ? ' Plus' : ''} Service` : `Splash`}</title>
 <meta http-equiv=refresh content="${session_data.getSessionData('fast_splash') == 1 ? '0' : '4'};URL=wtv-home:/home?">`
-if (service_name == 'wtv-home') data += `\n<link rel=next href=wtv-content:/ROMCache/BackgroundWebTVToday_a.swf>`;
+if (serviceName == 'wtv-home') data += `\n<link rel=next href=wtv-content:/ROMCache/BackgroundWebTVToday_a.swf>`;
 data += `
 <body bgcolor=0 text=449944><bgsound src='file://ROM/Sounds/Splash.mid'><display nostatus nooptions skipback switchtowebmode vspace=0 hspace=0>
 <table width=100% height=100% cellspacing=0 cellpadding=12 href=wtv-home:/home? nohighlight nocursor selected><tr><td align=center valign=${debug ? 'bottom' : 'middle'}>`;

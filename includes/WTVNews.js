@@ -3,16 +3,16 @@ class WTVNews {
     newsie = require("newsie").default;
     strftime = require("strftime");
     wtvshared = null;
-    service_name = null;
+    serviceName = null;
     client = null;
     username = null;
     password = null;
     posting_allowed = true;
     debug = null;
 
-    constructor(minisrv_config, service_name) {
+    constructor(minisrv_config, serviceName) {
         this.minisrv_config = minisrv_config;
-        this.service_name = service_name;
+        this.serviceName = serviceName;
         const {WTVShared} = require("./WTVShared.js");
         this.wtvshared = new WTVShared(minisrv_config);
         this.debug = require("debug")("WTVNews");
@@ -404,13 +404,13 @@ class WTVNews {
                                         "version minisrv " +
                                         this.minisrv_config.version +
                                         "; site " +
-                                        this.minisrv_config.config.domain_name,
+                                        this.minisrv_config.config.domainName,
                                     "Posting-Version":
                                         "version minisrv " +
                                         this.minisrv_config.version +
                                         "; site " +
-                                        this.minisrv_config.config.domain_name,
-                                    Path: "@" + this.minisrv_config.config.domain_name,
+                                        this.minisrv_config.config.domainName,
+                                    Path: "@" + this.minisrv_config.config.domainName,
                                     From: from_addr,
                                     Newsgroups: group,
                                     Subject: msg_subject || "(No subject)",
@@ -418,7 +418,7 @@ class WTVNews {
                                         "<" +
                                         this.wtvshared.generateString(16) +
                                         "@" +
-                                        this.minisrv_config.config.domain_name +
+                                        this.minisrv_config.config.domainName +
                                         ">",
                                     Date: this.strftime("%a, %-d %b %Y %H:%M:%S %z", new Date()),
                                 };

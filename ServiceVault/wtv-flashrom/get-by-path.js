@@ -22,8 +22,8 @@ if (request_headers.query.raw || bf0app_update) {
         session_data.data_store.WTVFlashrom = new WTVFlashrom(
             minisrv_config,
             service_vaults,
-            service_name,
-            minisrv_config.services[service_name].use_zefie_server,
+            serviceName,
+            minisrv_config.services[serviceName].useZefieServer,
             bf0app_update
         );
     }
@@ -39,7 +39,7 @@ if (request_headers.query.raw || bf0app_update) {
         headers = "200 OK\n";
         headers +=
             "wtv-visit: " +
-            service_name +
+            serviceName +
             ":/initiate-lc2-download?path=" +
             request_headers.query.path +
             "\n";

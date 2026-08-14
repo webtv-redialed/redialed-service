@@ -28,7 +28,7 @@ class WTVMime {
             if (ssid_session.capabilities) {
                 if (ssid_session.capabilities["client-can-receive-compressed-data"]) {
                     if (
-                        this.minisrv_config.config.enable_lzpf_compression ||
+                        this.minisrv_config.config.enableLzpfCompression ||
                         this.minisrv_config.config.force_compression_type
                     ) {
                         compression_type = 1; // lzpf
@@ -37,7 +37,7 @@ class WTVMime {
                     if (ssid_session) {
                         // if gzip is enabled...
                         if (
-                            this.minisrv_config.config.enable_gzip_compression ||
+                            this.minisrv_config.config.enableGzipCompression ||
                             this.minisrv_config.config.force_compression_type
                         ) {
                             var is_bf0app =

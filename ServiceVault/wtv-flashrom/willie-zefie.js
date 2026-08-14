@@ -14,15 +14,15 @@ for (const [key, value] of Object.entries(request_headers.query)) {
     proxy_query += "&" + key + "=" + encodeURIComponent(value);
 }
 
-if (!minisrv_config.services[service_name].use_zefie_server) {
+if (!minisrv_config.services[serviceName].useZefieServer) {
     proxy_query += "&minisrv_local_mode=true";
 }
 
 var options = {
     host: "wtv.zefie.com",
     path:
-        "/willie.php?minisrv=true&service_name=" +
-        encodeURIComponent(service_name) +
+        "/willie.php?minisrv=true&serviceName=" +
+        encodeURIComponent(serviceName) +
         "&pflash=" +
         ssid_sessions[socket.ssid].get("wtv-client-rom-type") +
         proxy_query,
@@ -54,7 +54,7 @@ const req = https.request(options, function (res) {
                 res.statusMessage
             );
         if (request_headers.query.clear_cache) {
-            headers += "\nwtv-expire-all: " + service_name;
+            headers += "\nwtv-expire-all: " + serviceName;
         }
 
         //little willies (just for fun really)

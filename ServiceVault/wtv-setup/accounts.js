@@ -33,7 +33,7 @@ Users setup
 <table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
 <tr>
 <td align=right>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${minisrv_config.config.serviceLogo}" width=87 height=67>
 </table>
 <td abswidth=6>
 <tr><td absheight=5 colspan=3>
@@ -124,7 +124,7 @@ TYPE=SUBMIT BORDERIMAGE="file://ROM/Borders/ButtonBorder2.bif" NAME="Button1" WI
 <IMG SRC="wtv-home:/ROMCache/Spacer.gif" WIDTH=4 HEIGHT=1>
 <INPUT action="/add-user?user_count=${num_accounts}"
 name="AddUser" value="Add User" WIDTH=120 ${
-        num_accounts >= minisrv_config.config.user_accounts.max_users_per_account
+        num_accounts >= minisrv_config.config.userAccounts.maxUsersPerAccount
             ? 'disabled="disabled" text=gray'
             : "USESTYLE"
     }

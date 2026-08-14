@@ -276,13 +276,13 @@ class WTVNewsServer {
                     "<" +
                     this.wtvshared.generateString(16) +
                     "@" +
-                    this.minisrv_config.config.domain_name +
+                    this.minisrv_config.config.domainName +
                     ">";
                 post_data.messageId = post_data.headers["Message-ID"] = messageId;
             }
 
             if (!post_data.headers.Path)
-                post_data.headers.Path = "@" + this.minisrv_config.config.domain_name;
+                post_data.headers.Path = "@" + this.minisrv_config.config.domainName;
             if (!post_data.headers.Subject)
                 post_data.headers.Subject = "(No subject)";
 

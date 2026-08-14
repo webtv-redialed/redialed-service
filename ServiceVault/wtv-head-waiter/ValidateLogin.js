@@ -112,7 +112,7 @@ wtvr-no-mail-count: true
             gourl = "wtv-flashrom:/ready-to-update";
         // having to restart the server to enable maintenance mode isn't ideal
         // instead we should probably make a script that interfaces with the server to enable it (like with CrossTalk)
-        } else if (minisrv_config.config.maintenance_mode && wantsMessageWatch && minisrv_config.config.serviceType == "Production") { // Make sure datadownload & messagewatch can still function
+        } else if (minisrv_config.config.maintenanceMode && wantsMessageWatch && minisrv_config.config.serviceType == "Production") { // Make sure datadownload & messagewatch can still function
             gourl = `wtv-star:/star?maintenance=true`;
         } 
         else if (

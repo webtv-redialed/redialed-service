@@ -31,7 +31,7 @@ Background music styles
 <table href="wtv-home:/home" absheight="76" cellspacing="0" cellpadding="0">
 <tbody><tr>
 <td align="right">
-<img src="${minisrv_config.config.service_logo}" width="87" height="67">
+<img src="${minisrv_config.config.serviceLogo}" width="87" height="67">
 </td></tr></tbody></table>
 </td><td abswidth="6">
 </td></tr><tr><td absheight="5" colspan="3">

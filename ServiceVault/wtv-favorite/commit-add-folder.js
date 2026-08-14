@@ -10,7 +10,7 @@ if (foldername) {
 
     if (folder_exists !== true) {
         if (
-            folder_array.length < minisrv_config.services[service_name].max_folders
+            folder_array.length < minisrv_config.services[serviceName].maxFolders
         ) {
             if (session_data.favstore.checkFolderSafe(foldername) === true) {
                 session_data.favstore.createFolder(foldername);
@@ -23,7 +23,7 @@ wtv-expire-all: wtv-favorite:`;
                 headers = `400 That folder name is not valid. Choose a different name and try again.`;
             }
         } else {
-            headers = `400 You can only have ${minisrv_config.services[service_name].max_folders} folders at one time. Delete some folders and try again.`;
+            headers = `400 You can only have ${minisrv_config.services[serviceName].maxFolders} folders at one time. Delete some folders and try again.`;
         }
     } else {
         headers = `400 That folder already exists. Choose a different name and try again.`;

@@ -91,19 +91,19 @@ class WTVFavorites {
     createTemplateFolder(folder) {
         // create emply folder
         this.createFolder(folder);
-        var folder_templates = this.minisrv_config.favorites.folder_templates;
+        var folderTemplates = this.minisrv_config.favorites.folderTemplates;
         // populate it if a template exists
         var self = this;
-        if (folder_templates[folder]) {
-            Object.keys(folder_templates[folder]).forEach(function (k) {
+        if (folderTemplates[folder]) {
+            Object.keys(folderTemplates[folder]).forEach(function (k) {
                 self.createFavorite(
-                    folder_templates[folder][k].title,
-                    folder_templates[folder][k].url,
+                    folderTemplates[folder][k].title,
+                    folderTemplates[folder][k].url,
                     folder,
-                    folder_templates[folder][k].image_type == "image/wtv-bitmap"
-                        ? atob(folder_templates[folder][k].image)
-                        : folder_templates[folder][k].image,
-                    folder_templates[folder][k].image_type
+                    folderTemplates[folder][k].imageType == "image/wtv-bitmap"
+                        ? atob(folderTemplates[folder][k].image)
+                        : folderTemplates[folder][k].image,
+                    folderTemplates[folder][k].imageType
                 );
             });
         }

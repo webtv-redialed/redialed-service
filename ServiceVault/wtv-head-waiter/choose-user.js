@@ -25,7 +25,7 @@ Choose your name
 <td width=138 absheight=109 valign=top align=center>
 <img src="ROMCache/Spacer.gif" width=1 height=8><br>
 <img src="ROMCache/Spacer.gif" width=7 height=1>
-<img src="${minisrv_config.config.service_logo}" width=127 height=98>
+<img src="${minisrv_config.config.serviceLogo}" width=127 height=98>
 <td rowspan=99 width=6 absheight=420 valign=top align=left>
 <img src="ROMCache/Shadow.gif" width=6 height=420>
 <tr>
@@ -118,7 +118,7 @@ for (const [key, value] of Object.entries(accounts)) {
     accounts_listed++;
 }
 while (
-    accounts_listed < minisrv_config.config.user_accounts.max_users_per_account
+    accounts_listed < minisrv_config.config.userAccounts.maxUsersPerAccount
     ) {
     data += `<tr>
 <td>

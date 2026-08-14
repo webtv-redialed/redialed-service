@@ -8,13 +8,13 @@ if (session_data.user_id != 0)
     );
 else if (
     session_data.getNumberOfUserAccounts() >
-    minisrv_config.config.user_accounts.max_users_per_account
+    minisrv_config.config.userAccounts.maxUsersPerAccount
 )
     errpage = wtvshared.doErrorPage(
         400,
         "You are not authorized to add more than " +
-        minisrv_config.config.user_accounts.max_users_per_account +
-        ` account${minisrv_config.config.user_accounts.max_users_per_account > 1 ? "s" : ""
+        minisrv_config.config.userAccounts.maxUsersPerAccount +
+        ` account${minisrv_config.config.userAccounts.maxUsersPerAccount > 1 ? "s" : ""
         }.`
     );
 
@@ -50,7 +50,7 @@ noscroll>
 <table href="wtv-home:/home" absheight=76 cellspacing=0 cellpadding=0>
 <tr>
 <td align=right>
-<img src="${minisrv_config.config.service_logo}" width=87 height=67>
+<img src="${minisrv_config.config.serviceLogo}" width=87 height=67>
 </table>
 <td abswidth=6>
 <tr><td absheight=5 colspan=3>

@@ -11,7 +11,7 @@ if (socket.ssid != null) {
 headers = `200 OK
 Content-Type: text/html`;
 
-let serviceIP = minisrv_config.config.service_ip;
+let serviceIP = minisrv_config.config.serviceIp;
 let zTitle = minisrv_version_string;
 
 let SSID = wtvshared.filterSSID(
@@ -28,7 +28,7 @@ if (request_headers.query.password == wtvt.getPasswordByType("low")) {
     data = `<html>
 <!--- *=* Copyright 1996, 1997 WebTV Networks, Inc. All rights reserved. --->
 <display nosave nosend skipback>
-<title>${minisrv_config.config.service_name} Info</title>
+<title>${minisrv_config.config.serviceName} Info</title>
 
 <sidebar width=20%>
 		<img src="wtv-tricks:/images/About_bg.jpg">
@@ -39,7 +39,7 @@ if (request_headers.query.password == wtvt.getPasswordByType("low")) {
 <br>
 <br>
 
-<h1>${minisrv_config.config.service_name} Info</h1>
+<h1>${minisrv_config.config.serviceName} Info</h1>
 
 <table>
 <tr>
@@ -51,7 +51,7 @@ if (request_headers.query.password == wtvt.getPasswordByType("low")) {
 <tr>
 		<td valign=top align=right><shadow>Host/Port:</shadow>
 		<td width=10>
-		<td valign=top>${serviceIP}/${minisrv_config.services[service_name].port}
+		<td valign=top>${serviceIP}/${minisrv_config.services[serviceName].port}
 <tr>
 		<td valign=top align=right width=150><shadow>Service:</shadow>
 		<td width=10>

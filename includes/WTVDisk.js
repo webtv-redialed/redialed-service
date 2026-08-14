@@ -4,7 +4,7 @@
  */
 class WTVDownloadList {
     download_list = "";
-    service_name = "";
+    serviceName = "";
     content_type = "wtv/download-list";
     wtvshared = null;
     clientShowAlert = null;
@@ -12,14 +12,14 @@ class WTVDownloadList {
 
     /**
      * Constructs the WTVDownloadList Class
-     * @param {string} service_name Service name to use in wtv-urls
+     * @param {string} serviceName Service name to use in wtv-urls
      */
-    constructor(minisrv_config, service_name = "wtv-disk") {
+    constructor(minisrv_config, serviceName = "wtv-disk") {
         var {WTVShared, clientShowAlert} = require("./WTVShared.js");
         this.minisrv_config = minisrv_config;
         this.wtvshared = new WTVShared(minisrv_config);
         this.clientShowAlert = clientShowAlert;
-        this.service_name = service_name;
+        this.serviceName = serviceName;
         this.clear();
     }
 
@@ -129,7 +129,7 @@ class WTVDownloadList {
     putUserStoreDest(path, destination) {
         this.put(
             path,
-            this.service_name + ":/userstore?partialPath=" + encodeURIComponent(destination)
+            this.serviceName + ":/userstore?partialPath=" + encodeURIComponent(destination)
         );
     }
 
@@ -317,14 +317,14 @@ class WTVDownloadList {
         if (force_update === null) force_update = false;
 
         if (url === null)
-            url = this.service_name + ":/sync?diskmap=" + encodeURIComponent(diskmap);
+            url = this.serviceName + ":/sync?diskmap=" + encodeURIComponent(diskmap);
 
         if (force_update) url += "&force=" + force_update;
         if (dont_delete_files) url += "&dont_delete_files=" + dont_delete_files;
 
         if (success_url === null)
             success_url = new this.clientShowAlert({
-                image: this.minisrv_config.config.service_logo,
+                image: this.minisrv_config.config.serviceLogo,
                 message: "Download successful!",
                 buttonlabel1: "Okay",
                 buttonaction1: "client:goback",
@@ -333,7 +333,7 @@ class WTVDownloadList {
 
         if (fail_url === null)
             fail_url = new this.clientShowAlert({
-                image: this.minisrv_config.config.service_logo,
+                image: this.minisrv_config.config.serviceLogo,
                 message: "Download failed...",
                 buttonlabel1: "Okay",
                 buttonaction1: "client:goback",
@@ -358,7 +358,7 @@ class WTVDownloadList {
         <tr>
                 <td width=104 height=74 valign=middle align=center bgcolor=3B3A4D>
                         <img src="${
-            this.minisrv_config.config.service_logo
+            this.minisrv_config.config.serviceLogo
         }" width=86 height=64>
                 <td width=20 valign=top align=left bgcolor=3B3A4D>
                         <spacer>
