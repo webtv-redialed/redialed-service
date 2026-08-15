@@ -398,7 +398,7 @@ async function processPath(
     var request_is_async = false;
     var service_vault_found = false;
     var vaults_to_scan = service_vaults;
-    var service_path = unescape(service_vault_file_path);
+    var service_path = decodeURIComponent(service_vault_file_path);
     var usingSharedROMCache = false;
     var contextObj = {
         privileged: false,
@@ -3108,9 +3108,9 @@ function reloadConfig() {
 // SERVER START
 minisrv_config = wtvshared.getminisrvConfig(); // snatches minisrv_config
 
-const debugmode = minisrv_config.config.serviceType == 'Debug';
+const debugMode = minisrv_config.config.serviceType == 'Debug';
 const { version } = require('./package.json');
-const zTitle = `WebTV Redialed v${version}${debugmode ? ' (TestDrive)' : ''}`;
+const zTitle = `WebTV Redialed v${version}${debugMode ? ' (TestDrive)' : ''}`;
 console.log(`**** Welcome to ${zTitle} ****`);
 
 minisrv_config = wtvshared.getminisrvConfig(); // snatches minisrv_config
@@ -3153,9 +3153,9 @@ if (minisrv_config.config.ServiceDeps) {
     var ServiceDeps = wtvshared.returnAbsolutePath(
         minisrv_config.config.ServiceDeps
     );
-    console.log(" * Configured Service Dependancies at", ServiceDeps);
+    console.log(" * Configured Service Dependencies at", ServiceDeps);
 } else {
-    throw "ERROR: No Service Dependancies Directory (SessionDeps) defined!";
+    throw "ERROR: No Service Dependencies Directory (SessionDeps) defined!";
 }
 
 var serviceIp = minisrv_config.config.serviceIp;
