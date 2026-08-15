@@ -84,7 +84,6 @@
     "geolocationApiKey": "changeme",
     "weatherApiKey": "changeme",
     "movieApiKey": "changeme",
-    "sessionClearTimeout": 30000,
     "localNntpRequiresAuth": true
   },
   "services": {

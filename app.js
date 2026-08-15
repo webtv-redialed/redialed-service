@@ -2982,15 +2982,9 @@ async function cleanupSocket(socket) {
             ssid_sessions[socket.ssid].data_store.sockets.delete(socket);
 
             if (ssid_sessions[socket.ssid].currentConnections() === 0) {
-                // clean up possible minibrowser session data
-                if (ssid_sessions[socket.ssid].get("wtv-need-upgrade"))
-                    ssid_sessions[socket.ssid].delete("wtv-need-upgrade");
-                if (ssid_sessions[socket.ssid].get("wtv-used-8675309"))
-                    ssid_sessions[socket.ssid].delete("wtv-used-8675309");
-
                 // set timer to destroy entirety of session data if client does not return in X time
-                // HALEN: this feature actually sucks quite a lot, so it's a config variable now
-                var timeout = minisrv_config.config.sessionClearTimeout; // timeout is in milliseconds, default 180000 (3 min) .. be sure to allow time for dialup reconnections
+                // turned off because this "feature" causes problems
+                var timeout = 0;
 
                 // clear any existing timeout check
                 if (ssid_sessions[socket.ssid].data_store.socket_check)
@@ -3116,10 +3110,8 @@ minisrv_config = wtvshared.getminisrvConfig(); // snatches minisrv_config
 
 const debugmode = minisrv_config.config.serviceType == 'Debug';
 const { version } = require('./package.json');
-// TODO: REMOVE ME?
-//const { default: liquid } = require("liquidjs/dist/tags/liquid");
-const z_title = `WebTV Redialed v${version}${debugmode ? ' (TestDrive)' : ''}`;
-console.log(`**** Welcome to ${z_title} ****`);
+const zTitle = `WebTV Redialed v${version}${debugmode ? ' (TestDrive)' : ''}`;
+console.log(`**** Welcome to ${zTitle} ****`);
 
 minisrv_config = wtvshared.getminisrvConfig(); // snatches minisrv_config
 const wtvmime = new WTVMime(minisrv_config);
