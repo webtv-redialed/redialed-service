@@ -291,7 +291,7 @@ var runScriptInVM = function (
         headers: null,
         data: null,
         request_is_async: false,
-        minisrv_version_string: z_title,
+        minisrv_version_string: zTitle,
         getServiceString: getServiceString,
         sendToClient: sendToClient,
         ServiceDeps: ServiceDeps,
@@ -2212,7 +2212,7 @@ async function sendToClient(socket, headers_obj, data) {
     // send to client
     if (socket.res) {
         var resCode = parseInt(headers_obj.Response.substr(0, 3));
-        headers_obj["x-powered-by"] = "Express via " + z_title;
+        headers_obj["x-powered-by"] = "Express via " + zTitle;
         socket.res.writeHead(resCode, headers_obj);
         socket.res.end(data);
         var log_obj = Object.assign({}, socket.res.getHeaders());
