@@ -33,7 +33,7 @@ function doShit(timezone) {
 
     // Take unregistered users to registration
     if (!session_data.isRegistered())
-        gourl = "wtv-register:/splash?";
+        gourl = "wtv-register:/register?";
     var home_url = "wtv-home:/home?";
 
     // On the real service, message check also occurs during datadownload, we currently have nothing for users to download

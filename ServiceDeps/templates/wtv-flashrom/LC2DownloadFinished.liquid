@@ -1,0 +1,146 @@
+{% comment %} 2026 WebTV Redialed {% endcomment %}
+<html>
+
+<head>
+<title>
+{% if success %}Updating{% else %}Flash failed{% endif %}
+</title>
+<display switchtowebmode nostatus nooptions skipback clearback>
+
+{% if success %}<meta http-equiv=Refresh content="270; url=client:poweroff?invalRAMImage">{% endif %}
+
+</head>
+
+<body {% if success %}onLoad="document.forms.invalram.submit()";
+noscroll {% endif %}bgcolor="#191919" text="#42CC55" link="36d5ff"
+hspace=0 vspace=0{% if not success %} transition=none{% endif %} fontsize="large">
+
+{% if success %}
+<form name ="invalram" action="client:invalramimage">
+</form>
+{% endif %}
+
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td width=104 height=74 valign=middle align=center bgcolor="3B3A4D">
+<img src="wtv-flashrom:/ROMCache/WebTVLogoJewel.gif" width=87 height=67>
+<td width=20 valign=top align=left bgcolor="3B3A4D">
+<img src="wtv-flashrom:/ROMCache/Spacer.gif" width=1 height=1>
+<td colspan=10 width=436 valign=middle align=left bgcolor="3B3A4D">
+<font color="D6DFD0" size="+2">
+<blackface>
+<shadow>
+<img src="wtv-flashrom:/ROMCache/Spacer.gif" width=1 height=4>
+<br>
+Updating {% if success %}complete{% else %}did not work{% endif %}
+</shadow>
+</blackface>
+</font>
+<tr>
+<td colspan=12 width=560 height=10 valign=top align=left>
+<img src="wtv-flashrom:/ROMCache/S40H1.gif" width=560 height=6>
+<tr>
+<td width=104 height=10 valign=top align=left>
+<td width=20 valign=top align=left>
+<td width=67 valign=top align=left>
+<td width=20 valign=top align=left>
+<td width=67 valign=top align=left>
+<td width=20 valign=top align=left>
+<td width=67 valign=top align=left>
+<td width=20 valign=top align=left>
+<td width=67 valign=top align=left>
+<td width=20 valign=top align=left>
+<td width=68 valign=top align=left>
+<td width=20 valign=top align=left>
+{% if not success %}
+<form action="{{ tryAgainUrl }}">
+<input type="hidden" name="path" value="{{ tryAgainUrl }}">
+<input type="hidden" name="start-time" value="{{ startTime }}">
+{% endif %}
+<tr>
+<td width=104 valign=middle align=center>
+<td width=20 valign=middle align=center>
+<td colspan=9 width=100 height=258 valign=top align=left>
+<font size=+1>
+{% if success %}
+The update is complete.<br>
+<p><font size=+1>Choose <b>Connect Now</b> if you<br>want to connect to {{ serviceNameShort }}.
+	<p><font size=+1>Press the <b>power</b> button to switch<br>off your {{ boxName }}.
+</font>
+{% else %}
+We ran into a technical problem while updating
+your {{ boxName }}  (error={% if error %}{{ error }}:{% endif %}(
+{%- case error -%}
+  {%- when 1 -%}
+uncompression failed
+  {%- when 2 -%}
+upgrade write failed
+  {%- when 3 -%}
+signature verification failed
+  {%- when 4 -%}
+cannot upgrade bootstrap
+  {%- when 5 -%}
+out of memory
+  {%- when -7 -%}
+response error
+  {%- when -20 -%}
+timed out
+  {%- when 99 -%}
+test code
+  {%- else -%}
+unknown
+{%- endcase -%})).
+Choose <b>Try Again</b> to try again now.
+<p><font size=+1>Press the <b>power</b> button to switch off your {{ boxName }}.
+{% endif %}
+<tr>
+<td width=104 valign=middle align=center>
+<td width=20 valign=middle align=center>
+<td colspan=10 height=2 valign=middle align=center bgcolor="2B2B2B">
+<img src="wtv-flashrom:/ROMCache/Spacer.gif" width=436 height=1>
+<tr>
+<td width=104 valign=middle align=center>
+<td width=20 valign=middle align=center>
+<td colspan=9 height=1 valign=top align=left>
+<tr>
+<td width=104 valign=middle align=center>
+<td width=20 valign=middle align=center>
+<td colspan=10 height=2 valign=top align=left bgcolor="0D0D0D">
+<img src="wtv-flashrom:/ROMCache/Spacer.gif" width=436 height=1>
+<tr>
+<td width=104 valign=middle align=center>
+<td width=20 valign=middle align=center>
+<td colspan=9 height=4 valign=top align=left>
+<tr>
+<td width=104 valign=middle align=center>
+<td width=20 valign=middle align=center>
+<td colspan=9 width=416 valign=top align=left>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td width=306 valign=top align=left>
+<font size="-1"><i>
+</i></font><td width=112 valign=top align=right>
+<font size="-1" color="#E7CE4A">
+<shadow>
+{% if success %}
+<form action="client:poweroff">
+<input selected type=submit value="Connect Now" name="UseUpgradeNow"
+  borderimage="file://ROM/Borders/ButtonBorder2.bif" usestyle width=170>
+<input type="hidden" name="invalRAMImage">
+<input type="hidden" name="autoPowerOn">
+{% else %}
+<input selected
+  name="Try Again"
+  value="Try Again"
+  type=submit Value=TryAgain name="Try Again"
+  borderimage="file://ROM/Borders/ButtonBorder2.bif" usestyle width=110>
+{% endif %}
+</shadow>
+</font>
+</form>
+
+</table>
+<td width=20 valign=middle align=center>
+</table>
+</body>
+</html>

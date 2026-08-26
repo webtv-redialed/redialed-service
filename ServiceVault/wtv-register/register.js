@@ -1,153 +1,41 @@
 var minisrv_service_file = true;
 
 headers = `200 OK
+Connection: Keep-Alive
+wtv-expire-all: wtv-
+wtv-expire-all: http
 Content-Type: text/html`;
 
-var ssid = ssid_sessions[socket.ssid].get("wtv-client-serial-number");
-var romType = ssid_sessions[socket.ssid].get("wtv-client-rom-type");
-var wtvr = new WTVRegister(minisrv_config, SessionStore);
-var canRegister = wtvr.checkDoorsOpen(ssid);
-var brand = session_data.getManufacturer();
+let debug = minisrv_config.config.serviceType == 'Debug'
 
-// Correct paths for clients that shipped with different peripherals under the same brand
-if (brand == "Philips" && ssid_sessions[socket.ssid].hasCap("client-has-tuner")) {
-    brand = "Philips-Plus";
-} else if (brand == "Sony" && romType == "US-DTV-disk-0MB-32MB-softmodem-CPU5230") {
-    brand = "Sony/DirecTV";
-} else if (brand == "Thomson" && romType == "US-DTV-disk-0MB-32MB-softmodem-CPU5230") {
-    brand = "Thomson/DirecTV";
+data = `<html><title>Splash</title>
+<meta http-equiv=refresh content="4;URL=wtv-register:/ValidateSplash"><link rel=next href=wtv-register:/ValidateSplash>
+<body bgcolor=0 text=449944><bgsound src=file://ROM/Sounds/Splash.mid><display nooptions nostatus skipback switchtowebmode vspace=0 hspace=0>
+<table width=100% height=100% cellspacing=0 cellpadding=12 href=wtv-register:/ValidateSplash nohighlight nocursor selected><tr><td align=center valign=${debug ? 'bottom' : 'middle'}>`;
+//Table with splash image
+if (session_data.hasCap('client-supports-etude-service')) { // Be sure we only give the microsoft logo to the clients that have it in rom
+	data += `<img src="file://ROM/Images/MicrosoftName.gif"><img src="file://ROM/Images/MicrosoftR.gif"><br>`;
+}
+data += `<table cellspacing=0 cellpadding=0><tr><td align=center valign=middle><img src=${minisrv_config.config.serviceDefaultSplashLogo}></td></tr></table>`;
+if (session_data.hasCap('client-has-tuner')) { // determine gamer level
+	data += `<br><br><img src=ROMCache/plus.gif width=232 height=21>`;
 }
 
-// see whether or not the folder for the button images exists for the given brand
-try {
-    if (!fs.existsSync(`./ServiceVault/wtv-register/images/${brand}`)) {
-        console.log(`* Couldn't find button images for ${brand}, sticking with defaults.`)
-        brand = "WebTV";
-    }
-} catch (e) {
-    console.log(" # Brand ID code did a bad, should never reach here");
+if (debug) {
+	const process = require('process');
+	const os = require('os');
+	const cpus = os.cpus();
+	data += `
+	</tr></td><tr><td align=center valign=top height=128>
+	<table bgcolor=191919 gradcolor=080808 border cellpadding=1 cellspacing=0>
+	<tr><td align=center colspan=2><blackface><b><shadow>${minisrv_version_string}</shadow></b></blackface></td></tr>
+	<tr><td><shadow><b>Node:</b></shadow></td><td><shadow>${process.version}</shadow></td></tr>
+	<tr><td><shadow><b>OS:</b></shadow></td><td><shadow>${os.type()} ${os.release()} (${os.arch()})</shadow></td></tr>
+	<tr><td><shadow><b>CPU:</b></shadow></td><td><shadow>${cpus.length}x ${cpus[0].model}</shadow></td></tr>
+	<tr><td><shadow><b>RAM:</b></shadow></td><td><shadow>${(os.totalmem() / 1024 / 1024).toFixed(0)} MB</shadow></td></tr>
+	</table>
+	</td></tr></table>
+	</html>`;
+} else {
+	data += `</td></tr></table></html>`;
 }
-
-// Shame unauthorized users
-data = `<html>
-<head>
-<title>
-${canRegister ? `Using WebTV` : `Registrations closed`}
-</title>`;
-data += `
-<display nooptions
-NoScroll
->
-<LINK REL=next HREF="images/${brand}/ArrowButtons.gif">
-<LINK REL=next HREF="images/${brand}/CenterButton.gif">
-<LINK REL=next HREF="images/${brand}/DownArrowButton.gif">
-</head>
-<body noscroll bgcolor="#191919" text="#42CC55" link="36d5ff"
-hspace=0 vspace=0 fontsize="${session_data.isJapaneseClient() ? `medium` : `large`}"
->
-<table cellspacing=0 cellpadding=0>
-<tr>
-<td width=104 height=74 valign=middle align=center bgcolor="3B3A4D">
-<img src="wtv-register:/ROMCache/WebTVLogoJewel.gif" width=87 height=67>
-<td width=20 valign=top align=left bgcolor="3B3A4D">
-<img src="ROMCache/Spacer.gif" width=1 height=1>
-<td colspan=10 width=436 valign=middle align=left bgcolor="3B3A4D" >
-<font color="D6DFD0" size="+2">
-<blackface>
-<shadow>
-<img src="ROMCache/Spacer.gif" width=1 height=4>
-<br>
-${canRegister ? `Using WebTV` : `Registrations closed`}
-</shadow>
-</blackface>
-</font>
-<tr>
-<td colspan=12 width=560 height=10 valign=top align=left>
-<img src="images/Shadow.gif" width=560 height=6>
-<tr>
-<td width=104 height=10 valign=top align=left>
-<td width=20 valign=top align=left>
-<td width=67 valign=top align=left>
-<td width=20 valign=top align=left>
-<td width=67 valign=top align=left>
-<td width=20 valign=top align=left>
-<td width=67 valign=top align=left>
-<td width=20 valign=top align=left>
-<td width=67 valign=top align=left>
-<td width=20 valign=top align=left>
-<td width=68 valign=top align=left>
-<td width=20 valign=top align=left>
-<form action="ValidateIntro"
-ENCTYPE="x-www-form-encoded" METHOD="POST">
-<input type=hidden name=registering value="true">
-<input type=hidden name=brand value="${brand}">
-<tr>
-<td colspan=12 height=258 valign=top align=left>
-<table cellpadding=0 cellspacing=0>
-<tr>
-<td width=104>
-<td width=20>
-<td width=374>
-<td width=20>
-<td width=20>
-<td width=20>
-<tr>
-<td colspan=2 valign=top align=center>
-<img src="images/${brand}/ArrowButtons.gif" align=absmiddle>
-</a>
-<td valign=middle align=left>
-<font size="+1">
-${canRegister ? `To begin, find the arrow buttons on your remote control.` : `Registrations for this instance of the WebTV Redialed service are closed.`}
-<tr>
-<td height=20>
-<tr>	<td colspan=2 valign=middle align=center>
-<a href="client:donothing" selected><img src="ROMCache/Spacer.gif" width=54 height=46></a>
-<td colspan=2 valign=middle align=left>
-<font size="+1">
-${canRegister ? `Use the arrow buttons to move this yellow box on the screen. Try
-moving this yellow box down to <b>Continue</b>.` : `Contact an operator to register your account, or to open registrations.`}
-<tr>
-<td height=20>
-<tr>
-<td colspan=2 valign=top align=center>
-<img src="images/${brand}/CenterButton.gif" align=absmiddle>
-<td colspan=3 valign=middle align=left>
-<font size="+1">
-${canRegister ? `Once you've moved the yellow box to <b>Continue</b>, press the ${request_headers.query.brand == "SegaFiji" ? `"A" (Go)` : `center`} <img src="images/${brand}/CenterButton.gif" align=absmiddle> button.` : ``}
-</font>
-</table>
-<tr>
-<td colspan=12>
-<table cellspacing=0 cellpadding=0 width=520>
-<tr>
-<td width=130>
-<td height=2 valign=middle bgcolor="2B2B2B" width=430>
-<img src="ROMCache/Spacer.gif" width=430 height=1>
-<tr>
-<td height=1 valign=top>
-<tr>
-<td>
-<td height=2 valign=top bgcolor="0D0D0D" width=430>
-<img src="ROMCache/Spacer.gif" width=430 height=1>
-<tr>
-<td height=4 valign=top>
-<tr>
-<td>
-<td width=430>
-<table cellspacing=0 cellpadding=0>
-<tr>
-<td width=300 valign=top align=left>
-<font size="-1"><i>
-</i></font>
-<td width=10 valign=top>
-<td width=110 valign=top>
-<font size="-1" color="#E7CE4A">
-<shadow>
-<input type=${canRegister ? "submit" : "hidden"} Value=Continue name="Continue" borderimage="file://ROM/Borders/ButtonBorder2.bif" usestyle width=110>
-</shadow>
-</font>
-</form>
-</table>
-</table>
-</body>
-</html>`;
