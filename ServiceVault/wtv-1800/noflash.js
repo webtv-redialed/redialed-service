@@ -46,7 +46,10 @@ wtv-client-date: ` +
 
     var file_path =
         __dirname +
-        "/wtv-1800/tellyscripts/bf0app/bf0boot_WTV_18006138199.tok";
+        "/ServiceDeps/wtv-1800/tellyscripts/bf0app/bf0boot_WTV_18006138199.tok";
+		
+	console.log(__dirname);
+	console.log(file_path)
 
     if (file_path) {
         request_is_async = true;
