@@ -63,6 +63,7 @@
     },
     "lockdownWhitelist": [
       "wtv-1800:/preregister",
+	  "wtv-1800:/noflash",
       "wtv-head-waiter:/login",
       "wtv-head-waiter:/ValidateLogin",
       "wtv-head-waiter:/login-stage-two",
