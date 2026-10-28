@@ -30,7 +30,7 @@ data = `<html><head>
 Discard favorites
 </title>
 </head><body fontsize="${session_data.isJapaneseClient() ? `medium` : `large`}" vspace="0" hspace="0" vlink="189cd6" text="44cc55" link="189cd6" bgcolor="191919"><display>`;
-data += data = engine.renderFileSync('wtv-favorite/partials/sidebar', { options: [{ url: `wtv-favorite:/serve-organize-favorites?favorite_folder_name=${foldername}`, text: 'Organize' }] });
+data += engine.renderFileSync('wtv-favorite/partials/sidebar', { options: [{ url: `wtv-favorite:/serve-organize-favorites?favorite_folder_name=${foldername}`, text: 'Organize' }] });
 data += `
 <table width="451" cellspacing="0" cellpadding="0" bgcolor="2b2b2b">
 <tbody><tr>

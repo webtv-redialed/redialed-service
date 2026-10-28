@@ -11,8 +11,7 @@ const favoritenum = Object.keys(favarray).length;
 headers = `200 OK
 Connection: Keep-Alive
 Content-Type: text/html
-wtv-expire-all: wtv-favorite:/serve-`
-
+wtv-expire-all: wtv-favorite:/serve-`;
 
 data = `<html>
 <head>
@@ -22,7 +21,7 @@ data = `<html>
 Assign shortcut to favorite
 </title>
 <display>`;
-data += data = engine.renderFileSync('wtv-favorite/partials/sidebar', { options: [{ url: `wtv-favorite:/serve-organize-favorites?favorite_folder_name=${foldername}`, text: 'Organize' }] });
+data += engine.renderFileSync('wtv-favorite/partials/sidebar', { options: [{ url: `wtv-favorite:/serve-organize-favorites?favorite_folder_name=${foldername}`, text: 'Organize' }] });
 data += `
 <table width="451" cellspacing="0" cellpadding="0" bgcolor="2b2b2b">
 <tbody><tr>
@@ -153,5 +152,4 @@ data += `<table cellspacing="0" cellpadding="0">
 </td></tr><tr><td height="8"><img src="wtv-home:/ROMCache/Spacer.gif" width="1" height="1">
 </td></tr></tbody></table>
 </form>
-</display></body></html>
-`;
+</display></body></html>`;
