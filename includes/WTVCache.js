@@ -193,13 +193,18 @@ class WTVCache {
 		var weatherCache = new Object();
 		// download and format data from NYT's RSS feeds
 		// this code looked so nice before i added this shitass error handling, i am beyond disappointed
-		var weather = await fetch("https://api.weather.com/v3/wx/observations/current?postalKey=" + zip +":US&units=e&language=en-US&format=json&apiKey=" + this.minisrv_config.config.weatherApiKey)
+		try {
+			var weather = await fetch("https://api.weather.com/v3/wx/observations/current?postalKey=" + zip +":US&units=e&language=en-US&format=json&apiKey=" + this.minisrv_config.config.weatherApiKey)
+			var forecast = await fetch("https://api.weather.com/v3/wx/forecast/daily/7day?postalKey=" + zip +":US&units=e&language=en-US&format=json&apiKey=" + this.minisrv_config.config.weatherApiKey)
+		} catch (error) {
+			throw new Error('Problem getting weather data')
+		}
 		weather = await weather.json()
 		weatherCache.temp = weather.temperature
         weatherCache.humid = weather.relativeHumidity
         weatherCache.icon = twcIcons[weather.iconCode]
         weatherCache.cond = weather.wxPhraseMedium.toLowerCase()
-		var forecast = await fetch("https://api.weather.com/v3/wx/forecast/daily/7day?postalKey=" + zip +":US&units=e&language=en-US&format=json&apiKey=" + this.minisrv_config.config.weatherApiKey)
+
 		forecast = await forecast.json()
 		let dayIcons = {};
 

@@ -13,7 +13,7 @@ const todaydate = todmonth + toddate;
 const thebirthday = birthmonth + birthdate;
 var isMyBirthday = todaydate == thebirthday;
 
-const ads = wtvshared.getDynamicConfig(`ads`); //pull ads from DynamicConfig/ads.json
+const ads = wtvshared.getDynamicConfig(`ads`); // pull ads from DynamicConfig/ads.json
 var randAd = ads[Math.floor(Math.random() * ads.length)];
 
 headers = `200 OK
@@ -51,18 +51,18 @@ let subscriberName = session_data.getSessionData("subscriber_name");
 // Classic Dreamcast home
 if (session_data.get("wtv-client-rom-type") == "JP-Fiji") {
 	if (session_data.getSessionData("alt_home") == '1') {
-		data = engine.renderFileSync('wtv-home/homeClassicDreamcast', { title: title, logoUrl: logoUrl, helpUrl: helpUrl, exploreUrl: exploreUrl, isMyBirthday: isMyBirthday });
+		data = engine.renderFileSync('wtv-home/homeClassicDreamcast', { title, logoUrl, helpUrl, exploreUrl, isMyBirthday });
 		// Grunge Dreamcast home
 	} else {
-		data = engine.renderFileSync('wtv-home/homeGrungeDreamcast', { title: title, logoUrl: logoUrl, isMyBirthday: isMyBirthday, userCount: userCount, userId: userId, randAd: randAd });
+		data = engine.renderFileSync('wtv-home/homeGrungeDreamcast', { title, logoUrl, isMyBirthday, userCount, userId, randAd: randAd });
 	}
 	// Crusty old homepage
 } else if (!session_data.hasCap("client-supports-etude-service") || session_data.getSessionData("alt_home") == '1' || request_headers.query.force_old_home) {
-	data = engine.renderFileSync('wtv-home/homeClassic', { title: title, logoUrl: logoUrl, helpUrl: helpUrl, exploreUrl: exploreUrl, isMyBirthday: isMyBirthday, hasTVExperience: session_data.hasCap('client-has-tv-experience'), userCount: userCount, userId: userId, randAd: randAd });
+	data = engine.renderFileSync('wtv-home/homeClassic', { title, logoUrl, helpUrl, exploreUrl, isMyBirthday, hasTVExperience: session_data.hasCap('client-has-tv-experience'), userCount, userId, randAd });
 	// Crustier older homepage
 } else if (session_data.getSessionData("alt_home") == '2' || request_headers.query.force_alpha_home) {
-	data = engine.renderFileSync('wtv-home/homeAlpha', { title: title, logoUrl: logoUrl, helpUrl: helpUrl, exploreUrl: exploreUrl, isMyBirthday: isMyBirthday, hasTVExperience: session_data.hasCap('client-has-tv-experience'), userCount: userCount, userId: userId, randAd: randAd, subscriberName: subscriberName });
+	data = engine.renderFileSync('wtv-home/homeAlpha', { title, logoUrl, helpUrl, exploreUrl, isMyBirthday, hasTVExperience: session_data.hasCap('client-has-tv-experience'), userCount, userId, randAd, subscriberName });
 } else {
 	// Grunge, this is where most users will be
-	data = engine.renderFileSync('wtv-home/homeGrunge', { title: title, logoUrl: logoUrl, isMyBirthday: isMyBirthday, isJapanese: session_data.isJapaneseClient(), hasTVExperience: session_data.hasCap('client-has-tv-experience'), userCount: userCount, userId: userId, randAd: randAd });
+	data = engine.renderFileSync('wtv-home/homeGrunge', { title, logoUrl, isMyBirthday, isJapaneseClient: session_data.isJapaneseClient(), hasTVExperience: session_data.hasCap('client-has-tv-experience'), userCount, userId, randAd });
 }

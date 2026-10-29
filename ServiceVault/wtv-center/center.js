@@ -9,8 +9,6 @@ const {
 	stateLookAhead,
 } = require("zcs");
 
-
-
 var accounts = session_data.listPrimaryAccountUsers();
 
 headers = `200 OK
@@ -50,229 +48,29 @@ switch (infoCenter) {
 			var cityZIP = getByZip(
 				accounts.subscriber.subscriber_zip_code || "98052"
 			);
-			var cityname = cityZIP.city;
 			// Fix city name case
-			var citycase = titleCase(cityname);
-			data = `<html> 
-<head> 
-<title>WebTV Today</title> 
-<META HTTP-EQUIV="Expires" CONTENT="0"> 
-</head> 
-<display> 
-<body bgcolor=#734A42 text=cccccc link=aaaaaa vlink=aaaaaa fontsize=${session_data.isJapaneseClient() ? `small` : `medium`} hspace=0 vspace=0> <table height=80 width=560 cellspacing=0 cellpadding=0> <tr> 
-<td width=394 background=wtv-center:/images/centers/webtvtoday/bg_topleft.jpg bgcolor=#B5948C gradcolor=#2F1816 gradangle=90 novtilebg nohtilebg> <table height=80 width=394 cellspacing=0 cellpadding=0> <tr> <td width=98 height=67 align=center valign=middle> <a href="wtv-home:/home"><img src="wtv-home:/ROMCache/WebTVLogoJewel.gif" width=87 height=67></a> <td width=296 align=right valign=top> <spacer type=vertical size=10><br> <!--<font size=-3 color=FFFFFF><shadow>sponsored&nbsp;</shadow></font> </table> <td width=166 bgcolor=#2F1816 gradcolor=#000000 gradangle=90 valign=top> <table cellspacing=0 cellpadding=0> 
-<tr> 
-<td valign=top> 
-<spacer type=vertical size=10><br> 
-<font size=-3 color=FFFFFF><shadow>by</shadow></font> 
-<td valign=top> 
-<spacer type=vertical size=10><br> 
-<spacer type=horizontal size=6> 
-<a href="/ad-clickthrough?ad-click-ref=000015d6eabda04300000000"> <img src=/shared/ads/infocenter/centers/msnbc_ad01.jpg width=120 height=60> </a> --></table> </table>
-<table cellspacing=0 cellpadding=0> 
-<td width=21 bgcolor=#B5948C> 
-<td width=373 valign=bottom bgcolor=#B5948C gradcolor=#2F1816 gradangle=90> <table height=25 cellspacing=0 cellpadding=0>
-</table> 
-<tr> 
-<td height=130 bgcolor=#B5948C gradcolor=#734A42 gradangle=0> <td bgcolor=#9C9C8C valign=top> 
-<table cellspacing=0 cellpadding=0> 
-<tr> 
-<td abswidth=8> 
-<td abswidth=357> 
-<td abswidth=8> 
-<tr> 
-<td valign="middle" height="25" bgcolor="B5948C">
-<img src="wtv-center:/images/CornerTopLeft.gif" width="8" height="25">
-</td>
-<td valign=middle bgcolor=#182121 gradcolor=#B2B3A1 gradangle=90> <spacer type=vertical size=3><br> 
-<blackface><font color=#FFFFFF 
-><a name=features>Features</a> 
-</font></blackface> 
-<td bgcolor=#B2B3A1> 
-<tr> 
-<td bgcolor=#B2B3A1> 
-<td abswidth=357 valign=top bgcolor=#B2B3A1> 
-<table abswidth=357 cellspacing=0 cellpadding=0 href="wtv-center:/cwtv/redirect"> <tr> 
-<td width=79 valign=top> 
-<spacer type=vertical size=8><br> 
-<img src="wtv-center:/images/wtvt_clubwtv.swf" width=68 height=66> <td valign=top> 
-<br> 
-<font color=""><b>Club WebTV: ${clubWebTVTitle}</b></font><br> 
-<spacer type=vertical size=17> 
-<font size=-1 color="#5A5A52"><b>${clubWebTVDesc}</b></font> </table> 
-<spacer type=vertical size=10> <td bgcolor=#B2B3A1> </table> <table cellspacing=0 cellpadding=0> <tr> <td abswidth=8> 
-<td abswidth=357> 
-<td abswidth=8> 
-<td bgcolor=#B2B3A1> 
-<tr> 
-<td bgcolor=#B2B3A1> 
-<td abswidth=357 valign=top bgcolor=#B2B3A1> 
-<spacer type=vertical size=8><br> 
-<table abswidth=357 cellspacing=0 cellpadding=0 href="wtv-center:/programming/tips/tips.hangup.tmpl"> <tr> 
-<td width=79 valign=top> 
-<img src="wtv-center:/images/wtvt_wtvtoday_tip.swf" width=68 height=66> <td> 
-<font color="#000000"><b>Hang up and hang on</b></font><br> 
-<spacer type=vertical size=17> 
-<font size=-1 color="#5A5A52"><b>Find out how to disconnect without losing your place.</b></font> </table> 
-<td bgcolor=#B2B3A1> 
-<tr> <td abswidth=8> 
-<td abswidth=357> 
-<td abswidth=8> 
-<tr> 
-<td height=25 valign=middle bgcolor=#182121 valign=top> 
-<td valign=middle bgcolor=#182121 gradcolor=#979988 gradangle=90> <spacer type=vertical size=3><br> 
-<blackface><font color=#FFFFFF 
-><a name=summary>Summary</a> 
-</font></blackface> 
-<td bgcolor=#979988> 
-<tr> 
-<td bgcolor=#979988> 
-<td abswidth=357 valign=top bgcolor=#979988> 
-<spacer type=vertical size=8><br> 
-<blackface><font color=000000 size=5>today in </font><font color=314252 size=5>news</font></blackface><br>
-<table abswidth=357 cellspacing=0 cellpadding=0> <tr> 
-<td width=75 valign=top> 
-<img src="wtv-center:/images/arrow_news.gif"> <td> 
-<font size=-1 color="#000000">
-`;
-			try {
-				data += newsData.newsHeadlines[0].title;
-			} catch (e) {
-				data += "Today's news is unavailable";
-			}
-			data += `
-</font> </table> 
-<spacer type=horizontal width=72><blackface><font color=#000000>Weather</font><font color=#734A42> for ${citycase}</font></blackface><br>
-<table abswidth=357 cellspacing=0 cellpadding=0> <tr> 
-<td width=75 valign=top> 
-<img src="wtv-center:/images/arrow_news.gif"> <td> 
-`;
-			try {
-				data += `<blackface><font color="#734A42">${weatherData.temp
-					} &#176;F<br>${weatherData.cond}</font></blackface>
-<spacer type=horizontal width=5><td><img src="wtv-center:/images/${weatherData.icon
-					}.gif" height=60 width=68>`;
-			} catch (e) {
-				data += `<font size=-1 color="#000000">
-Weather info is unavailable`;
-			}
-			data += `
-</td></table> 
-<spacer type=vertical size=18><br> 
-<blackface><font color=000000 size=5>today in </font><font color=4A635A size=5>money</font></blackface><br>
-<table abswidth=357 cellspacing=0 cellpadding=0> <tr> 
-<td width=75 valign=top> 
-<img src="wtv-center:/images/arrow_money.gif"> <td> 
-<font size=-1 color="#000000">Stock quotes are unavailable.</font> </table> 
-<spacer type=vertical size=18><br><br>
-<blackface><font color=000000 size=5>today in </font><font color=4A3121 size=5>sports</font></blackface><br>
-<table abswidth=357 cellspacing=0 cellpadding=0> <tr> 
-<td width=75 valign=top> 
-<img src="wtv-center:/images/arrow_sports.gif"> <td> 
-<font size=-1 color="#000000">
-`;
-			try {
-				data += newsData.sportsHeadlines[0].title;
-			} catch (e) {
-				data += "Sports headlines are temporarily unavailable";
-			}
-			data += `</font> </table> 
-<spacer type=vertical size=18><br>
-<blackface><font color=000000 size=5>today in </font><font color=4A4252 size=5>entertainment</font></blackface><br>
-<table abswidth=357 cellspacing=0 cellpadding=0> <tr> 
-<td width=75 valign=top> 
-<img src="wtv-center:/images/arrow_entertainment.gif"> <td> 
-<font size=-1 color="#000000">
-`;
-			try {
-				data += newsData.entertainmentHeadlines[0].title;
-			} catch (e) {
-				data += "Today's news is unavailable";
-			}
-			data += `</font> </table> 
-<spacer type=vertical size=18><br><br>
-<blackface><font color=000000 size=5>today in </font><font color=7B6342 size=5>shopping</font></blackface><br>
-<table abswidth=357 cellspacing=0 cellpadding=0> <tr> 
-<td width=75 valign=top> 
-<img src="wtv-center:/images/arrow_shopping.gif"> <td> 
-<font size=-1 color="#000000">No shopping offers are available</font> </table> 
-<table width=357 cellspacing=0 cellpadding=0> 
-<tr> 
-<td height=5> 
-<tr> 
-<td align=right> 
-<tr> 
-<td height=8> 
-</table> 
-<td bgcolor=#979988> 
-</table> 
-<table cellspacing=0 cellpadding=0> 
-<tr> 
-<td abswidth=8> 
-<td abswidth=357> 
-<td abswidth=8> 
-</table> 
-<td background=wtv-center:/images/centers/infocenter_right_bg.gif bgcolor=#000000 gradcolor=#4A2929 gradangle=0 valign=top> <table cellspacing=0 cellpadding=0 width=166> <tr><td height=4> <tr><td height=22 colspan=3 valign=middle bgcolor=#000000 transparency=70 gradcolor=#734A42 gradangle=90> <spacer type=horizontal size=6> <font size=-1 color=#A8937E><blackface>WebTV Links</blackface></font> <tr><td height=4> <tr><td width=25 height=23 align=left valign=top> <spacer type=horizontal size=4> <img src=images/centers/webtvtoday/related_circlearrow.gif width=19 height=19> <td width=4> <td width=137 valign=top> 
-<spacer type=vertical size=3><br> 
-<a href=wtv-center:/cwtv/redirect><font size=-1 color=#C6BDA5><B>Club WebTV</B></a> <tr><td height=2> <tr><td width=25 height=23 align=left valign=top> 
-<spacer type=horizontal size=4> 
-<img src=images/centers/webtvtoday/related_circlearrow.gif width=19 height=19> <td width=4> 
-<td width=137 valign=top> 
-<spacer type=vertical size=3><br> 
-<a href=wtv-center:/tips/TipsIndex.tmpl><font size=-1 color=#C6BDA5><B>WebTV Tips</B></a> <tr><td height=2> <tr><td height=6> 
- <!--<tr><td width=166 height=64 colspan=3 align=center valign=middle><a href=/ad-clickthrough?ad-click-ref=000012bdeabda04300000000><img src=/shared/ads/amazon/1999.07.01/amazon_buycd120x60st.gif width=120 height=60></a> <tr><td width=166 height=64 colspan=3 align=center valign=middle> <a href=/ad-clickthrough?ad-click-ref=00001ca9eabda04300000000><img src=/shared/ads/dickies/00.10.03/denim_topical2.gif width=120 height=60></a> <tr><td height=10> <tr><td height=4> --> <tr><td height=22 colspan=3 valign=middle bgcolor=#000000 transparency=70 gradcolor=#734A42 gradangle=90> <spacer type=horizontal size=6> <font size=-1 color=#A8937E><blackface>Things to Try</blackface></font> <tr><td height=8> <tr><td height=23 width=25 valign=top ALIGN=LEFT> <spacer type=horizontal size=10>
-<font size=-1 color=#DED6BD>&#128;</font><spacer type=horizontal size=0> <td colspan=2 valign=top> 
-<a href=http://theoldnet.com/get?url=webtv.astroadvice.com/default.htm&year=1999&scripts=false&decode=false><font size=-1 color=#DED6BD>Check horoscopes</font></a><br> <spacer type=vertical size=7> <tr><td height=23 width=25 valign=top ALIGN=LEFT> <spacer type=horizontal size=10> 
-<font size=-1 color=#DED6BD>&#128;</font><spacer type=horizontal size=0> <td colspan=2 valign=top> 
-<a href=http://theoldnet.com/get?url=features.yahoo.com/lottery&year=1999&scripts=false&decode=false><font size=-1 color=#DED6BD>Get lottery results</font></a><br> <spacer type=vertical size=7> <tr><td height=23 width=25 valign=top ALIGN=LEFT> <spacer type=horizontal size=10> 
-<font size=-1 color=#DED6BD>&#128;</font><spacer type=horizontal size=0> <td colspan=2 valign=top> 
-<a href=http://theoldnet.com/get?url=www.whowhere.com/tv/phone&year=1999&scripts=false&decode=false><font size=-1 color=#DED6BD>Search white pages</font></a><br> <spacer type=vertical size=7> <tr><td height=23 width=25 valign=top ALIGN=LEFT> <spacer type=horizontal size=10> 
-<font size=-1 color=#DED6BD>&#128;</font><spacer type=horizontal size=0> <td colspan=2 valign=top> 
-<a href=wtv-center:/center?info=AroundTown#yellowpages><font size=-1 color=#DED6BD>Use yellow pages</font></a><br> <spacer type=vertical size=7> <tr><td height=23 width=25 valign=top ALIGN=LEFT> <spacer type=horizontal size=10> 
-<font size=-1 color=#DED6BD>&#128;</font><spacer type=horizontal size=0> <td colspan=2 valign=top> 
-<a href=http://theoldnet.com/get?url=www.zip2.com/webtv/scripts/staticpage.dll?ep=8200&year=1999&scripts=false&decode=false><font size=-1 color=#DED6BD>Get directions</font></a><br> <spacer type=vertical size=7> <tr><td height=23 width=25 valign=top ALIGN=LEFT> <spacer type=horizontal size=10> <font size=-1 color=#DED6BD>&#128;</font><spacer type=horizontal size=0> <td colspan=2 valign=top> <a href=http://theoldnet.com/get?url=www.classifieds2000.com&year=1999&scripts=false&decode=false><font size=-1 color=#DED6BD>Search classifieds</font></a><br> <spacer type=vertical size=7> <tr><td height=23 width=25 valign=top ALIGN=LEFT> <spacer type=horizontal size=10> <font size=-1 color=#DED6BD>&#128;</font><spacer type=horizontal size=0> <td colspan=2 valign=top> <a href=wtv-center:/time-savers><font size=-1 color=#DED6BD>More</font></a><br> <spacer type=vertical size=7> </table> <tr> 
-<td bgcolor=#734A42> 
-<td bgcolor=#979988 > 
-<table cellspacing=0 cellpadding=0> 
-<tr> 
-<td width=8> 
-<td width=357 height=6> 
-<tr> 
-<td width=8 height=8 bgcolor=#979988> 
-<img src=wtv-center:/images/centers/webtvtoday/BottomRoundedCorner.gif width=8 height=8> </table> <td background=wtv-center:/images/centers/infocenter_right_bg.gif bgcolor=#4A2929> </table> <table cellspacing=0 cellpadding=0 valign=top> <tr><td bgcolor=#734A42> 
-<table cellspacing=0 cellpadding=0 valign=top> 
-<tr><td width=21> 
-<td width=524 height=120 valign=top> 
-<table cellspacing=0 cellpadding=0> 
-<tr><td width=524 height=16> 
-<tr><td> 
-<table cellspacing=0 cellpadding=0> 
-<tr><td width=16> 
-<td width=156> 
-<font size=+1 color=#4A2929>&#128; </font><font color=#4A2929><b>WebTV Today</b></font> <td width=100> 
-<font size=+1 color=#f7e7bd>&#128; </font><a href=wtv-center:/center?info=News><font color=#f7e7bd>News</font></a> <td width=110> <font size=+1 color=#f7e7bd>&#128; </font><a href=wtv-center:/center?info=Shopping><font color=#f7e7bd>Shopping</font></a> <td width=1> <spacer type=horizontal width=35><FONT SIZE=+1 COLOR=#FFFFFF>&#128; </font><a href="wtv-guide:/help"><font color=#FFFFFF>Help</font></a> <tr><td><spacer type=vertical size=4><td><td><td><td> <tr><td width=16> <td> <font size=+1 color=#f7e7bd>&#128; </font><a href=wtv-center:/center?info=Entertainment><font color=#f7e7bd>Entertainment</font></a> <td> <font size=+1 color=#f7e7bd>&#128; </font><a href=wtv-center:/center?info=Sports><font color=#f7e7bd>Sports</font></a> <td> <font size=+1 color=#f7e7bd>&#128; </font><a href=wtv-center:/center?info=Money><font color=#f7e7bd>Money</font></a> <td> 
-<spacer type=horizontal width=35><FONT SIZE=+1 COLOR=#FFFFFF>&#128; </font><a href="wtv-center:/search-page"><font color=#FFFFFF>Search</font></a> <tr><td><spacer type=vertical size=5><td><td><td><td> <tr><td width=16> <TD> 
-<TD> 
-<td> 
-<td> 
-</table> </table> 
-</table> 
-</table> 
-</body> 
-</html> 
-`;
+			var cityCase = titleCase(cityZIP.city);
+			data = engine.renderFileSync('wtv-center/WebTVToday', { clubWebTVTitle, clubWebTVDesc, cityCase, newsData, weatherData, isJapaneseClient: session_data.isJapaneseClient(), sponsoredByImage: "webtv_today_sponsored_placeholder.jpg", sponsoredByUrl: "client:showalert?message=ough" });
 			return data;
 		}
 
 		(async () => {
-			// Load the RSS data
-			let newsData = await wtvc.getNewsCache();
-			let weatherData = await wtvc.getWeatherCache(accounts.subscriber.subscriber_zip_code || "98052");
-			sendToClient(
-				socket,
-				headers,
-				renderToday(newsData, weatherData)
-			);
+			try {
+				// Load the RSS data
+				var newsData = await wtvc.getNewsCache();
+			} catch (error) {
+				var newsData;
+				console.error('Failed to get external data:', error.message);
+			}
+
+			try {
+				var weatherData = await wtvc.getWeatherCache(accounts.subscriber.subscriber_zip_code || "98052");
+			} catch (error) {
+				var weatherData;
+				console.error('Failed to get external data:', error.message);
+			}
+
+			sendToClient(socket, headers, renderToday(newsData, weatherData));
 		})();
 		break;
 
@@ -698,8 +496,7 @@ Weather info is unavailable`;
 </table> 
 </table> 
 </body> 
-</html> 
-`;
+</html>`;
 			return data;
 		}
 
@@ -718,7 +515,7 @@ Weather info is unavailable`;
 	case "News":
 		request_is_async = true; // Make us async
 
-		function renderPage(newsData, weatherData) {
+		function renderNews(newsData, weatherData) {
 			// Get state and city name from user's account
 			var cityZIP = getByZip(
 				accounts.subscriber.subscriber_zip_code || "98052"
@@ -1414,23 +1211,26 @@ Weather info is unavailable`;
 </table> 
 </table> 
 </body> 
-</html> 
-`;
+</html>`;
 			return data;
 		}
 
 		(async () => {
-			// Load the RSS data
-			let newsData = await wtvc.getNewsCache();
-			let weatherData = await wtvc.getWeatherCache(accounts.subscriber.subscriber_zip_code || "98052");
-			sendToClient(
-				socket,
-				headers,
-				renderPage(
-					newsData,
-					weatherData,
-				)
-			);
+			try {
+				// Load the RSS data
+				var newsData = await wtvc.getNewsCache();
+			} catch (error) {
+				var newsData;
+				console.error('Failed to get external data:', error.message);
+			}
+
+			try {
+				var weatherData = await wtvc.getWeatherCache(accounts.subscriber.subscriber_zip_code || "98052");
+			} catch (error) {
+				var weatherData;
+				console.error('Failed to get external data:', error.message);
+			}
+			sendToClient(socket, headers, renderNews(newsData, weatherData));
 		})();
 		break;
 
@@ -1923,158 +1723,7 @@ Red Wings scores are currently unavailable.
 		break;
 
 	case "Shopping":
-		data = `
-<html><head>
-<title>Shopping</title>
-</head>
-<body vspace="0" hspace="0" fontsize="${session_data.isJapaneseClient() ? `small` : `medium`}" vlink="#000000" text="#000000" link="#000000" bgcolor="846232"><display>
-
-<table width="560" height="80" cellspacing="0" cellpadding="0">
-<tbody><tr>
-<td gradcolor="BFA55B" gradangle="90" novtilebg="" nohtilebg="" width="394" bgcolor="BFA55B" background="images/centers/shopping/main_bg_top.jpg">
-<table width="394" height="80" cellspacing="0" cellpadding="0">
-<tbody><tr>
-<td width="98" valign="middle" height="67" align="center">
-<a href="wtv-home:/home"><img src="wtv-home:/ROMCache/WebTVLogoJewel.gif" width="87" height="67"></a>
-</td><td width="296" valign="top" align="right">
-</td></tr></tbody></table>
-</td><td gradcolor="000000" gradangle="90" width="166" valign="top" bgcolor="BFA55B" gradcolor="BFA55B">
-<table cellspacing="0" cellpadding="0">
-<tbody><tr>
-<td valign="top">
-<spacer type="vertical" size="10"><br>
-</spacer></td><td valign="top">
-<spacer type="vertical" size="10"><br>
-<spacer type="horizontal" size="6">
-</spacer></spacer></td></tr></tbody></table>
-</td></tr></tbody></table>
-<table cellspacing="0" cellpadding="0">
-<tbody><tr>
-<td gradcolor="846232" gradangle="0" width="21" height="130" bgcolor="977933">
-</td><td width="373" valign="top" bgcolor="#BFA55B">
-<table cellspacing="0" cellpadding="0">
-<tbody><tr>
-<td abswidth="8">
-</td><td abswidth="357">
-</td><td abswidth="8">
-</td></tr><tr>
-<td valign="middle" height="25" bgcolor="977933">
-<img src="wtv-center:/images/CornerTopLeft.gif" width="8" height="25">
-</td><td gradcolor="#6B6B6B" gradangle="90" valign="middle" bgcolor="#182121">
-<spacer type="vertical" size="3"><br>
-<blackface><font color="#FFFFFF"><a name="specials">Specials</a>
-</font></blackface>
-</spacer></td><td bgcolor="#6B6B6B">
-</td></tr><tr>
-<td bgcolor="#9C9C8C">
-</td><td abswidth="357" valign="top" bgcolor="#9C9C8C">
-<table cellspacing="0" cellpadding="0">
-<tbody><tr><td width="100%" height="10">
-</td></tr><tr><td valign="top">
-</td></tr><tr><td href="client:showalert?message=Sorry, eBay isn't responding to my messages. I think they blocked me" width="100%">
-<font size=3 color="000000"><blackface>WebTV Receiver special deal!</blackface></font><br>
-<font color="000000">Buy one, get one 0% off!</font>
-</td></tr><tr><td width="350">
-</td></tr><tr><td valign="middle" height="46" align="right"> <font size="-1" color="#947B4A">&#128; </font><a href="client:showalert?message=You will get your info stolen. Guaranteed, or we'll personally take your money instead."><font size="-1" color="#947B4A"><b>WebTV Shopping Guarantee</b></font></a>
-</td></tr></tbody></table>
-</td><td bgcolor="#9C9C8C">
-</td></tr></tbody></table>
-<table cellspacing="0" cellpadding="0">
-<tbody><tr>
-<td abswidth="8">
-</td><td abswidth="357">
-</td><td abswidth="8">
-</td></tr><tr>
-<td valign="middle" height="25" bgcolor="#182121">
-</td><td gradcolor="#6B6B6B" gradangle="90" valign="middle" bgcolor="#182121">
-<spacer type="vertical" size="3"><br>
-<blackface><font color="#FFFFFF"><a name="categories">Categories</a>
-</font></blackface>
-</spacer></td><td bgcolor="#6B6B6B">
-</td></tr><tr>
-<td bgcolor="#AD977B">
-</td><td abswidth="357" valign="top" bgcolor="#AD977B">
-<br><br><table cellspacing="0" cellpadding="0" border="0" align="right">
-<tbody><tr><td gradcolor="#6B5A39" gradangle="90" height="5" bgcolor="6B5A39">
-</td></tr><tr><td gradcolor="#AD977B" gradangle="90" bgcolor="6B5A39">
-
-</td></tr><tr><td valign="middle" height="10" align="right">
-</td></tr></tbody></table>
-</td><td bgcolor="#AD977B">
-</td></tr></tbody></table>
-</td><td gradcolor="#6B5A39" gradangle="0" width="166" valign="top" bgcolor="#000000" background="images/centers/infocenter_right_bg.gif">
-<select name="myLinks" width="160" align="center">
-</select><table width="166" cellspacing="0" cellpadding="0" border="0">
-<tbody><tr><td height="4">
-</td></tr><tr><td colspan="3" transparency="70" gradcolor="#6B5A39" gradangle="90" valign="middle" height="22" bgcolor="#000000">
-<spacer type="horizontal" size="6">
-<font size="-1" color="#D8CDA0"><blackface>Things to Try</blackface></font>
-</spacer></td></tr><tr><td height="8">
-</td></tr><tr><td width="25" valign="top" height="23" align="LEFT">
-<spacer type="horizontal" size="10">
-<font size="-1" color="#DED6BD">&#128;</font><spacer type="horizontal" size="0">
-</spacer></spacer></td><td colspan="2" valign="top">
-<a href="client:showalert?message=That's a terrible idea, I don't know what that guy's on about"><font size="-1" color="#DED6BD">Get a credit card</font></a><br>
-<spacer type="vertical" size="7">
-</spacer></td></tr><tr><td width="25" valign="top" height="23" align="LEFT">
-<spacer type="horizontal" size="10">
-<font size="-1" color="#DED6BD">&#128;</font><spacer type="horizontal" size="0">
-</spacer></spacer></td><td colspan="2" valign="top">
-<a href="client:showalert?message=We both know you're just gonna eat nothing but hot pockets"><font size="-1" color="#DED6BD">Buy groceries</font></a><br>
-<spacer type="vertical" size="7">
-</spacer></td></tr><tr><td width="25" valign="top" height="23" align="LEFT">
-<spacer type="horizontal" size="10">
-<font size="-1" color="#DED6BD">&#128;</font><spacer type="horizontal" size="0">
-</spacer></spacer></td><td colspan="2" valign="top">
-<a href="client:showalert?message=1 dollar"><font size="-1" color="#DED6BD">Coupons</font></a><br>
-<spacer type="vertical" size="7">
-</spacer></td></tr><tr><td width="25" valign="top" height="23" align="LEFT">
-<spacer type="horizontal" size="10">
-<font size="-1" color="#DED6BD">&#128;</font><spacer type="horizontal" size="0">
-</spacer></spacer></td><td colspan="2" valign="top">
-<a href="client:showalert?message=Just go to that one alleyway in Detroit, I'm sure the guy there is trustworthy"><font size="-1" color="#DED6BD">Check a merchant</font></a><br>
-<spacer type="vertical" size="7">
-</spacer></td></tr><tr><td width="25" valign="top" height="23" align="LEFT">
-<spacer type="horizontal" size="10">
-<font size="-1" color="#DED6BD">&#128;</font><spacer type="horizontal" size="0">
-</spacer></spacer></td><td colspan="2" valign="top">
-<a href="wtv-center:/time-savers"><font size="-1" color="#DED6BD">More</font></a><br>
-<spacer type="vertical" size="7">
-</spacer></td></tr></tbody></table>
-</td></tr><tr>
-<td bgcolor="846232">
-</td><td bgcolor="#AD977B">
-<table cellspacing="0" cellpadding="0">
-<tbody><tr>
-<td width="8">
-</td><td width="357" height="6">
-</td></tr><tr>
-<td width="8" height="8" bgcolor="#AD977B">
-<img src="wtv-center:/images/CornerBottomLeftShopping.gif" width="8" height="8">
-</td></tr></tbody></table>
-</td><td bgcolor="#6B5A39" background="images/centers/infocenter_right_bg.gif">
- </table> <table cellspacing=0 cellpadding=0 valign=top> <tr><td bgcolor=#846232> 
-<table cellspacing=0 cellpadding=0 valign=top> 
-<tr><td width=21> 
-<td width=524 height=120 valign=top> 
-<table cellspacing=0 cellpadding=0> 
-<tr><td width=524 height=16> 
-<tr><td> 
-<table cellspacing=0 cellpadding=0> 
-<tr><td width=16> 
-<td width=156> 
-<font size=+1 color=#f7e7bd>&#128; </font><a href=wtv-center:/center?info=WebTVToday><font color=#f7e7bd>WebTV Today</font> <td width=100> 
-<font size=+1 color=#f7e7bd>&#128; </font><a href=wtv-center:/center?info=News><font color=#f7e7bd>News</font></a> <td width=110> <font size=+1 color=#6B5A39>&#128; </font><b><font color=#6B5A39>Shopping</font></b> <td width=1> <spacer type=horizontal width=35><FONT SIZE=+1 COLOR=#FFFFFF>&#128; </font><a href="wtv-guide:/help"><font color=#FFFFFF>Help</font></a> <tr><td><spacer type=vertical size=4><td><td><td><td> <tr><td width=16> <td> <font color="f7e7bd">&#128; </font><a href=wtv-center:/center?info=Entertainment><font color=#f7e7bd>Entertainment</font></a> <td> <font size=+1 color=#f7e7bd>&#128; </font><a href=wtv-center:/center?info=Sports><font color=#f7e7bd>Sports</font></a> <td> <font size=+1 color=#f7e7bd>&#128; </font><a href=wtv-center:/center?info=Money><font color=#f7e7bd>Money</font></a> <td> 
-<spacer type=horizontal width=35><FONT SIZE=+1 COLOR=#FFFFFF>&#128; </font><a href="wtv-center:/search-page"><font color=#FFFFFF>Search</font></a> <tr><td><spacer type=vertical size=5><td><td><td><td> <tr><td width=16> <TD> 
-<TD> 
-<td> 
-<td> 
-</table> </table> 
-</table> 
-</table> 
-</body> 
-</html> 
-`;
+		data = engine.renderFileSync('wtv-center/Shopping', { isJapaneseClient: session_data.isJapaneseClient() });
 		break;
 
 	case "Money":
@@ -2881,13 +2530,12 @@ name="button">
 		request_is_async = true; // Make us async
 
 		function renderAT(weatherData) {
-			const { getByZip } = require("zcs");
-			let cityZIP = getByZip(
-				accounts.subscriber.subscriber_zip_code || "98052"
-			);
-			let citystate = cityZIP.state;
-			let cityname = titleCase(cityZIP.city);
+			let cityZIP = getByZip(accounts.subscriber.subscriber_zip_code || "98052");
+			let cityState = cityZIP.state;
+			let cityName = titleCase(cityZIP.city);
+			/* let userId = parseInt(session_data.user_id);
 
+			data = engine.renderFileSync('wtv-center/AroundTown', { userId, weatherData, cityZIP, cityState, cityName, isJapaneseClient: session_data.isJapaneseClient() }); */
 			data = `<HTML>
 <HEAD>
 <TITLE>Around Town</TITLE>
@@ -2929,7 +2577,7 @@ name="button">
 			if (session_data.user_id == 0) {
 				data += `<a href="#zip-code" nocolor>`;
 			}
-			data += `${cityname}, ${citystate}`;
+			data += `${cityName}, ${cityState}`;
 			if (session_data.user_id == 0) {
 				data += `</a>`;
 			}
@@ -3065,7 +2713,7 @@ href="client:showalert?message=no" selected >
 <a href="client:showalert?message=stop%20clicking%20these%20links">
 <img src="ROMCache/centers/aroundtown/logo_yahoo.gif" width=143 height=51 ALIGN=LEFT>
 </A>
-<FONT SIZE=2>${cityname} news, sports, community links, and more. Or, search </FONT><a href="client:showalert?message=WebTV%20ran%20into%20a%20technical%20problem.%20Go%20away." nocolor><FONT SIZE=2 COLOR="#DEDEA5" EFFECT=SHADOW><B>Yahoo's</B></FONT></A> <FONT SIZE=2><B>main directory</B>.</FONT>
+<FONT SIZE=2>${cityName} news, sports, community links, and more. Or, search </FONT><a href="client:showalert?message=WebTV%20ran%20into%20a%20technical%20problem.%20Go%20away." nocolor><FONT SIZE=2 COLOR="#DEDEA5" EFFECT=SHADOW><B>Yahoo's</B></FONT></A> <FONT SIZE=2><B>main directory</B>.</FONT>
 </TD>
 <TD ABSWIDTH=10>
 </TD>
@@ -3088,7 +2736,7 @@ href="client:showalert?message=no" selected >
 </TR>
 <TR BGCOLOR="#214A52">
 <TD>
-&nbsp;&nbsp;<A href="proto://www.weather.com/" nocolor><font color="#BDBDBD" SIZE="-1">Forecast for <B>${cityname}, ${citystate}</B></FONT></A>
+&nbsp;&nbsp;<A href="proto://www.weather.com/" nocolor><font color="#BDBDBD" SIZE="-1">Forecast for <B>${cityName}, ${cityState}</B></FONT></A>
 </TD>
 </TR>
 <TR ABSHEIGHT=110 BGCOLOR="#214A52">
@@ -3150,7 +2798,7 @@ href="client:showalert?message=no" selected >
 <TD>
 <font color="#7BA584" size=-1>Type a ZIP code to change your city.</font><BR>
 <font size="2" color="#7BA584">
-(Current choice: <B>${cityname}, ${citystate}</B></FONT><font size="1" color="#7BA584"></font><font size="2" color="#7BA584"> <b>${accounts.subscriber.subscriber_zip_code || "98052"
+(Current choice: <B>${cityName}, ${cityState}</B></FONT><font size="1" color="#7BA584"></font><font size="2" color="#7BA584"> <b>${accounts.subscriber.subscriber_zip_code || "98052"
 					}</b>)</font><BR>
 <img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=8><BR>
 <form action="wtv-center:/changecity?redirect=wtv-tricks:/aroundtown" method="get" nocancel>
@@ -3179,14 +2827,17 @@ NOARGS>
 </TR>
 </TABLE>
 </BODY>
-</HTML>
-`;
+</HTML>`;
 			return data;
 		}
 
 		(async () => {
-			// Load the RSS data
-			let weatherData = await wtvc.getWeatherCache(accounts.subscriber.subscriber_zip_code || "98052");
+			try {
+				var weatherData = await wtvc.getWeatherCache(accounts.subscriber.subscriber_zip_code || "98052");
+			} catch (error) {
+				var weatherData;
+				console.error('Failed to get external data:', error.message);
+			}
 			sendToClient(socket, headers, renderAT(weatherData));
 		})();
 		break;
