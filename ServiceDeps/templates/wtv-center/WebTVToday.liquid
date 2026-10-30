@@ -6,17 +6,15 @@
 </head> 
 <display> 
 <body bgcolor=#734A42 text=cccccc link=aaaaaa vlink=aaaaaa fontsize={% if isJapaneseClient %}medium{% else %}large{% endif %} hspace=0 vspace=0> <table height=80 width=560 cellspacing=0 cellpadding=0> <tr> 
-<td width=394 background=wtv-center:/images/centers/webtvtoday/bg_topleft.jpg bgcolor=#B5948C gradcolor=#2F1816 gradangle=90 novtilebg nohtilebg> <table height=80 width=394 cellspacing=0 cellpadding=0> <tr> <td width=98 height=67 align=center valign=middle> <a href="wtv-home:/home"><img src="wtv-home:/ROMCache/WebTVLogoJewel.gif" width=87 height=67></a> <td width=296 align=right valign=top> <spacer type=vertical size=10><br>
+<td width=394 background=wtv-center:/images/centers/webtvtoday/bg_topleft.jpg bgcolor=#B5948C gradcolor=#2F1816 gradangle=90 novtilebg nohtilebg> <table height=80 width=394 cellspacing=0 cellpadding=0> <tr> <td width=98 height=67 align=center valign=middle> <a href="wtv-home:/home"><img src="wtv-home:/ROMCache/WebTVLogoJewel.gif" width=87 height=67></a> <td width=296 align=right valign=top>
 {% if sponsoredByImage and sponsoredByUrl %}
-<font size=-3 color=FFFFFF><shadow>sponsored&nbsp;</shadow></font> </table> <td width=166 bgcolor=#2F1816 gradcolor=#000000 gradangle=90 valign=top> <table cellspacing=0 cellpadding=0> 
-<tr> 
-<td valign=top> 
-<spacer type=vertical size=10><br> 
-<font size=-3 color=FFFFFF><shadow>by</shadow></font> 
-<td valign=top> 
-<spacer type=vertical size=10><br> 
-<spacer type=horizontal size=6> 
-<a href="{{ sponsoredByUrl }}"> <img src=/shared/ads/infocenter/centers/{{ sponsoredByImage }} width=120 height=60> </a>
+<table border=0 cellspacing=0 cellpadding=0 width=294>
+<tr>
+<td valign=bottom align=right valign=top height=20><shadow><font color=#FFFFFF size=-3>sponsored by</font></shadow>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td width=166 height=80 background=/shared/ads/infocenter/centers/{{ sponsoredByImage }} valign=middle align=center><a href={{ sponsoredByUrl }}><spacer type=block size=154 height=68></a></td>
 {% endif %}
 </table> </table>
 <table cellspacing=0 cellpadding=0> 
