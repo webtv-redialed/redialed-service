@@ -1,0 +1,108 @@
+{% comment %} 2026 WebTV Redialed {% endcomment %}
+{% if not correcting %}
+{% assign title = "Your last name" %}
+{% assign heading = "Last name" %}
+{% assign nextAction = "ValidateLastName" %}
+{% else %}
+{% assign title = "Your name" %}
+{% assign heading = "Name" %}
+{% assign nextAction = "ValidateAgreement" %}
+{% endif %}
+{% layout "wtv-register/register" %}
+{% block javascript %}
+<script language=javascript>
+function capitalizeCharAt(str, pos) { var Capper = str.charAt(pos);
+Capper=Capper.toUpperCase();
+str=str.substring(0,pos)+Capper+str.substring(pos+1,str.length);
+return str;
+}
+function formatname (name) {// alert("beginning of formatname");
+name = name.toLowerCase();
+//alert("lowercase name="+name);
+name = capitalizeCharAt(name, 0);
+//alert("after capitalizing first char");
+var dashloc = name.indexOf('-');
+while(dashloc >= 0) {	if(dashloc<name.length-1) {	name=capitalizeCharAt(name, dashloc+1);
+}
+dashloc = name.indexOf('-',dashloc+1);
+}
+var spaceloc=name.indexOf(' ');
+while(spaceloc >= 0) { if(spaceloc<name.length-1) {	name=capitalizeCharAt(name, spaceloc+1);
+}
+spaceloc = name.indexOf(' ', spaceloc+1);
+}
+return name;
+}
+function ValidateName(NameField) {	if (MostlyLowerCase(NameField.value)) {	NameField.value=formatname(NameField.value);
+}
+}
+function HasOnly(str, okletters) { var slen=str.length;
+for (var i=0;i<slen;i++) {	var ch=str.charAt(i);
+if(okletters.indexOf(ch)==-1) return false;
+}
+return true;
+}
+function MostlyLowerCase(str) {	return HasOnly(str, "abcdefghijklmnopqrstuvwxyz -1234567890.,");
+}
+function AllLowerCase(str) {	return HasOnly(str,"abcdefghijklmnopqrstuvwxyz");
+}
+function ValidateHumanName(NameField) {	if (AllLowerCase(NameField.value)) {	NameField.value=formatname(NameField.value);
+}
+}
+function ValidateNotEmpty(textfield, errmessage) {	var result = true;
+if (textfield.value=="") {	location = "client:showalert?sound=none&message="+errmessage+"&buttonlabel1=Continue&buttonaction1=client:donothing";
+result = false;
+}
+return result;
+}
+</script>
+{% endblock %}
+{% block content %}
+<td colspan=11 width=540 height=258 valign=top align=left>
+<table cellspacing=0 cellpadding=0>	<tr>
+<td colspan=2 width=124 valign=top align=center>
+<td colspan=2 valign=top align=left>	<font size="+1">
+{% if not correcting %}Now type your{% else %}Correct your first or{% endif %} last name.
+<p>
+</font>
+<tr>
+<td width=121 valign=top align=right>
+<img src="ROMCache/Spacer.gif" width=1 height=4><br>
+First name<img src="ROMCache/Spacer.gif" width=8>
+<td width=3 valign=top align=left>
+<input type="hidden" name="NextQuestion" id="QuestionNumber" value="1">
+<td width=200 valign=top align=left>
+<input type="text" name="subscriber_first_name" id="subscriber_first_name" value="{{ firstName }}" size="18"
+maxlength="18"
+bgcolor=#444444 AutoCaps text=#ffdd33 cursor=#cc9933
+onChange="ValidateHumanName(this)"
+>
+<font size=-1>
+<td width=216 valign=middle align=left rowspan=3>
+<tr>
+<td height=7>
+<tr>
+<td valign=top align=right>
+<img src="ROMCache/Spacer.gif" width=1 height=4>
+<br>
+Last name<img src="ROMCache/Spacer.gif" width=8>
+<td valign=top align=left>
+<td valign=top align=left>
+<input type="text" name="subscriber_last_name" id="subscriber_last_name" value="{% if correcting %}{{ lastName }}{% else %}{{ randomName }}{% endif %}" size="18"
+maxlength="18"
+bgcolor=#444444 AutoCaps text=#ffdd33 cursor=#cc9933
+selected
+onChange="ValidateHumanName(this)"
+>
+</font>
+{% if not correcting %}
+<tr>
+<td height=18>
+<tr>
+<td colspan=2>
+<td valign=top colspan=4>
+<font color="42CC55">
+<font size=+1>Or press</font> <b>BACK</b> <font size=+1>on your {{ controller.value }} to correct the previous step.</font>
+</font>
+{% endif %}
+{% endblock %}

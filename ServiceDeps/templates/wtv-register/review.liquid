@@ -1,0 +1,56 @@
+{% comment %} 2026 WebTV Redialed {% endcomment %}
+{% assign title = "Review Account Info" %}
+{% assign heading = "Review" %}
+{% assign nextAction = "ValidateReviewAccountInfo" %}
+
+{% layout "wtv-register/register" %}
+{% block content %}
+<td colspan=11 width=540 height=258 valign=top align=left>
+<table cellspacing=0 cellpadding=0>	<tr>
+<td colspan=2 width=124 valign=top align=left>
+<td colspan=2 width=416 valign=top align=left>	<font size="+1">
+Here is your account information. If you 
+need to correct an item, choose it then 
+press {% if controller.value == "keyboard" %}<b>Return</b>{% else %}the center <img src="images/{{ brand.value }}/CenterButton.gif" align=absmiddle> button{% endif %}.
+<p>
+</font>
+<tr>
+<td width=121 valign=top align=right>
+<img src="ROMCache/Spacer.gif" width=1 height=4><br>
+Name<img src="ROMCache/Spacer.gif" width=7 height=1>
+<td width=3 valign=top align=left>
+<td width=174 valign=top align=left>
+<spacer width=8>
+
+<img src="ROMCache/Spacer.gif" width=1 height=4><br><a href="wtv-register:/CorrectName?subscriber_first_name={{ subscriber_first_name.value }}&subscriber_last_name={{ subscriber_last_name.value }}&subscriber_username={{ subscriber_username.value }}&controller={{ controller.value }}&subscriber_birth_month={{ subscriber_birth_month.value }}&subscriber_birth_date={{ subscriber_birth_date.value }}&brand={{ brand.value }}">
+<tt>{{ subscriber_first_name.value }} {{ subscriber_last_name.value }}</tt>
+
+<tr>
+<td width=121 valign=top align=right>
+<img src="ROMCache/Spacer.gif" width=1 height=4><br>
+E-mail<img src="ROMCache/Spacer.gif" width=7 height=1>
+<td width=3 valign=top align=left>
+<td width=174 valign=top align=left>
+<spacer width=8>
+
+<img src="ROMCache/Spacer.gif" width=1 height=4><br><font color="#42CC55"><a href="wtv-register:/CorrectUsername?subscriber_first_name={{ subscriber_first_name.value }}&subscriber_last_name={{ subscriber_last_name.value }}&subscriber_username={{ subscriber_username.value }}&controller={{ controller.value }}&subscriber_birth_month={{ subscriber_birth_month.value }}&subscriber_birth_date={{ subscriber_birth_date.value }}&brand={{ brand.value }}">
+<tt>{{ subscriber_username.value }}@webtv.zone</tt>
+
+<tr>
+<td width=121 valign=top align=right>
+<img src="ROMCache/Spacer.gif" width=1 height=4><br>
+Birthday<img src="ROMCache/Spacer.gif" width=7 height=1>
+<td width=3 valign=top align=left>
+<td width=174 valign=top align=left>
+<spacer width=8>
+
+<img src="ROMCache/Spacer.gif" width=1 height=4><br><font color="#42CC55"><a href="wtv-register:/CorrectBirthday?subscriber_first_name={{ subscriber_first_name.value }}&subscriber_last_name={{ subscriber_last_name.value }}&subscriber_username={{ subscriber_username.value }}&controller={{ controller.value }}&subscriber_birth_month={{ subscriber_birth_month.value }}&subscriber_birth_date={{ subscriber_birth_date.value }}&brand={{ brand.value }}">
+<tt>{{ birthday }}</tt>
+<tr>
+<td height=12>
+<tr>
+<td colspan=2 width=124 valign=top align=left>
+<td colspan=2 width=416 valign=bottom align=left>	<table cellspacing=0 cellpadding=0>
+<tr>
+</table>
+{% endblock %}

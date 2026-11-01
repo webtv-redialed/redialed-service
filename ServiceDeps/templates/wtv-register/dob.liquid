@@ -1,0 +1,77 @@
+{% comment %} 2026 WebTV Redialed {% endcomment %}
+{% assign title = "Date of birth" %}
+{% assign heading = "Date of birth" %}
+{% if not correcting %}
+{% assign nextAction = "ValidateBirthday" %}
+{% else %}
+{% assign nextAction = "ValidateAgreement" %}
+{% endif %}
+{% layout "wtv-register/register" %}
+{% block content %}
+<td colspan=11 width=540 height=258 valign=top align=left>
+<table cellspacing=0 cellpadding=0>	<tr>
+<td colspan=2 width=124 valign=top align=center>
+<td colspan=2 valign=top align=left>	<font size="+1">
+Please enter your date of birth.
+<p>
+</font>
+<tr>
+<td width=121 valign=top align=right>
+<img src="ROMCache/Spacer.gif" width=1 height=4><br>
+<img src="ROMCache/Spacer.gif" width=8>
+<td width=3 valign=top align=left>
+<td width=200 valign=top align=left>
+<select name="subscriber_birth_month">
+<option value="0" selected="">January</option>
+<option value="1" >February</option>
+<option value="2" >March</option>
+<option value="3" >April</option>
+<option value="4" >May</option>
+<option value="5" >June</option>
+<option value="6" >July</option>
+<option value="7" >August</option>
+<option value="8" >September</option>
+<option value="9" >October</option>
+<option value="10" >November</option>
+<option value="11" >December</option>
+</select>&nbsp;<select name="subscriber_birth_date">
+<option value="1" selected="">1st</option>
+<option value="2">2nd</option>
+<option value="3">3rd</option>
+<option value="4">4th</option>
+<option value="5">5th</option>
+<option value="6">6th</option>
+<option value="7">7th</option>
+<option value="8">8th</option>
+<option value="9">9th</option>
+<option value="10">10th</option>
+<option value="11">11th</option>
+<option value="12">12th</option>
+<option value="13">13th</option>
+<option value="14">14th</option>
+<option value="15">15th</option>
+<option value="16">16th</option>
+<option value="17">17th</option>
+<option value="18">18th</option>
+<option value="19">19th</option>
+<option value="20">20th</option>
+<option value="21">21st</option>
+<option value="22">22nd</option>
+<option value="23">23rd</option>
+<option value="24">24th</option>
+<option value="25">25th</option>
+<option value="26">26th</option>
+<option value="27">27th</option>
+<option value="28">28th</option>
+<option value="29">29th</option>
+<option value="30">30th</option>
+<option value="31">31st</option>
+</select>
+</font>
+<tr>
+<td height=18>
+<tr>
+<td colspan=2>
+<td valign=top colspan=4>
+</table>
+{% endblock %}

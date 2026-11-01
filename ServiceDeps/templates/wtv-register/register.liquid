@@ -1,0 +1,173 @@
+{% comment %} 2026 WebTV Redialed {% endcomment %}
+
+{% comment %} liquidjs kinda sucks {% endcomment %}
+{% assign brand = formItems | where: "name", "brand" | first %}
+{% assign controller = formItems | where: "name", "controller" | first %}
+{% assign subscriber_first_name = formItems | where: "name", "subscriber_first_name" | first %}
+{% assign subscriber_last_name = formItems | where: "name", "subscriber_last_name" | first %}
+{% assign subscriber_username = formItems | where: "name", "subscriber_username" | first %}
+{% assign subscriber_birth_month = formItems | where: "name", "subscriber_birth_month" | first %}
+{% assign subscriber_birth_date = formItems | where: "name", "subscriber_birth_date" | first %}
+
+<html>
+<head>
+<title>
+{{ title }}
+</title>
+<display nooptions
+NoScroll
+>
+{% block javascript %}
+{% endblock %}
+{% for image in preload %}
+<LINK REL=next HREF="{{ image }}">
+{% endfor %}
+</head>
+<body noscroll bgcolor="#191919" text="#42CC55" link="{% if title != "Review Account Info" %}36d5ff{% else %}189cd6{% endif %}"
+{% if title == "Review Account Info" %}vlink="189cd6" {% endif %}hspace=0 vspace=0 fontsize="{% if isJapaneseClient %}medium{% else %}large{% endif %}"
+>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td width=104 height=74 valign=middle align=center bgcolor="3B3A4D">
+<img src="wtv-register:/ROMCache/WebTVLogoJewel.gif" width=87 height=67>
+<td width=20 valign=top align=left bgcolor="3B3A4D">
+<img src="ROMCache/Spacer.gif" width=1 height=1>
+<td colspan=10 width=436 valign=middle align=left bgcolor="3B3A4D" >
+<font color="D6DFD0" size="+2">
+<blackface>
+<shadow>
+<img src="ROMCache/Spacer.gif" width=1 height=4>
+<br>
+{{ heading }}
+</shadow>
+</blackface>
+</font>
+<tr>
+<td colspan=12 width={% if brand.value == "SegaFiji" %}640{% else %}560{% endif %} height=10 valign=top align=left>
+<img src="images/Shadow.gif" width={% if brand.value == "SegaFiji" %}640{% else %}560{% endif %} height=6>
+<tr>
+<td width=104 height=10 valign=top align=left>
+<td width=20 valign=top align=left>
+<td width=67 valign=top align=left>
+<td width=20 valign=top align=left>
+<td width=67 valign=top align=left>
+<td width=20 valign=top align=left>
+<td width=67 valign=top align=left>
+<td width=20 valign=top align=left>
+<td width=67 valign=top align=left>
+<td width=20 valign=top align=left>
+<td width=68 valign=top align=left>
+<td width=20 valign=top align=left>
+<form action="{{ nextAction }}"
+ENCTYPE="x-www-form-encoded" METHOD="POST">
+{% for item in formItems %}
+<INPUT TYPE="hidden" NAME="{{ item.name }}" VALUE="{{ item.value }}">
+{% endfor %}
+<input type=hidden name=whatnot>
+{% comment %} text spacing sucks {% endcomment %}
+{% if title != "Signing up" and title != "Your last name" %}
+<tr>
+<td colspan=12 height=258 valign=top align=left>
+<table cellpadding=0 cellspacing=0>
+{% endif %}
+<tr>
+{% block content %}
+{% endblock %}
+{% comment %} handle the special button and spacing case for "Do you have a keyboard?" {% endcomment %}
+{% if title == "Do you have a keyboard?" or title == "Gamepad or keyboard?" %}
+</table>
+<tr>
+<td width=104 valign=middle align=center>
+<td width=20 valign=middle align=center>
+<td colspan=10 height=2 valign=middle align=center bgcolor="2B2B2B">
+<img src="ROMCache/Spacer.gif" width=436 height=1>
+<tr>
+<td width=104 valign=middle align=center>
+<td width=20 valign=middle align=center>
+<td colspan=9 height=1 valign=top align=left>
+<tr>
+<td width=104 valign=middle align=center>
+<td width=20 valign=middle align=center>
+<td colspan=10 height=2 valign=top align=left bgcolor="0D0D0D">
+<img src="ROMCache/Spacer.gif" width=436 height=1>
+<tr>
+<td width=104 valign=middle align=center>
+<td width=20 valign=middle align=center>
+<td colspan=9 height=4 valign=top align=left>
+<tr>
+<td width=104 valign=middle align=center>
+<td width=20 valign=middle align=center>
+<td colspan=9 width=416 valign=top align=left>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td width=286 valign=top align=left>
+<font size="-1">
+<td width=130 valign=top align=right>
+<font size="-1" color="#E7CE4A">
+<shadow>
+<input name="use_remote" width="205"
+value="{% if brand.value == "SegaFiji" %}Gamepad{% else %}Don't Have Keyboard{% endif %}" type=submit borderimage="file://ROM/Borders/ButtonBorder2.bif" usestyle width=110>
+</shadow>
+</font>
+<td width=130 valign=top align=right>
+<font size="-1" color="#E7CE4A">
+<shadow>
+<input selected
+name="use_keyboard" width="160"
+value="{% if brand.value != "SegaFiji" %}Have {% endif %}Keyboard"
+type=submit action="ValidateNavigate?brand={{ brand.value }}" borderimage="file://ROM/Borders/ButtonBorder2.bif" usestyle width=110>
+{% else %}
+{% if title == "Your first name" %}
+<td width=242 valign=top align=left>
+<img src="ROMCache/Spacer.gif" width=1 height=4><br>
+{% endif %}
+</table>
+<tr>
+<td colspan=12>
+<table cellspacing=0 cellpadding=0 width=520>
+<tr>
+<td width=130>
+<td height=2 valign=middle bgcolor="2B2B2B" width=430>
+<img src="ROMCache/Spacer.gif" width=430 height=1>
+<tr>
+<td height=1 valign=top>
+<tr>
+<td>
+<td height=2 valign=top bgcolor="0D0D0D" width=430>
+<img src="ROMCache/Spacer.gif" width=430 height=1>
+<tr>
+<td height=4 valign=top>
+<tr>
+<td>
+<td width=430>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td width=300 valign=top align=left>
+<font size="-1"><i>
+{% if title == "Review Account Info" %}
+When you are ready,<br>
+choose <b>Sign Up</b>.
+{% elsif controller.value and title != "Sign up with keyboard" and title != "Using the keyboard" %}
+To go on, 
+{% if controller.value == "keyboard" %}
+press <b>Return</b>.
+{% elsif not canRegister and title == "You've finished signing up" %}
+complain to a server operator
+{% else %}
+highlight <b>Continue</b> and<br>press the {% if brand.value == "SegaFiji" %}"A" (Go){% else %}center{% endif %} <img src=images/{{ brand.value }}/CenterButton.gif> button.
+{% endif %}
+{% endif %}
+</i></font>
+<td width=10 valign=top>
+<td width=110 valign=top>
+<font size="-1" color="#E7CE4A">
+<shadow>
+<input type={% if title == "Registrations closed" %}hidden{% else %}submit{% endif %} Value="{% if title != "Review Account Info" %}Continue{% else %}Sign Up{% endif %}" name="{% if title != "Review Account Info" %}Continue{% else %}Sign Up{% endif %}" borderimage="file://ROM/Borders/ButtonBorder2.bif" usestyle width=110>
+{% endif %}
+</shadow>
+</font>
+</form>
+</table>
+</table>
+</body>
+</html>

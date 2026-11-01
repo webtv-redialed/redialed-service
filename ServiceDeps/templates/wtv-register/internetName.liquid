@@ -1,0 +1,76 @@
+{% comment %} 2026 WebTV Redialed {% endcomment %}
+{% assign title = "Internet and e-mail name" %}
+{% assign heading = "Internet and e-mail name" %}
+{% if not correcting %}
+{% assign nextAction = "ValidateUserName" %}
+{% else %}
+{% assign nextAction = "ValidateAgreement" %}
+{% endif %}
+{% layout "wtv-register/register" %}
+{% block content %}
+<td colspan=11 width=540 height=258 valign=top align=left>
+<table cellspacing=0 cellpadding=0>	<tr>
+<td colspan=2 width=124 valign=top align=left>
+<td colspan=2 width=416 valign=top align=left>	<font size="+1">
+Choose your new e-mail address.
+<p>
+</font>
+<tr>
+<td width=121 valign=top align=right>
+<img src="ROMCache/Spacer.gif" width=1 height=4><br>
+Internet<img src="ROMCache/Spacer.gif" width=7 height=1><br>
+name<img src="ROMCache/Spacer.gif" width=7 height=1>
+<td width=3 valign=top align=left>
+<td width=174 valign=top align=left>
+<INPUT noSubmit name="subscriber_username" id="username" Value="{% if correcting %}{{ username }}{% else %}{{ randomName }}{% endif %}"
+bgcolor=#444444 text=#ffdd33 cursor=#cc9933
+TYPE="text" ASCIIONLY
+SIZE="15"
+MAXLENGTH="15"><spacer width=8>
+<td width=242 valign=top align=left>
+<img src="ROMCache/Spacer.gif" width=1 height=4><br>
+<tt>@webtv.zone</tt>
+<tr>
+<td height=12>
+<tr>
+<td colspan=2 width=124 valign=top align=left>
+<td colspan=2 width=416 valign=bottom align=left>	<table cellspacing=0 cellpadding=0>
+<tr>
+<td align=left colspan=3>
+<font size=-1><i>Names have letters and numbers, no spaces.</i><br>
+This is your electronic
+mail address. It can't be changed later.</font>
+<tr>
+<td height=10>
+<tr>
+<td align=right valign=top>
+<i><font size=-1>If your name is:</i>
+<td width=20>
+<td align=left valign=top>
+<i><font size=-1>You might choose:</i>
+<tr>
+<td height=10>
+<tr>
+<td align=right valign=top>
+<font size=-1>Dorothy Parker
+<td width=20>
+<td align=left valign=top>
+<font size=-1>DorothyParker
+<tr>
+<td height=3>
+<tr>
+<td align=right valign=top>
+<font size=-1>Harriet Beecher Stowe
+<td width=20>
+<td align=left valign=top>
+<font size=-1>HBStowe
+<tr>
+<td height=3>
+<tr>
+<td align=right valign=top>
+<font size=-1>William Shakespeare
+<td width=20>
+<td align=left valign=top>
+<font size=-1>the-bard
+</table>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% comment %} 2026 WebTV Redialed {% endcomment %}
+{% assign title = "Using the keyboard" %}
+{% assign heading = "Using the keyboard" %}
+{% assign nextAction = "ValidateController" %}
+{% layout "wtv-register/register" %}
+{% block content %}
+<td width=104>
+<td width=20>
+<td width=374>
+<td width=20>
+<td width=20>
+<td width=20>
+<tr>
+<td colspan=2 valign=top align=center>
+<img src="images/{{ brand.value }}/KeyboardArrows.gif" align=absmiddle>
+<td colspan=2 valign=middle align=left>
+<font size="+1">
+Find the arrow buttons on your keyboard.
+<tr>
+<td height=20>
+<tr>	<td colspan=2 valign=middle align=center>
+<a href="client:donothing" selected><img src="ROMCache/Spacer.gif" width=54 height=46></a>
+<td colspan=2 valign=middle align=left>
+<font size="+1">
+Try moving the yellow box down to <b>Continue</b> using the arrows on the keyboard.
+<tr>
+<td height=20>
+<tr>
+<td colspan=2 valign=top align=center>
+<img src="images/{{ brand.value }}/ReturnKey.gif" align=absmiddle>
+<td colspan=2 valign=middle align=left>
+<font size="+1">
+Once you've moved the yellow box to <b>Continue</b>, press the <b>Return</b>
+key.
+</font>
+</table>
+{% endblock %}

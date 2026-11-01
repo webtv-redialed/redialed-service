@@ -1,0 +1,54 @@
+{% comment %} 2026 WebTV Redialed {% endcomment %}
+
+{% assign brand = formItems | where: "name", "brand" | first %}
+{% assign controller = formItems | where: "name", "controller" | first %}
+
+<HTML> 
+<HEAD> 
+<title>WebTV Service Agreement</title>
+<DISPLAY nooptions> 
+</HEAD>
+<body bgcolor="#191919" text="#42CC55" link="36d5ff" hspace=0 vspace=0>
+<sidebar width=150 bgcolor=3B3A4D fontsize="{% if isJapaneseClient %}medium{% else %}large{% endif %}"> <table cellspacing=0 cellpadding=0 bgcolor=3B3A4D>
+<tr>
+<td width=6>
+<td width=98 height=74 valign=middle align=center>
+<img src="wtv-register:/ROMCache/WebTVLogoJewel.gif" width=87 height=67>
+<tr>
+<td>
+<td valign=top align=left>
+<form action="ValidateAgreement"
+ENCTYPE="x-www-form-encoded" METHOD="POST">
+<font size=-1 color=c6cFc0>
+To read more of this agreement, press <b><font size=-3>SCROLL</font> down</b>
+{% for item in formItems %}
+<INPUT TYPE="hidden" NAME="{{ item.name }}" VALUE="{{ item.value }}">
+{% endfor %}
+<input type=hidden name=whatnot>
+<P>
+To agree to these terms and go on, press{% if controller.value == "keyboard" %}<br><img src="wtv-register:/ROMCache/Spacer.gif" width=111 height=6><img src="wtv-register:/ROMCache/Spacer.gif" width=28 height=4><img src="images/{{ brand.value }}/ReturnKey.gif" align=top>{% else %} the center <img src="wtv-register:/ROMCache/Spacer.gif" width=5 height=6><img src="images/{{ brand.value }}/CenterButton.gif" align=absmiddle> button.{% endif %} <!-- TODO: figure out better spacing for first spacer in ReturnKey, original value is 100 -->
+</font>
+<br>
+<p>
+<img src="wtv-register:/ROMCache/Spacer.gif" width=20 height={% if controller.value == "keyboard" %}62{% else %}75{% endif %}>
+<p>
+<font size="-1" color="#E7CE4A">
+<shadow>
+<img src="wtv-register:/ROMCache/Spacer.gif" width=18 height=1><input type=submit Value=Agree name="Agree" borderimage="file://ROM/Borders/ButtonBorder2.bif" usestyle width=100
+selected>
+</shadow>
+</font>
+</form>
+<td width=6 valign=top align=left height=384 width=6>
+</table>
+</sidebar>
+<table cellspacing=0 cellpadding=0> 
+<tr> 
+<td abswidth=14> 
+<td abswidth=416 absheight=80 valign=center> 
+<font size="+2" color="E7CE4A"><blackface><shadow>
+{{ clean }}
+<td>
+</table>
+</form> <td
+abswidth=20> <tr> <td absheight=15> </table> </body> </html>
