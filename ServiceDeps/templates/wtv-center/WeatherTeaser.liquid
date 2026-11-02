@@ -67,19 +67,19 @@ if ((doc.teaserForm != nil) &&
 				<td valign=middle align=left>
 				<form name=weatherForm>
 					<font color="#000000"><blackface><input id=disp1 type=text size=20 usestyle nobackground border=0 marginheight=3 nocursor noselect value="CURRENT"></blackface></font><br>
-					<font color="#000000"><b>        <input id=disp2 type=text size=25 usestyle nobackground border=0 marginheight=3 nocursor noselect value="{{ weatherData.cond | default: "N/A" }}{% if weatherData.temp %}, {{ weatherData.temp }}{% endif %}"></b></font>
+					<font color="#000000"><b>        <input id=disp2 type=text size=25 usestyle nobackground border=0 marginheight=3 nocursor noselect value="{{ weatherData.cond | default: "not available" }}{% if weatherData.temp %}, {{ weatherData.temp }}{% endif %}"></b></font>
 
 					<!-- these aren't for display -- they just hold information until the Javascript -->
 					<!-- comes along and copies it into the one that does display.                   -->
 					<input id=disp1a type=hidden value="CURRENT">
-					<input id=disp2a type=hidden value="humidity: {{ weatherData.humid | default: 0 }}%">
+					<input id=disp2a type=hidden value="{% if weatherData.humid %}humidity: { weatherData.humid }%{% else %}not available{% endif %}">
 
 					<input id=dispIcon1 type=hidden value="{{ weatherData.icon | default: 0 }}">
 					<input id=dispIcon2 type=hidden value="{{ weatherData.icon | default: 0 }}">
 					<input id=disp1b type=hidden value="CURRENT">
-					<input id=disp2b type=hidden value="{{ weatherData.cond | default: "N/A" }}{% if weatherData.temp %}, {{ weatherData.temp }}{% endif %}">
+					<input id=disp2b type=hidden value="{{ weatherData.cond | default: "not available" }}{% if weatherData.temp %}, {{ weatherData.temp }}{% endif %}">
 					<input id=disp1c type=hidden value="CURRENT">
-					<input id=disp2c type=hidden value="humidity: {{ weatherData.humid | default: 0 }}%">
+					<input id=disp2c type=hidden value="{% if weatherData.humid %}humidity: {{ weatherData.humid }}%{% else %}not available{% endif %}">
 				</form>
 		</table>
 		<tr>
