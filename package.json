@@ -30,7 +30,7 @@
     "endianness": "^8.0.2",
     "express": "^4.22.3",
     "fetch": "^1.1.0",
-    "follow-redirects": "^1.16.0",
+    "follow-redirects": "^1.16.2",
     "html-entities": "^2.4.0",
     "iconv-lite": "^0.6.3",
     "liquidjs": "^10.28.0",
