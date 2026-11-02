@@ -1,0 +1,88 @@
+{% comment %} 2026 WebTV Redialed {% endcomment %}
+{% assign bg = "News" %}
+{% assign info = "Weather" %}
+{% layout "wtv-center/teasers" %}
+{% block content %}
+{% raw %}
+				<script language="JavaScript">
+					function RotateCustomTeaserContent()
+{{
+var str1;
+var str2;
+var icon;
+var doc;
+
+doc = document.teaserEmbed.document;
+
+if ((doc.teaserForm != nil) && 
+	(typeof doc.teaserForm == "object")) {{
+ 		gTeaserSubIndex += 1;
+ 		
+	if (gTeaserSubIndex > 2)
+		gTeaserSubIndex = 0;
+
+	if (gTeaserSubIndex == 1) {{
+		str1 = doc.teaserForm.disp1b.value;
+		str2 = doc.teaserForm.disp2b.value;
+		icon = doc.teaserForm.dispIcon1.value;
+	}} else if (gTeaserSubIndex == 2) {{
+		str1 = doc.teaserForm.disp1c.value;
+		str2 = doc.teaserForm.disp2c.value;
+		icon = doc.teaserForm.dispIcon2.value;
+	}} else {{
+		str1 = doc.teaserForm.disp1a.value;
+		str2 = doc.teaserForm.disp2a.value;
+		icon = doc.teaserForm.dispIcon1.value;
+	}}
+	
+	doc.weather_icon.src = "wtv-home:/ROMCache/" + icon + ".gif";
+
+	doc.teaserForm.disp1.value = str1;
+	doc.teaserForm.disp2.value = str2;
+
+	if (gTeaserSubIndex != 2 || gTeaserCount == 1)
+		gTeaserSubTimeout = setTimeout(RotateWeather, 2900);
+
+}}
+}}
+				</script>
+{% endraw %}
+				<tr>
+    <td rowspan=4 width=80>
+    <td height=16>
+				
+					<tr>
+	<td width=140 colspan=2>
+		<table border=0 cellspacing=0 cellpadding=0>
+			<tr>
+				<td valign=BOTTOM align=left MAXLINES=1 HEIGHT=20>
+					<font color=#313939><b>Weather for {{ cityName }}</b></font>
+				<td width=10>
+		</table>
+<tr>
+	<td HEIGHT=60>
+		<table border=0 cellspacing=0 cellpadding=0>
+			<tr><br>
+				<td width=68 VALIGN=MIDDLE ALIGN=LEFT><img name="weather_icon" src="wtv-home:/ROMCache/weather/{{ weatherData.icon | default: 0 }}.gif" width=68 height=60>
+				<td valign=middle align=left>
+				<form name=weatherForm>
+					<font color="#000000"><blackface><input id=disp1 type=text size=20 usestyle nobackground border=0 marginheight=3 nocursor noselect value="CURRENT"></blackface></font><br>
+					<font color="#000000"><b>        <input id=disp2 type=text size=25 usestyle nobackground border=0 marginheight=3 nocursor noselect value="{{ weatherData.cond | default: "N/A" }}{% if weatherData.temp %}, {{ weatherData.temp }}{% endif %}"></b></font>
+
+					<!-- these aren't for display -- they just hold information until the Javascript -->
+					<!-- comes along and copies it into the one that does display.                   -->
+					<input id=disp1a type=hidden value="CURRENT">
+					<input id=disp2a type=hidden value="humidity: {{ weatherData.humid | default: 0 }}%">
+
+					<input id=dispIcon1 type=hidden value="{{ weatherData.icon | default: 0 }}">
+					<input id=dispIcon2 type=hidden value="{{ weatherData.icon | default: 0 }}">
+					<input id=disp1b type=hidden value="CURRENT">
+					<input id=disp2b type=hidden value="{{ weatherData.cond | default: "N/A" }}{% if weatherData.temp %}, {{ weatherData.temp }}{% endif %}">
+					<input id=disp1c type=hidden value="CURRENT">
+					<input id=disp2c type=hidden value="humidity: {{ weatherData.humid | default: 0 }}%">
+				</form>
+		</table>
+		<tr>
+	<td align=right VALIGN=MIDDLE HEIGHT=30>
+			<font size=-1 color=#313939><b>forecast by {{ wxProviderLong }}<SPACER TYPE=HORIZONTAL SIZE=10>
+{% endblock %}

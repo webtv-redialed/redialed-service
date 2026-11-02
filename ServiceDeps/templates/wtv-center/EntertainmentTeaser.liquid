@@ -1,0 +1,37 @@
+{% comment %} 2026 WebTV Redialed {% endcomment %}
+{% assign bg = "Entertainment" %}
+{% assign info = "Entertainment" %}
+{% layout "wtv-center/teasers" %}
+{% block content %}
+					<tr>
+					<td height=26>
+				<tr>
+					<td height=80>
+						<table cellspacing=0 cellpadding=0>
+							<tr><td>
+{% if newsData.entertainmentHeadlines[0].title %}
+<tr><td valign=middle transition=light>
+	<table cellspacing=0 cellpadding=0>
+		<tr><td height=5>
+		<tr><td>
+			<table cellspacing=0 cellpadding=0>
+				<tr><td valign=middle>
+					<td width=10 valign=middle>
+					<td valign=middle maxlines=3>
+						<font color=000000 size=+2><b>{{ newsData.entertainmentHeadlines[0].title }}</b></font><BR>
+						<font color=000000 size=3>{{ newsData.entertainmentHeadlines[0].content }}</font>
+					<td width=10 valign=middle>
+			</table>
+	</table>
+<tr><td height=6>
+{% else %}
+<tr><td width=100%>
+			<font color=000000 size=-1>Entertainment news is not available right now.</font>
+{% endif %}
+						</table>
+				<tr>
+					<td align=right valign=middle height=43>
+						<font size=-1 color=#312931><b>news provided by {{ newsProviderShort }}</b></font><br>
+						<spacer type=vertical size=4>
+					<td width=10>
+{% endblock %}

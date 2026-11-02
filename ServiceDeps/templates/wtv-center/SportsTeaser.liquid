@@ -1,0 +1,30 @@
+{% comment %} 2026 WebTV Redialed {% endcomment %}
+{% assign bg = "Sports" %}
+{% assign info = "Sports" %}
+{% layout "wtv-center/teasers" %}
+{% block content %}
+				<tr height=40>
+	<td width=88>
+		<spacer type=block width=88 height=40>
+	<td width=263>
+	<td width=10>
+
+<tr height=60>
+	<td width=88>
+		<spacer type=block width=88 height=60>
+	<td maxlines=2 valign=top align=left width=263>
+		<table cellspacing=0 cellpadding=0>
+			<tr>
+				<td valign=top maxlines=2>
+					<font size=+2 color="#000000"><b>{% if newsData.sportsHeadlines[0].title %}{{ newsData.sportsHeadlines[0].title }}{% else %}Sports scores are temporarily unavailable.{% endif %}</b></font>
+		</table>
+	<td width=10>
+
+<tr height=49>
+
+	<td width=88>
+	<spacer type=block width=88 height=49>
+	<td width=263 valign=middle align=right>
+		<font size=-1 color=#6B3118><B>news provided by {{ newsProviderShort }}</B></FONT>
+	<td width=10>
+{% endblock %}

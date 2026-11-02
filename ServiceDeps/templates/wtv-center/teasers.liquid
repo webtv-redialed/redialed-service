@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<display info={{ info }} teaser1=WebTVToday>
+	</head>
+	
+	<body background="wtv-content:/ROMCache/BackgroundCorner.gif" BGCOLOR=949484
+		onLoad="CustomEmbedLoaded()"
+	
+		<table cellspacing=0 cellpadding=0 width=357 height=193 background="wtv-content:/ROMCache/Background{{ bg }}.swf" valign=top novtilebg>
+		<tr>
+			<td colspan=2 width=357 height=44>
+				<spacer>
+
+			<tr>
+			<td width=12>
+				<spacer>
+
+				<td valign=TOP align=LEFT width=361 height=149>
+				<spacer><table cellspacing=0 cellpadding=0>
+
+                {% block "content" %}
+                {% endblock %}
+
+		</table>
+		</table>
+	</body>
+</html>
