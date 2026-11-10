@@ -13,6 +13,8 @@ if (canRegister == true) {
     var month = request_headers.query.subscriber_birth_month;
     var day = request_headers.query.subscriber_birth_date;
 
+console.log(request_headers.query.subscriber_first_name)
+
     if (
         !request_headers.query.registering ||
         !request_headers.query.subscriber_username ||
@@ -36,6 +38,8 @@ if (canRegister == true) {
             day == 28;
         }
         birthdaydata = {month: month, day: day};
+        // crappy workaround for the first session data item being set. if you don't do this, `subscriber_first_name` won't be written.
+        session_data.setSessionData("crappy_workaround", "foo", true);
         session_data.setSessionData(
             "subscriber_first_name",
             request_headers.query.subscriber_first_name,
