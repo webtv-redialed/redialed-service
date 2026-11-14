@@ -9,8 +9,6 @@ if (!request_headers.query.registering) {
     var errpage = null;
     var month = request_headers.query.subscriber_birth_month;
     var day = request_headers.query.subscriber_birth_date;
-    console.log(month);
-    console.log(day);
 
     if (month >= 0 && month <= 11 && day >= 1 && day <= 31) {
         if (month == 1 && day > 28) {
